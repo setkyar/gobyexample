@@ -18,7 +18,7 @@ CloudFront, for example.
 
 ### Building
 
-[![test](https://github.com/mmcgrana/gobyexample/actions/workflows/test.yml/badge.svg)](https://github.com/mmcgrana/gobyexample/actions/workflows/test.yml)
+[![test](https://github.com/setkyar/gobyexample/actions/workflows/test.yml/badge.svg)](https://github.com/setkyar/gobyexample/actions/workflows/test.yml)
 
 To build the site you'll need Go installed. Run:
 
