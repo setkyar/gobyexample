@@ -1,7 +1,7 @@
 # Go by Example မြန်မာဘာသာ
 
 Go ကို ဥပမာ program များဖြင့် သင်ကြား ပေးသော webstie
-[Go by Example မြန်မာဘာသာ](https://gobyexample.com)
+[Go by Example မြန်မာဘာသာ](https://setkyar.github.io/gobyexample)
 ကိုတည်ဆောက်ရန်လိုအပ်သည့် build toolchain နှင့် ဘာသာပြန်
 စာများပါဝင်ပါတယ်။
 
@@ -64,7 +64,7 @@ The Go Gopher is copyright [Renée French](https://reneefrench.blogspot.com/) an
 
 မြန်မာဘာသာပြန်အပြင် တခြားအောက်ဖော်ပြပါ ဘာသာစကားများဖြင့်လဲဖတ်ရှုနိုင်ပါတယ်။
 
-* [English](https://github.com/mmcgrana/gobyexample) မူရင်း
+* [English](https://github.com/mmcgrana/gobyexample) မူရင်း by [gobyexample](https://github.com/mmcgrana/gobyexample)
 * [Chinese](https://gobyexample-cn.github.io/) by [gobyexample-cn](https://github.com/gobyexample-cn)
 * [Czech](http://gobyexamples.sweb.cz/) by [martinkunc](https://github.com/martinkunc/gobyexample-cz)
 * [French](http://le-go-par-l-exemple.keiruaprod.fr) by [keirua](https://github.com/keirua/gobyexample)
