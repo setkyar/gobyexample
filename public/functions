@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Functions</title>
+    <title>Go by Example မြန်မာဘာသာ: Functions</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -21,7 +21,7 @@
   </script>
   <body>
     <div class="example" id="functions">
-      <h2><a href="./">Go by Example</a>: Functions</h2>
+      <h2><a href="./">Go by Example မြန်မာဘာသာ</a>: Functions</h2>
       
       <table>
         
@@ -178,12 +178,12 @@ multiple return values, which we&rsquo;ll look at next.</p>
       
       
       <p class="next">
-        Next example: <a href="multiple-return-values">Multiple Return Values</a>.
+        နောက်ဥပမာ: <a href="multiple-return-values">Multiple Return Values</a>.
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> နှင့် <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

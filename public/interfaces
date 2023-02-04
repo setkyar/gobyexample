@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Interfaces</title>
+    <title>Go by Example မြန်မာဘာသာ: Interfaces</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -21,7 +21,7 @@
   </script>
   <body>
     <div class="example" id="interfaces">
-      <h2><a href="./">Go by Example</a>: Interfaces</h2>
+      <h2><a href="./">Go by Example မြန်မာဘာသာ</a>: Interfaces</h2>
       
       <table>
         
@@ -222,12 +222,12 @@ these structs as arguments to <code>measure</code>.</p>
       
       
       <p class="next">
-        Next example: <a href="struct-embedding">Struct Embedding</a>.
+        နောက်ဥပမာ: <a href="struct-embedding">Struct Embedding</a>.
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> နှင့် <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

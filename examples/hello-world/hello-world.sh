@@ -1,17 +1,21 @@
-# To run the program, put the code in `hello-world.go` and
-# use `go run`.
+# ဒီပရိုဂရမ်ကိုစဖို့ရာအတွက် ဖိုင်ထဲမှာ
+# ကုဒ်များကိုထည့်ပေးပါ။
+# ပြီးသွားလျှင် `go run` ကိုသုံးပီး run လုပ်ပါ
 $ go run hello-world.go
 hello world
 
-# Sometimes we'll want to build our programs into
-# binaries. We can do this using `go build`.
+# တခါတလေ ကျနော်တို့ကိုယ့် program ကို
+# binary အဖြစ် build လုပ်ပြီး
+# run လုပ်ပြီးရှိလျှင် အဲ့အခါ `go build` ကိုသုံးပါ။
 $ go build hello-world.go
 $ ls
 hello-world	hello-world.go
 
-# We can then execute the built binary directly.
+# binary build လုပ်ထားတဲ့ program
+# ကိုဒီလိုတိုက်ရိုက် execute လုပ်နိုင်ပါတယ်
 $ ./hello-world
 hello world
 
-# Now that we can run and build basic Go programs, let's
-# learn more about the language.
+# ကျနော်တို့လက်ရှိ Go program ကို run
+# နှင့် build လုပ်နိုင်ပြီးရှိလျှင်
+# ကျနော်တို့လက်ရှိ Go language ကိုအသေးစိတ်လေ့လာကြရအောင်။

@@ -1,16 +1,16 @@
-# Go by Example
+# Go by Example မြန်မာဘာသာ
 
-Content and build toolchain for [Go by Example](https://gobyexample.com),
-a site that teaches Go via annotated example programs.
+Go ကို ဥပမာ program များဖြင့် သင်ကြား ပေးသော webstie
+[Go by Example မြန်မာဘာသာ](https://gobyexample.com)
+ကိုတည်ဆောက်ရန်လိုအပ်သည့် build toolchain နှင့် ဘာသာပြန်
+စာများပါဝင်ပါတယ်။
 
-### Overview
-
-The Go by Example site is built by extracting code and
-comments from source files in `examples` and rendering
-them using `templates` into a static `public`
-directory. The programs implementing this build process
-are in `tools`, along with dependencies specified in
-the `go.mod`file.
+### စာကြမ်း
+Go by Example site သည် `example` source files ထဲကကုဒ်
+နှင့် comments တွေကိုဖတ်၊ `templates` တွေကို `public` folder
+ထဲ static file အဖြစ်ပြောင်းတဲ့ပုံစံနှင့် တည်ဆောက်ထားတာပါ။
+ဒီပရိုဂရမ်တည်ဆောက်ဖို့ build process တွေကို `tools` folder
+ထဲမှာ တခြား `go.mod` file တွေထဲမှာတွေ့နိုင်ပါတယ်။
 
 The built `public` directory can be served by any
 static content system. The production site uses S3 and
@@ -27,6 +27,7 @@ $ tools/build
 ```
 
 To build continuously in a loop:
+
 
 ```console
 $ tools/build-loop
@@ -59,10 +60,11 @@ The Go Gopher is copyright [Renée French](https://reneefrench.blogspot.com/) an
 [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
 
 
-### Translations
+### ဘာသာစကား
 
-Contributor translations of the Go by Example site are available in:
+မြန်မာဘာသာပြန်အပြင် တခြားအောက်ဖော်ပြပါ ဘာသာစကားများဖြင့်လဲဖတ်ရှုနိုင်ပါတယ်။
 
+* [English](https://github.com/mmcgrana/gobyexample) မူရင်း
 * [Chinese](https://gobyexample-cn.github.io/) by [gobyexample-cn](https://github.com/gobyexample-cn)
 * [Czech](http://gobyexamples.sweb.cz/) by [martinkunc](https://github.com/martinkunc/gobyexample-cz)
 * [French](http://le-go-par-l-exemple.keiruaprod.fr) by [keirua](https://github.com/keirua/gobyexample)
@@ -73,7 +75,7 @@ Contributor translations of the Go by Example site are available in:
 * [Spanish](http://goconejemplos.com) by the [Go Mexico community](https://github.com/dabit/gobyexample)
 * [Ukrainian](https://butuzov.github.io/gobyexample/) by [butuzov](https://github.com/butuzov/gobyexample)
 
-### Thanks
+### ကျေးဇူးတင်ပါသည်
 
 Thanks to [Jeremy Ashkenas](https://github.com/jashkenas)
 for [Docco](http://jashkenas.github.io/docco/), which
@@ -111,7 +113,3 @@ iteration to the next](https://go.dev/ref/spec#RangeClause).
 It doesn't mean anything is wrong with the example. Typically the code in these
 examples will be insensitive to the actual order of the output; if the code is
 sensitive to the order - that's probably a bug - so feel free to report it.
-
-
-
-

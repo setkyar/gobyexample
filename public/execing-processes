@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Exec'ing Processes</title>
+    <title>Go by Example မြန်မာဘာသာ: Exec'ing Processes</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -21,7 +21,7 @@
   </script>
   <body>
     <div class="example" id="execing-processes">
-      <h2><a href="./">Go by Example</a>: Exec'ing Processes</h2>
+      <h2><a href="./">Go by Example မြန်မာဘာသာ</a>: Exec'ing Processes</h2>
       
       <table>
         
@@ -190,12 +190,12 @@ processes covers most use cases for <code>fork</code>.</p>
       
       
       <p class="next">
-        Next example: <a href="signals">Signals</a>.
+        နောက်ဥပမာ: <a href="signals">Signals</a>.
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> နှင့် <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

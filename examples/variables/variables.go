@@ -1,18 +1,16 @@
-// In Go, _variables_ are explicitly declared and used by
-// the compiler to e.g. check type-correctness of function
-// calls.
+// Go မှာ variable တွေကို ကြိုတင်ကြေငြာပီးတော့ compiler ကအသုံးပြုပါတယ်။
+// ဥပမာ function calls တွေရဲ့ type တွေမှန်ရဲ့လားဆိုတာကိုလဲစစ်ဆေးပါတယ်။
 
 package main
 
 import "fmt"
 
 func main() {
-
-	// `var` declares 1 or more variables.
+	// variable ၁ခုသို့ ၁ခုအထက်ကို `var` နှင့်ကြေငြာနိုင်ပါတယ်။
 	var a = "initial"
 	fmt.Println(a)
 
-	// You can declare multiple variables at once.
+	// variable ၁ခုနှင့်အထက်ကိုလဲ တကြိမ်ထဲသုံးပီးကြငြာနိုင်ပါတယ်။
 	var b, c int = 1, 2
 	fmt.Println(b, c)
 

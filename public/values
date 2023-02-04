@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Values</title>
+    <title>Go by Example မြန်မာဘာသာ: Values</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -21,15 +21,14 @@
   </script>
   <body>
     <div class="example" id="values">
-      <h2><a href="./">Go by Example</a>: Values</h2>
+      <h2><a href="./">Go by Example မြန်မာဘာသာ</a>: Values</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go has various value types including strings,
-integers, floats, booleans, etc. Here are a few
-basic examples.</p>
+            <p>Go မှာ strings, integers, floats, booleans အစရှိတဲ့ types တွေအမျိုးမျိုးရှိပါတယ်။
+ဒီမှာဥပမာတချို့ကိုကြည့်နိုင်ပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -43,7 +42,7 @@ basic examples.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/YnVS3LZr8pk"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/_k5LudNGN8Q"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -73,7 +72,8 @@ basic examples.</p>
         
         <tr>
           <td class="docs">
-            <p>Strings, which can be added together with <code>+</code>.</p>
+            <p>Strings, + နှင့် နှစ်ခုအတူပေါင်းပီးဆက်နိုင်တယ်
+Strings, စာသား</p>
 
           </td>
           <td class="code leading">
@@ -86,7 +86,7 @@ basic examples.</p>
         
         <tr>
           <td class="docs">
-            <p>Integers and floats.</p>
+            <p>Integers နှင့် floats.</p>
 
           </td>
           <td class="code leading">
@@ -100,7 +100,7 @@ basic examples.</p>
         
         <tr>
           <td class="docs">
-            <p>Booleans, with boolean operators as you&rsquo;d expect.</p>
+            <p>Booleans, boolean operators အတိုင်းသင်မှန်းထားသလိုပါဘဲ</p>
 
           </td>
           <td class="code">
@@ -138,12 +138,12 @@ basic examples.</p>
       
       
       <p class="next">
-        Next example: <a href="variables">Variables</a>.
+        နောက်ဥပမာ: <a href="variables">Variables</a>.
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> နှင့် <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>
