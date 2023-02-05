@@ -16,34 +16,35 @@ The built `public` directory can be served by any
 static content system. The production site uses S3 and
 CloudFront, for example.
 
-### Building
+### တည်ဆောက်ခြင်း
 
 [![test](https://github.com/setkyar/gobyexample/actions/workflows/test.yml/badge.svg)](https://github.com/setkyar/gobyexample/actions/workflows/test.yml)
 
-To build the site you'll need Go installed. Run:
+ဒီဝက်ဆိုဒ်ကိုတည်ဆောက်ရန်အတွက် Go ကိုထည့်သွားထားဖို့လိုပါတယ်။
+အောက်ဖော်ပြပါအတိုင်းအသုံးပြုနိုင်တယ် -
 
 ```console
 $ tools/build
 ```
 
-To build continuously in a loop:
+စဥ်ဆက်မပြတ် တည်ဆောက်ရန်အတွက်အောက်ဖော်ပြပါအတိုင်းအသုံးပြုပါ။
 
 
 ```console
 $ tools/build-loop
 ```
 
-To see the site locally:
+ဝက်ဆိုဒ်ကို ကိုယ့်စက်မှာကြည့်ရန်အောက်ဖော်ပြပါအတိုင်းအသုံးပြုပါ။
 
 ```
 $ tools/serve
 ```
 
-and open `http://127.0.0.1:8000/` in your browser.
+`http://127.0.0.1:8000/` ကိုသင့်ဘရောက်ဆာကနေဖွင့်ပါ။
 
-### Publishing
+### လွှင့်တင်ခြင်း
 
-To upload the site:
+ဝက်ဆိုကိုလွှင့်တင်ရန်အတွက်:
 
 ```console
 $ export AWS_ACCESS_KEY_ID=...
@@ -51,7 +52,15 @@ $ export AWS_SECRET_ACCESS_KEY=...
 $ tools/upload
 ```
 
-### License
+မြန်မာဘာသာပြန် ဝက်ဆိုဒ်ကို လွှင့်တင်ရန်အတွက် အောက်ဖော်ပြပါ command ကို
+အသုံးပြုပီး HTML တွေကို public-gh မှာထည့်ပါတယ်။ ပီးသွားလျှင် Github
+Pages ကိုသုံးပီးတော့ အဲ့ဒီ့ folder ကိုညွှန်းထားပါတယ်။
+
+```console
+$ tools/upload-gh.sh
+```
+
+### လိုင်စင်
 
 This work is copyright Mark McGranaghan and licensed under a
 [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
