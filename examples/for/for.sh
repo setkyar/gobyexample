@@ -5,11 +5,12 @@ $ go run for.go
 7
 8
 9
-loop
+loop ပတ်
 1
 3
 5
 
-# We'll see some other `for` forms later when we look at
-# `range` statements, channels, and other data
-# structures.
+# ကျွန်တော်တို့ တခြား `for` အမျိုးအစား
+# `range` statements, channels, နှင့်
+# တခြား data structures များကို လေ့လာတဲ့အခါမှာ
+# တခြား `for` များကို ကြည့်ကြပါမယ်။

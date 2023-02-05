@@ -1,6 +1,6 @@
 $ go run variables.go
-initial
+စမှတ်
 1 2
 true
 0
-apple
+ပန်းသီး

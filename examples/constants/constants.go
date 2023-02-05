@@ -1,5 +1,5 @@
-// Go supports _constants_ of character, string, boolean,
-// and numeric values.
+// Go က character, string, boolean, နှင့် numeric values
+// အမျိုးမျိုးအတွက် _constants_ ကိုအသုံးပြုနိုင်ပါတယ်။
 
 package main
 
@@ -8,28 +8,27 @@ import (
 	"math"
 )
 
-// `const` declares a constant value.
+// `const` ကိုသုံးပီး constant value ကိုဖန်တီးနိုင်ပါတယ်။
 const s string = "constant"
 
 func main() {
 	fmt.Println(s)
 
-	// A `const` statement can appear anywhere a `var`
-	// statement can.
+	// `const` statement က `var` statement ကြေငြာလို့ရတဲ့
+	// ဘယ်နေရာမှာမဆို ကြောငြာနိုင်ပါတယ်။
 	const n = 500000000
 
-	// Constant expressions perform arithmetic with
-	// arbitrary precision.
+	// Constant အသုံးအနှုန်းက တိကျတဲ့ ဂဏန်းသင်္ချာ တွက်ချက်နိုင်ပါတယ်။
 	const d = 3e20 / n
 	fmt.Println(d)
 
-	// A numeric constant has no type until it's given
-	// one, such as by an explicit conversion.
+	// ဂဏန်း constant က သေချာ type မပြောင်းထားဘူးဆိုလျှင်
+	// type မရှိပါဘူး။
 	fmt.Println(int64(d))
 
-	// A number can be given a type by using it in a
-	// context that requires one, such as a variable
-	// assignment or function call. For example, here
-	// `math.Sin` expects a `float64`.
+	// variable assignment သို့ function call မှာ
+	// ဂဏန်းသင်္ချာတွေကို လိုအပ်လျှင် လိုအပ်သလို
+	// အမျိုးအစားပြောင်းနိုင်ပါတယ်။
+	// ဥပမာအနေနဲ့ `math.Sin` က `float64` ကိုလိုအပ်ပါတယ်။
 	fmt.Println(math.Sin(n))
 }

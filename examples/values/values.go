@@ -8,7 +8,6 @@ import "fmt"
 func main() {
 
 	// Strings, + နှင့် နှစ်ခုအတူပေါင်းပီးဆက်နိုင်တယ်
-	// Strings, စာသား
 	fmt.Println("go" + "lang")
 
 	// Integers နှင့် floats.

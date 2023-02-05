@@ -1,8 +1,8 @@
-$ go run if-else.go 
-7 is odd
-8 is divisible by 4
-9 has 1 digit
+$ go run if-else.go
+7 သည် မ ဂဏန်းဖြစ်ပါတယ်
+8 ကို 4 နှင့်စားနိုင်ပါတယ်
+9 က ဂဏန်းတစ်ခုဘဲရှိပါတယ်
 
-# There is no [ternary if](https://en.wikipedia.org/wiki/%3F:)
-# in Go, so you'll need to use a full `if` statement even
-# for basic conditions.
+# သတိပြုရန် - Go မှာ [အတိုကောက် if](https://en.wikipedia.org/wiki/%3F:) မရှိပါဘူး။
+# အခြေခံကျတဲ့ စစ်ဆေးမှုပြုလုပ်မည်ဆိုလျှင်တောင်
+# ပြည့်စုံတဲ့ if ကို အသုံးပြုရပါမယ်။

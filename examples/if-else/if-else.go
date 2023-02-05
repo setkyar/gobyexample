@@ -1,35 +1,34 @@
-// Branching with `if` and `else` in Go is
-// straight-forward.
-
+// Go မှာ `if` နှင့် `else` ကိုအသုံးပြုရတာ
+// တော်တော်လေးလွယ်ကူရိုးရှင်းပါတယ်
 package main
 
 import "fmt"
 
 func main() {
 
-	// Here's a basic example.
+	// ဒီမှာ ဥပမာ အခြေခံ တခု။
 	if 7%2 == 0 {
-		fmt.Println("7 is even")
+		fmt.Println("7 သည် စုံ ဂဏန်းဖြစ်ပါတယ်")
 	} else {
-		fmt.Println("7 is odd")
+		fmt.Println("7 သည် မ ဂဏန်းဖြစ်ပါတယ်")
 	}
 
-	// You can have an `if` statement without an else.
+	// `if` statement ကို else မလိုဘဲအသုံးပြုနိုင်ပါတယ်။
 	if 8%4 == 0 {
-		fmt.Println("8 is divisible by 4")
+		fmt.Println("8 ကို 4 နှင့်စားနိုင်ပါတယ်")
 	}
 
-	// A statement can precede conditionals; any variables
-	// declared in this statement are available in the current
-	// and all subsequent branches.
+	// statement က conditionals အနေနဲ့အသုံးပြုနိုင်ပါတယ်။
+	// statement ထဲမှာကြေငြာထားတဲ့ variable တွေက လက်ရှိနှင့်
+	// နောက်ဆက်တွဲ branch တွေမှာကိုအသုံးပြုနိုင်ပါတယ်။
 	if num := 9; num < 0 {
-		fmt.Println(num, "is negative")
+		fmt.Println(num, "က အနှုတ်တစ်ခု ဖြစ်ပါတယ်")
 	} else if num < 10 {
-		fmt.Println(num, "has 1 digit")
+		fmt.Println(num, "က ဂဏန်းတစ်ခုဘဲရှိပါတယ်")
 	} else {
-		fmt.Println(num, "has multiple digits")
+		fmt.Println(num, "က ဂဏန်းအများကြီးရှိပါတယ်")
 	}
 }
 
-// Note that you don't need parentheses around conditions
-// in Go, but that the braces are required.
+// မှတ်သားထားရမှာက Go မှာ အခြအနေတွေကိုစစ်ဆေးရာမှာ
+// ကွင်းဖွင့်ပိတ်တွေမလိုပါဘူး။

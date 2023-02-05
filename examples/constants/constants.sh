@@ -1,4 +1,4 @@
-$ go run constant.go 
+$ go run constant.go
 constant
 6e+11
 600000000000
