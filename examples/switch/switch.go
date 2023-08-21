@@ -10,7 +10,7 @@ import (
 
 func main() {
 
-	// Here's a basic `switch`.
+	// ဒီမှာ ဥပမာ အခြေခံ `switch` တခုအသုံးပြုပုံ
 	i := 2
 	fmt.Print("Write ", i, " as ")
 	switch i {
@@ -22,9 +22,9 @@ func main() {
 		fmt.Println("three")
 	}
 
-	// You can use commas to separate multiple expressions
-	// in the same `case` statement. We use the optional
-	// `default` case in this example as well.
+	// expression နှစ်ခု သုံးခုစစ်ဖို့ comma သုံးပြီးစစ်နိုင်ပါတယ်။ 
+	// ကျနော်တို့ဒီဥပမာဆိုရင် မဖြစ်မနေသုံးဖို့တော့မလိုတဲ့ 
+	// `default` ကိုသုံးထားပါတယ်။
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
 		fmt.Println("It's the weekend")
@@ -32,9 +32,9 @@ func main() {
 		fmt.Println("It's a weekday")
 	}
 
-	// `switch` without an expression is an alternate way
-	// to express if/else logic. Here we also show how the
-	// `case` expressions can be non-constants.
+	// ကျနော်တို့ `switch` ကို expression မပါဘဲနှင့်သုံးမယ်ဆိုရင် 
+	// if/else logic လိုမျိုးသုံးလို့ရတယ်။ ဒီဥပမာမှာဆိုရင် ကျနော်တို့စစ်တဲ့ 
+	// case က constant (ပုံသေ) မဟုတ်ဘူးဆိုတာကိုပြထားတယ်။
 	t := time.Now()
 	switch {
 	case t.Hour() < 12:
@@ -43,10 +43,9 @@ func main() {
 		fmt.Println("It's after noon")
 	}
 
-	// A type `switch` compares types instead of values.  You
-	// can use this to discover the type of an interface
-	// value.  In this example, the variable `t` will have the
-	// type corresponding to its clause.
+	// ကျနော်တို့ `switch` ကို types တွေအတွက်လဲအသုံးပြုတယ်။ သူကတော့
+	// type ကိုဘဲစစ်လိမ့်မယ်။ ဒီဥပမာမှာဆိုရင် varaible t က i ရဲ့ 
+	// type ကိုစစ်တာပေါ့။
 	whatAmI := func(i interface{}) {
 		switch t := i.(type) {
 		case bool:
