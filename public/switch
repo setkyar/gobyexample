@@ -27,23 +27,13 @@
         
         <tr>
           <td class="docs">
-            <p><em>Switch statements</em> express conditionals across many
-branches.</p>
+            <p><em>Switch statements</em> တွေက expression တွေကိုသုံးပြီး conditionals တွေကိုစစ်တာပေါ့။</p>
 
           </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/Ofg6e_9iukf"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
-          <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+            <a href="https://go.dev/play/p/KmllDtzTSG9"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+          <pre class="chroma">
+<span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
         </tr>
@@ -174,7 +164,7 @@ type ကိုစစ်တာပေါ့။</p>
           </td>
           <td class="code">
             
-          <pre class="chroma"><span class="gp">$</span> go run switch.go 
+          <pre class="chroma"><span class="gp">$</span> go run switch.go
 <span class="go">Write 2 as two
 </span><span class="go">It&#39;s a weekday
 </span><span class="go">It&#39;s after noon
@@ -199,7 +189,7 @@ type ကိုစစ်တာပေါ့။</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    i :\u003D 2\u000A    fmt.Print(\"Write \", i, \" as \")\u000A    switch i {\u000A    case 1:\u000A        fmt.Println(\"one\")\u000A    case 2:\u000A        fmt.Println(\"two\")\u000A    case 3:\u000A        fmt.Println(\"three\")\u000A    }\u000A');codeLines.push('    switch time.Now().Weekday() {\u000A    case time.Saturday, time.Sunday:\u000A        fmt.Println(\"It\'s the weekend\")\u000A    default:\u000A        fmt.Println(\"It\'s a weekday\")\u000A    }\u000A');codeLines.push('    t :\u003D time.Now()\u000A    switch {\u000A    case t.Hour() \u003C 12:\u000A        fmt.Println(\"It\'s before noon\")\u000A    default:\u000A        fmt.Println(\"It\'s after noon\")\u000A    }\u000A');codeLines.push('    whatAmI :\u003D func(i interface{}) {\u000A        switch t :\u003D i.(type) {\u000A        case bool:\u000A            fmt.Println(\"I\'m a bool\")\u000A        case int:\u000A            fmt.Println(\"I\'m an int\")\u000A        default:\u000A            fmt.Printf(\"Don\'t know type %T\\n\", t)\u000A        }\u000A    }\u000A    whatAmI(true)\u000A    whatAmI(1)\u000A    whatAmI(\"hey\")\u000A}\u000A');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    i :\u003D 2\u000A    fmt.Print(\"Write \", i, \" as \")\u000A    switch i {\u000A    case 1:\u000A        fmt.Println(\"one\")\u000A    case 2:\u000A        fmt.Println(\"two\")\u000A    case 3:\u000A        fmt.Println(\"three\")\u000A    }\u000A');codeLines.push('    switch time.Now().Weekday() {\u000A    case time.Saturday, time.Sunday:\u000A        fmt.Println(\"It\'s the weekend\")\u000A    default:\u000A        fmt.Println(\"It\'s a weekday\")\u000A    }\u000A');codeLines.push('    t :\u003D time.Now()\u000A    switch {\u000A    case t.Hour() \u003C 12:\u000A        fmt.Println(\"It\'s before noon\")\u000A    default:\u000A        fmt.Println(\"It\'s after noon\")\u000A    }\u000A');codeLines.push('    whatAmI :\u003D func(i interface{}) {\u000A        switch t :\u003D i.(type) {\u000A        case bool:\u000A            fmt.Println(\"I\'m a bool\")\u000A        case int:\u000A            fmt.Println(\"I\'m an int\")\u000A        default:\u000A            fmt.Printf(\"Don\'t know type %T\\n\", t)\u000A        }\u000A    }\u000A    whatAmI(true)\u000A    whatAmI(1)\u000A    whatAmI(\"hey\")\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
