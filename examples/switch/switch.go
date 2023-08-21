@@ -1,6 +1,4 @@
-// _Switch statements_ express conditionals across many
-// branches.
-
+// _Switch statements_ တွေက expression တွေကိုသုံးပြီး conditionals တွေကိုစစ်တာပေါ့။
 package main
 
 import (
@@ -22,8 +20,8 @@ func main() {
 		fmt.Println("three")
 	}
 
-	// expression နှစ်ခု သုံးခုစစ်ဖို့ comma သုံးပြီးစစ်နိုင်ပါတယ်။ 
-	// ကျနော်တို့ဒီဥပမာဆိုရင် မဖြစ်မနေသုံးဖို့တော့မလိုတဲ့ 
+	// expression နှစ်ခု သုံးခုစစ်ဖို့ comma သုံးပြီးစစ်နိုင်ပါတယ်။
+	// ကျနော်တို့ဒီဥပမာဆိုရင် မဖြစ်မနေသုံးဖို့တော့မလိုတဲ့
 	// `default` ကိုသုံးထားပါတယ်။
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
@@ -32,8 +30,8 @@ func main() {
 		fmt.Println("It's a weekday")
 	}
 
-	// ကျနော်တို့ `switch` ကို expression မပါဘဲနှင့်သုံးမယ်ဆိုရင် 
-	// if/else logic လိုမျိုးသုံးလို့ရတယ်။ ဒီဥပမာမှာဆိုရင် ကျနော်တို့စစ်တဲ့ 
+	// ကျနော်တို့ `switch` ကို expression မပါဘဲနှင့်သုံးမယ်ဆိုရင်
+	// if/else logic လိုမျိုးသုံးလို့ရတယ်။ ဒီဥပမာမှာဆိုရင် ကျနော်တို့စစ်တဲ့
 	// case က constant (ပုံသေ) မဟုတ်ဘူးဆိုတာကိုပြထားတယ်။
 	t := time.Now()
 	switch {
@@ -44,7 +42,7 @@ func main() {
 	}
 
 	// ကျနော်တို့ `switch` ကို types တွေအတွက်လဲအသုံးပြုတယ်။ သူကတော့
-	// type ကိုဘဲစစ်လိမ့်မယ်။ ဒီဥပမာမှာဆိုရင် varaible t က i ရဲ့ 
+	// type ကိုဘဲစစ်လိမ့်မယ်။ ဒီဥပမာမှာဆိုရင် varaible t က i ရဲ့
 	// type ကိုစစ်တာပေါ့။
 	whatAmI := func(i interface{}) {
 		switch t := i.(type) {
