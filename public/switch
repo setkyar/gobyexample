@@ -7,24 +7,24 @@
   </head>
   <script>
       onkeydown = (e) => {
-          
+
           if (e.key == "ArrowLeft") {
               window.location.href = 'if-else';
           }
-          
-          
+
+
           if (e.key == "ArrowRight") {
               window.location.href = 'arrays';
           }
-          
+
       }
   </script>
   <body>
     <div class="example" id="switch">
       <h2><a href="./">Go by Example မြန်မာဘာသာ</a>: Switch</h2>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
             <p><em>Switch statements</em> တွေက expression တွေကိုသုံးပြီး conditionals တွေကိုစစ်တာပေါ့။</p>
@@ -37,13 +37,13 @@
 </pre>
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-            
+
           <pre class="chroma"><span class="kn">import</span> <span class="p">(</span>
     <span class="s">&#34;fmt&#34;</span>
     <span class="s">&#34;time&#34;</span>
@@ -51,25 +51,25 @@
 </pre>
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code leading">
-            
+
           <pre class="chroma"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </pre>
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>ဒီမှာ ဥပမာ အခြေခံ <code>switch</code> တခုအသုံးပြုပုံ</p>
 
           </td>
           <td class="code leading">
-            
+
           <pre class="chroma">
     <span class="nx">i</span> <span class="o">:=</span> <span class="mi">2</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Print</span><span class="p">(</span><span class="s">&#34;Write &#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="s">&#34; as &#34;</span><span class="p">)</span>
@@ -84,7 +84,7 @@
 </pre>
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>expression နှစ်ခု သုံးခုစစ်ဖို့ comma သုံးပြီးစစ်နိုင်ပါတယ်။
@@ -93,7 +93,7 @@
 
           </td>
           <td class="code leading">
-            
+
           <pre class="chroma">
     <span class="k">switch</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Weekday</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">case</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Saturday</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Sunday</span><span class="p">:</span>
@@ -104,7 +104,7 @@
 </pre>
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>ကျနော်တို့ <code>switch</code> ကို expression မပါဘဲနှင့်သုံးမယ်ဆိုရင်
@@ -113,7 +113,7 @@ case က constant (ပုံသေ) မဟုတ်ဘူးဆိုတာက�
 
           </td>
           <td class="code leading">
-            
+
           <pre class="chroma">
     <span class="nx">t</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
     <span class="k">switch</span> <span class="p">{</span>
@@ -125,7 +125,7 @@ case က constant (ပုံသေ) မဟုတ်ဘူးဆိုတာက�
 </pre>
           </td>
         </tr>
-        
+
         <tr>
           <td class="docs">
             <p>ကျနော်တို့ <code>switch</code> ကို types တွေအတွက်လဲအသုံးပြုတယ်။ သူကတော့
@@ -134,7 +134,7 @@ type ကိုစစ်တာပေါ့။</p>
 
           </td>
           <td class="code">
-            
+
           <pre class="chroma">
     <span class="nx">whatAmI</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span>
         <span class="k">switch</span> <span class="nx">t</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
@@ -153,17 +153,17 @@ type ကိုစစ်တာပေါ့။</p>
 </pre>
           </td>
         </tr>
-        
+
       </table>
-      
+
       <table>
-        
+
         <tr>
           <td class="docs">
-            
+
           </td>
           <td class="code">
-            
+
           <pre class="chroma"><span class="gp">$</span> go run switch.go
 <span class="go">Write 2 as two
 </span><span class="go">It&#39;s a weekday
@@ -173,14 +173,14 @@ type ကိုစစ်တာပေါ့။</p>
 </span><span class="go">Don&#39;t know type string</span></pre>
           </td>
         </tr>
-        
+
       </table>
-      
-      
+
+
       <p class="next">
         နောက်ဥပမာ: <a href="arrays">Arrays</a>.
       </p>
-      
+
 
     <p class="footer">
       by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> နှင့် <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
