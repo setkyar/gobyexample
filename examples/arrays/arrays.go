@@ -1,7 +1,6 @@
-// In Go, an _array_ is a numbered sequence of elements of a
-// specific length. In typical Go code, [slices](slices) are
-// much more common; arrays are useful in some special
-// scenarios.
+//  Go မှာ _array_ length ဘယ်လောက်ရှိလဲဆိုတာသတ်မှတ်ပေးရတယ်။
+// ပုံမှန် Go code တွေမှာ [slices](slices) တွေကိုအသုံးပြုကြတာများတယ်။
+//  တချို့ special scenarios တွေမှာဆို arrays ကိုအသုံးပြုကြတယ်။
 
 package main
 
@@ -9,31 +8,30 @@ import "fmt"
 
 func main() {
 
-	// Here we create an array `a` that will hold exactly
-	// 5 `int`s. The type of elements and length are both
-	// part of the array's type. By default an array is
-	// zero-valued, which for `int`s means `0`s.
+	// ဒီမှာကျနော်တို့ array `a` ကိုကြေငြာထားတယ်၊ အဲ့ array ထဲမှာ `int` 5 ခုရှိတယ်။
+	// array ထဲမှာပါတဲ့ elements တွေရဲ့ type နဲ့ length ကတော့ array ရဲ့ type ဖြစ်ပါတယ်။
+	// array ရဲ့ default value က 0 ပါ။ array ထဲမှာဘာမှသတ်မှတ်ထားတာမရှိဘူးဆိုရင်
+	// default 0 တခါထဲထည့်ပေးလိုက်မှာပါ။
 	var a [5]int
 	fmt.Println("emp:", a)
 
-	// We can set a value at an index using the
-	// `array[index] = value` syntax, and get a value with
-	// `array[index]`.
+	// ကျနော်တို့ array ကို array index နဲ့ထောက်ပီးတော့ value ထည့်ပေးလို့ရတယ်။
+	// `array[index] = value` ဒီလို syntax ကိုသုံးပြီးတော့ value ထည့်ပေးလို့ရသလို
+	// `array[index]` ဒီလို syntax ကိုသုံးပြီးတော့ value ကိုရှာနိုင်ပါတယ်။
 	a[4] = 100
 	fmt.Println("set:", a)
 	fmt.Println("get:", a[4])
 
-	// The builtin `len` returns the length of an array.
+	// builtin `len` ကတော့သိတဲ့အတိုင်း array ရဲ့ length ကိုရနိုင်ပါတယ်။
 	fmt.Println("len:", len(a))
 
-	// Use this syntax to declare and initialize an array
-	// in one line.
+	// ဒီ syntax ကိုသုံးပီးတော့ array ကို declare/initialize
+	// တကြောင်းထဲနှင့်သတ်မှတ်နိုင်ပါတယ်။
 	b := [5]int{1, 2, 3, 4, 5}
 	fmt.Println("dcl:", b)
 
-	// Array types are one-dimensional, but you can
-	// compose types to build multi-dimensional data
-	// structures.
+	// Array type တွေက one-dimensional၊ ဒါပေမယ့် multi-dimensional
+	// data structure တွေကိုလဲအသုံးပြုနိုင်ပါတယ်။
 	var twoD [2][3]int
 	for i := 0; i < 2; i++ {
 		for j := 0; j < 3; j++ {
