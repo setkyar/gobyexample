@@ -15,7 +15,6 @@ func main() {
 	s := make([]string, 3)
 	fmt.Println("emp:", s)
 
-	// We can set and get just like with arrays.
 	// set/get တွေကတော့ array မှာလိုပါဘဲ
 	s[0] = "a"
 	s[1] = "b"
@@ -50,7 +49,7 @@ func main() {
 	l = s[:5]
 	fmt.Println("sl2:", l)
 
-	// And this slices up from (and including) `s[2]`.
+	// ဒီဥပမာကတော့ `s[2]` ကနေနောက်ပိုင်းအကုန်လုံးကိုဘဲဖြတ်ပီးသုံးပြထားတာပါ။
 	l = s[2:]
 	fmt.Println("sl3:", l)
 
