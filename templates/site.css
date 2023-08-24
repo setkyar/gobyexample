@@ -115,6 +115,7 @@ td.docs p {
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 15px;
+    line-height: 18px;
 }
 td.code {
     width: 480px;
