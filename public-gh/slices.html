@@ -27,8 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p><em>Slices</em> are an important data type in Go, giving
-a more powerful interface to sequences than arrays.</p>
+            <p><em>Slices</em> data type က Go မှာတော်တော်အသုံးဝင်တယ်။
+array ထက်တောင်ပိုပီးအသုံးဝင်တယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +42,7 @@ a more powerful interface to sequences than arrays.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/76f4Jif5Z8o"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/QCn6zYH4qve"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -72,11 +72,11 @@ a more powerful interface to sequences than arrays.</p>
         
         <tr>
           <td class="docs">
-            <p>Unlike arrays, slices are typed only by the
-elements they contain (not the number of elements).
-To create an empty slice with non-zero length, use
-the builtin <code>make</code>. Here we make a slice of
-<code>string</code>s of length <code>3</code> (initially zero-valued).</p>
+            <p>arrays နဲ့မတူတာက slices မှာ elements တွေရဲ့ type တွေဘဲသတ်မှတ်ပေးစရာလိုတယ်။
+ဘယ်လောက် size ဘာညာသတ်မှတ်စရာမလိုဘူး။
+အစကထဲကဘယ်လောက် size ရှိမယ်ဘာညာသိစရာမလိုဘူး။
+ဒီ code မှာဆိုရင် buildin <code>make</code> ကိုသုံးပီးတော့ length 3 ခုပါတဲ့ slice တခုဖန်တီးလိုက်တယ်။
+(default အနေနဲ့ zero value သတ်မှတ်သွားပါလိမ့်မယ်)</p>
 
           </td>
           <td class="code leading">
@@ -90,7 +90,8 @@ the builtin <code>make</code>. Here we make a slice of
         
         <tr>
           <td class="docs">
-            <p>We can set and get just like with arrays.</p>
+            <p>We can set and get just like with arrays.
+set/get တွေကတော့ array မှာလိုပါဘဲ</p>
 
           </td>
           <td class="code leading">
@@ -107,7 +108,7 @@ the builtin <code>make</code>. Here we make a slice of
         
         <tr>
           <td class="docs">
-            <p><code>len</code> returns the length of the slice as expected.</p>
+            <p><code>len</code> ကတော့ သိတဲ့အတိုင်း slice ရဲ့ length ကိုပြန်ပေးပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -125,7 +126,9 @@ support several more that make them richer than
 arrays. One is the builtin <code>append</code>, which
 returns a slice containing one or more new values.
 Note that we need to accept a return value from
-<code>append</code> as we may get a new slice value.</p>
+<code>append</code> as we may get a new slice value.
+slices က array ထက်ပိုအသုံးဝင်တဲ့ baisc operations တွေပါတယ်
+ <code>append</code> ဆိုရင် sli</p>
 
           </td>
           <td class="code leading">

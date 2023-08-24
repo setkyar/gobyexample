@@ -1,21 +1,19 @@
-// Go's _structs_ are typed collections of fields.
-// They're useful for grouping data together to form
-// records.
-
+// Go ရဲ့ _structs_ ဆိုတာက type မတူတဲ့ values တွေကို ပေါင်းစည်းတဲ့နေရာမှာသုံးတယ်။
+// အထူးသဖြင့် ကိုယ်ပိုင် data type တွေဖန်တီးတဲ့အချိန်မှာအသုံးပြုကြတယ်။
 package main
 
 import "fmt"
 
-// This `person` struct type has `name` and `age` fields.
+// ဒီမှာဆို `person` struct type ထဲမှာ `name` နှင့် age ဆိုတဲ့ field တွေရှိတယ်။
 type person struct {
 	name string
 	age  int
 }
 
-// `newPerson` constructs a new person struct with the given name.
+// ဒီ `newPerson` function မှာဆိုရင် name ပေးပီးတော့ person struct တခုတည်ဆောက်လိုက်တယ်။
 func newPerson(name string) *person {
-	// You can safely return a pointer to local variable
-	// as a local variable will survive the scope of the function.
+	// local variable ဖြစ်လို့ pointer ကို စိတ်ချလက်ချ return ပေးလို့ရတယ်။
+	// local variable က ပျောက်မသွားဘူး။
 	p := person{name: name}
 	p.age = 42
 	return &p
@@ -23,31 +21,33 @@ func newPerson(name string) *person {
 
 func main() {
 
-	// This syntax creates a new struct.
+	// ဒီ syntax က struct အသစ်တခုတည်ဆောက်လိုက်တယ်။
 	fmt.Println(person{"Bob", 20})
 
-	// You can name the fields when initializing a struct.
+	// struct ကို initialize လုပ်နေတဲ့အချိန်မှာ name fields တွေကိုသတ်မှတ်ပေးလို့ရတယ်။
 	fmt.Println(person{name: "Alice", age: 30})
 
-	// Omitted fields will be zero-valued.
+	// age ကိုမသတ်မှတ်ထားဘူးဆို zero default ဖြစ်သွားမယ်။
 	fmt.Println(person{name: "Fred"})
 
-	// An `&` prefix yields a pointer to the struct.
+	// ဒီနေရာမှာ `&` prefix ကိုသုံးထားတာက person data ရဲ့ address ကိုပေးထားတာ။
+	// data ကိုပေးထားတာမဟုတ်ဘူး။ struct ရဲ့ pointer ပေါ့။
 	fmt.Println(&person{name: "Ann", age: 40})
 
-	// It's idiomatic to encapsulate new struct creation in constructor functions
+	//  Go မှာ person struct တခုတည်ဆောက်တော့မယ်ဆိုရင် constructor function
+	// တခ ုတည်ဆောက်ပီးသုံးရမယ် တိုက်ရိုက်မသုံးရဘူးဆိုပီးလက်ခံထားကြတယ်။
 	fmt.Println(newPerson("Jon"))
 
-	// Access struct fields with a dot.
+	// struct fields တွေကို access လုပ်မယ်ဆို dot နဲ့လုပ်တယ်။
 	s := person{name: "Sean", age: 50}
 	fmt.Println(s.name)
 
-	// You can also use dots with struct pointers - the
-	// pointers are automatically dereferenced.
+	// struct pointer တွေသုံးမယ်ဆိုလဲ dot ကိုသုံးလို့ရတယ်။
+	// pointer တွေရဲကနေ data ကိုယူတာကို GO ကနောက်ကွယ်ကနေလုပ်ပေးလိမ့်မယ်။
 	sp := &s
 	fmt.Println(sp.age)
 
-	// Structs are mutable.
+	// Structs တွေက mutable (ပြောင်းလဲနိုင်တယ်)
 	sp.age = 51
 	fmt.Println(sp.age)
 }

@@ -1,5 +1,5 @@
-// _Slices_ are an important data type in Go, giving
-// a more powerful interface to sequences than arrays.
+// _Slices_ data type က Go မှာတော်တော်အသုံးဝင်တယ်။
+// array ထက်တောင်ပိုပီးအသုံးဝင်တယ်။
 
 package main
 
@@ -7,22 +7,23 @@ import "fmt"
 
 func main() {
 
-	// Unlike arrays, slices are typed only by the
-	// elements they contain (not the number of elements).
-	// To create an empty slice with non-zero length, use
-	// the builtin `make`. Here we make a slice of
-	// `string`s of length `3` (initially zero-valued).
+	// arrays နဲ့မတူတာက slices မှာ elements တွေရဲ့ type တွေဘဲသတ်မှတ်ပေးစရာလိုတယ်။
+	// ဘယ်လောက် size ဘာညာသတ်မှတ်စရာမလိုဘူး။
+	// အစကထဲကဘယ်လောက် size ရှိမယ်ဘာညာသိစရာမလိုဘူး။
+	// ဒီ code မှာဆိုရင် buildin `make` ကိုသုံးပီးတော့ length 3 ခုပါတဲ့ slice တခုဖန်တီးလိုက်တယ်။
+	// (default အနေနဲ့ zero value သတ်မှတ်သွားပါလိမ့်မယ်)
 	s := make([]string, 3)
 	fmt.Println("emp:", s)
 
 	// We can set and get just like with arrays.
+	// set/get တွေကတော့ array မှာလိုပါဘဲ
 	s[0] = "a"
 	s[1] = "b"
 	s[2] = "c"
 	fmt.Println("set:", s)
 	fmt.Println("get:", s[2])
 
-	// `len` returns the length of the slice as expected.
+	// `len` ကတော့ သိတဲ့အတိုင်း slice ရဲ့ length ကိုပြန်ပေးပါလိမ့်မယ်။
 	fmt.Println("len:", len(s))
 
 	// In addition to these basic operations, slices
@@ -31,6 +32,8 @@ func main() {
 	// returns a slice containing one or more new values.
 	// Note that we need to accept a return value from
 	// `append` as we may get a new slice value.
+	// slices က array ထက်ပိုအသုံးဝင်တဲ့ baisc operations တွေပါတယ်
+	//  `append` ဆိုရင် sli
 	s = append(s, "d")
 	s = append(s, "e", "f")
 	fmt.Println("apd:", s)
