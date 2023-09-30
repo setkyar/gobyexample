@@ -28,9 +28,9 @@
         <tr>
           <td class="docs">
             <p><a href="https://en.wikipedia.org/wiki/Variadic_function"><em>Variadic functions</em></a>
-can be called with any number of trailing arguments.
-For example, <code>fmt.Println</code> is a common variadic
-function.</p>
+ဆိုတာက arguments တွေအများကြီးထက်ထက်ထည့်ပီးခေါ်နိုင်တဲ့ function ကိုပြောတာပါ။
+ဥပမာ မြင်သာအောင်ပြောရမယ်ဆိုရင် <code>fmt.Println</code> ကကျနော်တို့ပုံမှန်သုံးနေတဲ့ variadic function
+တခုဘဲဖြစ်ပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +44,7 @@ function.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/glNdE8aKPNq"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/VKtPwqV-LXr"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -63,8 +63,7 @@ function.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a function that will take an arbitrary number
-of <code>int</code>s as arguments.</p>
+            <p>ဒီ function မှာဆိုရင် ကြိုက်သလောက် numbers <code>int</code> တွေထည့်နိုင်တယ်။</p>
 
           </td>
           <td class="code leading">
@@ -79,9 +78,8 @@ of <code>int</code>s as arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>Within the function, the type of <code>nums</code> is
-equivalent to <code>[]int</code>. We can call <code>len(nums)</code>,
-iterate over it with <code>range</code>, etc.</p>
+            <p>ဒီ function ထဲမှာဆိုရင်တော့ <code>nums</code> ရဲ့ type က <code>[]int</code> နဲ့တူပါတယ်။
+အဲ့ဒီတော့ <code>len(nums)</code> ကိုသုံးနိုင်တယ်၊ <code>range</code> ကိုသုံးပီးတော့ iterate လုပ်နိုင်တယ်။</p>
 
           </td>
           <td class="code leading">
@@ -109,8 +107,8 @@ iterate over it with <code>range</code>, etc.</p>
         
         <tr>
           <td class="docs">
-            <p>Variadic functions can be called in the usual way
-with individual arguments.</p>
+            <p>Variadic function ကိုအသုံးပြုမယ်ဆိုရင် ပုံမှန် individual
+arguments တွေနှင့်ခေါ်ပီးအသုံးပြုနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -124,9 +122,9 @@ with individual arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>If you already have multiple args in a slice,
-apply them to a variadic function using
-<code>func(slice...)</code> like this.</p>
+            <p>slice ထဲမှာ multiple args ရှိပီးသားဆိုရင်
+အဲ့ slice တွေကိုဘဲ variadic function နှင့်
+<code>func(slice...)</code> ဆိုပီးသုံးနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code">
