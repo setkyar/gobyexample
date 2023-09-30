@@ -1,32 +1,30 @@
-// _Functions_ are central in Go. We'll learn about
-// functions with a few different examples.
+// _Functions_ တွေက Go မှာအဓိကအခန်းမှာပါတယ်။ ကျနော်တို့
+// functions အကြောင်းကို နမူနာတချို့နှင့် လေ့လာကြပါမယ်။
 
 package main
 
 import "fmt"
 
-// Here's a function that takes two `int`s and returns
-// their sum as an `int`.
+// ဒီ function မှာဆိုရင် `int` ၂ ခုကိုယူပီးတော့ သူတို့ပေါင်းလဒ်ကို int အဖြစ် return ပြန်ပေးပါ့မယ်။
 func plus(a int, b int) int {
 
-	// Go requires explicit returns, i.e. it won't
-	// automatically return the value of the last
-	// expression.
+	// Go မှာ return ပြန်မယ်ဆိုပီး `return` ဆိုပီးတော့ပြောပီးတော့မှာ return ပြန်ရပါတယ်။
+	// ဘာလို့လဲဆိုလျှင် last expression ကိုအလိုအလျှောက် return ပြန်မပေးလို့ပါ။
 	return a + b
 }
 
-// When you have multiple consecutive parameters of
-// the same type, you may omit the type name for the
-// like-typed parameters up to the final parameter that
-// declares the type.
+// ကျနော်တို့ parameter မှာ same type တွေဆက်တိုက်ရှိနေတာဆိုရင်
+// parameter type တွေကိုဆက်တိုက်ကြေငြာစရာမလိုဘဲ နောက်ဆုံးမှ
+// type ကိုကြေငြာနိုင်ပါတယ်။
 func plusPlus(a, b, c int) int {
 	return a + b + c
 }
 
 func main() {
 
-	// Call a function just as you'd expect, with
-	// `name(args)`.
+	// function တွေခေါ်သုံးတာကတော့ပုံမှန်လိုပါဘဲ
+	// function name ရယ် သူ့ arguments တွေရယ်ပေါ့
+	// `name(args)`
 	res := plus(1, 2)
 	fmt.Println("1+2 =", res)
 
