@@ -27,9 +27,9 @@
         
         <tr>
           <td class="docs">
-            <p>Go has built-in support for <em>multiple return values</em>.
-This feature is used often in idiomatic Go, for example
-to return both result and error values from a function.</p>
+            <p>Go မှာ built-in <em>multiple return values</em> ကို support လုပ်ပါတယ်။
+ ဒီ feature ကို Go မှာအတော်လေးအသုံးပြုပါတယ်၊ ဥမမာဆိုရင် function မှာ
+result ကော error ကောပြန်တာမျိုးပေါ့။</p>
 
           </td>
           <td class="code empty leading">
@@ -43,7 +43,7 @@ to return both result and error values from a function.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/vZdUvLB1WbK"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/idodCpWnwGg"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -62,8 +62,8 @@ to return both result and error values from a function.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>(int, int)</code> in this function signature shows that
-the function returns 2 <code>int</code>s.</p>
+            <p>ဒီ function မှာ <code>(int, int)</code> ဆိုတာက ဒီ function က <code>int</code>
+၂ ခုကို return ပြန်တယ်ဆိုတဲ့အဓိပ္ပါယ်ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -89,8 +89,8 @@ the function returns 2 <code>int</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we use the 2 different return values from the
-call with <em>multiple assignment</em>.</p>
+            <p>ဒီမှာ return ပြန်လာတဲ့ values ၂ ခုကို <em>multiple assignment</em> နဲ့
+ assign လုပ်ထားတာပေါ့။</p>
 
           </td>
           <td class="code leading">
@@ -105,8 +105,8 @@ call with <em>multiple assignment</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>If you only want a subset of the returned values,
-use the blank identifier <code>_</code>.</p>
+            <p>return ပြန်လာတဲ့ ၂ ခုထဲကတခုကိုဘဲယူချင်တယ်ဆို
+<code>_</code> ကိုသုံးလို့ရတယ်။</p>
 
           </td>
           <td class="code">
