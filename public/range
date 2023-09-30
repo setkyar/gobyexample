@@ -27,9 +27,9 @@
         
         <tr>
           <td class="docs">
-            <p><em>range</em> iterates over elements in a variety of data
-structures. Let&rsquo;s see how to use <code>range</code> with some
-of the data structures we&rsquo;ve already learned.</p>
+            <p><em>range</em> က data structures တော်တော်များများရဲ့ elements တွေကို
+iterate လုပ်တဲ့နေရာမှာသုံးတာပါ။ <code>range</code> ကိုကျနော်တို့လေ့လာထားတဲ့
+data structures တွေမှာဘယ်လိုသုံးမလဲဆိုတာာအောက်မှာတချက်ကြည့်လိုက်ရအောင်။</p>
 
           </td>
           <td class="code empty leading">
@@ -43,7 +43,7 @@ of the data structures we&rsquo;ve already learned.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/kRsyWNmLFLz"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/OB5Q9uS61yk"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -62,7 +62,9 @@ of the data structures we&rsquo;ve already learned.</p>
         
         <tr>
           <td class="docs">
-            
+            <p>ဒီမှာကျနော်တို့ slice ထဲမှာရှိတဲ့နံပါတ်တွေကို <code>range</code> ကို သုံးပီး ပေါင်းပြထားပါတယ်။
+Array တွေလဲအဲ့လိုဘဲ အသုံးပြုပြီးပေါင်းနိုင်ပါတယ်။</p>
+
           </td>
           <td class="code leading">
             
@@ -73,14 +75,11 @@ of the data structures we&rsquo;ve already learned.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we use <code>range</code> to sum the numbers in a slice.
-Arrays work like this too.</p>
-
+            
           </td>
           <td class="code leading">
             
-          <pre class="chroma">
-    <span class="nx">nums</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+          <pre class="chroma">    <span class="nx">nums</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
     <span class="nx">sum</span> <span class="o">:=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">num</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">nums</span> <span class="p">{</span>
         <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">num</span>
@@ -92,11 +91,9 @@ Arrays work like this too.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> on arrays and slices provides both the
-index and value for each entry. Above we didn&rsquo;t
-need the index, so we ignored it with the
-blank identifier <code>_</code>. Sometimes we actually want
-the indexes though.</p>
+            <p>arrays နှင့် slices တွေကို <code>range</code> ဖြင့်အသုံးပြုရင် index နှင့် value နှစ်ခုလုံးပါပါတယ်။
+အပေါ်ကနမူနာမှာဆိုရင် ကျနော်တို့ index မလိုတဲ့အတွက် <code>_</code> ကိုသုံးပီးတော့ ignored လုပ်ခဲ့ပါတယ်။
+တခါတလေကျရင်တော့ indexs တွေကိုအသုံးပြုဖို့လိုအပ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -113,7 +110,7 @@ the indexes though.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> on map iterates over key/value pairs.</p>
+            <p><code>range</code> ကို map မှာအသုံးပြုပီးတော့ key/value pairs ကို iterate လုပ်ပြတာပါ။</p>
 
           </td>
           <td class="code leading">
@@ -129,7 +126,7 @@ the indexes though.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> can also iterate over just the keys of a map.</p>
+            <p><code>range</code> ကိုသုံးပီးတော့ map ထဲမှာရှိတဲ့ keys တွေကိုဘဲ iterate လုပ်နိုင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -144,11 +141,9 @@ the indexes though.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> on strings iterates over Unicode code
-points. The first value is the starting byte index
-of the <code>rune</code> and the second the <code>rune</code> itself.
-See <a href="strings-and-runes">Strings and Runes</a> for more
-details.</p>
+            <p><code>range</code> ကိုသုံးပီးတော့ string ထဲမှာရှိတဲ့ unicode code points တွေကို iterate လုပ်နိုင်ပါတယ်။
+ပထမ value ကတော့ character <code>rune</code> ရဲ့ starting byte index ပါပဲ။ ဒါတိယ value ကတော့ character <code>rune</code> ပါ။
+အသေးစိတ်ကို <a href="strings-and-runes">Strings and Runes</a>  မှာကြည့်နိုင်ပါတယ်။</p>
 
           </td>
           <td class="code">
