@@ -1,50 +1,44 @@
-// _Maps_ are Go's built-in [associative data type](https://en.wikipedia.org/wiki/Associative_array)
-// (sometimes called _hashes_ or _dicts_ in other languages).
-
+// _Maps_ က Go ရဲ့ built-in [associative data type](https://en.wikipedia.org/wiki/Associative_array) တစ်ခုဖြစ်ပါတယ်။
+// ( တခြား languages တွေမှာဆိုရင် _hashes_ သို့ _dicts_ လို့ခေါ်ပါတယ်။)
 package main
 
 import "fmt"
 
 func main() {
 
-	// To create an empty map, use the builtin `make`:
-	// `make(map[key-type]val-type)`.
+	//  empty map တခုဖန်တီးတဲ့အခါမှာ `make` ကိုအသုံးပြုပါတယ်:
+	// ဥပမာ - `make(map[key-type]val-type)`
 	m := make(map[string]int)
 
-	// Set key/value pairs using typical `name[key] = val`
-	// syntax.
+	// key/value pair တခုတည်ဆောက်မယ်ဆို ပုံမှန် `name[key] = val`
+	// syntax ကိုအသုံးပြုနိုင်ပါတယ်။
 	m["k1"] = 7
 	m["k2"] = 13
 
-	// Printing a map with e.g. `fmt.Println` will show all of
-	// its key/value pairs.
+	// `fmt.Println` လိုမျိုးနှင့် map ကို print ထုတ်မယ်ဆိုလျှင်
+	// သူ့ရဲ့ key/value pairs အကုန်လုံးကိုပြပါလိမ့်မယ်။
 	fmt.Println("map:", m)
 
-	// Get a value for a key with `name[key]`.
+	// key တခုရဲ့ value ကိုရယူမယ်ဆိုရင် `name[key]` ဆိုပီးအသုံးပြုနိုင်တယ်
 	v1 := m["k1"]
 	fmt.Println("v1: ", v1)
 
-	// The builtin `len` returns the number of key/value
-	// pairs when called on a map.
+	// `len` ကို map မှာအသုံးပြုပီးတော့ key/value pairs အရေအတွက်ကိုပြနိုင်တယ်
 	fmt.Println("len:", len(m))
 
-	// The builtin `delete` removes key/value pairs from
-	// a map.
+	// `delete` ကတော့ map ကနေပီးတော့ key/value pair ကို
+	// delete လုပ်တဲ့အချိန်မှာအသုံးပြုနိုင်ပါတယ်။
 	delete(m, "k2")
 	fmt.Println("map:", m)
 
-	// The optional second return value when getting a
-	// value from a map indicates if the key was present
-	// in the map. This can be used to disambiguate
-	// between missing keys and keys with zero values
-	// like `0` or `""`. Here we didn't need the value
-	// itself, so we ignored it with the _blank identifier_
-	// `_`.
+	// ကျနော်တို့ map မှာရှိတဲ့ value ကိုရယူမယ်ဆိုရင် optional second return value ရှိတယ်။
+	// အဲ့ကောင်ကဘာကိုဆိုလိုတာလဲဆိုရင် ကျနော်တို့ access လုပ်တဲ့ key က map ထဲမှာရှိလားမရှိလားဆိုတာကိုသိရမယ်။
+	// အထူးသဖြင့်သူက ကျနော်တို့ map ထဲမှာ keys တွေရှိလား နောက် `0`` သို့ `""` ဖြစ်နေတဲ့ကောင်တွေနှင့် ခွဲခြားဖို့ဆိုရင်အသုံးဝင်တယ်။
+	// အခုကျနော်တို့ case မှာဆိုရင် ကျနော်တို့ key ရဲ့ value ကိုမလိုဘူး အဲ့ဒါကြောင့်မလို့ `_`` ကိုသုံးပီးတော့ ignored လုပ်လိုက်တာ။
 	_, prs := m["k2"]
 	fmt.Println("prs:", prs)
 
-	// You can also declare and initialize a new map in
-	// the same line with this syntax.
+	//  map ကိုတလိုင်းထဲမှာ declare လုပ်တာကော initialize လုပ်မယ်ဆို ဒီ syntax ကိုအသုံးပြုနိုင်တယ်။
 	n := map[string]int{"foo": 1, "bar": 2}
 	fmt.Println("map:", n)
 }
