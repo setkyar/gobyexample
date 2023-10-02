@@ -27,9 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go supports
-<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)"><em>recursive functions</em></a>.
-Here&rsquo;s a classic example.</p>
+            <p>Go က <a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)"><em>recursive functions</em></a> ကို support လုပ်ပါတယ်။
+Recursive function ကိုနမူနာပြနေကြ factorial နမူနာကိုတချက်ကြည့်လိုက်ကြရအောင်။</p>
 
           </td>
           <td class="code empty leading">
@@ -43,7 +42,7 @@ Here&rsquo;s a classic example.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/MBTKk9VpAiK"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/jvL69hJ98Dh"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -62,8 +61,7 @@ Here&rsquo;s a classic example.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>fact</code> function calls itself until it reaches the
-base case of <code>fact(0)</code>.</p>
+            <p>ဒီ <code>fact</code> function က base case <code>fact(0)</code> ကို မရောက်မခြင်းသူ့ကိုယ်သူ ပြန်ခေါ်နေပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -93,9 +91,8 @@ base case of <code>fact(0)</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Closures can also be recursive, but this requires the
-closure to be declared with a typed <code>var</code> explicitly
-before it&rsquo;s defined.</p>
+            <p>Closures လဲ recursive ဖြစ်လို့ရတယ်၊ ဒါပေမယ့် closure function ကို defined မလုပ်ခင်
+type ကို <code>var</code> ဆိုပီးသီးသန့်ကြေငြာပေးရမယ်။</p>
 
           </td>
           <td class="code leading">
@@ -122,8 +119,8 @@ before it&rsquo;s defined.</p>
         
         <tr>
           <td class="docs">
-            <p>Since <code>fib</code> was previously declared in <code>main</code>, Go
-knows which function to call with <code>fib</code> here.</p>
+            <p><code>fib</code> ကိုအထက်မှာကြေငြာပီးသားဖြစ်တဲ့အတွက် Go က <code>fib</code> ကိုခေါ်တဲ့အချိန်မှာ
+ ဘယ် funtion ကိုခေါ်ရမလဲဆိုတာကိုသိတယ်။</p>
 
           </td>
           <td class="code leading">
