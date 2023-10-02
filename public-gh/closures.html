@@ -27,10 +27,9 @@
         
         <tr>
           <td class="docs">
-            <p>Go supports <a href="https://en.wikipedia.org/wiki/Anonymous_function"><em>anonymous functions</em></a>,
-which can form <a href="https://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closures</em></a>.
-Anonymous functions are useful when you want to define
-a function inline without having to name it.</p>
+            <p>Go က <a href="https://en.wikipedia.org/wiki/Anonymous_function"><em>anonymous functions</em></a> တွေကို support လုပ်ပါတယ်၊
+ဒီ Anonymous (အမည်မပါသော) function တွေသုံးပီးတော့ <a href="https://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closures</em></a> တွေကို
+တည်ဆောက်တယ်။ Anonymous function တွေက function တွေကိုအမည်မပါဘဲသုံးချင်တဲ့အချိန်မှာအတော်လေးအသုံးဝင်တယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +43,7 @@ a function inline without having to name it.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/NpgpzS8ZG8y"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/D-Jg-WfxYJK"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -63,16 +62,28 @@ a function inline without having to name it.</p>
         
         <tr>
           <td class="docs">
-            <p>This function <code>intSeq</code> returns another function, which
-we define anonymously in the body of <code>intSeq</code>. The
-returned function <em>closes over</em> the variable <code>i</code> to
-form a closure.</p>
+            <p>ဒီ <code>intSeq</code> ဆိုတဲ့ function ကနောက်ထက် function တခုကို return ပြန်ထားတယ်၊
+အဲ့ function က <code>intSeq</code> ရဲ့ body ထဲမှာအမည်မပါတဲ့ function တခုသတ်မှတ်ထားတယ်။
+အဲ့မှာအမည်မပါဘဲသတ်မှတ်ထားတဲ့ function က <code>i</code> variable ကို <em>close over</em> လုပ်ပီးတော့
+closure တခုတည်ဆောက်လိုက်တယ်။
+ဒါကဘာကိုဆိုလိုတာလဲဆိုရင် <code>intSeq</code> ကိုခေါ်ပီးတော့ Anonymous function ကို
+return ပြန်ပီးတာတောင် return ပြန်လိုက်တဲ့ Anonymous function က <code>intSeq</code> ရဲ့ <code>i</code> variable ကို access
+ရနေသေးတယ်ဆိုတာကိုပြောချင်တာပါ။</p>
 
+          </td>
+          <td class="code empty leading">
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
           </td>
           <td class="code leading">
             
-          <pre class="chroma">
-<span class="kd">func</span> <span class="nf">intSeq</span><span class="p">()</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+          <pre class="chroma"><span class="kd">func</span> <span class="nf">intSeq</span><span class="p">()</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
     <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
         <span class="nx">i</span><span class="o">++</span>
@@ -96,10 +107,9 @@ form a closure.</p>
         
         <tr>
           <td class="docs">
-            <p>We call <code>intSeq</code>, assigning the result (a function)
-to <code>nextInt</code>. This function value captures its
-own <code>i</code> value, which will be updated each time
-we call <code>nextInt</code>.</p>
+            <p>ကျနော်တို့ <code>intSeq</code> ကိုခေါ်ပီးတော့ return ပြန်လိုက်တဲ့ Anonymous function ကို
+<code>nextInt</code> ဆိုတဲ့ variable ထဲမှာထည့်သွင်းထားတယ်၊ ဒီ function ကသူ့ထဲက value ဖြစ်တဲ့
+i ကို capture လုပ်ပီးတော့ <code>nextInt</code> ကိုခေါ်တိုင်း အဲ့ဒီ့ i တန်ဖိုးကို update လုပ်ပေးတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -112,8 +122,7 @@ we call <code>nextInt</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>See the effect of the closure by calling <code>nextInt</code>
-a few times.</p>
+            <p>closure ရဲ့ကျိုးသတ်ရောက်မှူကိုမြင်ဖို့ <code>nextInt</code> ကိုအနည်းငယ်ခေါ်ကြည့်လိုက်ကြရအောင်</p>
 
           </td>
           <td class="code leading">
@@ -128,8 +137,8 @@ a few times.</p>
         
         <tr>
           <td class="docs">
-            <p>To confirm that the state is unique to that
-particular function, create and test a new one.</p>
+            <p>ဒီ function တခုထဲကိုဘဲဒီ state သတ်ရောက်နေတယ်ဆိုသေချာဖို့ရာအတွက်
+အသစ်တခုတည်ဆောက်ပီး စမ်းကြည့်လိုက်ကြရအောင်။</p>
 
           </td>
           <td class="code">
@@ -187,7 +196,7 @@ recursion.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func intSeq() func() int {\u000A    i :\u003D 0\u000A    return func() int {\u000A        i++\u000A        return i\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    nextInt :\u003D intSeq()\u000A');codeLines.push('    fmt.Println(nextInt())\u000A    fmt.Println(nextInt())\u000A    fmt.Println(nextInt())\u000A');codeLines.push('    newInts :\u003D intSeq()\u000A    fmt.Println(newInts())\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('');codeLines.push('func intSeq() func() int {\u000A    i :\u003D 0\u000A    return func() int {\u000A        i++\u000A        return i\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    nextInt :\u003D intSeq()\u000A');codeLines.push('    fmt.Println(nextInt())\u000A    fmt.Println(nextInt())\u000A    fmt.Println(nextInt())\u000A');codeLines.push('    newInts :\u003D intSeq()\u000A    fmt.Println(newInts())\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
