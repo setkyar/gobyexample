@@ -111,8 +111,6 @@
 
       <tr>
         <td class="docs">
-          <p>We can also use <code>sort</code> to check if a slice is
-            already in sorted order.</p>
           <p>Slice တစ်ခုကို စဉ်ထားခြင်းရှိမရှိ <code>sort</code> ကို အသုံးပြုပြီး စစ်ဆေးနိုင်သည်။</p>
 
         </td>
