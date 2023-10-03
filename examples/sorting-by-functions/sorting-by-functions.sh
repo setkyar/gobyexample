@@ -1,10 +1,16 @@
-# Running our program shows a list sorted by string
-# length, as desired.
-$ go run sorting-by-functions.go 
+# ပရိုဂရမ်ကို ခိုင်းစေလိုက်ပါက
+# မိမိဖြစ်စေချင်သည့်
+# အက္ခရာအလုံးအရေအတွက်ဖြင့်
+# စဉ်ထားသော list ကို
+# ပြသပါမည်။
+$ go run sorting-by-functions.go
 [kiwi peach banana]
 
-# By following this same pattern of creating a custom
-# type, implementing the three `Interface` methods on that
-# type, and then calling sort.Sort on a collection of that
-# custom type, we can sort Go slices by arbitrary
-# functions.
+# စိတ်ကြိုက် ဒေတာအမျိုးအစားကို ဖန်တီးခြင်း၊
+# ၎င်းအမျိုးအစားအတွက် `Interface` method
+# သုံးခုကို တည်ဆောက်ခြင်း၊
+# ၎င်းအမျိုးအစားကို အသုံးပြုထားသော collection
+# တွင် sort.Sort အသုံးပြုပြီး စဉ်ခြင်း
+# စသည့် ယခုလို ပုံစံမျိုးကို နမူနာယူပြီး
+# Go slice များကို စိတ်ကြိုက် function
+# များဖြင့် စဉ်နိုင်သည်။
