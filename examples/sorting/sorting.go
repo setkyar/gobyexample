@@ -1,6 +1,7 @@
-// Go's `sort` package implements sorting for builtins
-// and user-defined types. We'll look at sorting for
-// builtins first.
+// Go ၏ စံကုဒ်အစုအဝေး (standard library) တွင် ပါရှိပြီးသား ဒေတာအမျိုးအစားများနှင့်
+// အသုံးပြုသူများက သတ်မှတ်လိုက်သော ဒေတာအမျိုးအစားများ အတွက် အက္ခရာစဉ်၊ နံပါတ်စဉ်
+// စသည် စီရန် စဉ်ရန် `sort` package ကို ပြုလုပ်ထားပါသည်။ Go တွင် ပါဝင်ပြီးသား
+// ဒေတာအမျိုးအစားများ အတွက် ဒေတာစဉ်နည်းကို အရင်ဦးဆုံး ကြည့်ကြမည်။
 
 package main
 
@@ -11,21 +12,20 @@ import (
 
 func main() {
 
-	// Sort methods are specific to the builtin type;
-	// here's an example for strings. Note that sorting is
-	// in-place, so it changes the given slice and doesn't
-	// return a new one.
+	// Sort method များကို ရှိပြီးသား ဒေတာအမျိုးအစားများ အတွက်သာ ပြုလုပ်ထားသည်။
+	// string အမျိုးအစားအတွက် နမူနာကို ယခုအပိုဒ်တွင် ကြည့်နိုင်သည်။ စီခြင်း စဉ်ခြင်းကို
+	// တနေရာတည်း ပြုလုပ်သွားသည့်အတွက် ထည့်ပေးလိုက်သော slice တွင် ပြောင်းလဲမှု (စီခြင်း
+	// စဉ်ခြင်း) ဖြစ်သွားပြီး slice အသစ်တစ်ခု ပြန်မထုတ်ပေးကြောင်း မှတ်သားနိုင်သည်။
 	strs := []string{"c", "a", "b"}
 	sort.Strings(strs)
 	fmt.Println("Strings:", strs)
 
-	// An example of sorting `int`s.
+	// `int` ဒေတာများကို စဉ်သည့် နမူနာ။
 	ints := []int{7, 2, 4}
 	sort.Ints(ints)
 	fmt.Println("Ints:   ", ints)
 
-	// We can also use `sort` to check if a slice is
-	// already in sorted order.
+	// Slice တစ်ခုကို စဉ်ထားခြင်းရှိမရှိ `sort` ကို အသုံးပြုပြီး စစ်ဆေးနိုင်သည်။
 	s := sort.IntsAreSorted(ints)
 	fmt.Println("Sorted: ", s)
 }
