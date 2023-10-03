@@ -1,8 +1,8 @@
-// Sometimes we'll want to sort a collection by something
-// other than its natural order. For example, suppose we
-// wanted to sort strings by their length instead of
-// alphabetically. Here's an example of custom sorts
-// in Go.
+// တစ်ခါတလေ အက္ခရာစဉ် နံပါတ်စဉ် စသည် သဘာဝအစဉ်အလိုက် သာမက
+// အခြားပုံစံမျိုးဖြင့် စဉ်ခြင်းမျိုးကိုလည်း ဆောင်ရွက်လိုပါလိမ့်မည်။ နမူနာအားဖြင့်
+// ဆိုရသော် အက္ခရာစဉ်ခြင်းမျိုးမဟုတ်ပဲ အက္ခရာအလုံးအရေအတွက်အားဖြင့်
+// စဉ်လိုသည်ဟု ယူဆပါစို့။ Go တွင် မိမိစဉ်လိုသည့် ပုံစံများကို အောက်ပါ
+// နမူနာတွင် ကြည့်နိုင်သည်။
 
 package main
 
@@ -11,19 +11,21 @@ import (
 	"sort"
 )
 
-// In order to sort by a custom function in Go, we need a
-// corresponding type. Here we've created a `byLength`
-// type that is just an alias for the builtin `[]string`
-// type.
+// Go တွင် မိမိဖန်တီးထားသော function ကို အသုံးပြုပြီး မိမိလိုသလို စဉ်လိုပါက
+// ၎င်းအခြေအနေနှင့် ကိုက်ညီသည့် ဒေတာအမျိုးအစား လိုအပ်သည်။ ယခု
+// `byLength` ဟု ခေါ်သော စိတ်ကြိုက် ဒေတာအမျိုးအစား တစ်ခုကို ဖန်တီးထားသည်။
+// တကယ်တော့ ၎င်းဒေတာအမျိုးအစားသည် Go တွင် ရှိပြီးသော `[]string`
+// အမျိုးအစားကို အခြားနာမည်ဖြင့် ခေါ်လိုက်ခြင်းသာ ဖြစ်သည်။
 type byLength []string
 
-// We implement `sort.Interface` - `Len`, `Less`, and
-// `Swap` - on our type so we can use the `sort` package's
-// generic `Sort` function. `Len` and `Swap`
-// will usually be similar across types and `Less` will
-// hold the actual custom sorting logic. In our case we
-// want to sort in order of increasing string length, so
-// we use `len(s[i])` and `len(s[j])` here.
+// `Len`၊ `Less`၊နှင့် `Swap` ဟုခေါ်သည့် `sort.Interface` များကို
+// အထက်တွင် ဖန်တီးခဲ့သော စိတ်ကြိုက် ဒေတာအမျိုးအစား `byLength` အတွက်
+// တည်ဆောက်လိုက်သည်။ ထိုသို့ ပြုလုပ်လိုက်သည့်အတွက် `sort` package ရှိ
+// အထွေထွေသုံး `Sort` function ကို အသုံးပြုလို့ရသွားသည်။ ပုံမှန်အားဖြင့်
+// ယခုလိုမျိုး ဆင်တူဒေတာ အမျိုးအစားတို့တွင် `Len` နှင့် `Swap` တို့၏
+// လုပ်ဆောင်ချက်တို့သည် ဆင်တူလေ့ရှိကြသည်။ ယခုကိစ္စမျိုးတွင် စီလိုသည်မှာ
+// အက္ခရာ အလုံးအရေပေါ်မူတည်ပြီး စဉ်လိုခြင်း ဖြစ်သည်။ ထို့ကြောင့်
+// `len(s[i])` နှင့် `len(s[j])` တို့ကို ဒီနေရာမှာ အသုံးပြုခြင်း ဖြစ်သည်။
 func (s byLength) Len() int {
 	return len(s)
 }
@@ -34,10 +36,10 @@ func (s byLength) Less(i, j int) bool {
 	return len(s[i]) < len(s[j])
 }
 
-// With all of this in place, we can now implement our
-// custom sort by converting the original `fruits` slice
-// to `byLength`, and then use `sort.Sort` on that typed
-// slice.
+// လိုအပ်သည့် ကုဒ်များကို နေရာတကျ ရေးပြီးသည့်အခါ မူလ `fruits` slice ကို
+// `byLength` အမျိုးအစားသို့ ပြောင်းလဲလိုက်ခြင်းအားဖြင့် မိမိစဉ်လိုသည့် လောဂျစ်ကို
+// အကောင်အထည် ဖော်နိုင်သွားသည်။ ထို့နောက် ၎င်း `byLength` ကို စဉ်ရန်
+// `sort.Sort` အသုံးပြုသည်။
 func main() {
 	fruits := []string{"peach", "banana", "kiwi"}
 	sort.Sort(byLength(fruits))
