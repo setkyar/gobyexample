@@ -25,7 +25,7 @@ func main() {
 	sort.Ints(ints)
 	fmt.Println("Ints:   ", ints)
 
-	// Slice တစ်ခုကို စဉ်ထားခြင်းရှိမရှိ `sort` ကို အသုံးပြုပြီး စစ်ဆေးနိုင်သည်။
+	// Slice ကို sort လုပ်ထားပြီးသား ဟုတ်မဟုတ် `sort` package ကိုသုံးပြီး စစ်နိုင်တယ်။
 	s := sort.IntsAreSorted(ints)
 	fmt.Println("Sorted: ", s)
 }
