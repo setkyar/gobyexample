@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/3dBInPWhd9y"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/w-IqnTLxPsv"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -67,11 +67,10 @@
         
         <tr>
           <td class="docs">
-            <p>Go တွင် မိမိဖန်တီးထားသော function ကို အသုံးပြုပြီး မိမိလိုသလို စဉ်လိုပါက
-၎င်းအခြေအနေနှင့် ကိုက်ညီသည့် ဒေတာအမျိုးအစား လိုအပ်သည်။ ယခု
-<code>byLength</code> ဟု ခေါ်သော စိတ်ကြိုက် ဒေတာအမျိုးအစား တစ်ခုကို ဖန်တီးထားသည်။
-တကယ်တော့ ၎င်းဒေတာအမျိုးအစားသည် Go တွင် ရှိပြီးသော <code>[]string</code>
-အမျိုးအစားကို အခြားနာမည်ဖြင့် ခေါ်လိုက်ခြင်းသာ ဖြစ်သည်။</p>
+            <p>Go မှာ custom function သုံးပြီး sort လုပ်မယ်ဆိုရင် အဲဒါနဲ့
+ကိုက်တဲ့ data type တစ်ခုလိုတယ်။ ဒီမှာ <code>byLength</code> လို့ခေါ်တဲ့ custom type တစ်ခု
+ဖန်တီးထားတယ်။​ အဲဒါက တကယ်တော့ <code>[]string</code> ကို နာမည်ပြောင်းခေါ်တာမျိုး ဖြစ်တယ်။
+<code>[]string</code> ဆိုတဲ့ type ကို <code>byLength</code> ဆိုတဲ့ type အနေနဲ့ သုံးမယ်ဆိုတာမျိုး။</p>
 
           </td>
           <td class="code leading">
@@ -84,14 +83,14 @@
         
         <tr>
           <td class="docs">
-            <p><code>Len</code>၊ <code>Less</code>၊နှင့် <code>Swap</code> ဟုခေါ်သည့် <code>sort.Interface</code> များကို
-အထက်တွင် ဖန်တီးခဲ့သော စိတ်ကြိုက် ဒေတာအမျိုးအစား <code>byLength</code> အတွက်
-တည်ဆောက်လိုက်သည်။ ထိုသို့ ပြုလုပ်လိုက်သည့်အတွက် <code>sort</code> package ရှိ
-အထွေထွေသုံး <code>Sort</code> function ကို အသုံးပြုလို့ရသွားသည်။ ပုံမှန်အားဖြင့်
-ယခုလိုမျိုး ဆင်တူဒေတာ အမျိုးအစားတို့တွင် <code>Len</code> နှင့် <code>Swap</code> တို့၏
-လုပ်ဆောင်ချက်တို့သည် ဆင်တူလေ့ရှိကြသည်။ ယခုကိစ္စမျိုးတွင် စီလိုသည်မှာ
-အက္ခရာ အလုံးအရေပေါ်မူတည်ပြီး စဉ်လိုခြင်း ဖြစ်သည်။ ထို့ကြောင့်
-<code>len(s[i])</code> နှင့် <code>len(s[j])</code> တို့ကို ဒီနေရာမှာ အသုံးပြုခြင်း ဖြစ်သည်။</p>
+            <p>အပေါ်မှာ ဖန်တီးထားတဲ့ type အတွက် <code>sort.Interface</code> ရေးပေးဖို့လိုတယ်။
+<code>Len</code>, <code>Less</code>၊ နဲ့ <code>Swap</code> လို့ခေါ်တဲ့ <code>Interface</code> ၃ ခု။ အဲဒီဟာတွေ ရေးပေးထားမှ
+<code>sort</code> package ထဲမှာရှိတဲ့ generic <code>Sort</code> function ကို သုံးလို့ရမှာ။ array လိုမျိုး
+type တွေအတွက်<code>Len</code> နဲ့ <code>Swap</code> အတွက် ရေးပေးရတဲ့ကုဒ်က ဆင်တူလေ့ရှိတယ်။ sort လုပ်တဲ့
+logic ရှိတဲ့နေရာက <code>Less</code> interface ပဲ။​ အဲဒီမှာ sorting logic ကို သွားရေး
+ပေးထားရတယ်။ အခုကိစ္စမှာဆို string တိုးတာပဲဖြစ်ဖြစ် လျော့တာပဲဖြစ်ဖြစ်
+string length ကိုသုံးပြီး sort လုပ်ပေးပါဆိုပြီး ခိုင်းတာမျိုး။ အဲ့လို sort ဖြစ်ဖို့
+<code>len(s[i])</code> နဲ့ <code>len(s[j])</code> တွေကို <code>Less</code> interface မှာ သုံးထားတယ်။</p>
 
           </td>
           <td class="code leading">
