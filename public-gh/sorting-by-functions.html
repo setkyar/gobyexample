@@ -27,11 +27,11 @@
         
         <tr>
           <td class="docs">
-            <p>Sometimes we&rsquo;ll want to sort a collection by something
-other than its natural order. For example, suppose we
-wanted to sort strings by their length instead of
-alphabetically. Here&rsquo;s an example of custom sorts
-in Go.</p>
+            <p>တစ်ခါတလေ အက္ခရာစဉ် နံပါတ်စဉ် စသည် သဘာဝအစဉ်အလိုက် သာမက
+အခြားပုံစံမျိုးဖြင့် စဉ်ခြင်းမျိုးကိုလည်း ဆောင်ရွက်လိုပါလိမ့်မည်။ နမူနာအားဖြင့်
+ဆိုရသော် အက္ခရာစဉ်ခြင်းမျိုးမဟုတ်ပဲ အက္ခရာအလုံးအရေအတွက်အားဖြင့်
+စဉ်လိုသည်ဟု ယူဆပါစို့။ Go တွင် မိမိစဉ်လိုသည့် ပုံစံများကို အောက်ပါ
+နမူနာတွင် ကြည့်နိုင်သည်။</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/h4g4vaLBtkw"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/w-IqnTLxPsv"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -67,10 +67,10 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>In order to sort by a custom function in Go, we need a
-corresponding type. Here we&rsquo;ve created a <code>byLength</code>
-type that is just an alias for the builtin <code>[]string</code>
-type.</p>
+            <p>Go မှာ custom function သုံးပြီး sort လုပ်မယ်ဆိုရင် အဲဒါနဲ့
+ကိုက်တဲ့ data type တစ်ခုလိုတယ်။ ဒီမှာ <code>byLength</code> လို့ခေါ်တဲ့ custom type တစ်ခု
+ဖန်တီးထားတယ်။​ အဲဒါက တကယ်တော့ <code>[]string</code> ကို နာမည်ပြောင်းခေါ်တာမျိုး ဖြစ်တယ်။
+<code>[]string</code> ဆိုတဲ့ type ကို <code>byLength</code> ဆိုတဲ့ type အနေနဲ့ သုံးမယ်ဆိုတာမျိုး။</p>
 
           </td>
           <td class="code leading">
@@ -83,13 +83,14 @@ type.</p>
         
         <tr>
           <td class="docs">
-            <p>We implement <code>sort.Interface</code> - <code>Len</code>, <code>Less</code>, and
-<code>Swap</code> - on our type so we can use the <code>sort</code> package&rsquo;s
-generic <code>Sort</code> function. <code>Len</code> and <code>Swap</code>
-will usually be similar across types and <code>Less</code> will
-hold the actual custom sorting logic. In our case we
-want to sort in order of increasing string length, so
-we use <code>len(s[i])</code> and <code>len(s[j])</code> here.</p>
+            <p>အပေါ်မှာ ဖန်တီးထားတဲ့ type အတွက် <code>sort.Interface</code> ရေးပေးဖို့လိုတယ်။
+<code>Len</code>, <code>Less</code>၊ နဲ့ <code>Swap</code> လို့ခေါ်တဲ့ <code>Interface</code> ၃ ခု။ အဲဒီဟာတွေ ရေးပေးထားမှ
+<code>sort</code> package ထဲမှာရှိတဲ့ generic <code>Sort</code> function ကို သုံးလို့ရမှာ။ array လိုမျိုး
+type တွေအတွက်<code>Len</code> နဲ့ <code>Swap</code> အတွက် ရေးပေးရတဲ့ကုဒ်က ဆင်တူလေ့ရှိတယ်။ sort လုပ်တဲ့
+logic ရှိတဲ့နေရာက <code>Less</code> interface ပဲ။​ အဲဒီမှာ sorting logic ကို သွားရေး
+ပေးထားရတယ်။ အခုကိစ္စမှာဆို string တိုးတာပဲဖြစ်ဖြစ် လျော့တာပဲဖြစ်ဖြစ်
+string length ကိုသုံးပြီး sort လုပ်ပေးပါဆိုပြီး ခိုင်းတာမျိုး။ အဲ့လို sort ဖြစ်ဖို့
+<code>len(s[i])</code> နဲ့ <code>len(s[j])</code> တွေကို <code>Less</code> interface မှာ သုံးထားတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -110,10 +111,10 @@ we use <code>len(s[i])</code> and <code>len(s[j])</code> here.</p>
         
         <tr>
           <td class="docs">
-            <p>With all of this in place, we can now implement our
-custom sort by converting the original <code>fruits</code> slice
-to <code>byLength</code>, and then use <code>sort.Sort</code> on that typed
-slice.</p>
+            <p>လိုအပ်သည့် ကုဒ်များကို နေရာတကျ ရေးပြီးသည့်အခါ မူလ <code>fruits</code> slice ကို
+<code>byLength</code> အမျိုးအစားသို့ ပြောင်းလဲလိုက်ခြင်းအားဖြင့် မိမိစဉ်လိုသည့် လောဂျစ်ကို
+အကောင်အထည် ဖော်နိုင်သွားသည်။ ထို့နောက် ၎င်း <code>byLength</code> ကို စဉ်ရန်
+<code>sort.Sort</code> အသုံးပြုသည်။</p>
 
           </td>
           <td class="code">
@@ -134,25 +135,31 @@ slice.</p>
         
         <tr>
           <td class="docs">
-            <p>Running our program shows a list sorted by string
-length, as desired.</p>
+            <p>ပရိုဂရမ်ကို ခိုင်းစေလိုက်ပါက
+မိမိဖြစ်စေချင်သည့်
+အက္ခရာအလုံးအရေအတွက်ဖြင့်
+စဉ်ထားသော list ကို
+ပြသပါမည်။</p>
 
           </td>
           <td class="code leading">
             
           <pre class="chroma">
-<span class="gp">$</span> go run sorting-by-functions.go 
+<span class="gp">$</span> go run sorting-by-functions.go
 <span class="go">[kiwi peach banana]</span></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>By following this same pattern of creating a custom
-type, implementing the three <code>Interface</code> methods on that
-type, and then calling sort.Sort on a collection of that
-custom type, we can sort Go slices by arbitrary
-functions.</p>
+            <p>စိတ်ကြိုက် ဒေတာအမျိုးအစားကို ဖန်တီးခြင်း၊
+၎င်းအမျိုးအစားအတွက် <code>Interface</code> method
+သုံးခုကို တည်ဆောက်ခြင်း၊
+၎င်းအမျိုးအစားကို အသုံးပြုထားသော collection
+တွင် sort.Sort အသုံးပြုပြီး စဉ်ခြင်း
+စသည့် ယခုလို ပုံစံမျိုးကို နမူနာယူပြီး
+Go slice များကို စိတ်ကြိုက် function
+များဖြင့် စဉ်နိုင်သည်။</p>
 
           </td>
           <td class="code empty">
