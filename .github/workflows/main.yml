@@ -1,0 +1,12 @@
+on:
+  push:
+    branches:
+    - main
+    - release/*
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: tool/build
+      - run: tools/upload-gh.sh
