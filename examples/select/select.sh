@@ -1,10 +1,14 @@
-# We receive the values `"one"` and then `"two"` as
-# expected.
+# ကျွန်တော်တို့ မျှော်လင့်ထားတဲ့အတိုင်း 
+# `"one"` နဲ့ `"twp"`
+#  ဆိုတဲ့တန်ဖိုးတွေကို လက်ခံရရှိပါတယ်။
 $ time go run select.go 
 received one
 received two
 
-# Note that the total execution time is only ~2 seconds
-# since both the 1 and 2 second `Sleeps` execute
-# concurrently.
+# သတိပြုရမှာက စုစုပေါင်း run time က 
+# ~2 စက္ကန့်လောက်ပဲ ကြာပါတယ်။
+# ဘာကြောင့်လဲဆိုတော့ 1 စက္ကန့် နဲ့ 
+# 2 စက္ကန့် `Sleep` နှစ်ခုစလုံးက
+# တပြိုင်နက်တည်း (concurrently) 
+# အလုပ်လုပ်နေလို့ပါ။
 real	0m2.245s

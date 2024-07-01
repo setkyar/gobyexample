@@ -1,6 +1,6 @@
-// Go's _select_ lets you wait on multiple channel
-// operations. Combining goroutines and channels with
-// select is a powerful feature of Go.
+// Go ရဲ့ *select* က သင့်ကို channel operation အများကြီးကို
+// တပြိုင်နက်တည်း စောင့်ဆိုင်းခွင့်ပေးပါတယ်။ Goroutine တွေနဲ့ channel တွေကို
+// select နဲ့ ပေါင်းစပ်အသုံးပြုခြင်းဟာ Go ရဲ့ စွမ်းအားကြီးမားတဲ့ feature တစ်ခုဖြစ်ပါတယ်။
 
 package main
 
@@ -11,13 +11,13 @@ import (
 
 func main() {
 
-	// For our example we'll select across two channels.
+	// ဒီဥပမာမှာ ကျွန်တော်တို့က channel နှစ်ခုကို select လုပ်မှာပါ။
 	c1 := make(chan string)
 	c2 := make(chan string)
 
-	// Each channel will receive a value after some amount
-	// of time, to simulate e.g. blocking RPC operations
-	// executing in concurrent goroutines.
+	// Channel တစ်ခုချင်းစီက တန်ဖိုးတစ်ခုကို အချိန်အနည်းငယ်ကြာပြီးမှ လက်ခံရရှိပါမယ်။
+	// ဒါဟာ ဥပမာအားဖြင့် concurrent goroutine တွေမှာ အလုပ်လုပ်နေတဲ့
+	// blocking RPC operation တွေကို simulate လုပ်တာပါ။
 	go func() {
 		time.Sleep(1 * time.Second)
 		c1 <- "one"
@@ -27,8 +27,8 @@ func main() {
 		c2 <- "two"
 	}()
 
-	// We'll use `select` to await both of these values
-	// simultaneously, printing each one as it arrives.
+	// ကျွန်တော်တို့က `select` ကို သုံးပြီး ဒီတန်ဖိုးနှစ်ခုစလုံးကို တပြိုင်နက်တည်း
+	// စောင့်ဆိုင်းမှာဖြစ်ပြီး၊ တန်ဖိုးတစ်ခုချင်းစီ ရောက်လာတိုင်း print ထုတ်ပါမယ်။
 	for i := 0; i < 2; i++ {
 		select {
 		case msg1 := <-c1:
