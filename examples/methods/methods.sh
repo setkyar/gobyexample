@@ -4,5 +4,6 @@ perim: 30
 area:  50
 perim: 30
 
-# Next we'll look at Go's mechanism for grouping and
-# naming related sets of methods: interfaces.
+# နောက်တစ်ဆင့်မှာ ဆက်စပ်နေတဲ့ method တွေကို ပေါင်းပီး
+# အမည်ပေး (naming) လုပ်တဲ့ Go ရဲ့ interface 
+# တွေအကြောင်း ကြည့်ကြပါမယ်။
