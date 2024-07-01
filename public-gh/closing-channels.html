@@ -27,9 +27,9 @@
         
         <tr>
           <td class="docs">
-            <p><em>Closing</em> a channel indicates that no more values
-will be sent on it. This can be useful to communicate
-completion to the channel&rsquo;s receivers.</p>
+            <p>Channel တစ်ခုကို <em>ပိတ်လိုက်ခြင်း (Closing)</em> က အဲဒီ channel ပေါ်မှာ နောက်ထပ်တန်ဖိုးတွေ
+ပို့တော့မှာ မဟုတ်ဘူးဆိုတာကို ပြောလိုက်တာပါ။ ဒါက channel ကနေ လက်ခံနေသူတွေဆီကို
+ပြီးဆုံးကြောင်း အသိပေးဖို့ အသုံးဝင်ပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -43,7 +43,7 @@ completion to the channel&rsquo;s receivers.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/vCvRjcMq7p3"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/9SQFcddP-Xw"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -62,10 +62,9 @@ completion to the channel&rsquo;s receivers.</p>
         
         <tr>
           <td class="docs">
-            <p>In this example we&rsquo;ll use a <code>jobs</code> channel to
-communicate work to be done from the <code>main()</code> goroutine
-to a worker goroutine. When we have no more jobs for
-the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
+            <p>ဒီဥပမာမှာ <code>main()</code> goroutine ကနေ worker goroutine ဆီကို
+လုပ်ဆောင်ရမယ့် အလုပ်တွေကို ဆက်သွယ်ပေးပို့ဖို့ <code>jobs</code> channel ကို သုံးပါမယ်။
+Worker အတွက် နောက်ထပ်အလုပ်မရှိတော့တဲ့အခါ <code>jobs</code> channel ကို <code>close</code> လုပ်ပါမယ်။</p>
 
           </td>
           <td class="code leading">
@@ -80,13 +79,11 @@ the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the worker goroutine. It repeatedly receives
-from <code>jobs</code> with <code>j, more := &lt;-jobs</code>. In this
-special 2-value form of receive, the <code>more</code> value
-will be <code>false</code> if <code>jobs</code> has been <code>close</code>d and all
-values in the channel have already been received.
-We use this to notify on <code>done</code> when we&rsquo;ve worked
-all our jobs.</p>
+            <p>ဒါက worker goroutine ပါ။ သူက <code>jobs</code> ကနေ <code>j, more := &lt;-jobs</code> နဲ့
+ထပ်ခါထပ်ခါ လက်ခံပါတယ်။ ဒီ special 2-value ပုံစံ လက်ခံမှုမှာ၊ <code>jobs</code> က
+<code>close</code> ခံထားရပြီး channel ထဲက တန်ဖိုးအားလုံး လက်ခံပြီးသွားရင်
+<code>more</code> တန်ဖိုးက <code>false</code> ဖြစ်သွားပါမယ်။ အလုပ်အားလုံး လုပ်ပြီးသွားတဲ့အခါ
+<code>done</code> ပေါ်မှာ အသိပေး (notify) ဖို့ ဒီနည်းကို သုံးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -110,8 +107,8 @@ all our jobs.</p>
         
         <tr>
           <td class="docs">
-            <p>This sends 3 jobs to the worker over the <code>jobs</code>
-channel, then closes it.</p>
+            <p>ဒါက worker ဆီကို <code>jobs</code> channel ကနေ အလုပ် 3 ခု ပို့ပြီး
+နောက်ဆုံးမှာ channel ကို ပိတ်လိုက်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -129,9 +126,8 @@ channel, then closes it.</p>
         
         <tr>
           <td class="docs">
-            <p>We await the worker using the
-<a href="channel-synchronization">synchronization</a> approach
-we saw earlier.</p>
+            <p>အရင်က တွေ့ခဲ့တဲ့ <a href="channel-synchronization">synchronization</a> နည်းလမ်းကို
+သုံးပြီး worker ကို စောင့်ပါတယ်။</p>
 
           </td>
           <td class="code">
@@ -167,8 +163,8 @@ we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>The idea of closed channels leads naturally to our next
-example: <code>range</code> over channels.</p>
+            <p>Channel တွေကို ပိတ်တဲ့ သဘောတရားက နောက်ဥပမာဖြစ်တဲ့
+channel တွေပေါ်မှာ <code>range</code> သုံးတာဆီကို ဦးတည်သွားပါတယ်။</p>
 
           </td>
           <td class="code empty">

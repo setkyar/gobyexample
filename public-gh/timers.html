@@ -27,11 +27,11 @@
         
         <tr>
           <td class="docs">
-            <p>We often want to execute Go code at some point in the
-future, or repeatedly at some interval. Go&rsquo;s built-in
-<em>timer</em> and <em>ticker</em> features make both of these tasks
-easy. We&rsquo;ll look first at timers and then
-at <a href="tickers">tickers</a>.</p>
+            <p>ကျွန်တော်တို့က Go code ကို အနာဂတ်မှာ တစ်ချိန်ချိန်မှာ သို့မဟုတ်
+သတ်မှတ်ထားတဲ့ အချိန်ကြားတွေမှာ ထပ်ခါထပ်ခါ run ချင်တာ မကြာခဏ ရှိတတ်ပါတယ်။
+Go ရဲ့ built-in <em>timer</em> နဲ့ <em>ticker</em> feature တွေက ဒီအလုပ်နှစ်ခုစလုံးကို
+လွယ်ကူစေပါတယ်။ ပထမဆုံး timer ကိုကြည့်ပြီး
+နောက်မှ <a href="tickers">ticker</a> ကို ကြည့်ပါမယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ at <a href="tickers">tickers</a>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/gF7VLRz3URM"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/keFDwyupOK5"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -78,10 +78,10 @@ at <a href="tickers">tickers</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>Timers represent a single event in the future. You
-tell the timer how long you want to wait, and it
-provides a channel that will be notified at that
-time. This timer will wait 2 seconds.</p>
+            <p>Timer တွေက အနာဂတ်မှာ ဖြစ်မယ့် event တစ်ခုကို ကိုယ်စားပြုပါတယ်။
+သင်က timer ကို ဘယ်လောက်ကြာကြာ စောင့်ချင်လဲဆိုတာ ပြောပြပြီး
+အဲဒီအချိန်ရောက်ရင် အသိပေးမယ့် channel တစ်ခုကို ရပါတယ်။
+ဒီ timer က 2 စက္ကန့် စောင့်ပါမယ်။</p>
 
           </td>
           <td class="code leading">
@@ -94,9 +94,8 @@ time. This timer will wait 2 seconds.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&lt;-timer1.C</code> blocks on the timer&rsquo;s channel <code>C</code>
-until it sends a value indicating that the timer
-fired.</p>
+            <p><code>&lt;-timer1.C</code> က timer ရဲ့ channel <code>C</code> ပေါ်မှာ block လုပ်ထားပြီး
+timer fired ဖြစ်ကြောင်း ညွှန်ပြတဲ့ တန်ဖိုးတစ်ခု ပို့လာတဲ့အထိ စောင့်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -110,10 +109,9 @@ fired.</p>
         
         <tr>
           <td class="docs">
-            <p>If you just wanted to wait, you could have used
-<code>time.Sleep</code>. One reason a timer may be useful is
-that you can cancel the timer before it fires.
-Here&rsquo;s an example of that.</p>
+            <p>အကယ်၍ စောင့်ဆိုင်းချင်ရုံသက်သက်ဆိုရင် <code>time.Sleep</code> ကိုလည်း သုံးနိုင်ပါတယ်။
+Timer သုံးတာရဲ့ အကျိုးကျေးဇူးတစ်ခုကတော့ timer မ fired ခင် cancel လုပ်လို့ရတာပါ။
+အောက်မှာ ဥပမာတစ်ခု ပြထားပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -134,8 +132,8 @@ Here&rsquo;s an example of that.</p>
         
         <tr>
           <td class="docs">
-            <p>Give the <code>timer2</code> enough time to fire, if it ever
-was going to, to show it is in fact stopped.</p>
+            <p><code>timer2</code> က တကယ်လို့ အလုပ်လုပ်မယ်ဆိုရင် လုပ်နိုင်အောင် လုံလောက်တဲ့အချိန်ပေးထားပါတယ်။
+ဒါပေမယ့် တကယ်တမ်း ရပ်တန့်သွားပြီ (stop) ဆိုတာကိုပြတာပါ။</p>
 
           </td>
           <td class="code">
@@ -153,9 +151,9 @@ was going to, to show it is in fact stopped.</p>
         
         <tr>
           <td class="docs">
-            <p>The first timer will fire ~2s after we start the
-program, but the second should be stopped before it has
-a chance to fire.</p>
+            <p>ပထမ timer က ပရိုဂရမ်စတင်ပြီး ~2 စက္ကန့်လောက်မှာ အလုပ်လုပ်ပါလိမ့်မယ်၊
+ဒါပေမယ့် ဒုတိယ timer ကတော့ အလုပ်လုပ်ဖို့ အခွင့်အရေးမရခင်
+ရပ်တန့်သွားပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code">

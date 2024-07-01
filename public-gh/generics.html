@@ -27,8 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>Starting with version 1.18, Go has added support for
-<em>generics</em>, also known as <em>type parameters</em>.</p>
+            <p>Version 1.18 ကစပြီး Go မှာ <em>generics</em> (သို့) <em>type parameters</em> လို့လည်းခေါ်တဲ့
+feature ကိုထည့်သွင်း support လုပ်ထားပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +42,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/uXlb-AyeYmQ"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/IQhCPyH1pP3"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -61,14 +61,14 @@
         
         <tr>
           <td class="docs">
-            <p>As an example of a generic function, <code>MapKeys</code> takes
-a map of any type and returns a slice of its keys.
-This function has two type parameters - <code>K</code> and <code>V</code>;
-<code>K</code> has the <code>comparable</code> <em>constraint</em>, meaning that
-we can compare values of this type with the <code>==</code> and
-<code>!=</code> operators. This is required for map keys in Go.
-<code>V</code> has the <code>any</code> constraint, meaning that it&rsquo;s not
-restricted in any way (<code>any</code> is an alias for <code>interface{}</code>).</p>
+            <p>Generic function ရဲ့ ဥပမာအနေနဲ့၊ <code>MapKeys</code> က map ရဲ့ဘယ်လို type မျိုးကိုမဆို လက်ခံပြီး
+သူ့ရဲ့ key တွေကို slice အဖြစ် ပြန်ပေးပါတယ်။
+ဒီ function မှာ type parameter နှစ်ခုရှိပါတယ် - <code>K</code> နဲ့ <code>V</code>။
+<code>K</code> မှာ <code>comparable</code> ဆိုတဲ့ <em>constraint</em> ရှိပါတယ်၊ ဆိုလိုတာက
+ဒီ type ရဲ့ တန်ဖိုးတွေကို <code>==</code> နဲ့ <code>!=</code> operator တွေနဲ့ နှိုင်းယှဉ်လို့ရပါတယ်။
+ဒါက Go မှာ map key တွေအတွက် လိုအပ်ချက်တစ်ခုဖြစ်ပါတယ်။
+<code>V</code> မှာတော့ <code>any</code> constraint ရှိပါတယ်၊ ဆိုလိုတာက သူ့ကို ဘာမှ ကန့်သတ်မထားဘူးဆိုတာပါ
+(<code>any</code> က <code>interface{}</code> ရဲ့ alias ဖြစ်ပါတယ်)။</p>
 
           </td>
           <td class="code leading">
@@ -87,8 +87,8 @@ restricted in any way (<code>any</code> is an alias for <code>interface{}</code>
         
         <tr>
           <td class="docs">
-            <p>As an example of a generic type, <code>List</code> is a
-singly-linked list with values of any type.</p>
+            <p>Generic type ရဲ့ ဥပမာအနေနဲ့၊ <code>List</code> ရဲ့ values တွေက any type ဖြစ်တဲ့
+singly-linked list တစ်ခုဖြစ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -117,9 +117,8 @@ singly-linked list with values of any type.</p>
         
         <tr>
           <td class="docs">
-            <p>We can define methods on generic types just like we
-do on regular types, but we have to keep the type
-parameters in place. The type is <code>List[T]</code>, not <code>List</code>.</p>
+            <p>ပုံမှန် type တွေမှာလိုပဲ generic type တွေမှာလည်း method တွေ သတ်မှတ်လို့ရပါတယ်၊
+ဒါပေမယ့် type parameter တွေကို ထည့်ထားဖို့လိုပါတယ်။ Type က <code>List[T]</code> ဖြစ်ပြီး <code>List</code> မဟုတ်ပါဘူး။</p>
 
           </td>
           <td class="code leading">
@@ -169,11 +168,9 @@ parameters in place. The type is <code>List[T]</code>, not <code>List</code>.</p
         
         <tr>
           <td class="docs">
-            <p>When invoking generic functions, we can often rely
-on <em>type inference</em>. Note that we don&rsquo;t have to
-specify the types for <code>K</code> and <code>V</code> when
-calling <code>MapKeys</code> - the compiler infers them
-automatically.</p>
+            <p>Generic function တွေကို ခေါ်သုံးတဲ့အခါ၊ <em>type inference</em> ကို အားကိုးနိုင်ပါတယ်။
+<code>MapKeys</code> ကို ခေါ်တဲ့အခါ <code>K</code> နဲ့ <code>V</code> အတွက် type တွေကို သတ်မှတ်ပေးစရာမလိုတာကို သတိထားပါ -
+compiler က သူ့ဘာသာ အလိုအလျောက် ခန့်မှန်းပေးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -186,7 +183,7 @@ automatically.</p>
         
         <tr>
           <td class="docs">
-            <p>&hellip; though we could also specify them explicitly.</p>
+            <p>&hellip; ဒါပေမယ့် လိုချင်ရင်တော့ တိတိကျကျ သတ်မှတ်ပေးလို့လည်း ရပါတယ်။</p>
 
           </td>
           <td class="code leading">
