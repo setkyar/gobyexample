@@ -27,14 +27,13 @@
         
         <tr>
           <td class="docs">
-            <p>A Go string is a read-only slice of bytes. The language
-and the standard library treat strings specially - as
-containers of text encoded in <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>.
-In other languages, strings are made of &ldquo;characters&rdquo;.
-In Go, the concept of a character is called a <code>rune</code> - it&rsquo;s
-an integer that represents a Unicode code point.
-<a href="https://go.dev/blog/strings">This Go blog post</a> is a good
-introduction to the topic.</p>
+            <p>Go string ဆိုတာ read-only byte slice တစ်ခုဖြစ်ပါတယ်။ Go language နဲ့
+standard library က string တွေကို encoded <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a> (containers of text) အဖြစ်ဖြစ်
+special အနေဖြင့်အသုံးပြုပါတယ်။
+တခြား language တွေမှာ string တွေက &ldquo;character&rdquo; တွေနဲ့ ဖွဲ့စည်းထားပါတယ်။
+Go မှာတော့ character ဆိုတဲ့ သဘောတရားကို <code>rune</code> လို့ခေါ်ပါတယ် -
+Unicode code point တစ်ခုကို ကိုယ်စားပြုတဲ့ integer တစ်ခုပါ။
+<a href="https://go.dev/blog/strings">ဒီ Go blog post</a> က ဒီအကြောင်းအရာနှင့်ပတ်သတ်တာကိုသေချာ မိတ်ဆက်ထားပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +47,7 @@ introduction to the topic.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/39BpTLf6BAz"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/2ycQ4YDwTk-"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -81,10 +80,9 @@ introduction to the topic.</p>
         
         <tr>
           <td class="docs">
-            <p><code>s</code> is a <code>string</code> assigned a literal value
-representing the word &ldquo;hello&rdquo; in the Thai
-language. Go string literals are UTF-8
-encoded text.</p>
+            <p><code>s</code> က ထိုင်းဘာသာစကားဖြင့် &ldquo;hello&rdquo; လို့ရေးထားတဲ့ literal value ကို assign လုပ်ထားတဲ့
+<code>string</code> တစ်ခုဖြစ်ပါတယ်။ Go string literal တွေဟာ UTF-8 နဲ့
+encode လုပ်ထားတဲ့ စာသားတွေဖြစ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -97,8 +95,8 @@ encoded text.</p>
         
         <tr>
           <td class="docs">
-            <p>Since strings are equivalent to <code>[]byte</code>, this
-will produce the length of the raw bytes stored within.</p>
+            <p>String တွေဟာ <code>[]byte</code> နဲ့ တူညီတဲ့အတွက်၊ ဒီကုဒ်က
+သိမ်းဆည်းထားတဲ့ raw byte တွေရဲ့ အရေအတွက်ကို ပြပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -111,9 +109,8 @@ will produce the length of the raw bytes stored within.</p>
         
         <tr>
           <td class="docs">
-            <p>Indexing into a string produces the raw byte values at
-each index. This loop generates the hex values of all
-the bytes that constitute the code points in <code>s</code>.</p>
+            <p>String ထဲကို indexing လုပ်ခြင်းဟာ တစ်ခုချင်းစီရဲ့ index မှာရှိတဲ့ raw byte တန်ဖိုးတွေကို ထုတ်ပေးပါတယ်။
+ဒီ loop က <code>s</code> ထဲမှာပါတဲ့ code point တွေကို ဖွဲ့စည်းထားတဲ့ byte အားလုံးရဲ့ hex တန်ဖိုးတွေကို ထုတ်ပေးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -129,12 +126,11 @@ the bytes that constitute the code points in <code>s</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>To count how many <em>runes</em> are in a string, we can use
-the <code>utf8</code> package. Note that the run-time of
-<code>RuneCountInString</code> depends on the size of the string,
-because it has to decode each UTF-8 rune sequentially.
-Some Thai characters are represented by multiple UTF-8
-code points, so the result of this count may be surprising.</p>
+            <p>String တစ်ခုထဲမှာ <em>rune</em> ဘယ်နှစ်ခုပါလဲဆိုတာ ရေတွက်ဖို့ <code>utf8</code> package ကို သုံးနိုင်ပါတယ်။
+<code>RuneCountInString</code> ရဲ့ run-time က string ရဲ့ အရွယ်အစားပေါ်မှာ မူတည်ပါတယ်။
+ဘာကြောင့်လဲဆိုတော့ UTF-8 rune တိုင်းကို တစ်ခုချင်းစီ decode လုပ်ရလို့ပါ။
+ထိုင်းစာလုံးအချို့ဟာ UTF-8 code point တွေအများကြီးနဲ့ ဖွဲ့စည်းထားတာမို့
+ဒီရေတွက်မှုရဲ့ ရလဒ်က အံ့ဩစရာ (surprising) ဖြစ်နိုင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -147,8 +143,8 @@ code points, so the result of this count may be surprising.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>range</code> loop handles strings specially and decodes
-each <code>rune</code> along with its offset in the string.</p>
+            <p><code>range</code> loop က string တွေကို
+<code>rune</code> တိုင်းကို သူ့ရဲ့ string ထဲက offset နဲ့အတူ decode လုပ်ပီး handle လုပ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -163,8 +159,8 @@ each <code>rune</code> along with its offset in the string.</p>
         
         <tr>
           <td class="docs">
-            <p>We can achieve the same iteration by using the
-<code>utf8.DecodeRuneInString</code> function explicitly.</p>
+            <p><code>utf8.DecodeRuneInString</code> function ကို အသုံးပြုပြီးလည်း
+အထက်ကလိုမျိုး iteration လုပ်လို့ရပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -181,7 +177,7 @@ each <code>rune</code> along with its offset in the string.</p>
         
         <tr>
           <td class="docs">
-            <p>This demonstrates passing a <code>rune</code> value to a function.</p>
+            <p>ဒါက <code>rune</code> တန်ဖိုးတစ်ခုကို function ဆီသို့ pass လုပ်တာကို ပြသပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -196,7 +192,9 @@ each <code>rune</code> along with its offset in the string.</p>
         
         <tr>
           <td class="docs">
-            
+            <p>Single quote နဲ့ ဝိုင်းထားတဲ့ value တွေက rune literals ဖြစ်ပါတယ်။
+<code>rune</code> တန်ဖိုးတစ်ခုကို rune literal နဲ့ တိုက်ရိုက်နှိုင်းယှဉ်လို့ရပါတယ်။</p>
+
           </td>
           <td class="code leading">
             
@@ -207,14 +205,11 @@ each <code>rune</code> along with its offset in the string.</p>
         
         <tr>
           <td class="docs">
-            <p>Values enclosed in single quotes are <em>rune literals</em>. We
-can compare a <code>rune</code> value to a rune literal directly.</p>
-
+            
           </td>
           <td class="code">
             
-          <pre class="chroma">
-    <span class="k">if</span> <span class="nx">r</span> <span class="o">==</span> <span class="sc">&#39;t&#39;</span> <span class="p">{</span>
+          <pre class="chroma">    <span class="k">if</span> <span class="nx">r</span> <span class="o">==</span> <span class="sc">&#39;t&#39;</span> <span class="p">{</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;found tee&#34;</span><span class="p">)</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">r</span> <span class="o">==</span> <span class="sc">&#39;ส&#39;</span> <span class="p">{</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;found so sua&#34;</span><span class="p">)</span>
