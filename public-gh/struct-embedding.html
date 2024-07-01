@@ -27,11 +27,10 @@
         
         <tr>
           <td class="docs">
-            <p>Go supports <em>embedding</em> of structs and interfaces
-to express a more seamless <em>composition</em> of types.
-This is not to be confused with <code>//go:embed</code> which is
-a go directive introduced in Go version 1.16+ to embed
-files and folders into the application binary.</p>
+            <p>Go က struct နဲ့ interface တွေကို <em>embedding</em> လုပ်ခြင်းအားဖြင့်
+type တွေရဲ့ <em>composition</em> ကို ပိုမိုချောမွေ့စွာ ဖော်ပြနိုင်ပါတယ်။
+ဒါကို Go version 1.16+ မှာ မိတ်ဆက်ထားတဲ့ <code>//go:embed</code> directive နဲ့ မတူပါဘူး၊
+အဲဒီ directive က file နဲ့ folder တွေကို application binary ထဲ embed လုပ်ဖို့သုံးတာပါ။</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@ files and folders into the application binary.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/TqMui3hJuX7"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/vlaeBBv3yy4"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -90,8 +89,8 @@ files and folders into the application binary.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>container</code> <em>embeds</em> a <code>base</code>. An embedding looks
-like a field without a name.</p>
+            <p><code>container</code> က <code>base</code> ကို <em>embeds</em> လုပ်ထားပါတယ်။ Embedding က
+နာမည်မပါတဲ့ field တစ်ခုလိုပုံစံမျိုးပါ။</p>
 
           </td>
           <td class="code leading">
@@ -118,9 +117,9 @@ like a field without a name.</p>
         
         <tr>
           <td class="docs">
-            <p>When creating structs with literals, we have to
-initialize the embedding explicitly; here the
-embedded type serves as the field name.</p>
+            <p>Struct တွေကို literal နဲ့ တည်ဆောက်တဲ့အခါ၊ embedding ကို
+တိတိကျကျ initialize လုပ်ပေးရပါတယ်။ ဒီမှာ
+embed လုပ်ထားတဲ့ type က field name အဖြစ်သုံးထားပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -138,8 +137,8 @@ embedded type serves as the field name.</p>
         
         <tr>
           <td class="docs">
-            <p>We can access the base&rsquo;s fields directly on <code>co</code>,
-e.g. <code>co.num</code>.</p>
+            <p>base ရဲ့ field တွေကို <code>co</code> ကနေ တိုက်ရိုက်သုံးလို့ရပါတယ်။
+ဥပမာ <code>co.num</code></p>
 
           </td>
           <td class="code leading">
@@ -152,8 +151,8 @@ e.g. <code>co.num</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Alternatively, we can spell out the full path using
-the embedded type name.</p>
+            <p>တခြားနည်းအနေနဲ့ embed လုပ်ထားတဲ့ type နာမည်ကို သုံးပြီး
+အပြည့်အစုံရေးလို့ရပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -166,10 +165,9 @@ the embedded type name.</p>
         
         <tr>
           <td class="docs">
-            <p>Since <code>container</code> embeds <code>base</code>, the methods of
-<code>base</code> also become methods of a <code>container</code>. Here
-we invoke a method that was embedded from <code>base</code>
-directly on <code>co</code>.</p>
+            <p><code>container</code> က <code>base</code> ကို embed လုပ်ထားတဲ့အတွက်၊ <code>base</code> ရဲ့ method တွေဟာ
+<code>container</code> ရဲ့ method တွေလည်း ဖြစ်သွားပါတယ်။ ဒီမှာ <code>base</code> ကနေ
+embed လုပ်ထားတဲ့ method ကို <code>co</code> ကနေ တိုက်ရိုက်ခေါ်သုံးထားပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -195,10 +193,10 @@ directly on <code>co</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Embedding structs with methods may be used to bestow
-interface implementations onto other structs. Here
-we see that a <code>container</code> now implements the
-<code>describer</code> interface because it embeds <code>base</code>.</p>
+            <p>Method ပါတဲ့ struct တွေကို embed လုပ်ခြင်းအားဖြင့် တခြား struct တွေမှာ
+interface implementation တွေ ရရှိနိုင်ပါတယ်။ ဒီမှာ <code>container</code> က
+<code>base</code> ကို embed လုပ်ထားတဲ့အတွက် <code>describer</code> interface ကို
+implement လုပ်နေတာကို တွေ့ရပါတယ်။</p>
 
           </td>
           <td class="code">

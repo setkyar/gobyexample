@@ -27,9 +27,10 @@
         
         <tr>
           <td class="docs">
-            <p>Go supports <em><a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">pointers</a></em>,
-allowing you to pass references to values and records
-within your program.</p>
+            <p>Go က pointers တွေကို support လုပ်ပါတယ်။
+Go မှာ pointer ဆိုတာက variable တစ်ခုရဲ့ memory address ကို သိမ်းထားတဲ့ variable လို့ နားလည်နိုင်ပါတယ်။
+Pointer ကိုသုံးပြီးတော့ variable ကို တိုက်ရိုက်တန်ဖိုးမပြင်ဘဲ သွယ်ဝိုက်ပြီး access လုပ်နိုင်ပါတယ်။
+Pointer တွေက variable တစ်ခုကို copy မလုပ်ဘဲ reference ကို pass လုပ်ချင်တဲ့အခါမှာ အသုံးဝင်ပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -43,7 +44,7 @@ within your program.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/OlWCLpxAyBz"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/pBC-DJG5G4A"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -62,11 +63,11 @@ within your program.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll show how pointers work in contrast to values with
-2 functions: <code>zeroval</code> and <code>zeroptr</code>. <code>zeroval</code> has an
-<code>int</code> parameter, so arguments will be passed to it by
-value. <code>zeroval</code> will get a copy of <code>ival</code> distinct
-from the one in the calling function.</p>
+            <p>pointer နဲ့ value သုံးတာ ဘာကွာခြားလဲဆိုတာကို ပြဖို့အတွက် zeroval ဆိုတဲ့ function နဲ့
+zeroptr ဆိုတဲ့ function တွေကို သုံးပြီး ရှင်းပြပါမယ်။ zeroval function က
+<code>int</code> parameter ကို လက်ခံပါတယ်။ ဒီမှာ ကျွန်တော်တို့က parameter မှာ value ထည့်ပေးလိုက်ပါတယ်။
+zeroval function က ival ရဲ့ copy ကို ရရှိပါတယ်။ ဒီ copy က သူ့ကိုခေါ်တဲ့
+function ထဲက ကောင်နဲ့ မတူဘူးဆိုတာကို သတိထားပါ။</p>
 
           </td>
           <td class="code leading">
@@ -81,12 +82,11 @@ from the one in the calling function.</p>
         
         <tr>
           <td class="docs">
-            <p><code>zeroptr</code> in contrast has an <code>*int</code> parameter, meaning
-that it takes an <code>int</code> pointer. The <code>*iptr</code> code in the
-function body then <em>dereferences</em> the pointer from its
-memory address to the current value at that address.
-Assigning a value to a dereferenced pointer changes the
-value at the referenced address.</p>
+            <p>zeroptr function ကတော့ <code>*int</code> parameter ရှိပါတယ်။ ဆိုလိုတာက
+သူက <code>int</code> pointer ကို လက်ခံတယ်လို့ ဆိုလိုပါတယ်။ function ထဲမှာရှိတဲ့ <code>*iptr</code> code က
+pointer ကို သူ့ရဲ့ memory address ကနေ လက်ရှိတန်ဖိုးဆီကို <em>dereference</em> လုပ်ပါတယ်။
+Dereference လုပ်ထားတဲ့ pointer ကို တန်ဖိုးသတ်မှတ်ပေးခြင်းဟာ
+ညွှန်းထားတဲ့ address မှာရှိတဲ့ တန်ဖိုးကို ပြောင်းလဲစေပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -126,8 +126,8 @@ value at the referenced address.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&amp;i</code> syntax gives the memory address of <code>i</code>,
-i.e. a pointer to <code>i</code>.</p>
+            <p><code>&amp;i</code> syntax က <code>i</code> ရဲ့ memory address ကိုပေးပါတယ်။
+တနည်းအားဖြင့် <code>i</code> ရဲ့ pointer ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -141,7 +141,7 @@ i.e. a pointer to <code>i</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Pointers can be printed too.</p>
+            <p>Pointer တွေကို Print ထုတ်ကြည့်လို့ရပါတယ်။</p>
 
           </td>
           <td class="code">
@@ -159,9 +159,12 @@ i.e. a pointer to <code>i</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>zeroval</code> doesn&rsquo;t change the <code>i</code> in <code>main</code>, but
-<code>zeroptr</code> does because it has a reference to
-the memory address for that variable.</p>
+            <p><code>zeroval</code> က <code>main</code> ထဲက <code>i</code>
+ကို မပြောင်းလဲစေပါဘူး၊ ဒါပေမယ့်
+<code>zeroptr</code> ကတော့ ပြောင်းလဲစေပါတယ်။
+ဘာကြောင့်လဲဆိုတော့ သူက
+အဲဒီ variable ရဲ့ memory address
+ကို reference လုပ်ထားလို့ပါ။</p>
 
           </td>
           <td class="code">

@@ -27,8 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p><em>Interfaces</em> are named collections of method
-signatures.</p>
+            <p><em>Interface</em> တွေဆိုတာ method signature တွေကို ပေါင်းပြီး အမည်ပေးထားတာပါ။</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +41,7 @@ signatures.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/XJASG4MxBQr"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/AjbqQjEL5XK"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -64,7 +63,7 @@ signatures.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic interface for geometric shapes.</p>
+            <p>ဒီမှာ ဂျီသြမေတီပုံသဏ္ဍာန်တွေအတွက် အခြေခံ interface တစ်ခုကို သတ်မှတ်ထားပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -80,8 +79,8 @@ signatures.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example we&rsquo;ll implement this interface on
-<code>rect</code> and <code>circle</code> types.</p>
+            <p>ဥပမာအနေနဲ့ ဒီ interface ကို <code>rect</code> နဲ့ <code>circle</code> type တွေမှာ
+implement လုပ်ပါ့မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -99,9 +98,8 @@ signatures.</p>
         
         <tr>
           <td class="docs">
-            <p>To implement an interface in Go, we just need to
-implement all the methods in the interface. Here we
-implement <code>geometry</code> on <code>rect</code>s.</p>
+            <p>Go မှာ interface တစ်ခုကို implement လုပ်ဖို့ဆိုရင် interface ထဲက method အားလုံးကို
+implementလုပ်ဖို့ပဲ လိုပါတယ်။ ဒီမှာ <code>rect</code> အတွက် <code>geometry</code> interface ကို implement လုပ်ထားပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -119,7 +117,7 @@ implement <code>geometry</code> on <code>rect</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>The implementation for <code>circle</code>s.</p>
+            <p><code>circle</code> အတွက် implement လုပ်ထားတာပါ</p>
 
           </td>
           <td class="code leading">
@@ -137,10 +135,9 @@ implement <code>geometry</code> on <code>rect</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>If a variable has an interface type, then we can call
-methods that are in the named interface. Here&rsquo;s a
-generic <code>measure</code> function taking advantage of this
-to work on any <code>geometry</code>.</p>
+            <p>Variable တစ်ခုက interface type ဖြစ်နေရင် အဲဒီ interface ထဲက method တွေကို ခေါ်သုံးလို့ရပါတယ်။
+ဒီမှာ <code>measure</code> ဆိုတဲ့ generic function တစ်ခုက ဒီအချက်ကို အသုံးချပြီး
+မည်သည့် <code>geometry</code> function မဆို အလုပ်လုပ်နိုင်အောင် ရေးထားပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -170,10 +167,9 @@ to work on any <code>geometry</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>circle</code> and <code>rect</code> struct types both
-implement the <code>geometry</code> interface so we can use
-instances of
-these structs as arguments to <code>measure</code>.</p>
+            <p><code>circle</code> နဲ့ <code>rect</code> struct type နှစ်ခုစလုံးက <code>geometry</code> interface ကို
+implement လုပ်ထားတဲ့အတွက် သူတို့ရဲ့ instance တွေကို <code>measure</code> function ရဲ့
+argument အဖြစ် သုံးလို့ရပါတယ်။</p>
 
           </td>
           <td class="code">
@@ -208,8 +204,8 @@ these structs as arguments to <code>measure</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>To learn more about Go&rsquo;s interfaces, check out this
-<a href="https://jordanorelli.tumblr.com/post/32665860244/how-to-use-interfaces-in-go">great blog post</a>.</p>
+            <p>Go ရဲ့ interface တွေအကြောင်း ပိုမိုလေ့လာချင်ရင်
+ဒီ <a href="https://jordanorelli.tumblr.com/post/32665860244/how-to-use-interfaces-in-go">great blog post</a> ကို ဖတ်ကြည့်ပါ။</p>
 
           </td>
           <td class="code empty">
