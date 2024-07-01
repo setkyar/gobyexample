@@ -1,7 +1,7 @@
-// Basic sends and receives on channels are blocking.
-// However, we can use `select` with a `default` clause to
-// implement _non-blocking_ sends, receives, and even
-// non-blocking multi-way `select`s.
+// Channel တွေပေါ်မှာ အခြေခံ ပို့တာ(send)နဲ့ လက်ခံတာ (receive) တွေက blocking ဖြစ်ပါတယ်။
+// ဒါပေမယ့် `select` နဲ့ `default` clause ကိုသုံးပြီး `non-blocking` ပို့တာ၊
+// လက်ခံတာ၊ ဒါ့အပြင် non-blocking multi-way `select` တွေကိုတောင်
+// implement လုပ်နိုင်ပါတယ်။
 
 package main
 
@@ -11,10 +11,9 @@ func main() {
 	messages := make(chan string)
 	signals := make(chan bool)
 
-	// Here's a non-blocking receive. If a value is
-	// available on `messages` then `select` will take
-	// the `<-messages` `case` with that value. If not
-	// it will immediately take the `default` case.
+	// ဒါက non-blocking လက်ခံမှုပါ။ `messages` မှာ တန်ဖိုးတစ်ခု အဆင်သင့်ရှိနေရင်
+	// `select` က အဲဒီတန်ဖိုးနဲ့အတူ `<-messages` `case` ကို ယူပါလိမ့်မယ်။
+	// မရှိဘူးဆိုရင်တော့ ချက်ချင်း `default` case ကို ယူပါလိမ့်မယ်။
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
@@ -22,10 +21,10 @@ func main() {
 		fmt.Println("no message received")
 	}
 
-	// A non-blocking send works similarly. Here `msg`
-	// cannot be sent to the `messages` channel, because
-	// the channel has no buffer and there is no receiver.
-	// Therefore the `default` case is selected.
+	// Non-blocking ပို့မှုကလည်း အပေါ်ကလိုဘဲ အလုပ်လုပ်ပါတယ်။ ဒီမှာ `msg` ကို
+	// `messages` channel ဆီ ပို့လို့မရပါဘူး၊ ဘာလို့လဲဆိုတော့
+	// channel မှာ buffer မရှိသလို လက်ခံမယ့်သူလည်း မရှိလို့ပါ။
+	// ဒါကြောင့် `default` case ကို ရွေးချယ်ပါတယ်။
 	msg := "hi"
 	select {
 	case messages <- msg:
@@ -34,10 +33,9 @@ func main() {
 		fmt.Println("no message sent")
 	}
 
-	// We can use multiple `case`s above the `default`
-	// clause to implement a multi-way non-blocking
-	// select. Here we attempt non-blocking receives
-	// on both `messages` and `signals`.
+	// `default` clause ရဲ့အပေါ်မှာ `case` အများကြီးသုံးပြီး
+	// multi-way non-blocking select ကို implement လုပ်နိုင်ပါတယ်။
+	// ဒီမှာ `messages` နဲ့ `signals` နှစ်ခုလုံးကနေ non-blocking လက်ခံဖို့ ကြိုးစားပါတယ်။
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
