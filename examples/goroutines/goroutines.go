@@ -1,4 +1,4 @@
-// A _goroutine_ is a lightweight thread of execution.
+// _goroutine_ ဆိုတာ ပေါ့ပါးတဲ့ execution thread တစ်ခုဖြစ်ပါတယ်။
 
 package main
 
@@ -15,25 +15,21 @@ func f(from string) {
 
 func main() {
 
-	// Suppose we have a function call `f(s)`. Here's how
-	// we'd call that in the usual way, running it
-	// synchronously.
+	// `f(s)` ဆိုတဲ့ function ရှိတယ်ထားပါတော့ ဒီမှာ ပုံမှန်အတိုင်း
+	// synchronous(တပြိုင်နက်တည်း) ခေါ်တာကို ပြထားပါတယ်။
 	f("direct")
 
-	// To invoke this function in a goroutine, use
-	// `go f(s)`. This new goroutine will execute
-	// concurrently with the calling one.
+	// ဒီ function ကို goroutine အနေနဲ့ ခေါ်ချင်ရင် `go f(s)` လို့သုံးပါတယ်။
+	// ဒီ goroutine အသစ်က ခေါ်လိုက်တဲ့ goroutine နဲ့ တပြိုင်နက်တည်း (concurrently) အလုပ်လုပ်ပါလိမ့်မယ်။
 	go f("goroutine")
 
-	// You can also start a goroutine for an anonymous
-	// function call.
+	// Anonymous function ကိုလည်း goroutine အနေနဲ့ စတင်နိုင်ပါတယ်။
 	go func(msg string) {
 		fmt.Println(msg)
 	}("going")
 
-	// Our two function calls are running asynchronously in
-	// separate goroutines now. Wait for them to finish
-	// (for a more robust approach, use a [WaitGroup](waitgroups)).
+	// အခု ကျွန်တော်တို့ရဲ့ function ခေါ်တာ နှစ်ခုက သီးခြား goroutine တွေမှာ asynchronous (တပြိုင်နက်တည်းမဟုတ်) အနေနဲ့ အလုပ်လုပ်နေပါပြီ။
+	// သူတို့ပြီးဆုံးတာကို စောင့်နေတာပါ (ပို robust approach တွေအတွက်ကတော့ [WaitGroup](waitgroups) ကို သုံးပါ)။
 	time.Sleep(time.Second)
 	fmt.Println("done")
 }
