@@ -1,11 +1,8 @@
-// In Go it's idiomatic to communicate errors via an
-// explicit, separate return value. This contrasts with
-// the exceptions used in languages like Java and Ruby and
-// the overloaded single result / error value sometimes
-// used in C. Go's approach makes it easy to see which
-// functions return errors and to handle them using the
-// same language constructs employed for any other,
-// non-error tasks.
+// Go မှာ error တွေကို သီးခြား return value တစ်ခုအနေနဲ့ ပြန်ပေးတာက ပုံမှန်လုပ်နည်းလုပ်ဟန်ဖြစ်ပါတယ်။
+// သူက Java နဲ့ Ruby လို language တွေမှာသုံးတဲ့ exception တွေနဲ့ ကွာခြားပြီး
+// C မှာ တစ်ခါတစ်ရံသုံးတဲ့ ရလဒ်တစ်ခုတည်းကို error value အဖြစ်လည်း သုံးတဲ့နည်းနဲ့လည်း မတူပါဘူး။
+// Go ရဲ့နည်းလမ်းက ဘယ် function တွေက error ပြန်ပေးသလဲဆိုတာ မြင်သာစေပြီး
+// တခြား non-error အလုပ်တွေမှာသုံးတဲ့ go ရဲ့ construct တွေနဲ့ပဲ error တွေကို ကိုင်တွယ်လို့ရအောင် လုပ်ပေးပါတယ်။
 
 package main
 
@@ -14,26 +11,25 @@ import (
 	"fmt"
 )
 
-// By convention, errors are the last return value and
-// have type `error`, a built-in interface.
+// convention အရ၊ error တွေဟာ နောက်ဆုံး return value ဖြစ်ပြီး
+// built-in interface ဖြစ်တဲ့ `error` type ဖြစ်ပါတယ်။
 func f1(arg int) (int, error) {
 	if arg == 42 {
 
-		// `errors.New` constructs a basic `error` value
-		// with the given error message.
+		// `errors.New` က ပေးလိုက်တဲ့ error message နဲ့အတူ
+		// အခြေခံ `error` value တစ်ခုကို တည်ဆောက်ပေးပါတယ်။
 		return -1, errors.New("can't work with 42")
 
 	}
 
-	// A `nil` value in the error position indicates that
-	// there was no error.
+	// Error position မှာ `nil` value ရှိနေတာက
+	// error မရှိဘူးဆိုတာပါ။
 	return arg + 3, nil
 }
 
-// It's possible to use custom types as `error`s by
-// implementing the `Error()` method on them. Here's a
-// variant on the example above that uses a custom type
-// to explicitly represent an argument error.
+// Custom type တွေကို `Error()` method ကို implement လုပ်ပီးတော့
+// `error` အဖြစ် သုံးလို့ရပါတယ်။ ဒီမှာ အပေါ်က ဥပမာရဲ့ ပုံစံကွဲတစ်ခုကို ပြထားပါတယ်။
+// ဒီဥပမာမှာ argument error ကို ကိုယ်စားပြုဖို့ custom type တစ်ခုကို အသုံးပြုထားပါတယ်။
 type argError struct {
 	arg  int
 	prob string
@@ -46,9 +42,8 @@ func (e *argError) Error() string {
 func f2(arg int) (int, error) {
 	if arg == 42 {
 
-		// In this case we use `&argError` syntax to build
-		// a new struct, supplying values for the two
-		// fields `arg` and `prob`.
+		// ဒီနေရာမှာ `&argError` syntax ကို သုံးပြီး struct အသစ်တစ်ခု တည်ဆောက်ထားပါတယ်။
+		// `arg` နဲ့ `prob` ဆိုတဲ့ field နှစ်ခုအတွက် တန်ဖိုးတွေ ပေးထားပါတယ်။
 		return -1, &argError{arg, "can't work with it"}
 	}
 	return arg + 3, nil
@@ -56,10 +51,8 @@ func f2(arg int) (int, error) {
 
 func main() {
 
-	// The two loops below test out each of our
-	// error-returning functions. Note that the use of an
-	// inline error check on the `if` line is a common
-	// idiom in Go code.
+	// အောက်က loop နှစ်ခုက ကျွန်တော်တို့ရဲ့ error-returning function နှစ်ခုစလုံးကို စမ်းသပ်ထားပါတယ်။
+	// သတိထားရမှာက `if` line မှာ inline error check သုံးထားတာဟာ Go code မှာ ပုံမှန်သုံးနေကျ ပုံစံတစ်ခုဖြစ်ပါတယ်။
 	for _, i := range []int{7, 42} {
 		if r, e := f1(i); e != nil {
 			fmt.Println("f1 failed:", e)
@@ -75,10 +68,8 @@ func main() {
 		}
 	}
 
-	// If you want to programmatically use the data in
-	// a custom error, you'll need to get the error as an
-	// instance of the custom error type via type
-	// assertion.
+	// Custom error ထဲက data ကို programmatically သုံးချင်ရင်၊
+	// type assertion သုံးပြီး error ကို custom error type ရဲ့ instance အဖြစ် ရယူရပါမယ်။
 	_, e := f2(42)
 	if ae, ok := e.(*argError); ok {
 		fmt.Println(ae.arg)
