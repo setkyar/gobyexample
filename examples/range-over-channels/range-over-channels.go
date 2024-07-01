@@ -1,7 +1,6 @@
-// In a [previous](range) example we saw how `for` and
-// `range` provide iteration over basic data structures.
-// We can also use this syntax to iterate over
-// values received from a channel.
+// [ယခင်](range) ဥပမာမှာ `for` နဲ့ `range` က အခြေခံ data structure တွေကို
+// ဘယ်လို iterate လုပ်သလဲဆိုတာ တွေ့ခဲ့ပါတယ်။ ဒီ syntax ကိုပဲ channel ကနေ
+// လက်ခံရရှိတဲ့ တန်ဖိုးတွေကို iterate လုပ်ဖို့လည်း သုံးနိုင်ပါတယ်။
 
 package main
 
@@ -9,16 +8,15 @@ import "fmt"
 
 func main() {
 
-	// We'll iterate over 2 values in the `queue` channel.
+	// `queue` channel ထဲက တန်ဖိုး 2 ခုကို iterate လုပ်ပါမယ်။
 	queue := make(chan string, 2)
 	queue <- "one"
 	queue <- "two"
 	close(queue)
 
-	// This `range` iterates over each element as it's
-	// received from `queue`. Because we `close`d the
-	// channel above, the iteration terminates after
-	// receiving the 2 elements.
+	// ဒီ `range` က `queue` ကနေ လက်ခံရရှိတဲ့ element တိုင်းကို iterate လုပ်ပါတယ်။
+	// အပေါ်မှာ channel ကို `close` လုပ်ထားတဲ့အတွက် တန်ဖိုး 2 ခုကို
+	// လက်ခံရရှိပြီးတဲ့နောက် iteration က ရပ်တန့်သွားပါတယ်။
 	for elem := range queue {
 		fmt.Println(elem)
 	}

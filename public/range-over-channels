@@ -27,10 +27,9 @@
         
         <tr>
           <td class="docs">
-            <p>In a <a href="range">previous</a> example we saw how <code>for</code> and
-<code>range</code> provide iteration over basic data structures.
-We can also use this syntax to iterate over
-values received from a channel.</p>
+            <p><a href="range">ယခင်</a> ဥပမာမှာ <code>for</code> နဲ့ <code>range</code> က အခြေခံ data structure တွေကို
+ဘယ်လို iterate လုပ်သလဲဆိုတာ တွေ့ခဲ့ပါတယ်။ ဒီ syntax ကိုပဲ channel ကနေ
+လက်ခံရရှိတဲ့ တန်ဖိုးတွေကို iterate လုပ်ဖို့လည်း သုံးနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +43,7 @@ values received from a channel.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/yQMclmwOYs9"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/0Hmv0NMaFF_v"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -74,7 +73,7 @@ values received from a channel.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll iterate over 2 values in the <code>queue</code> channel.</p>
+            <p><code>queue</code> channel ထဲက တန်ဖိုး 2 ခုကို iterate လုပ်ပါမယ်။</p>
 
           </td>
           <td class="code leading">
@@ -90,10 +89,9 @@ values received from a channel.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>range</code> iterates over each element as it&rsquo;s
-received from <code>queue</code>. Because we <code>close</code>d the
-channel above, the iteration terminates after
-receiving the 2 elements.</p>
+            <p>ဒီ <code>range</code> က <code>queue</code> ကနေ လက်ခံရရှိတဲ့ element တိုင်းကို iterate လုပ်ပါတယ်။
+အပေါ်မှာ channel ကို <code>close</code> လုပ်ထားတဲ့အတွက် တန်ဖိုး 2 ခုကို
+လက်ခံရရှိပြီးတဲ့နောက် iteration က ရပ်တန့်သွားပါတယ်။</p>
 
           </td>
           <td class="code">
@@ -125,9 +123,11 @@ receiving the 2 elements.</p>
         
         <tr>
           <td class="docs">
-            <p>This example also showed that it&rsquo;s possible to close
-a non-empty channel but still have the remaining
-values be received.</p>
+            <p>ဒီဥပမာက empty မဟုတ်တဲ့ channel
+ကိုတောင် ပိတ်လို့ရပြီး
+ကျန်ရှိနေသေးတဲ့ တန်ဖိုးတွေကို
+ဆက်လက်လက်ခံနိုင်သေးတယ်ဆိုတာကိုလည်း
+ပြသထားပါတယ်။</p>
 
           </td>
           <td class="code empty">
