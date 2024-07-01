@@ -1,9 +1,7 @@
-// By default channels are _unbuffered_, meaning that they
-// will only accept sends (`chan <-`) if there is a
-// corresponding receive (`<- chan`) ready to receive the
-// sent value. _Buffered channels_ accept a limited
-// number of  values without a corresponding receiver for
-// those values.
+// ပုံမှန်အားဖြင့် channel တွေက _unbuffered_ ဖြစ်ပါတယ်။ ဆိုလိုတာက
+// ပို့လိုက်တဲ့တန်ဖိုး (`chan <-`) ကို လက်ခံဖို့ (`<- chan`) အဆင်သင့်ရှိနေမှသာ
+// ပို့တာကို လက်ခံမှာဖြစ်ပါတယ်။ _Buffered channel_ တွေကတော့ သတ်မှတ်ထားတဲ့
+// အရေအတွက်အထိ တန်ဖိုးတွေကို လက်ခံသူမလိုပဲ လက်ခံနိုင်ပါတယ်။
 
 package main
 
@@ -11,17 +9,15 @@ import "fmt"
 
 func main() {
 
-	// Here we `make` a channel of strings buffering up to
-	// 2 values.
+	// ဒီမှာ တန်ဖိုး 2 ခုအထိ buffer လုပ်နိုင်တဲ့ string channel တစ်ခုကို `make` နဲ့ဖန်တီးထားပါတယ်။
 	messages := make(chan string, 2)
 
-	// Because this channel is buffered, we can send these
-	// values into the channel without a corresponding
-	// concurrent receive.
+	// ဒီ channel က buffered ဖြစ်တဲ့အတွက် ဒီတန်ဖိုးတွေကို တပြိုင်နက်တည်း
+	// လက်ခံနေတဲ့သူမရှိပဲနဲ့ channel ထဲကို ပို့လို့ရပါတယ်။
 	messages <- "buffered"
 	messages <- "channel"
 
-	// Later we can receive these two values as usual.
+	// နောက်ပိုင်းမှ ဒီတန်ဖိုးနှစ်ခုကို ပုံမှန်အတိုင်း လက်ခံယူလို့ရပါတယ်။
 	fmt.Println(<-messages)
 	fmt.Println(<-messages)
 }
