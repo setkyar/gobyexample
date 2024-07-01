@@ -27,10 +27,9 @@
         
         <tr>
           <td class="docs">
-            <p>When using channels as function parameters, you can
-specify if a channel is meant to only send or receive
-values. This specificity increases the type-safety of
-the program.</p>
+            <p>Channel တွေကို function parameter အဖြစ်သုံးတဲ့အခါ၊ အဲဒီ channel က
+တန်ဖိုးတွေကို ပို့ဖို့ (send) ပဲသုံးမှာလား၊ လက်ခံဖို့ (receive) ပဲသုံးမှာလားဆိုတာ သတ်မှတ်ပေးနိုင်ပါတယ်။
+ဒီလို တိကျစွာသတ်မှတ်ခြင်းက ပရိုဂရမ်ရဲ့ type-safety ကို မြှင့်တင်ပေးပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +43,7 @@ the program.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/mjNJDHwUH4R"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/IP776naSTDm"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -63,9 +62,8 @@ the program.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>ping</code> function only accepts a channel for sending
-values. It would be a compile-time error to try to
-receive on this channel.</p>
+            <p>ဒီ <code>ping</code> function က တန်ဖိုး (values) တွေပို့ဖို့အတွက်ပဲ သုံးမယ့် channel ကိုပဲ လက်ခံပါတယ်။
+ဒီ channel ကနေ တန်ဖိုး (values) တွေကို လက်ခံဖို့ကြိုးစားရင် compile-time error ဖြစ်ပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -80,8 +78,8 @@ receive on this channel.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>pong</code> function accepts one channel for receives
-(<code>pings</code>) and a second for sends (<code>pongs</code>).</p>
+            <p><code>pong</code> function က တန်ဖိုးတွေလက်ခံဖို့ channel တစ်ခု (<code>pings</code>) နဲ့
+တန်ဖိုးတွေပို့ဖို့ နောက်ထပ် channel တစ်ခု (<code>pongs</code>) ကို လက်ခံပါတယ်။</p>
 
           </td>
           <td class="code leading">
