@@ -1,8 +1,7 @@
-// Go supports _embedding_ of structs and interfaces
-// to express a more seamless _composition_ of types.
-// This is not to be confused with `//go:embed` which is
-// a go directive introduced in Go version 1.16+ to embed
-// files and folders into the application binary.
+// Go က struct နဲ့ interface တွေကို _embedding_ လုပ်ခြင်းအားဖြင့်
+// type တွေရဲ့ _composition_ ကို ပိုမိုချောမွေ့စွာ ဖော်ပြနိုင်ပါတယ်။
+// ဒါကို Go version 1.16+ မှာ မိတ်ဆက်ထားတဲ့ `//go:embed` directive နဲ့ မတူပါဘူး၊
+// အဲဒီ directive က file နဲ့ folder တွေကို application binary ထဲ embed လုပ်ဖို့သုံးတာပါ။
 
 package main
 
@@ -16,8 +15,8 @@ func (b base) describe() string {
 	return fmt.Sprintf("base with num=%v", b.num)
 }
 
-// A `container` _embeds_ a `base`. An embedding looks
-// like a field without a name.
+// `container` က `base` ကို _embeds_ လုပ်ထားပါတယ်။ Embedding က
+// နာမည်မပါတဲ့ field တစ်ခုလိုပုံစံမျိုးပါ။
 type container struct {
 	base
 	str string
@@ -25,9 +24,9 @@ type container struct {
 
 func main() {
 
-	// When creating structs with literals, we have to
-	// initialize the embedding explicitly; here the
-	// embedded type serves as the field name.
+	// Struct တွေကို literal နဲ့ တည်ဆောက်တဲ့အခါ၊ embedding ကို
+	// တိတိကျကျ initialize လုပ်ပေးရပါတယ်။ ဒီမှာ
+	// embed လုပ်ထားတဲ့ type က field name အဖြစ်သုံးထားပါတယ်။
 	co := container{
 		base: base{
 			num: 1,
@@ -35,28 +34,27 @@ func main() {
 		str: "some name",
 	}
 
-	// We can access the base's fields directly on `co`,
-	// e.g. `co.num`.
+	// base ရဲ့ field တွေကို `co` ကနေ တိုက်ရိုက်သုံးလို့ရပါတယ်။
+	// ဥပမာ `co.num`
 	fmt.Printf("co={num: %v, str: %v}\n", co.num, co.str)
 
-	// Alternatively, we can spell out the full path using
-	// the embedded type name.
+	// တခြားနည်းအနေနဲ့ embed လုပ်ထားတဲ့ type နာမည်ကို သုံးပြီး
+	// အပြည့်အစုံရေးလို့ရပါတယ်။
 	fmt.Println("also num:", co.base.num)
 
-	// Since `container` embeds `base`, the methods of
-	// `base` also become methods of a `container`. Here
-	// we invoke a method that was embedded from `base`
-	// directly on `co`.
+	// `container` က `base` ကို embed လုပ်ထားတဲ့အတွက်၊ `base` ရဲ့ method တွေဟာ
+	// `container` ရဲ့ method တွေလည်း ဖြစ်သွားပါတယ်။ ဒီမှာ `base` ကနေ
+	// embed လုပ်ထားတဲ့ method ကို `co` ကနေ တိုက်ရိုက်ခေါ်သုံးထားပါတယ်။
 	fmt.Println("describe:", co.describe())
 
 	type describer interface {
 		describe() string
 	}
 
-	// Embedding structs with methods may be used to bestow
-	// interface implementations onto other structs. Here
-	// we see that a `container` now implements the
-	// `describer` interface because it embeds `base`.
+	// Method ပါတဲ့ struct တွေကို embed လုပ်ခြင်းအားဖြင့် တခြား struct တွေမှာ
+	// interface implementation တွေ ရရှိနိုင်ပါတယ်။ ဒီမှာ `container` က
+	// `base` ကို embed လုပ်ထားတဲ့အတွက် `describer` interface ကို
+	// implement လုပ်နေတာကို တွေ့ရပါတယ်။
 	var d describer = co
 	fmt.Println("describer:", d.describe())
 }

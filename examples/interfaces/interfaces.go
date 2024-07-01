@@ -1,5 +1,4 @@
-// _Interfaces_ are named collections of method
-// signatures.
+// _Interface_ တွေဆိုတာ method signature တွေကို ပေါင်းပြီး အမည်ပေးထားတာပါ။
 
 package main
 
@@ -8,14 +7,14 @@ import (
 	"math"
 )
 
-// Here's a basic interface for geometric shapes.
+// ဒီမှာ ဂျီသြမေတီပုံသဏ္ဍာန်တွေအတွက် အခြေခံ interface တစ်ခုကို သတ်မှတ်ထားပါတယ်။
 type geometry interface {
 	area() float64
 	perim() float64
 }
 
-// For our example we'll implement this interface on
-// `rect` and `circle` types.
+// ဥပမာအနေနဲ့ ဒီ interface ကို `rect` နဲ့ `circle` type တွေမှာ
+// implement လုပ်ပါ့မယ်။
 type rect struct {
 	width, height float64
 }
@@ -23,9 +22,8 @@ type circle struct {
 	radius float64
 }
 
-// To implement an interface in Go, we just need to
-// implement all the methods in the interface. Here we
-// implement `geometry` on `rect`s.
+// Go မှာ interface တစ်ခုကို implement လုပ်ဖို့ဆိုရင် interface ထဲက method အားလုံးကို
+// implementလုပ်ဖို့ပဲ လိုပါတယ်။ ဒီမှာ `rect` အတွက် `geometry` interface ကို implement လုပ်ထားပါတယ်။
 func (r rect) area() float64 {
 	return r.width * r.height
 }
@@ -33,7 +31,7 @@ func (r rect) perim() float64 {
 	return 2*r.width + 2*r.height
 }
 
-// The implementation for `circle`s.
+// `circle` အတွက် implement လုပ်ထားတာပါ
 func (c circle) area() float64 {
 	return math.Pi * c.radius * c.radius
 }
@@ -41,10 +39,9 @@ func (c circle) perim() float64 {
 	return 2 * math.Pi * c.radius
 }
 
-// If a variable has an interface type, then we can call
-// methods that are in the named interface. Here's a
-// generic `measure` function taking advantage of this
-// to work on any `geometry`.
+// Variable တစ်ခုက interface type ဖြစ်နေရင် အဲဒီ interface ထဲက method တွေကို ခေါ်သုံးလို့ရပါတယ်။
+// ဒီမှာ `measure` ဆိုတဲ့ generic function တစ်ခုက ဒီအချက်ကို အသုံးချပြီး
+// မည်သည့် `geometry` function မဆို အလုပ်လုပ်နိုင်အောင် ရေးထားပါတယ်။
 func measure(g geometry) {
 	fmt.Println(g)
 	fmt.Println(g.area())
@@ -55,10 +52,9 @@ func main() {
 	r := rect{width: 3, height: 4}
 	c := circle{radius: 5}
 
-	// The `circle` and `rect` struct types both
-	// implement the `geometry` interface so we can use
-	// instances of
-	// these structs as arguments to `measure`.
+	// `circle` နဲ့ `rect` struct type နှစ်ခုစလုံးက `geometry` interface ကို
+	// implement လုပ်ထားတဲ့အတွက် သူတို့ရဲ့ instance တွေကို `measure` function ရဲ့
+	// argument အဖြစ် သုံးလို့ရပါတယ်။
 	measure(r)
 	measure(c)
 }
