@@ -1,26 +1,23 @@
-// _Closing_ a channel indicates that no more values
-// will be sent on it. This can be useful to communicate
-// completion to the channel's receivers.
+// Channel တစ်ခုကို _ပိတ်လိုက်ခြင်း (Closing)_ က အဲဒီ channel ပေါ်မှာ နောက်ထပ်တန်ဖိုးတွေ
+// ပို့တော့မှာ မဟုတ်ဘူးဆိုတာကို ပြောလိုက်တာပါ။ ဒါက channel ကနေ လက်ခံနေသူတွေဆီကို
+// ပြီးဆုံးကြောင်း အသိပေးဖို့ အသုံးဝင်ပါတယ်။
 
 package main
 
 import "fmt"
 
-// In this example we'll use a `jobs` channel to
-// communicate work to be done from the `main()` goroutine
-// to a worker goroutine. When we have no more jobs for
-// the worker we'll `close` the `jobs` channel.
+// ဒီဥပမာမှာ `main()` goroutine ကနေ worker goroutine ဆီကို
+// လုပ်ဆောင်ရမယ့် အလုပ်တွေကို ဆက်သွယ်ပေးပို့ဖို့ `jobs` channel ကို သုံးပါမယ်။
+// Worker အတွက် နောက်ထပ်အလုပ်မရှိတော့တဲ့အခါ `jobs` channel ကို `close` လုပ်ပါမယ်။
 func main() {
 	jobs := make(chan int, 5)
 	done := make(chan bool)
 
-	// Here's the worker goroutine. It repeatedly receives
-	// from `jobs` with `j, more := <-jobs`. In this
-	// special 2-value form of receive, the `more` value
-	// will be `false` if `jobs` has been `close`d and all
-	// values in the channel have already been received.
-	// We use this to notify on `done` when we've worked
-	// all our jobs.
+	// ဒါက worker goroutine ပါ။ သူက `jobs` ကနေ `j, more := <-jobs` နဲ့
+	// ထပ်ခါထပ်ခါ လက်ခံပါတယ်။ ဒီ special 2-value ပုံစံ လက်ခံမှုမှာ၊ `jobs` က
+	// `close` ခံထားရပြီး channel ထဲက တန်ဖိုးအားလုံး လက်ခံပြီးသွားရင်
+	// `more` တန်ဖိုးက `false` ဖြစ်သွားပါမယ်။ အလုပ်အားလုံး လုပ်ပြီးသွားတဲ့အခါ
+	// `done` ပေါ်မှာ အသိပေး (notify) ဖို့ ဒီနည်းကို သုံးပါတယ်။
 	go func() {
 		for {
 			j, more := <-jobs
@@ -34,8 +31,8 @@ func main() {
 		}
 	}()
 
-	// This sends 3 jobs to the worker over the `jobs`
-	// channel, then closes it.
+	// ဒါက worker ဆီကို `jobs` channel ကနေ အလုပ် 3 ခု ပို့ပြီး
+	// နောက်ဆုံးမှာ channel ကို ပိတ်လိုက်ပါတယ်။
 	for j := 1; j <= 3; j++ {
 		jobs <- j
 		fmt.Println("sent job", j)
@@ -43,8 +40,7 @@ func main() {
 	close(jobs)
 	fmt.Println("sent all jobs")
 
-	// We await the worker using the
-	// [synchronization](channel-synchronization) approach
-	// we saw earlier.
+	// အရင်က တွေ့ခဲ့တဲ့ [synchronization](channel-synchronization) နည်းလမ်းကို
+	// သုံးပြီး worker ကို စောင့်ပါတယ်။
 	<-done
 }

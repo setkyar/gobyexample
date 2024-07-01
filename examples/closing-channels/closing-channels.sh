@@ -8,5 +8,5 @@ received job 3
 sent all jobs
 received all jobs
 
-# The idea of closed channels leads naturally to our next
-# example: `range` over channels.
+# Channel တွေကို ပိတ်တဲ့ သဘောတရားက နောက်ဥပမာဖြစ်တဲ့
+# channel တွေပေါ်မှာ `range` သုံးတာဆီကို ဦးတည်သွားပါတယ်။
