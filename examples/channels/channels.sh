@@ -1,10 +1,14 @@
-# When we run the program the `"ping"` message is
-# successfully passed from one goroutine to another via
-# our channel.
+# ပရိုဂရမ်ကို run လိုက်တဲ့အခါ `"ping"` message က 
+# ကျွန်တော်တို့ channel ကနေတဆင့် goroutine
+#  တစ်ခုကနေ နောက်တစ်ခုဆီကို 
+# အောင်မြင်စွာ ပို့ဆောင်ခဲ့ပါတယ်။
 $ go run channels.go 
 ping
 
-# By default sends and receives block until both the
-# sender and receiver are ready. This property allowed
-# us to wait at the end of our program for the `"ping"`
-# message without having to use any other synchronization.
+# ပုံမှန်အားဖြင့် ပို့တာနှင့်လက်ခံတာက 
+# ပို့သူနဲ့လက်ခံသူ နှစ်ဦးစလုံး အဆင်သင့်ဖြစ်တဲ့အထိ 
+# block လုပ်ထားပါတယ်။
+# ဒီ property က ကျွန်တော်တို့ ပရိုဂရမ်အဆုံးမှာ 
+# `"ping"` message အတွက်၊
+# တခြား synchronization နည်းလမ်းတွေ 
+# သုံးစရာမလိုပဲနဲ့ စောင့်ဆိုင်းနိုင်စေပါတယ်။
