@@ -1,9 +1,8 @@
-// The primary mechanism for managing state in Go is
-// communication over channels. We saw this for example
-// with [worker pools](worker-pools). There are a few other
-// options for managing state though. Here we'll
-// look at using the `sync/atomic` package for _atomic
-// counters_ accessed by multiple goroutines.
+// Go မှာ state ကို စီမံခန့်ခွဲဖို့ အဓိက နည်းလမ်းကတော့ channel တွေကနေ တဆင့်
+// ဆက်သွယ်မှုပါ။ ဒါကို [worker pools](worker-pools) မှာ ဥပမာအနေနဲ့ တွေ့ခဲ့ပါတယ်။
+// ဒါပေမယ့် state စီမံခန့်ခွဲဖို့ တခြားနည်းလမ်းအနည်းငယ်လည်း ရှိပါသေးတယ်။ ဒီမှာတော့
+// goroutine အများကြီးက တပြိုင်နက်တည်း access လုပ်တဲ့ _atomic counter_ တွေအတွက်
+// `sync/atomic` package ကို သုံးတာကို ကြည့်ကြပါမယ်။
 
 package main
 
@@ -15,38 +14,34 @@ import (
 
 func main() {
 
-	// We'll use an unsigned integer to represent our
-	// (always-positive) counter.
+	// ကျွန်တော်တို့ရဲ့ (အမြဲတမ်း အပေါင်းကိန်းဖြစ်တဲ့) counter ကို ကိုယ်စားပြုဖို့
+	// unsigned integer တစ်ခုကို သုံးပါမယ်။
 	var ops uint64
 
-	// A WaitGroup will help us wait for all goroutines
-	// to finish their work.
+	// WaitGroup က goroutine အားလုံး အလုပ်ပြီးတဲ့အထိ စောင့်ဖို့ ကူညီပါလိမ့်မယ်။
 	var wg sync.WaitGroup
 
-	// We'll start 50 goroutines that each increment the
-	// counter exactly 1000 times.
+	// Goroutine 50 ခုကို စတင်ပါမယ်။
+	// တစ်ခုချင်းစီက counter ကို တိတိကျကျ 1000 ကြိမ်စီ တိုးပါလိမ့်မယ်။
 	for i := 0; i < 50; i++ {
 		wg.Add(1)
 
 		go func() {
 			for c := 0; c < 1000; c++ {
-				// To atomically increment the counter we
-				// use `AddUint64`, giving it the memory
-				// address of our `ops` counter with the
-				// `&` syntax.
+				// Counter ကို atomic ဖြစ်အောင် တိုးဖို့ `AddUint64` ကို သုံးပါတယ်။
+				// `&` syntax နဲ့ ကျွန်တော်တို့ရဲ့ `ops` counter ရဲ့ memory address ကို ပေးလိုက်ပါတယ်။
 				atomic.AddUint64(&ops, 1)
 			}
 			wg.Done()
 		}()
 	}
 
-	// Wait until all the goroutines are done.
+	// Goroutine အားလုံး ပြီးဆုံးတဲ့အထိ စောင့်ပါ။
 	wg.Wait()
 
-	// It's safe to access `ops` now because we know
-	// no other goroutine is writing to it. Reading
-	// atomics safely while they are being updated is
-	// also possible, using functions like
-	// `atomic.LoadUint64`.
+	// အခုဆိုရင် `ops` ကို access လုပ်ဖို့ လုံခြုံပါပြီ။ ဘာလို့လဲဆိုတော့
+	// တခြား goroutine တွေက သူ့ကို ရေးနေတာ မရှိတော့ဘူးဆိုတာ သိလို့ပါ။
+	// Atomic တွေကို update လုပ်နေချိန်မှာ safely read လုပ်လို့ရပါတယ်။
+	// `atomic.LoadUint64` လို function တွေကို သုံးပြီး လုပ်လို့ရပါတယ်။
 	fmt.Println("ops:", ops)
 }
