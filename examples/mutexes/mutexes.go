@@ -1,7 +1,7 @@
-// In the previous example we saw how to manage simple
-// counter state using [atomic operations](atomic-counters).
-// For more complex state we can use a [_mutex_](https://en.wikipedia.org/wiki/Mutual_exclusion)
-// to safely access data across multiple goroutines.
+// ပြီးခဲ့တဲ့ဥပမာမှာ [atomic operation](atomic-counters) တွေသုံးပြီး ရိုးရှင်းတဲ့
+// counter state ကို ဘယ်လိုစီမံခန့်ခွဲသလဲဆိုတာ တွေ့ခဲ့ပါတယ်။
+// ပိုရှုပ်ထွေးတဲ့ state တွေအတွက်တော့ goroutine အများကြီးကြားထဲမှာ ဒေတာကို
+// လုံခြုံစွာ access လုပ်ဖို့ [_mutex_](https://en.wikipedia.org/wiki/Mutual_exclusion) ကို သုံးနိုင်ပါတယ်။
 
 package main
 
@@ -10,21 +10,19 @@ import (
 	"sync"
 )
 
-// Container holds a map of counters; since we want to
-// update it concurrently from multiple goroutines, we
-// add a `Mutex` to synchronize access.
-// Note that mutexes must not be copied, so if this
-// `struct` is passed around, it should be done by
-// pointer.
+// Container က counter တွေရဲ့ map ကို သိမ်းထားပါတယ်။ ဒီ map ကို
+// goroutine အများကြီးကနေ တပြိုင်နက်တည်း update လုပ်ချင်တဲ့အတွက်
+// access ကို synchronize လုပ်ဖို့ `Mutex` တစ်ခု ထည့်ထားပါတယ်။
+// သတိပြုရမှာက mutex တွေကို copy မလုပ်သင့်ပါဘူး၊ ဒါကြောင့် ဒီ `struct` ကို
+// တခြားနေရာတွေဆီ ပို့မယ်ဆိုရင် pointer နဲ့ပို့သင့်ပါတယ်။
 type Container struct {
 	mu       sync.Mutex
 	counters map[string]int
 }
 
 func (c *Container) inc(name string) {
-	// Lock the mutex before accessing `counters`; unlock
-	// it at the end of the function using a [defer](defer)
-	// statement.
+	// `counters` ကို access မလုပ်ခင် mutex ကို lock လုပ်ပါ။
+	// function အဆုံးမှာ unlock လုပ်ဖို့ [defer](defer) statement ကို သုံးထားပါတယ်။
 	c.mu.Lock()
 	defer c.mu.Unlock()
 	c.counters[name]++
@@ -32,15 +30,14 @@ func (c *Container) inc(name string) {
 
 func main() {
 	c := Container{
-		// Note that the zero value of a mutex is usable as-is, so no
-		// initialization is required here.
+		// Mutex ရဲ့ zero value က အသုံးပြုလို့ရပါတယ်၊ ဒါကြောင့် ဒီမှာ
+		// သီးခြား initialization လုပ်စရာမလိုပါဘူး။
 		counters: map[string]int{"a": 0, "b": 0},
 	}
 
 	var wg sync.WaitGroup
 
-	// This function increments a named counter
-	// in a loop.
+	// ဒီ function က နာမည်ပေးထားတဲ့ counter ကို loop ထဲမှာ တိုးပေးပါတယ်။
 	doIncrement := func(name string, n int) {
 		for i := 0; i < n; i++ {
 			c.inc(name)
@@ -48,15 +45,15 @@ func main() {
 		wg.Done()
 	}
 
-	// Run several goroutines concurrently; note
-	// that they all access the same `Container`,
-	// and two of them access the same counter.
+	// Goroutine အများကြီးကို တပြိုင်နက်တည်း run တာပါ။
+	// သတိပြုရမှာက သူတို့အားလုံးက တူညီတဲ့ `Container` ကိုပဲ access လုပ်နေပြီး
+	// နှစ်ခုကတော့ တူညီတဲ့ counter ကိုပဲ access လုပ်နေပါတယ်။
 	wg.Add(3)
 	go doIncrement("a", 10000)
 	go doIncrement("a", 10000)
 	go doIncrement("b", 10000)
 
-	// Wait for the goroutines to finish
+	// Goroutine တွေ ပြီးဆုံးတဲ့အထိ စောင့်ပါ
 	wg.Wait()
 	fmt.Println(c.counters)
 }
