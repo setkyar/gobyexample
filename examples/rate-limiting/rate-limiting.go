@@ -1,9 +1,8 @@
-// [_Rate limiting_](https://en.wikipedia.org/wiki/Rate_limiting)
-// is an important mechanism for controlling resource
-// utilization and maintaining quality of service. Go
-// elegantly supports rate limiting with goroutines,
-// channels, and [tickers](tickers).
-
+// [_Rate limiting_](https://en.wikipedia.org/wiki/Rate_limiting) ဆိုတာ
+// resource အသုံးပြုမှုကို ထိန်းချုပ်ဖို့နဲ့ ဝန်ဆောင်မှုအရည်အသွေးကို ထိန်းသိမ်းဖို့
+// အရေးကြီးတဲ့ နည်းလမ်းတစ်ခု ဖြစ်ပါတယ်။ Go က goroutine တွေ၊
+// channel တွေ၊ နဲ့ [ticker](tickers) တွေကိုသုံးပြီး rate limiting ကို
+// လှပစွာ ပံ့ပိုးပေးပါတယ်။
 package main
 
 import (
@@ -13,52 +12,47 @@ import (
 
 func main() {
 
-	// First we'll look at basic rate limiting. Suppose
-	// we want to limit our handling of incoming requests.
-	// We'll serve these requests off a channel of the
-	// same name.
+	// ပထမဆုံး rate limiting အခြေခံ ကို ကြည့်ကြပါမယ်။ ဝင်လာတဲ့ request တွေကို
+	// ကိုင်တွယ်တာကို ကန့်သတ်ချင်တယ် ဆိုကြပါစို့။ ဒီ request တွေကို တူညီတဲ့နာမည်ရှိတဲ့
+	// channel တစ်ခုကနေ ဖြန့်ဝေပေးပါမယ်။
 	requests := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
 		requests <- i
 	}
 	close(requests)
 
-	// This `limiter` channel will receive a value
-	// every 200 milliseconds. This is the regulator in
-	// our rate limiting scheme.
+	// ဒီ `limiter` channel က 200 မီလီစက္ကန့်တိုင်း တန်ဖိုးတစ်ခု လက်ခံရရှိပါမယ်။
+	// ဒါဟာ ကျွန်တော်တို့ရဲ့ rate limiting scheme မှာ regulator အဖြစ် ဆောင်ရွက်ပါတယ်။
 	limiter := time.Tick(200 * time.Millisecond)
 
-	// By blocking on a receive from the `limiter` channel
-	// before serving each request, we limit ourselves to
-	// 1 request every 200 milliseconds.
+	// Request တိုင်းကို မဖြန့်ဝေခင် `limiter` channel ကနေ လက်ခံတာကို block လုပ်ခြင်းအားဖြင့်
+	// ကျွန်တော်တို့ဟာ 200 မီလီစက္ကန့်တိုင်း request တစ်ခုသာ လုပ်ဆောင်နိုင်အောင် ကန့်သတ်ထားပါတယ်။
 	for req := range requests {
 		<-limiter
 		fmt.Println("request", req, time.Now())
 	}
 
-	// We may want to allow short bursts of requests in
-	// our rate limiting scheme while preserving the
-	// overall rate limit. We can accomplish this by
-	// buffering our limiter channel. This `burstyLimiter`
-	// channel will allow bursts of up to 3 events.
+	// ကျွန်တော်တို့ရဲ့ rate limiting scheme မှာ ပျမ်းမျှ rate limit ကို ထိန်းသိမ်းထားပြီး
+	// တိုတောင်းတဲ့ request burst တွေကို ခွင့်ပြုချင်ပါတယ်။ ဒါကို limiter channel ကို
+	// buffer လုပ်ခြင်းဖြင့် လုပ်ဆောင်နိုင်ပါတယ်။ ဒီ `burstyLimiter` channel က
+	// 3 ခုအထိ burst ဖြစ်ခွင့်ပြုပါမယ်။
 	burstyLimiter := make(chan time.Time, 3)
 
-	// Fill up the channel to represent allowed bursting.
+	// Bursting ခွင့်ပြုထားတာကို ကိုယ်စားပြုဖို့ channel ကို fill up လုပ်ပါမယ်။
 	for i := 0; i < 3; i++ {
 		burstyLimiter <- time.Now()
 	}
 
-	// Every 200 milliseconds we'll try to add a new
-	// value to `burstyLimiter`, up to its limit of 3.
+	// 200 မီလီစက္ကန့်တိုင်း `burstyLimiter` ထဲကို တန်ဖိုးအသစ်တစ်ခု ထည့်ဖို့ ကြိုးစားပါမယ်၊
+	// သူ့ရဲ့ အများဆုံး 3 ခုဆိုတဲ့ ကန့်သတ်ချက်အထိပါ။
 	go func() {
 		for t := range time.Tick(200 * time.Millisecond) {
 			burstyLimiter <- t
 		}
 	}()
 
-	// Now simulate 5 more incoming requests. The first
-	// 3 of these will benefit from the burst capability
-	// of `burstyLimiter`.
+	// အခု နောက်ထပ် request 5 ခု ဝင်လာတာကို simulate လုပ်ပါမယ်။ ပထမ
+	// 3 ခုက `burstyLimiter` ရဲ့ burst လုပ်နိုင်စွမ်းကနေ အကျိုးကျေးဇူး ရရှိပါလိမ့်မယ်။
 	burstyRequests := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
 		burstyRequests <- i
