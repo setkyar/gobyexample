@@ -27,8 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>In this example we&rsquo;ll look at how to implement
-a <em>worker pool</em> using goroutines and channels.</p>
+            <p>ဒီဥပမာမှာ goroutine တွေနဲ့ channel တွေကို သုံးပြီး
+<em>worker pool</em> တစ်ခုကို ဘယ်လို အကောင်အထည်ဖော်မလဲဆိုတာကို ကြည့်ကြပါမယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +42,7 @@ a <em>worker pool</em> using goroutines and channels.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/hiSJJsYZJKL"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/D44_w5jrGKt"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -64,11 +64,11 @@ a <em>worker pool</em> using goroutines and channels.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the worker, of which we&rsquo;ll run several
-concurrent instances. These workers will receive
-work on the <code>jobs</code> channel and send the corresponding
-results on <code>results</code>. We&rsquo;ll sleep a second per job to
-simulate an expensive task.</p>
+            <p>ဒါက worker ပါ၊ ကျွန်တော်တို့က ဒီ worker ရဲ့ instance အများကြီးကို
+တပြိုင်နက်တည်း run မှာပါ။ ဒီ worker တွေက <code>jobs</code> channel ကနေ
+အလုပ်တွေကို လက်ခံပြီး ရလဒ်တွေကို <code>results</code> channel ဆီ ပို့ပါလိမ့်မယ်။
+expensive task အလုပ်တစ်ခုကို simulate လုပ်ဖို့ task တစ်ခုအတွက်
+တစ်စက္ကန့် sleep ပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -99,9 +99,8 @@ simulate an expensive task.</p>
         
         <tr>
           <td class="docs">
-            <p>In order to use our pool of workers we need to send
-them work and collect their results. We make 2
-channels for this.</p>
+            <p>ကျွန်တော်တို့ရဲ့ worker pool ကို သုံးဖို့ဆိုရင် သူတို့စီ အလုပ်တွေပို့ပြီး
+သူတို့ရဲ့ ရလဒ်တွေကို စုစည်းဖို့ လိုပါတယ်။ ဒီအတွက် channel နှစ်ခု လုပ်ပါမယ်။</p>
 
           </td>
           <td class="code leading">
@@ -116,8 +115,8 @@ channels for this.</p>
         
         <tr>
           <td class="docs">
-            <p>This starts up 3 workers, initially blocked
-because there are no jobs yet.</p>
+            <p>ဒါက worker သုံးခုကို စတင်ပါတယ်၊ ဒါပေမယ့် အစပိုင်းမှာ အလုပ်မရှိသေးတဲ့အတွက်
+block ဖြစ်နေပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -132,8 +131,8 @@ because there are no jobs yet.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we send 5 <code>jobs</code> and then <code>close</code> that
-channel to indicate that&rsquo;s all the work we have.</p>
+            <p>ဒီမှာ အလုပ် 5 ခု ပို့ပြီးတော့ အဲဒီ channel ကို <code>close</code> လုပ်ပါတယ်။
+ဒါက ရှိသမျှအလုပ်အားလုံး ပို့ပြီးပြီဆိုတာကို ညွှန်ပြတာပါ။</p>
 
           </td>
           <td class="code leading">
@@ -149,10 +148,10 @@ channel to indicate that&rsquo;s all the work we have.</p>
         
         <tr>
           <td class="docs">
-            <p>Finally we collect all the results of the work.
-This also ensures that the worker goroutines have
-finished. An alternative way to wait for multiple
-goroutines is to use a <a href="waitgroups">WaitGroup</a>.</p>
+            <p>နောက်ဆုံးမှာ အလုပ်အားလုံးရဲ့ ရလဒ်တွေကို စုစည်းပါတယ်။
+ဒါက worker goroutine တွေ ပြီးဆုံးသွားပြီဆိုတာကိုလည်း သေချာစေပါတယ်။
+Goroutine အများကြီးကို စောင့်ဆိုင်းဖို့ နောက်ထပ်နည်းလမ်းတစ်ခုကတော့
+<a href="waitgroups">WaitGroup</a> ကို သုံးတာပါ။</p>
 
           </td>
           <td class="code">
@@ -172,10 +171,15 @@ goroutines is to use a <a href="waitgroups">WaitGroup</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>Our running program shows the 5 jobs being executed by
-various workers. The program only takes about 2 seconds
-despite doing about 5 seconds of total work because
-there are 3 workers operating concurrently.</p>
+            <p>ကျွန်တော်တို့ run နေတဲ့ပရိုဂရမ်က
+အလုပ် 5 ခုကို worker တွေက
+executed နေပါတယ်။
+စုစုပေါင်း အလုပ်ချိန် 5 စက္ကန့်လောက်
+ရှိသော်လည်း ပရိုဂရမ်က
+2 စက္ကန့်လောက်ပဲ ကြာပါတယ်။
+ဘာကြောင့်လဲဆိုတော့
+worker 3 ခုက
+တပြိုင်နက်တည်း အလုပ်လုပ်နေလို့ပါ။</p>
 
           </td>
           <td class="code leading">
