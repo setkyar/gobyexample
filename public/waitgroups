@@ -27,8 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>To wait for multiple goroutines to finish, we can
-use a <em>wait group</em>.</p>
+            <p>Goroutine အများကြီး ပြီးဆုံးတာကို စောင့်ဆိုင်းဖို့
+<em>wait group</em> ကို သုံးနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +42,7 @@ use a <em>wait group</em>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/S98GjeaGBX0"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/sJNSTAOLd0F"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -65,7 +65,7 @@ use a <em>wait group</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>This is the function we&rsquo;ll run in every goroutine.</p>
+            <p>ဒါက goroutine တိုင်းမှာ run မယ့် function ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -79,7 +79,7 @@ use a <em>wait group</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>Sleep to simulate an expensive task.</p>
+            <p>expensive ဖြစ်တဲ့ အလုပ်တစ်ခုလိုမျိုးဖြစ်ဖို့ simulate လုပ်ပီး slepp လုပ်ခိုင်းထားပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -105,9 +105,9 @@ use a <em>wait group</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>This WaitGroup is used to wait for all the
-goroutines launched here to finish. Note: if a WaitGroup is
-explicitly passed into functions, it should be done <em>by pointer</em>.</p>
+            <p>ဒီ WaitGroup ကို ဒီမှာ စတင်လိုက်တဲ့ goroutine အားလုံး
+ပြီးဆုံးတာကို စောင့်ဆိုင်းဖို့ သုံးပါတယ်။ မှတ်ချက်: WaitGroup ကို
+function တွေဆီ တိုက်ရိုက်ပေးပို့မယ်ဆိုရင် <em>pointer နဲ့</em> ပို့သင့်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -120,8 +120,8 @@ explicitly passed into functions, it should be done <em>by pointer</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>Launch several goroutines and increment the WaitGroup
-counter for each.</p>
+            <p>Goroutine အများကြီးကို စတင်ပြီး WaitGroup ရဲ့
+counter ကို တစ်ခုချင်းစီ တိုးလိုက်ပါမယ်။</p>
 
           </td>
           <td class="code leading">
@@ -135,9 +135,8 @@ counter for each.</p>
         
         <tr>
           <td class="docs">
-            <p>Avoid re-use of the same <code>i</code> value in each goroutine closure.
-See <a href="https://golang.org/doc/faq#closures_and_goroutines">the FAQ</a>
-for more details.</p>
+            <p>Goroutine closure တိုင်းမှာ တူညီတဲ့ <code>i</code> တန်ဖိုးကို ပြန်သုံးတာကို ရှောင်ပါ။
+ပိုမိုအသေးစိတ်သိချင်ရင် <a href="https://golang.org/doc/faq#closures_and_goroutines">FAQ</a> ကို ကြည့်ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -150,10 +149,10 @@ for more details.</p>
         
         <tr>
           <td class="docs">
-            <p>Wrap the worker call in a closure that makes sure to tell
-the WaitGroup that this worker is done. This way the worker
-itself does not have to be aware of the concurrency primitives
-involved in its execution.</p>
+            <p>Worker ခေါ်တာကို closure တစ်ခုနဲ့ wrap ထားဖြင့် ဒီ closure က
+ဒီ worker ပြီးဆုံးကြောင်းကို WaitGroup ကို အသိပေးပါတယ်။ ဒီနည်းနဲ့
+worker ကိုယ်တိုင်က သူ့ကို run တဲ့ concurrency primitive တွေအကြောင်း
+သိစရာမလိုတော့ပါဘူး။</p>
 
           </td>
           <td class="code leading">
@@ -170,8 +169,8 @@ involved in its execution.</p>
         
         <tr>
           <td class="docs">
-            <p>Block until the WaitGroup counter goes back to 0;
-all the workers notified they&rsquo;re done.</p>
+            <p>WaitGroup counter က 0 ပြန်ဖြစ်တဲ့အထိ block လုပ်ထားပါတယ်။
+Worker အားလုံးက သူတို့ပြီးဆုံးကြောင်း အသိပေးတဲ့အထိစောင့်မှာပါ။</p>
 
           </td>
           <td class="code leading">
@@ -184,10 +183,10 @@ all the workers notified they&rsquo;re done.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that this approach has no straightforward way
-to propagate errors from workers. For more
-advanced use cases, consider using the
-<a href="https://pkg.go.dev/golang.org/x/sync/errgroup">errgroup package</a>.</p>
+            <p>မှတ်ချက်: ဒီနည်းလမ်းက worker တွေကနေ error တွေကို ပြန်ပို့ဖို့
+straightforward မဖြစ်ပါဘူး။ ပိုပြီးအဆင့်မြင့်တဲ့ use case တွေအတွက်ဆိုရင်
+<a href="https://pkg.go.dev/golang.org/x/sync/errgroup">errgroup package</a> ကို
+consider လုပ်ပါ။</p>
 
           </td>
           <td class="code">
@@ -224,8 +223,8 @@ advanced use cases, consider using the
         
         <tr>
           <td class="docs">
-            <p>The order of workers starting up and finishing
-is likely to be different for each invocation.</p>
+            <p>Worker တွေ စတင်တဲ့အစီအစဉ်နဲ့ ပြီးဆုံးတဲ့အစီအစဉ်က
+ပရိုဂရမ်ကို run တိုင်း ကွာခြားနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code empty">

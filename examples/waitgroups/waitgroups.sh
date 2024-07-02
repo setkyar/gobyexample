@@ -10,5 +10,5 @@ Worker 2 done
 Worker 5 done
 Worker 3 done
 
-# The order of workers starting up and finishing
-# is likely to be different for each invocation.
+# Worker တွေ စတင်တဲ့အစီအစဉ်နဲ့ ပြီးဆုံးတဲ့အစီအစဉ်က
+# ပရိုဂရမ်ကို run တိုင်း ကွာခြားနိုင်ပါတယ်။
