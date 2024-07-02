@@ -1,15 +1,21 @@
-# Running our program shows that the goroutine-based
-# state management example completes about 80,000
-# total operations.
+# ကျွန်တော်တို့ရဲ့ ပရိုဂရမ်ကို run လိုက်တဲ့အခါ 
+# goroutine-based
+# state management ဥပမာက စုစုပေါင်း 
+# operation 80,000 လောက်
+# ပြီးမြောက်တာကို တွေ့ရပါတယ်။
 $ go run stateful-goroutines.go
 readOps: 71708
 writeOps: 7177
 
-# For this particular case the goroutine-based approach
-# was a bit more involved than the mutex-based one. It
-# might be useful in certain cases though, for example
-# where you have other channels involved or when managing
-# multiple such mutexes would be error-prone. You should
-# use whichever approach feels most natural, especially
-# with respect to understanding the correctness of your
-# program.
+# ဒီဥပမာအတွက်တော့ goroutine-based 
+# နည်းလမ်းက mutex-based နည်းလမ်းထက်
+# နည်းနည်း ပိုရှုပ်ထွေးပါတယ်။ ဒါပေမယ့် တချို့ 
+# case တွေမှာတော့ အသုံးဝင်နိုင်ပါတယ်။
+# ဥပမာ - တခြား channel တွေပါ 
+# ပါဝင်နေတဲ့အခါ သို့မဟုတ် mutex 
+# အများကြီးကို စီမံခန့်ခွဲရတာ
+# မှားယွင်းနိုင်ခြေများတဲ့အခါမျိုးပါ။ 
+# သင့်အနေနဲ့ ပိုပြီး သဘာဝကျတယ်လို့ 
+# ခံစားရတဲ့နည်းလမ်းကို
+# သုံးသင့်ပါတယ်။ အထူးသဖြင့် သင့်ရဲ့ပရိုဂရမ်ရဲ့ 
+# မှန်ကန်မှုကို နားလည်ရတာနဲ့ ပတ်သက်ပြီးပါ။

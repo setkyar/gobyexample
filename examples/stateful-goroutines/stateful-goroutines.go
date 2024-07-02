@@ -1,11 +1,9 @@
-// In the previous example we used explicit locking with
-// [mutexes](mutexes) to synchronize access to shared state
-// across multiple goroutines. Another option is to use the
-// built-in synchronization features of  goroutines and
-// channels to achieve the same result. This channel-based
-// approach aligns with Go's ideas of sharing memory by
-// communicating and having each piece of data owned
-// by exactly 1 goroutine.
+// အရင်ဥပမာမှာ [mutex](mutexes) တွေကို အသုံးပြုပြီး goroutine အများကြီးကြားထဲမှာ
+// shared state ကို access လုပ်တာကို synchronize လုပ်ခဲ့ပါတယ်။ နောက်ထပ်နည်းလမ်းတစ်ခုကတော့
+// goroutine တွေနဲ့ channel တွေရဲ့ built-in synchronization feature တွေကို သုံးပြီး
+// တူညီတဲ့ရလဒ်ကို ရယူတာပါ။ ဒီ channel-based နည်းလမ်းက Go ရဲ့ "memory ကို communicating ဖြင့်
+// မျှဝေသုံးစွဲခြင်း" နဲ့ "ဒေတာတစ်ခုချင်းစီကို တိတိကျကျ goroutine တစ်ခုက ပိုင်ဆိုင်ခြင်း" ဆိုတဲ့
+// အယူအဆတွေနဲ့ ကိုက်ညီပါတယ်။
 
 package main
 
@@ -16,14 +14,12 @@ import (
 	"time"
 )
 
-// In this example our state will be owned by a single
-// goroutine. This will guarantee that the data is never
-// corrupted with concurrent access. In order to read or
-// write that state, other goroutines will send messages
-// to the owning goroutine and receive corresponding
-// replies. These `readOp` and `writeOp` `struct`s
-// encapsulate those requests and a way for the owning
-// goroutine to respond.
+// ဒီဥပမာမှာ ကျွန်တော်တို့ရဲ့ state ကို goroutine တစ်ခုတည်းက ပိုင်ဆိုင်မှာပါ။
+// ဒီနည်းက ဒေတာကို concurrent access လုပ်တဲ့အခါ ဘယ်တော့မှ ပျက်စီးမသွားစေပါဘူး။
+// တခြား goroutine တွေက အဲဒီ state ကို ဖတ်ချင်တာ ရေးချင်တာရှိရင်
+// ပိုင်ဆိုင်တဲ့ goroutine ဆီ message ပို့ပြီး အကြောင်းပြန်ချက်ကို လက်ခံရယူရပါမယ်။
+// ဒီ `readOp` နဲ့ `writeOp` `struct` တွေက အဲဒီ request တွေနဲ့
+// ပိုင်ဆိုင်တဲ့ goroutine က ပြန်လည်တုံ့ပြန်နိုင်မယ့် နည်းလမ်းကို encapsulate လုပ်ထားပါတယ်။
 type readOp struct {
 	key  int
 	resp chan int
@@ -36,25 +32,22 @@ type writeOp struct {
 
 func main() {
 
-	// As before we'll count how many operations we perform.
+	// အရင်တုန်းကလိုပဲ ကျွန်တော်တို့ လုပ်ဆောင်တဲ့ operation အရေအတွက်ကို ရေတွက်ပါမယ်။
 	var readOps uint64
 	var writeOps uint64
 
-	// The `reads` and `writes` channels will be used by
-	// other goroutines to issue read and write requests,
-	// respectively.
+	// `reads` နဲ့ `writes` channel တွေကို တခြား goroutine တွေက
+	// read နဲ့ write request တွေ ပို့ဖို့ အသုံးပြုပါမယ်။
 	reads := make(chan readOp)
 	writes := make(chan writeOp)
 
-	// Here is the goroutine that owns the `state`, which
-	// is a map as in the previous example but now private
-	// to the stateful goroutine. This goroutine repeatedly
-	// selects on the `reads` and `writes` channels,
-	// responding to requests as they arrive. A response
-	// is executed by first performing the requested
-	// operation and then sending a value on the response
-	// channel `resp` to indicate success (and the desired
-	// value in the case of `reads`).
+	// ဒါက `state` ကို ပိုင်ဆိုင်တဲ့ goroutine ပါ။ `state` က
+	// အရင်ဥပမာကလိုပဲ map တစ်ခုဖြစ်ပေမယ့် အခုတော့ stateful goroutine ထဲမှာပဲ
+	// private ဖြစ်နေပါပြီ။ ဒီ goroutine က `reads` နဲ့ `writes` channel တွေကို
+	// ထပ်ခါထပ်ခါ select လုပ်ပြီး request တွေ ရောက်လာတိုင်း တုံ့ပြန်ပါတယ်။
+	// တုံ့ပြန်မှုကို တောင်းဆိုထားတဲ့ operation ကို အရင်လုပ်ဆောင်ပြီးမှ
+	// အောင်မြင်ကြောင်း (နဲ့ `reads` ဖြစ်ရင် တောင်းဆိုထားတဲ့တန်ဖိုး) ကို
+	// response channel `resp` ပေါ်မှာ ပို့ခြင်းဖြင့် ဆောင်ရွက်ပါတယ်။
 	go func() {
 		var state = make(map[int]int)
 		for {
@@ -68,11 +61,10 @@ func main() {
 		}
 	}()
 
-	// This starts 100 goroutines to issue reads to the
-	// state-owning goroutine via the `reads` channel.
-	// Each read requires constructing a `readOp`, sending
-	// it over the `reads` channel, and then receiving the
-	// result over the provided `resp` channel.
+	// ဒါက goroutine 100 ကို စတင်ပြီး `reads` channel ကနေတဆင့်
+	// state-owning goroutine ဆီ read တွေ ပို့ခိုင်းတာပါ။
+	// Read တိုင်းမှာ `readOp` တစ်ခု တည်ဆောက်ပြီး `reads` channel ပေါ်က ပို့ရပါတယ်။
+	// ပြီးတော့မှ ပေးထားတဲ့ `resp` channel ကနေ ရလဒ်ကို လက်ခံရယူရပါတယ်။
 	for r := 0; r < 100; r++ {
 		go func() {
 			for {
@@ -87,8 +79,7 @@ func main() {
 		}()
 	}
 
-	// We start 10 writes as well, using a similar
-	// approach.
+	// ဒီမှာတော့ အလားတူနည်းလမ်းကိုသုံးပြီး write 10 ခုကို စတင်ပါတယ်။
 	for w := 0; w < 10; w++ {
 		go func() {
 			for {
@@ -104,10 +95,10 @@ func main() {
 		}()
 	}
 
-	// Let the goroutines work for a second.
+	// Goroutine တွေကို တစ်စက္ကန့်လောက် အလုပ်လုပ်ခွင့်ပေးပါ။
 	time.Sleep(time.Second)
 
-	// Finally, capture and report the op counts.
+	// နောက်ဆုံးမှာ operation အရေအတွက်တွေကို ဖတ်ယူပြီး report လုပ်ပါ။
 	readOpsFinal := atomic.LoadUint64(&readOps)
 	fmt.Println("readOps:", readOpsFinal)
 	writeOpsFinal := atomic.LoadUint64(&writeOps)
