@@ -27,10 +27,10 @@
         
         <tr>
           <td class="docs">
-            <p>In the previous example we saw how to manage simple
-counter state using <a href="atomic-counters">atomic operations</a>.
-For more complex state we can use a <a href="https://en.wikipedia.org/wiki/Mutual_exclusion"><em>mutex</em></a>
-to safely access data across multiple goroutines.</p>
+            <p>ပြီးခဲ့တဲ့ဥပမာမှာ <a href="atomic-counters">atomic operation</a> တွေသုံးပြီး ရိုးရှင်းတဲ့
+counter state ကို ဘယ်လိုစီမံခန့်ခွဲသလဲဆိုတာ တွေ့ခဲ့ပါတယ်။
+ပိုရှုပ်ထွေးတဲ့ state တွေအတွက်တော့ goroutine အများကြီးကြားထဲမှာ ဒေတာကို
+လုံခြုံစွာ access လုပ်ဖို့ <a href="https://en.wikipedia.org/wiki/Mutual_exclusion"><em>mutex</em></a> ကို သုံးနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +44,7 @@ to safely access data across multiple goroutines.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/JU735qy2UmB"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/jpgciQvoqgQ"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -66,12 +66,11 @@ to safely access data across multiple goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>Container holds a map of counters; since we want to
-update it concurrently from multiple goroutines, we
-add a <code>Mutex</code> to synchronize access.
-Note that mutexes must not be copied, so if this
-<code>struct</code> is passed around, it should be done by
-pointer.</p>
+            <p>Container က counter တွေရဲ့ map ကို သိမ်းထားပါတယ်။ ဒီ map ကို
+goroutine အများကြီးကနေ တပြိုင်နက်တည်း update လုပ်ချင်တဲ့အတွက်
+access ကို synchronize လုပ်ဖို့ <code>Mutex</code> တစ်ခု ထည့်ထားပါတယ်။
+သတိပြုရမှာက mutex တွေကို copy မလုပ်သင့်ပါဘူး၊ ဒါကြောင့် ဒီ <code>struct</code> ကို
+တခြားနေရာတွေဆီ ပို့မယ်ဆိုရင် pointer နဲ့ပို့သင့်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -87,9 +86,8 @@ pointer.</p>
         
         <tr>
           <td class="docs">
-            <p>Lock the mutex before accessing <code>counters</code>; unlock
-it at the end of the function using a <a href="defer">defer</a>
-statement.</p>
+            <p><code>counters</code> ကို access မလုပ်ခင် mutex ကို lock လုပ်ပါ။
+function အဆုံးမှာ unlock လုပ်ဖို့ <a href="defer">defer</a> statement ကို သုံးထားပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -115,8 +113,8 @@ statement.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that the zero value of a mutex is usable as-is, so no
-initialization is required here.</p>
+            <p>Mutex ရဲ့ zero value က အသုံးပြုလို့ရပါတယ်၊ ဒါကြောင့် ဒီမှာ
+သီးခြား initialization လုပ်စရာမလိုပါဘူး။</p>
 
           </td>
           <td class="code leading">
@@ -152,8 +150,7 @@ initialization is required here.</p>
         
         <tr>
           <td class="docs">
-            <p>This function increments a named counter
-in a loop.</p>
+            <p>ဒီ function က နာမည်ပေးထားတဲ့ counter ကို loop ထဲမှာ တိုးပေးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -171,9 +168,9 @@ in a loop.</p>
         
         <tr>
           <td class="docs">
-            <p>Run several goroutines concurrently; note
-that they all access the same <code>Container</code>,
-and two of them access the same counter.</p>
+            <p>Goroutine အများကြီးကို တပြိုင်နက်တည်း run တာပါ။
+သတိပြုရမှာက သူတို့အားလုံးက တူညီတဲ့ <code>Container</code> ကိုပဲ access လုပ်နေပြီး
+နှစ်ခုကတော့ တူညီတဲ့ counter ကိုပဲ access လုပ်နေပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -189,7 +186,7 @@ and two of them access the same counter.</p>
         
         <tr>
           <td class="docs">
-            <p>Wait for the goroutines to finish</p>
+            <p>Goroutine တွေ ပြီးဆုံးတဲ့အထိ စောင့်ပါ</p>
 
           </td>
           <td class="code">
@@ -208,8 +205,9 @@ and two of them access the same counter.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program shows that the counters
-updated as expected.</p>
+            <p>ပရိုဂရမ်ကို run လိုက်တဲ့အခါ counter တွေက
+ကျွန်တော်တို့ မျှော်လင့်ထားသလိုပဲ update
+ဖြစ်သွားတာကို တွေ့ရပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -222,8 +220,9 @@ updated as expected.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at implementing this same state
-management task using only goroutines and channels.</p>
+            <p>နောက်တစ်ဆင့်မှာ ဒီလို state စီမံခန့်ခွဲမှုကိုပဲ
+goroutine တွေနဲ့ channel တွေကိုပဲ
+သုံးပြီး အကောင်အထည်ဖော်တာကို ကြည့်ကြပါမယ်။</p>
 
           </td>
           <td class="code empty">

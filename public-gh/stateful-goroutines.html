@@ -27,14 +27,12 @@
         
         <tr>
           <td class="docs">
-            <p>In the previous example we used explicit locking with
-<a href="mutexes">mutexes</a> to synchronize access to shared state
-across multiple goroutines. Another option is to use the
-built-in synchronization features of  goroutines and
-channels to achieve the same result. This channel-based
-approach aligns with Go&rsquo;s ideas of sharing memory by
-communicating and having each piece of data owned
-by exactly 1 goroutine.</p>
+            <p>အရင်ဥပမာမှာ <a href="mutexes">mutex</a> တွေကို အသုံးပြုပြီး goroutine အများကြီးကြားထဲမှာ
+shared state ကို access လုပ်တာကို synchronize လုပ်ခဲ့ပါတယ်။ နောက်ထပ်နည်းလမ်းတစ်ခုကတော့
+goroutine တွေနဲ့ channel တွေရဲ့ built-in synchronization feature တွေကို သုံးပြီး
+တူညီတဲ့ရလဒ်ကို ရယူတာပါ။ ဒီ channel-based နည်းလမ်းက Go ရဲ့ &ldquo;memory ကို communicating ဖြင့်
+မျှဝေသုံးစွဲခြင်း&rdquo; နဲ့ &ldquo;ဒေတာတစ်ခုချင်းစီကို တိတိကျကျ goroutine တစ်ခုက ပိုင်ဆိုင်ခြင်း&rdquo; ဆိုတဲ့
+အယူအဆတွေနဲ့ ကိုက်ညီပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +46,7 @@ by exactly 1 goroutine.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/TBcWd-OfnaA"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/-rntD4vw3ee"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -72,14 +70,12 @@ by exactly 1 goroutine.</p>
         
         <tr>
           <td class="docs">
-            <p>In this example our state will be owned by a single
-goroutine. This will guarantee that the data is never
-corrupted with concurrent access. In order to read or
-write that state, other goroutines will send messages
-to the owning goroutine and receive corresponding
-replies. These <code>readOp</code> and <code>writeOp</code> <code>struct</code>s
-encapsulate those requests and a way for the owning
-goroutine to respond.</p>
+            <p>ဒီဥပမာမှာ ကျွန်တော်တို့ရဲ့ state ကို goroutine တစ်ခုတည်းက ပိုင်ဆိုင်မှာပါ။
+ဒီနည်းက ဒေတာကို concurrent access လုပ်တဲ့အခါ ဘယ်တော့မှ ပျက်စီးမသွားစေပါဘူး။
+တခြား goroutine တွေက အဲဒီ state ကို ဖတ်ချင်တာ ရေးချင်တာရှိရင်
+ပိုင်ဆိုင်တဲ့ goroutine ဆီ message ပို့ပြီး အကြောင်းပြန်ချက်ကို လက်ခံရယူရပါမယ်။
+ဒီ <code>readOp</code> နဲ့ <code>writeOp</code> <code>struct</code> တွေက အဲဒီ request တွေနဲ့
+ပိုင်ဆိုင်တဲ့ goroutine က ပြန်လည်တုံ့ပြန်နိုင်မယ့် နည်းလမ်းကို encapsulate လုပ်ထားပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -111,7 +107,7 @@ goroutine to respond.</p>
         
         <tr>
           <td class="docs">
-            <p>As before we&rsquo;ll count how many operations we perform.</p>
+            <p>အရင်တုန်းကလိုပဲ ကျွန်တော်တို့ လုပ်ဆောင်တဲ့ operation အရေအတွက်ကို ရေတွက်ပါမယ်။</p>
 
           </td>
           <td class="code leading">
@@ -125,9 +121,8 @@ goroutine to respond.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>reads</code> and <code>writes</code> channels will be used by
-other goroutines to issue read and write requests,
-respectively.</p>
+            <p><code>reads</code> နဲ့ <code>writes</code> channel တွေကို တခြား goroutine တွေက
+read နဲ့ write request တွေ ပို့ဖို့ အသုံးပြုပါမယ်။</p>
 
           </td>
           <td class="code leading">
@@ -141,15 +136,13 @@ respectively.</p>
         
         <tr>
           <td class="docs">
-            <p>Here is the goroutine that owns the <code>state</code>, which
-is a map as in the previous example but now private
-to the stateful goroutine. This goroutine repeatedly
-selects on the <code>reads</code> and <code>writes</code> channels,
-responding to requests as they arrive. A response
-is executed by first performing the requested
-operation and then sending a value on the response
-channel <code>resp</code> to indicate success (and the desired
-value in the case of <code>reads</code>).</p>
+            <p>ဒါက <code>state</code> ကို ပိုင်ဆိုင်တဲ့ goroutine ပါ။ <code>state</code> က
+အရင်ဥပမာကလိုပဲ map တစ်ခုဖြစ်ပေမယ့် အခုတော့ stateful goroutine ထဲမှာပဲ
+private ဖြစ်နေပါပြီ။ ဒီ goroutine က <code>reads</code> နဲ့ <code>writes</code> channel တွေကို
+ထပ်ခါထပ်ခါ select လုပ်ပြီး request တွေ ရောက်လာတိုင်း တုံ့ပြန်ပါတယ်။
+တုံ့ပြန်မှုကို တောင်းဆိုထားတဲ့ operation ကို အရင်လုပ်ဆောင်ပြီးမှ
+အောင်မြင်ကြောင်း (နဲ့ <code>reads</code> ဖြစ်ရင် တောင်းဆိုထားတဲ့တန်ဖိုး) ကို
+response channel <code>resp</code> ပေါ်မှာ ပို့ခြင်းဖြင့် ဆောင်ရွက်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -173,11 +166,10 @@ value in the case of <code>reads</code>).</p>
         
         <tr>
           <td class="docs">
-            <p>This starts 100 goroutines to issue reads to the
-state-owning goroutine via the <code>reads</code> channel.
-Each read requires constructing a <code>readOp</code>, sending
-it over the <code>reads</code> channel, and then receiving the
-result over the provided <code>resp</code> channel.</p>
+            <p>ဒါက goroutine 100 ကို စတင်ပြီး <code>reads</code> channel ကနေတဆင့်
+state-owning goroutine ဆီ read တွေ ပို့ခိုင်းတာပါ။
+Read တိုင်းမှာ <code>readOp</code> တစ်ခု တည်ဆောက်ပြီး <code>reads</code> channel ပေါ်က ပို့ရပါတယ်။
+ပြီးတော့မှ ပေးထားတဲ့ <code>resp</code> channel ကနေ ရလဒ်ကို လက်ခံရယူရပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -202,8 +194,7 @@ result over the provided <code>resp</code> channel.</p>
         
         <tr>
           <td class="docs">
-            <p>We start 10 writes as well, using a similar
-approach.</p>
+            <p>ဒီမှာတော့ အလားတူနည်းလမ်းကိုသုံးပြီး write 10 ခုကို စတင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -229,7 +220,7 @@ approach.</p>
         
         <tr>
           <td class="docs">
-            <p>Let the goroutines work for a second.</p>
+            <p>Goroutine တွေကို တစ်စက္ကန့်လောက် အလုပ်လုပ်ခွင့်ပေးပါ။</p>
 
           </td>
           <td class="code leading">
@@ -242,7 +233,7 @@ approach.</p>
         
         <tr>
           <td class="docs">
-            <p>Finally, capture and report the op counts.</p>
+            <p>နောက်ဆုံးမှာ operation အရေအတွက်တွေကို ဖတ်ယူပြီး report လုပ်ပါ။</p>
 
           </td>
           <td class="code">
@@ -263,9 +254,11 @@ approach.</p>
         
         <tr>
           <td class="docs">
-            <p>Running our program shows that the goroutine-based
-state management example completes about 80,000
-total operations.</p>
+            <p>ကျွန်တော်တို့ရဲ့ ပရိုဂရမ်ကို run လိုက်တဲ့အခါ
+goroutine-based
+state management ဥပမာက စုစုပေါင်း
+operation 80,000 လောက်
+ပြီးမြောက်တာကို တွေ့ရပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -279,14 +272,18 @@ total operations.</p>
         
         <tr>
           <td class="docs">
-            <p>For this particular case the goroutine-based approach
-was a bit more involved than the mutex-based one. It
-might be useful in certain cases though, for example
-where you have other channels involved or when managing
-multiple such mutexes would be error-prone. You should
-use whichever approach feels most natural, especially
-with respect to understanding the correctness of your
-program.</p>
+            <p>ဒီဥပမာအတွက်တော့ goroutine-based
+နည်းလမ်းက mutex-based နည်းလမ်းထက်
+နည်းနည်း ပိုရှုပ်ထွေးပါတယ်။ ဒါပေမယ့် တချို့
+case တွေမှာတော့ အသုံးဝင်နိုင်ပါတယ်။
+ဥပမာ - တခြား channel တွေပါ
+ပါဝင်နေတဲ့အခါ သို့မဟုတ် mutex
+အများကြီးကို စီမံခန့်ခွဲရတာ
+မှားယွင်းနိုင်ခြေများတဲ့အခါမျိုးပါ။
+သင့်အနေနဲ့ ပိုပြီး သဘာဝကျတယ်လို့
+ခံစားရတဲ့နည်းလမ်းကို
+သုံးသင့်ပါတယ်။ အထူးသဖြင့် သင့်ရဲ့ပရိုဂရမ်ရဲ့
+မှန်ကန်မှုကို နားလည်ရတာနဲ့ ပတ်သက်ပြီးပါ။</p>
 
           </td>
           <td class="code empty">
