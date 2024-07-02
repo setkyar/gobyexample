@@ -27,11 +27,9 @@
         
         <tr>
           <td class="docs">
-            <p><a href="timers">Timers</a> are for when you want to do
-something once in the future - <em>tickers</em> are for when
-you want to do something repeatedly at regular
-intervals. Here&rsquo;s an example of a ticker that ticks
-periodically until we stop it.</p>
+            <p><a href="timers">Timer</a> တွေက အနာဂတ်မှာ တစ်ကြိမ်တည်း တစ်ခုခုလုပ်ချင်တဲ့အခါ သုံးပါတယ် -
+<em>ticker</em> တွေကတော့ ပုံမှန် တစ်ခုခုကို ထပ်ခါထပ်ခါလုပ်ချင်တဲ့အချိန်မှာ သုံးပါတယ်။
+ဒီမှာ ကျွန်တော်တို့ မရပ်ခိုင်းမချင်း ပုံမှန် tick လုပ်နေမယ့် ticker တစ်ခုရဲ့ ဥပမာကို ပြထားပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +43,7 @@ periodically until we stop it.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/gs6zoJP-Pl9"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/r3DF1V-GFDb"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -78,10 +76,9 @@ periodically until we stop it.</p>
         
         <tr>
           <td class="docs">
-            <p>Tickers use a similar mechanism to timers: a
-channel that is sent values. Here we&rsquo;ll use the
-<code>select</code> builtin on the channel to await the
-values as they arrive every 500ms.</p>
+            <p>Ticker တွေက timer တွေနဲ့ ဆင်တူတဲ့ နည်းလမ်းကို သုံးပါတယ်:
+တန်ဖိုးတွေ ပို့ပေးတဲ့ channel တစ်ခုပါ။ ဒီမှာတော့ channel ပေါ်မှာ
+<code>select</code> builtin ကိုသုံးပြီး 500ms တိုင်း ရောက်လာမယ့် တန်ဖိုးတွေကို စောင့်ပါမယ်။</p>
 
           </td>
           <td class="code leading">
@@ -115,9 +112,9 @@ values as they arrive every 500ms.</p>
         
         <tr>
           <td class="docs">
-            <p>Tickers can be stopped like timers. Once a ticker
-is stopped it won&rsquo;t receive any more values on its
-channel. We&rsquo;ll stop ours after 1600ms.</p>
+            <p>Ticker တွေကို timer တွေလိုပဲ ရပ်တန့်လို့ရပါတယ်။ Ticker တစ်ခုကို
+ရပ်တန့်လိုက်ပြီဆိုရင် သူ့ရဲ့ channel ပေါ်မှာ နောက်ထပ်တန်ဖိုးတွေ လက်ခံတော့မှာ မဟုတ်ပါဘူး။
+ကျွန်တော်တို့ရဲ့ ticker ကို 1600ms အကြာမှာ ရပ်တန့်ပါမယ်။</p>
 
           </td>
           <td class="code">
@@ -138,8 +135,9 @@ channel. We&rsquo;ll stop ours after 1600ms.</p>
         
         <tr>
           <td class="docs">
-            <p>When we run this program the ticker should tick 3 times
-before we stop it.</p>
+            <p>ဒီပရိုဂရမ်ကို run တဲ့အခါ ticker က
+ကျွန်တော်တို့ မရပ်တန့်ခင်
+3 ကြိမ် tick လုပ်ပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code">

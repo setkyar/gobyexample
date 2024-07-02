@@ -1,5 +1,6 @@
-# When we run this program the ticker should tick 3 times
-# before we stop it.
+# ဒီပရိုဂရမ်ကို run တဲ့အခါ ticker က 
+# ကျွန်တော်တို့ မရပ်တန့်ခင် 
+# 3 ကြိမ် tick လုပ်ပါလိမ့်မယ်။
 $ go run tickers.go
 Tick at 2012-09-23 11:29:56.487625 -0700 PDT
 Tick at 2012-09-23 11:29:56.988063 -0700 PDT
