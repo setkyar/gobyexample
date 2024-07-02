@@ -1,5 +1,5 @@
-// In this example we'll look at how to implement
-// a _worker pool_ using goroutines and channels.
+// ဒီဥပမာမှာ goroutine တွေနဲ့ channel တွေကို သုံးပြီး
+// _worker pool_ တစ်ခုကို ဘယ်လို အကောင်အထည်ဖော်မလဲဆိုတာကို ကြည့်ကြပါမယ်။
 
 package main
 
@@ -8,11 +8,11 @@ import (
 	"time"
 )
 
-// Here's the worker, of which we'll run several
-// concurrent instances. These workers will receive
-// work on the `jobs` channel and send the corresponding
-// results on `results`. We'll sleep a second per job to
-// simulate an expensive task.
+// ဒါက worker ပါ၊ ကျွန်တော်တို့က ဒီ worker ရဲ့ instance အများကြီးကို
+// တပြိုင်နက်တည်း run မှာပါ။ ဒီ worker တွေက `jobs` channel ကနေ
+// အလုပ်တွေကို လက်ခံပြီး ရလဒ်တွေကို `results` channel ဆီ ပို့ပါလိမ့်မယ်။
+// expensive task အလုပ်တစ်ခုကို simulate လုပ်ဖို့ task တစ်ခုအတွက်
+// တစ်စက္ကန့် sleep ပါလိမ့်မယ်။
 func worker(id int, jobs <-chan int, results chan<- int) {
 	for j := range jobs {
 		fmt.Println("worker", id, "started  job", j)
@@ -24,30 +24,29 @@ func worker(id int, jobs <-chan int, results chan<- int) {
 
 func main() {
 
-	// In order to use our pool of workers we need to send
-	// them work and collect their results. We make 2
-	// channels for this.
+	// ကျွန်တော်တို့ရဲ့ worker pool ကို သုံးဖို့ဆိုရင် သူတို့စီ အလုပ်တွေပို့ပြီး
+	// သူတို့ရဲ့ ရလဒ်တွေကို စုစည်းဖို့ လိုပါတယ်။ ဒီအတွက် channel နှစ်ခု လုပ်ပါမယ်။
 	const numJobs = 5
 	jobs := make(chan int, numJobs)
 	results := make(chan int, numJobs)
 
-	// This starts up 3 workers, initially blocked
-	// because there are no jobs yet.
+	// ဒါက worker သုံးခုကို စတင်ပါတယ်၊ ဒါပေမယ့် အစပိုင်းမှာ အလုပ်မရှိသေးတဲ့အတွက်
+	// block ဖြစ်နေပါလိမ့်မယ်။
 	for w := 1; w <= 3; w++ {
 		go worker(w, jobs, results)
 	}
 
-	// Here we send 5 `jobs` and then `close` that
-	// channel to indicate that's all the work we have.
+	// ဒီမှာ အလုပ် 5 ခု ပို့ပြီးတော့ အဲဒီ channel ကို `close` လုပ်ပါတယ်။
+	// ဒါက ရှိသမျှအလုပ်အားလုံး ပို့ပြီးပြီဆိုတာကို ညွှန်ပြတာပါ။
 	for j := 1; j <= numJobs; j++ {
 		jobs <- j
 	}
 	close(jobs)
 
-	// Finally we collect all the results of the work.
-	// This also ensures that the worker goroutines have
-	// finished. An alternative way to wait for multiple
-	// goroutines is to use a [WaitGroup](waitgroups).
+	// နောက်ဆုံးမှာ အလုပ်အားလုံးရဲ့ ရလဒ်တွေကို စုစည်းပါတယ်။
+	// ဒါက worker goroutine တွေ ပြီးဆုံးသွားပြီဆိုတာကိုလည်း သေချာစေပါတယ်။
+	// Goroutine အများကြီးကို စောင့်ဆိုင်းဖို့ နောက်ထပ်နည်းလမ်းတစ်ခုကတော့
+	// [WaitGroup](waitgroups) ကို သုံးတာပါ။
 	for a := 1; a <= numJobs; a++ {
 		<-results
 	}
