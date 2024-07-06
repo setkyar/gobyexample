@@ -6,5 +6,7 @@ $ go run epoch.go
 2012-10-31 16:13:58 +0000 UTC
 2012-10-31 16:13:58.292387 +0000 UTC
 
-# Next we'll look at another time-related task: time
-# parsing and formatting.
+# နောက်တစ်ဆင့်မှာတော့ အချိန်နဲ့ဆက်စပ်တဲ့ 
+# နောက်ထပ်လုပ်ငန်းတစ်ခုဖြစ်တဲ့
+# အချိန် parse လုပ်ခြင်းနဲ့ format 
+# လုပ်ခြင်းကို ကြည့်ကြပါမယ်။

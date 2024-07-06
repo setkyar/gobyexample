@@ -1,7 +1,6 @@
-// A common requirement in programs is getting the number
-// of seconds, milliseconds, or nanoseconds since the
-// [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).
-// Here's how to do it in Go.
+// ပရိုဂရမ်တွေမှာ အဖြစ်များတဲ့ လိုအပ်ချက်တစ်ခုကတော့ [Unix epoch](https://en.wikipedia.org/wiki/Unix_time) ကနေစပြီး
+// ကြာခဲ့တဲ့ စက္ကန့်၊ မီလီစက္ကန့်၊ သို့မဟုတ် နာနိုစက္ကန့် အရေအတွက်ကို ရယူဖို့ပါ။
+// Go မှာ ဒါကို ဘယ်လိုလုပ်ရမလဲဆိုတာ ဒီမှာရှိပါတယ်။
 
 package main
 
@@ -12,9 +11,9 @@ import (
 
 func main() {
 
-	// Use `time.Now` with `Unix`, `UnixMilli` or `UnixNano`
-	// to get elapsed time since the Unix epoch in seconds,
-	// milliseconds or nanoseconds, respectively.
+	// Unix epoch ကနေစပြီး ကြာခဲ့တဲ့အချိန်ကို စက္ကန့်၊ မီလီစက္ကန့်၊ သို့မဟုတ်
+	// နာနိုစက္ကန့်အလိုက် ရယူဖို့ `time.Now` ကို `Unix`၊ `UnixMilli` သို့မဟုတ် `UnixNano` နဲ့
+	// တွဲသုံးပါတယ်။
 	now := time.Now()
 	fmt.Println(now)
 
@@ -22,8 +21,8 @@ func main() {
 	fmt.Println(now.UnixMilli())
 	fmt.Println(now.UnixNano())
 
-	// You can also convert integer seconds or nanoseconds
-	// since the epoch into the corresponding `time`.
+	// သင့်အနေနဲ့ epoch ကနေစပြီး ကြာခဲ့တဲ့ စက္ကန့် သို့မဟုတ် နာနိုစက္ကန့် integer တွေကို
+	// သက်ဆိုင်ရာ `time` အဖြစ် ပြောင်းလဲနိုင်ပါတယ်။
 	fmt.Println(time.Unix(now.Unix(), 0))
 	fmt.Println(time.Unix(0, now.UnixNano()))
 }
