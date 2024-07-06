@@ -27,8 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go offers extensive support for times and durations;
-here are some examples.</p>
+            <p>Go က အချိန်နဲ့ ကြာချိန်တွေအတွက် ကျယ်ပြန့်တဲ့ ထောက်ပံ့မှုပေးပါတယ်။
+ဒီမှာ ဥပမာတချို့ ရှိပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +42,7 @@ here are some examples.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/YAM3s1KPc8c"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/z9l6hEPr4jx"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -76,7 +76,7 @@ here are some examples.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll start by getting the current time.</p>
+            <p>လက်ရှိအချိန်ကို ရယူခြင်းဖြင့် စတင်ပါမယ်။</p>
 
           </td>
           <td class="code leading">
@@ -90,9 +90,8 @@ here are some examples.</p>
         
         <tr>
           <td class="docs">
-            <p>You can build a <code>time</code> struct by providing the
-year, month, day, etc. Times are always associated
-with a <code>Location</code>, i.e. time zone.</p>
+            <p>နှစ်၊ လ၊ ရက် စသည်တို့ကို ပေးပြီး <code>time</code> struct တစ်ခု တည်ဆောက်နိုင်ပါတယ်။
+အချိန်တွေက အမြဲတမ်း <code>Location</code> (ဆိုလိုသည်မှာ time zone) နဲ့ ဆက်စပ်နေပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -107,8 +106,7 @@ with a <code>Location</code>, i.e. time zone.</p>
         
         <tr>
           <td class="docs">
-            <p>You can extract the various components of the time
-value as expected.</p>
+            <p>အချိန်တန်ဖိုးရဲ့ အစိတ်အပိုင်းအမျိုးမျိုးကို မျှော်လင့်ထားသလို ဆွဲထုတ်နိုင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -128,7 +126,7 @@ value as expected.</p>
         
         <tr>
           <td class="docs">
-            <p>The Monday-Sunday <code>Weekday</code> is also available.</p>
+            <p>တနင်္လာနေ့ကနေ တနင်္ဂနွေနေ့အထိ <code>Weekday</code> လည်း ရနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -141,9 +139,8 @@ value as expected.</p>
         
         <tr>
           <td class="docs">
-            <p>These methods compare two times, testing if the
-first occurs before, after, or at the same time
-as the second, respectively.</p>
+            <p>ဒီ method တွေက အချိန်နှစ်ခုကို နှိုင်းယှဉ်ပြီး ပထမတစ်ခုက ဒုတိယတစ်ခုရဲ့
+အရှေ့၊ နောက်၊ သို့မဟုတ် တူညီတဲ့အချိန်မှာ ဖြစ်မဖြစ် အသီးသီး စစ်ဆေးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -158,8 +155,7 @@ as the second, respectively.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Sub</code> methods returns a <code>Duration</code> representing
-the interval between two times.</p>
+            <p><code>Sub</code> method က အချိန်နှစ်ခုကြားက ကြားကာလကို ကိုယ်စားပြုတဲ့ <code>Duration</code> တစ်ခု ပြန်ပေးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -173,8 +169,7 @@ the interval between two times.</p>
         
         <tr>
           <td class="docs">
-            <p>We can compute the length of the duration in
-various units.</p>
+            <p>ကြာချိန်ရဲ့ အရှည်ကို အမျိုးမျိုးသော unit တွေနဲ့ တွက်ချက်နိုင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -190,9 +185,8 @@ various units.</p>
         
         <tr>
           <td class="docs">
-            <p>You can use <code>Add</code> to advance a time by a given
-duration, or with a <code>-</code> to move backwards by a
-duration.</p>
+            <p>ပေးထားတဲ့ ကြာချိန်တစ်ခုဖြင့် အချိန်တစ်ခုကို ရှေ့တိုးဖို့ <code>Add</code> ကို သုံးနိုင်ပါတယ်။
+သို့မဟုတ် <code>-</code> နဲ့တွဲသုံးပြီး ကြာချိန်တစ်ခုဖြင့် နောက်ပြန်ဆုတ်နိုင်ပါတယ်။</p>
 
           </td>
           <td class="code">
@@ -242,8 +236,8 @@ duration.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at the related idea of time relative to
-the Unix epoch.</p>
+            <p>နောက်တစ်ဆင့်မှာတော့ Unix epoch နဲ့ ဆက်စပ်နေတဲ့
+အချိန်အယူအဆကို ကြည့်ကြပါမယ်။</p>
 
           </td>
           <td class="code empty">

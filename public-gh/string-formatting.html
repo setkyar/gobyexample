@@ -27,9 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go offers excellent support for string formatting in
-the <code>printf</code> tradition. Here are some examples of
-common string formatting tasks.</p>
+            <p>Go က <code>printf</code> ပုံစံမျိုးနဲ့ string formatting အတွက် အထောက်အပံ့ကောင်းကောင်း (excellent support) ပေးထားပါတယ်။
+ဒီမှာ ပုံမှန်တွေ့ရတဲ့ string formatting လုပ်ငန်းတွေရဲ့ ဥပမာတချို့ ရှိပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -43,7 +42,7 @@ common string formatting tasks.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/EZCZX1Uwp6D"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/uHzpaUE5Yl4"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -89,9 +88,9 @@ common string formatting tasks.</p>
         
         <tr>
           <td class="docs">
-            <p>Go offers several printing &ldquo;verbs&rdquo; designed to
-format general Go values. For example, this prints
-an instance of our <code>point</code> struct.</p>
+            <p>Go မှာ အထွေထွေ Go value တွေကို format လုပ်ဖို့ ဒီဇိုင်းဆွဲထားတဲ့
+printing &ldquo;verb&rdquo; တွေ အများကြီး ရှိပါတယ်။ ဥပမာ၊ ဒါက ကျွန်တော်တို့ရဲ့
+<code>point</code> struct တစ်ခုကို print ထုတ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -105,8 +104,8 @@ an instance of our <code>point</code> struct.</p>
         
         <tr>
           <td class="docs">
-            <p>If the value is a struct, the <code>%+v</code> variant will
-include the struct&rsquo;s field names.</p>
+            <p>Value က struct ဖြစ်နေရင်၊ <code>%+v</code> က
+struct ရဲ့ field နာမည်တွေပါ ထည့်သွင်းပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -119,9 +118,8 @@ include the struct&rsquo;s field names.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>%#v</code> variant prints a Go syntax representation
-of the value, i.e. the source code snippet that
-would produce that value.</p>
+            <p><code>%#v</code> က value ရဲ့ Go syntax ကိုယ်စားပြုမှုကို print ထုတ်ပါတယ်။
+ဆိုလိုတာက အဲဒီ value ကို ထုတ်လုပ်မယ့် source code အပိုင်းအစပါ။</p>
 
           </td>
           <td class="code leading">
@@ -134,7 +132,7 @@ would produce that value.</p>
         
         <tr>
           <td class="docs">
-            <p>To print the type of a value, use <code>%T</code>.</p>
+            <p>Value တစ်ခုရဲ့ type ကို print ထုတ်ဖို့ <code>%T</code> ကို သုံးပါ။</p>
 
           </td>
           <td class="code leading">
@@ -147,7 +145,7 @@ would produce that value.</p>
         
         <tr>
           <td class="docs">
-            <p>Formatting booleans is straight-forward.</p>
+            <p>Boolean တွေကို format လုပ်တာ ရိုးရှင်းပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -160,8 +158,8 @@ would produce that value.</p>
         
         <tr>
           <td class="docs">
-            <p>There are many options for formatting integers.
-Use <code>%d</code> for standard, base-10 formatting.</p>
+            <p>Integer တွေကို format လုပ်ဖို့ option အများကြီး ရှိပါတယ်။
+ပုံမှန် base-10 format အတွက် <code>%d</code> ကို သုံးပါ။</p>
 
           </td>
           <td class="code leading">
@@ -174,7 +172,7 @@ Use <code>%d</code> for standard, base-10 formatting.</p>
         
         <tr>
           <td class="docs">
-            <p>This prints a binary representation.</p>
+            <p>ဒါက binary ပုံစံနဲ့ print ထုတ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -187,8 +185,7 @@ Use <code>%d</code> for standard, base-10 formatting.</p>
         
         <tr>
           <td class="docs">
-            <p>This prints the character corresponding to the
-given integer.</p>
+            <p>ဒါက ပေးလိုက်တဲ့ integer နဲ့ ကိုက်ညီတဲ့ စာလုံးကို print ထုတ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -201,7 +198,7 @@ given integer.</p>
         
         <tr>
           <td class="docs">
-            <p><code>%x</code> provides hex encoding.</p>
+            <p><code>%x</code> က hex encoding ပေးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -214,8 +211,8 @@ given integer.</p>
         
         <tr>
           <td class="docs">
-            <p>There are also several formatting options for
-floats. For basic decimal formatting use <code>%f</code>.</p>
+            <p>Float တွေအတွက်လည်း formatting option အများကြီး ရှိပါတယ်။
+အခြေခံ ဒဿမ formatting အတွက် <code>%f</code> ကို သုံးပါ။</p>
 
           </td>
           <td class="code leading">
@@ -228,8 +225,7 @@ floats. For basic decimal formatting use <code>%f</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>%e</code> and <code>%E</code> format the float in (slightly
-different versions of) scientific notation.</p>
+            <p><code>%e</code> နဲ့ <code>%E</code> က float ကို သိပ္ပံနည်းကျ ရေးနည်း (နည်းနည်း ကွာခြားတဲ့ version နှစ်ခု) နဲ့ format လုပ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -243,7 +239,7 @@ different versions of) scientific notation.</p>
         
         <tr>
           <td class="docs">
-            <p>For basic string printing use <code>%s</code>.</p>
+            <p>အခြေခံ string printing အတွက် <code>%s</code> ကို သုံးပါ။</p>
 
           </td>
           <td class="code leading">
@@ -256,7 +252,7 @@ different versions of) scientific notation.</p>
         
         <tr>
           <td class="docs">
-            <p>To double-quote strings as in Go source, use <code>%q</code>.</p>
+            <p>Go source code မှာလိုမျိုး string တွေကို double-quote လုပ်ဖို့ <code>%q</code> ကို သုံးပါ။</p>
 
           </td>
           <td class="code leading">
@@ -269,9 +265,9 @@ different versions of) scientific notation.</p>
         
         <tr>
           <td class="docs">
-            <p>As with integers seen earlier, <code>%x</code> renders
-the string in base-16, with two output characters
-per byte of input.</p>
+            <p>အပေါ်မှာ မြင်ခဲ့ရတဲ့ integer တွေလိုပဲ၊ <code>%x</code> က
+string ကို base-16 နဲ့ ဖော်ပြပါတယ်။ Input byte တစ်ခုစီအတွက်
+output စာလုံး နှစ်လုံးစီ ထွက်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -284,7 +280,7 @@ per byte of input.</p>
         
         <tr>
           <td class="docs">
-            <p>To print a representation of a pointer, use <code>%p</code>.</p>
+            <p>Pointer တစ်ခုရဲ့ ကိုယ်စားပြုမှုကို print ထုတ်ဖို့ <code>%p</code> ကို သုံးပါ။</p>
 
           </td>
           <td class="code leading">
@@ -297,12 +293,11 @@ per byte of input.</p>
         
         <tr>
           <td class="docs">
-            <p>When formatting numbers you will often want to
-control the width and precision of the resulting
-figure. To specify the width of an integer, use a
-number after the <code>%</code> in the verb. By default the
-result will be right-justified and padded with
-spaces.</p>
+            <p>နံပါတ်တွေကို format လုပ်တဲ့အခါ ထွက်လာမယ့် ဂဏန်းရဲ့
+အကျယ်နဲ့ တိကျမှုကို ထိန်းချုပ်ချင်တာ မကြာခဏ လုပ်ချင်ပါလိမ့်မယ်။
+Integer တစ်ခုရဲ့ အကျယ်ကို သတ်မှတ်ဖို့ verb ထဲက <code>%</code> နောက်မှာ
+နံပါတ်တစ်ခု ထည့်ပါ။ ပုံမှန်အားဖြင့် ရလဒ်က ညာဘက်ကပ်ပြီး
+space တွေနဲ့ ဖြည့်ထားပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -315,10 +310,11 @@ spaces.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also specify the width of printed floats,
-though usually you&rsquo;ll also want to restrict the
-decimal precision at the same time with the
-width.precision syntax.</p>
+            <p>နံပါတ်တွေကို format လုပ်တဲ့အခါ ထွက်လာမယ့် ဂဏန်းရဲ့
+အကျယ်နဲ့ တိကျမှုကို ထိန်းချုပ်ချင်တာ မကြာခဏ ဖြစ်ပါလိမ့်မယ်။
+Integer တစ်ခုရဲ့ အကျယ်ကို သတ်မှတ်ဖို့ verb ထဲက <code>%</code> နောက်မှာ
+နံပါတ်တစ်ခု ထည့်ပါ။ ပုံမှန်အားဖြင့် ရလဒ်က ညာဘက်ကပ်ပြီး
+space တွေနဲ့ ဖြည့်ထားပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -331,7 +327,7 @@ width.precision syntax.</p>
         
         <tr>
           <td class="docs">
-            <p>To left-justify, use the <code>-</code> flag.</p>
+            <p>ဘယ်ဘက်ကပ်ဖို့ <code>-</code> flag ကို သုံးပါ။</p>
 
           </td>
           <td class="code leading">
@@ -344,9 +340,9 @@ width.precision syntax.</p>
         
         <tr>
           <td class="docs">
-            <p>You may also want to control width when formatting
-strings, especially to ensure that they align in
-table-like output. For basic right-justified width.</p>
+            <p>String တွေကို format လုပ်တဲ့အခါလည်း အကျယ်ကို ထိန်းချုပ်ချင်နိုင်ပါတယ်။
+အထူးသဖြင့် ဇယားလို output မှာ တန်းစီအောင် လုပ်ချင်တဲ့အခါပါ။
+အခြေခံ ညာဘက်ကပ် အကျယ်အတွက်:</p>
 
           </td>
           <td class="code leading">
@@ -359,7 +355,7 @@ table-like output. For basic right-justified width.</p>
         
         <tr>
           <td class="docs">
-            <p>To left-justify use the <code>-</code> flag as with numbers.</p>
+            <p>ဘယ်ဘက်ကပ်ဖို့ နံပါတ်တွေမှာလိုပဲ <code>-</code> flag ကို သုံးပါ။</p>
 
           </td>
           <td class="code leading">
@@ -372,9 +368,10 @@ table-like output. For basic right-justified width.</p>
         
         <tr>
           <td class="docs">
-            <p>So far we&rsquo;ve seen <code>Printf</code>, which prints the
-formatted string to <code>os.Stdout</code>. <code>Sprintf</code> formats
-and returns a string without printing it anywhere.</p>
+            <p>အခုထိ ကျွန်တော်တို့ <code>Printf</code> ကို မြင်ခဲ့ကြပါတယ်။ သူက
+format လုပ်ထားတဲ့ string ကို <code>os.Stdout</code> မှာ print ထုတ်ပါတယ်။
+<code>Sprintf</code> ကတော့ string ကို format လုပ်ပြီး ဘယ်နေရာမှာမှ print မထုတ်ဘဲ
+ပြန်ပေးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -388,8 +385,8 @@ and returns a string without printing it anywhere.</p>
         
         <tr>
           <td class="docs">
-            <p>You can format+print to <code>io.Writers</code> other than
-<code>os.Stdout</code> using <code>Fprintf</code>.</p>
+            <p><code>os.Stdout</code> မဟုတ်တဲ့ တခြား <code>io.Writers</code> တွေမှာ format+print လုပ်ချင်ရင်
+<code>Fprintf</code> ကို သုံးနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code">

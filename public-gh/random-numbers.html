@@ -27,9 +27,9 @@
         
         <tr>
           <td class="docs">
-            <p>Go&rsquo;s <code>math/rand</code> package provides
+            <p>Go ရဲ့ <code>math/rand</code> package က
 <a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">pseudorandom number</a>
-generation.</p>
+ထုတ်လုပ်မှုကို ပေးပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -43,7 +43,7 @@ generation.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/Enb5uJEx0Bt"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/Zq2B9gxMHCM"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -77,8 +77,8 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p>For example, <code>rand.Intn</code> returns a random <code>int</code> n,
-<code>0 &lt;= n &lt; 100</code>.</p>
+            <p>ဥပမာ၊ <code>rand.Intn</code> က <code>0 &lt;= n &lt; 100</code> ဖြစ်တဲ့
+ကျပန်း <code>int</code> n ကို ပြန်ပေးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -93,8 +93,8 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p><code>rand.Float64</code> returns a <code>float64</code> <code>f</code>,
-<code>0.0 &lt;= f &lt; 1.0</code>.</p>
+            <p><code>rand.Float64</code> က <code>0.0 &lt;= f &lt; 1.0</code> ဖြစ်တဲ့
+<code>float64</code> <code>f</code> ကို ပြန်ပေးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -107,8 +107,8 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p>This can be used to generate random floats in
-other ranges, for example <code>5.0 &lt;= f' &lt; 10.0</code>.</p>
+            <p>ဒါကို တခြား range တွေအတွက် ကျပန်း float တွေ ထုတ်လုပ်ဖို့ သုံးနိုင်ပါတယ်၊
+ဥပမာ <code>5.0 &lt;= f' &lt; 10.0</code>။</p>
 
           </td>
           <td class="code leading">
@@ -123,11 +123,11 @@ other ranges, for example <code>5.0 &lt;= f' &lt; 10.0</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>The default number generator is deterministic, so it&rsquo;ll
-produce the same sequence of numbers each time by default.
-To produce varying sequences, give it a seed that changes.
-Note that this is not safe to use for random numbers you
-intend to be secret; use <code>crypto/rand</code> for those.</p>
+            <p>ပုံမှန် number generator က deterministic ဖြစ်တဲ့အတွက် ပုံမှန်အားဖြင့်
+အကြိမ်တိုင်းမှာ တူညီတဲ့ နံပါတ်စီးကြောင်းကို ထုတ်ပေးပါလိမ့်မယ်။
+ကွဲပြားတဲ့ စီးကြောင်းတွေ ထုတ်လုပ်ဖို့ ပြောင်းလဲနေတဲ့ seed တစ်ခု ပေးပါ။
+သတိပြုရမှာက လျှို့ဝှက်ထားချင်တဲ့ ကျပန်းနံပါတ်တွေအတွက် ဒါကို သုံးလို့ မလုံခြုံပါဘူး။
+အဲဒီအတွက် <code>crypto/rand</code> ကို သုံးပါ။</p>
 
           </td>
           <td class="code leading">
@@ -141,8 +141,8 @@ intend to be secret; use <code>crypto/rand</code> for those.</p>
         
         <tr>
           <td class="docs">
-            <p>Call the resulting <code>rand.Rand</code> just like the
-functions on the <code>rand</code> package.</p>
+            <p>ရလာတဲ့ <code>rand.Rand</code> ကို <code>rand</code> package ပေါ်က
+function တွေလိုပဲ ခေါ်သုံးပါ။</p>
 
           </td>
           <td class="code leading">
@@ -157,8 +157,8 @@ functions on the <code>rand</code> package.</p>
         
         <tr>
           <td class="docs">
-            <p>If you seed a source with the same number, it
-produces the same sequence of random numbers.</p>
+            <p>တူညီတဲ့နံပါတ်နဲ့ source တစ်ခုကို seed လုပ်ရင်
+တူညီတဲ့ ကျပန်းနံပါတ်စီးကြောင်းကို ထုတ်လုပ်ပါတယ်။</p>
 
           </td>
           <td class="code">
@@ -184,11 +184,13 @@ produces the same sequence of random numbers.</p>
         
         <tr>
           <td class="docs">
-            <p>Depending on where you run this sample, some of the
-generated numbers may be different. Note that on
-the Go playground seeding with <code>time.Now()</code> still
-produces deterministic results due to the way the
-playground is implemented.</p>
+            <p>ဒီနမူနာကို သင်ဘယ်နေရာမှာ run
+သလဲပေါ်မူတည်ပြီး ထုတ်လုပ်ထားတဲ့ နံပါတ်တချို့
+ကွာခြားနိုင်ပါတယ်။ Go playground မှာတော့
+<code>time.Now()</code> နဲ့ seed လုပ်တာက
+playground ရဲ့ implementation ကြောင့်
+အခြေအနေတူတဲ့ ရလဒ်တွေကိုပဲ
+ ထုတ်ပေးနေဦးမှာကို သတိပြုပါ။</p>
 
           </td>
           <td class="code leading">
@@ -206,9 +208,10 @@ playground is implemented.</p>
         
         <tr>
           <td class="docs">
-            <p>See the <a href="https://pkg.go.dev/math/rand"><code>math/rand</code></a>
-package docs for references on other random quantities
-that Go can provide.</p>
+            <p>Go က ပေးနိုင်တဲ့ တခြား ကျပန်းပမာဏတွေအတွက်
+ကိုးကားချက်တွေကို
+<a href="https://pkg.go.dev/math/rand"><code>math/rand</code></a> package
+ docs မှာ ကြည့်ပါ။</p>
 
           </td>
           <td class="code empty">

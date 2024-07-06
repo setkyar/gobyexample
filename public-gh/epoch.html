@@ -27,10 +27,9 @@
         
         <tr>
           <td class="docs">
-            <p>A common requirement in programs is getting the number
-of seconds, milliseconds, or nanoseconds since the
-<a href="https://en.wikipedia.org/wiki/Unix_time">Unix epoch</a>.
-Here&rsquo;s how to do it in Go.</p>
+            <p>ပရိုဂရမ်တွေမှာ အဖြစ်များတဲ့ လိုအပ်ချက်တစ်ခုကတော့ <a href="https://en.wikipedia.org/wiki/Unix_time">Unix epoch</a> ကနေစပြီး
+ကြာခဲ့တဲ့ စက္ကန့်၊ မီလီစက္ကန့်၊ သို့မဟုတ် နာနိုစက္ကန့် အရေအတွက်ကို ရယူဖို့ပါ။
+Go မှာ ဒါကို ဘယ်လိုလုပ်ရမလဲဆိုတာ ဒီမှာရှိပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +43,7 @@ Here&rsquo;s how to do it in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/lRmD1EWHHPz"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/6hAtxkidJ_P"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -77,9 +76,9 @@ Here&rsquo;s how to do it in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>time.Now</code> with <code>Unix</code>, <code>UnixMilli</code> or <code>UnixNano</code>
-to get elapsed time since the Unix epoch in seconds,
-milliseconds or nanoseconds, respectively.</p>
+            <p>Unix epoch ကနေစပြီး ကြာခဲ့တဲ့အချိန်ကို စက္ကန့်၊ မီလီစက္ကန့်၊ သို့မဟုတ်
+နာနိုစက္ကန့်အလိုက် ရယူဖို့ <code>time.Now</code> ကို <code>Unix</code>၊ <code>UnixMilli</code> သို့မဟုတ် <code>UnixNano</code> နဲ့
+တွဲသုံးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -106,8 +105,8 @@ milliseconds or nanoseconds, respectively.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also convert integer seconds or nanoseconds
-since the epoch into the corresponding <code>time</code>.</p>
+            <p>သင့်အနေနဲ့ epoch ကနေစပြီး ကြာခဲ့တဲ့ စက္ကန့် သို့မဟုတ် နာနိုစက္ကန့် integer တွေကို
+သက်ဆိုင်ရာ <code>time</code> အဖြစ် ပြောင်းလဲနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code">
@@ -142,8 +141,10 @@ since the epoch into the corresponding <code>time</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at another time-related task: time
-parsing and formatting.</p>
+            <p>နောက်တစ်ဆင့်မှာတော့ အချိန်နဲ့ဆက်စပ်တဲ့
+နောက်ထပ်လုပ်ငန်းတစ်ခုဖြစ်တဲ့
+အချိန် parse လုပ်ခြင်းနဲ့ format
+လုပ်ခြင်းကို ကြည့်ကြပါမယ်။</p>
 
           </td>
           <td class="code empty">

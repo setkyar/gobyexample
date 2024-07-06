@@ -27,8 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go offers built-in support for XML and XML-like
-formats with the <code>encoding.xml</code> package.</p>
+            <p>Go က <code>encoding.xml</code> package နဲ့ XML နဲ့ XML-လို format တွေအတွက်
+built-in ထောက်ပံ့မှုပေးထားပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +42,7 @@ formats with the <code>encoding.xml</code> package.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/OVq7kNMk0GR"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/bNZYtAEw6ca"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -64,13 +64,12 @@ formats with the <code>encoding.xml</code> package.</p>
         
         <tr>
           <td class="docs">
-            <p>Plant will be mapped to XML. Similarly to the
-JSON examples, field tags contain directives for the
-encoder and decoder. Here we use some special features
-of the XML package: the <code>XMLName</code> field name dictates
-the name of the XML element representing this struct;
-<code>id,attr</code> means that the <code>Id</code> field is an XML
-<em>attribute</em> rather than a nested element.</p>
+            <p>Plant ကို XML နဲ့ map လုပ်ပါမယ်။ JSON ဥပမာတွေလိုပဲ၊ field tag တွေက
+encoder နဲ့ decoder အတွက် ညွှန်ကြားချက်တွေ ပါဝင်ပါတယ်။ ဒီမှာ ကျွန်တော်တို့က
+XML package ရဲ့ အထူး feature တချို့ကို သုံးပါတယ်: <code>XMLName</code> field နာမည်က
+ဒီ struct ကို ကိုယ်စားပြုတဲ့ XML element ရဲ့ နာမည်ကို သတ်မှတ်ပေးပါတယ်။
+<code>id,attr</code> က <code>Id</code> field က nested element မဟုတ်ဘဲ XML
+<em>attribute</em> တစ်ခုဖြစ်တယ်လို့ ဆိုလိုပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -96,17 +95,7 @@ the name of the XML element representing this struct;
     <span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;Plant id=%v, name=%v, origin=%v&#34;</span><span class="p">,</span>
         <span class="nx">p</span><span class="p">.</span><span class="nx">Id</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Origin</span><span class="p">)</span>
 <span class="p">}</span>
-</pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">coffee</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Plant</span><span class="p">{</span><span class="nx">Id</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span> <span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;Coffee&#34;</span><span class="p">}</span>
     <span class="nx">coffee</span><span class="p">.</span><span class="nx">Origin</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;Ethiopia&#34;</span><span class="p">,</span> <span class="s">&#34;Brazil&#34;</span><span class="p">}</span>
 </pre>
@@ -115,9 +104,8 @@ the name of the XML element representing this struct;
         
         <tr>
           <td class="docs">
-            <p>Emit XML representing our plant; using
-<code>MarshalIndent</code> to produce a more
-human-readable output.</p>
+            <p>ကျွန်တော်တို့ရဲ့ plant ကို ကိုယ်စားပြုတဲ့ XML ကို ထုတ်ပေးပါတယ်။
+ပိုပြီး လူဖတ်လို့ရတဲ့ output ထုတ်ပေးဖို့ <code>MarshalIndent</code> ကို သုံးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -131,8 +119,7 @@ human-readable output.</p>
         
         <tr>
           <td class="docs">
-            <p>To add a generic XML header to the output, append
-it explicitly.</p>
+            <p>Output ထဲကို အထွေထွေသုံး XML header ထည့်ဖို့၊ တိုက်ရိုက် ပေါင်းထည့်လိုက်ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -145,10 +132,9 @@ it explicitly.</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>Unmarshal</code> to parse a stream of bytes with XML
-into a data structure. If the XML is malformed or
-cannot be mapped onto Plant, a descriptive error
-will be returned.</p>
+            <p>XML ပါတဲ့ byte stream တစ်ခုကို data structure အဖြစ် parse လုပ်ဖို့
+<code>Unmarshal</code> ကို သုံးပါတယ်။ XML က ပုံပျက်နေရင် သို့မဟုတ် Plant နဲ့
+map မလုပ်နိုင်ရင် ရှင်းလင်းတဲ့ error တစ်ခု ပြန်ပေးပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -159,17 +145,7 @@ will be returned.</p>
         <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
     <span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">p</span><span class="p">)</span>
-</pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma">    <span class="nx">tomato</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Plant</span><span class="p">{</span><span class="nx">Id</span><span class="p">:</span> <span class="mi">81</span><span class="p">,</span> <span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;Tomato&#34;</span><span class="p">}</span>
+    <span class="nx">tomato</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Plant</span><span class="p">{</span><span class="nx">Id</span><span class="p">:</span> <span class="mi">81</span><span class="p">,</span> <span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;Tomato&#34;</span><span class="p">}</span>
     <span class="nx">tomato</span><span class="p">.</span><span class="nx">Origin</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;Mexico&#34;</span><span class="p">,</span> <span class="s">&#34;California&#34;</span><span class="p">}</span>
 </pre>
           </td>
@@ -177,40 +153,20 @@ will be returned.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>parent&gt;child&gt;plant</code> field tag tells the encoder
-to nest all <code>plant</code>s under <code>&lt;parent&gt;&lt;child&gt;...</code></p>
+            <p><code>parent&gt;child&gt;plant</code> field tag က encoder ကို <code>plant</code> အားလုံးကို
+<code>&lt;parent&gt;&lt;child&gt;...</code> အောက်မှာ nest လုပ်ခိုင်းပါတယ်</p>
 
           </td>
-          <td class="code leading">
+          <td class="code">
             
           <pre class="chroma">
     <span class="kd">type</span> <span class="nx">Nesting</span> <span class="kd">struct</span> <span class="p">{</span>
         <span class="nx">XMLName</span> <span class="nx">xml</span><span class="p">.</span><span class="nx">Name</span> <span class="s">`xml:&#34;nesting&#34;`</span>
         <span class="nx">Plants</span>  <span class="p">[]</span><span class="o">*</span><span class="nx">Plant</span> <span class="s">`xml:&#34;parent&gt;child&gt;plant&#34;`</span>
     <span class="p">}</span>
-</pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma">    <span class="nx">nesting</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Nesting</span><span class="p">{}</span>
+    <span class="nx">nesting</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Nesting</span><span class="p">{}</span>
     <span class="nx">nesting</span><span class="p">.</span><span class="nx">Plants</span> <span class="p">=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">Plant</span><span class="p">{</span><span class="nx">coffee</span><span class="p">,</span> <span class="nx">tomato</span><span class="p">}</span>
-</pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code">
-            
-          <pre class="chroma">    <span class="nx">out</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">xml</span><span class="p">.</span><span class="nf">MarshalIndent</span><span class="p">(</span><span class="nx">nesting</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">,</span> <span class="s">&#34;  &#34;</span><span class="p">)</span>
+    <span class="nx">out</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">xml</span><span class="p">.</span><span class="nf">MarshalIndent</span><span class="p">(</span><span class="nx">nesting</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">,</span> <span class="s">&#34;  &#34;</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">out</span><span class="p">))</span>
 <span class="p">}</span>
 </pre>
@@ -274,7 +230,7 @@ to nest all <code>plant</code>s under <code>&lt;parent&gt;&lt;child&gt;...</code
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"encoding/xml\"\u000A    \"fmt\"\u000A)\u000A');codeLines.push('type Plant struct {\u000A    XMLName xml.Name `xml:\"plant\"`\u000A    Id      int      `xml:\"id,attr\"`\u000A    Name    string   `xml:\"name\"`\u000A    Origin  []string `xml:\"origin\"`\u000A}\u000A');codeLines.push('func (p Plant) String() string {\u000A    return fmt.Sprintf(\"Plant id\u003D%v, name\u003D%v, origin\u003D%v\",\u000A        p.Id, p.Name, p.Origin)\u000A}\u000A');codeLines.push('func main() {\u000A    coffee :\u003D \u0026Plant{Id: 27, Name: \"Coffee\"}\u000A    coffee.Origin \u003D []string{\"Ethiopia\", \"Brazil\"}\u000A');codeLines.push('    out, _ :\u003D xml.MarshalIndent(coffee, \" \", \"  \")\u000A    fmt.Println(string(out))\u000A');codeLines.push('    fmt.Println(xml.Header + string(out))\u000A');codeLines.push('    var p Plant\u000A    if err :\u003D xml.Unmarshal(out, \u0026p); err !\u003D nil {\u000A        panic(err)\u000A    }\u000A    fmt.Println(p)\u000A');codeLines.push('    tomato :\u003D \u0026Plant{Id: 81, Name: \"Tomato\"}\u000A    tomato.Origin \u003D []string{\"Mexico\", \"California\"}\u000A');codeLines.push('    type Nesting struct {\u000A        XMLName xml.Name `xml:\"nesting\"`\u000A        Plants  []*Plant `xml:\"parent\u003Echild\u003Eplant\"`\u000A    }\u000A');codeLines.push('    nesting :\u003D \u0026Nesting{}\u000A    nesting.Plants \u003D []*Plant{coffee, tomato}\u000A');codeLines.push('    out, _ \u003D xml.MarshalIndent(nesting, \" \", \"  \")\u000A    fmt.Println(string(out))\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"encoding/xml\"\u000A    \"fmt\"\u000A)\u000A');codeLines.push('type Plant struct {\u000A    XMLName xml.Name `xml:\"plant\"`\u000A    Id      int      `xml:\"id,attr\"`\u000A    Name    string   `xml:\"name\"`\u000A    Origin  []string `xml:\"origin\"`\u000A}\u000A');codeLines.push('func (p Plant) String() string {\u000A    return fmt.Sprintf(\"Plant id\u003D%v, name\u003D%v, origin\u003D%v\",\u000A        p.Id, p.Name, p.Origin)\u000A}\u000Afunc main() {\u000A    coffee :\u003D \u0026Plant{Id: 27, Name: \"Coffee\"}\u000A    coffee.Origin \u003D []string{\"Ethiopia\", \"Brazil\"}\u000A');codeLines.push('    out, _ :\u003D xml.MarshalIndent(coffee, \" \", \"  \")\u000A    fmt.Println(string(out))\u000A');codeLines.push('    fmt.Println(xml.Header + string(out))\u000A');codeLines.push('    var p Plant\u000A    if err :\u003D xml.Unmarshal(out, \u0026p); err !\u003D nil {\u000A        panic(err)\u000A    }\u000A    fmt.Println(p)\u000A    tomato :\u003D \u0026Plant{Id: 81, Name: \"Tomato\"}\u000A    tomato.Origin \u003D []string{\"Mexico\", \"California\"}\u000A');codeLines.push('    type Nesting struct {\u000A        XMLName xml.Name `xml:\"nesting\"`\u000A        Plants  []*Plant `xml:\"parent\u003Echild\u003Eplant\"`\u000A    }\u000A    nesting :\u003D \u0026Nesting{}\u000A    nesting.Plants \u003D []*Plant{coffee, tomato}\u000A    out, _ \u003D xml.MarshalIndent(nesting, \" \", \"  \")\u000A    fmt.Println(string(out))\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

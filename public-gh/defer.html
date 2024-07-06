@@ -27,10 +27,10 @@
         
         <tr>
           <td class="docs">
-            <p><em>Defer</em> is used to ensure that a function call is
-performed later in a program&rsquo;s execution, usually for
-purposes of cleanup. <code>defer</code> is often used where e.g.
-<code>ensure</code> and <code>finally</code> would be used in other languages.</p>
+            <p><em>Defer</em> ကို ပရိုဂရမ်ရဲ့ လုပ်ဆောင်မှုအတွင်းမှာ function call တစ်ခုကို နောက်ပိုင်းမှ
+လုပ်ဆောင်စေဖို့ သုံးပါတယ်။ အများအားဖြင့် cleanup လုပ်ဖို့ ရည်ရွယ်ချက်နဲ့ သုံးလေ့ရှိပါတယ်။
+တခြားဘာသာစကားတွေမှာ <code>ensure</code> နဲ့ <code>finally</code> သုံးတဲ့နေရာမျိုးတွေမှာ Go က <code>defer</code> ကို
+မကြာခဏ သုံးပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +44,7 @@ purposes of cleanup. <code>defer</code> is often used where e.g.
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/5SDVfc_jxbg"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/zO4_faYM2Kq"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -66,9 +66,8 @@ purposes of cleanup. <code>defer</code> is often used where e.g.
         
         <tr>
           <td class="docs">
-            <p>Suppose we wanted to create a file, write to it,
-and then close when we&rsquo;re done. Here&rsquo;s how we could
-do that with <code>defer</code>.</p>
+            <p>ဖိုင်တစ်ခု ဖန်တီးပြီး၊ ဖိုင်အထဲကို ရေးမယ်၊ ပြီးရင် ပိတ်ပစ်မယ်ဆိုပါစို့။
+<code>defer</code> ကိုသုံးပြီး ဒီလိုလုပ်လို့ရပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -81,11 +80,10 @@ do that with <code>defer</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Immediately after getting a file object with
-<code>createFile</code>, we defer the closing of that file
-with <code>closeFile</code>. This will be executed at the end
-of the enclosing function (<code>main</code>), after
-<code>writeFile</code> has finished.</p>
+            <p><code>createFile</code> နဲ့ file object ရရှိပြီးတာနဲ့ ချက်ချင်း
+အဲဒီဖိုင်ကို ပိတ်မယ့် <code>closeFile</code> ကို defer လုပ်ထားလိုက်ပါတယ်။
+ဒါက လက်ရှိ function (<code>main</code>) ပြီးဆုံးချိန်မှာ၊
+<code>writeFile</code> ပြီးသွားတဲ့နောက်မှာ အလုပ်လုပ်ပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -143,8 +141,8 @@ of the enclosing function (<code>main</code>), after
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s important to check for errors when closing a
-file, even in a deferred function.</p>
+            <p>Deferred function ထဲမှာတောင် ဖိုင်ပိတ်တဲ့အခါ
+error စစ်ဖို့ အရေးကြီးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -177,8 +175,8 @@ file, even in a deferred function.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program confirms that the file is closed
-after being written.</p>
+            <p>ပရိုဂရမ်ကို run လိုက်တဲ့အခါ ဖိုင်ထဲကို ရေးပြီးမှ
+ ပိတ်သွားတာကို အတည်ပြုပြသထားပါတယ်။</p>
 
           </td>
           <td class="code">

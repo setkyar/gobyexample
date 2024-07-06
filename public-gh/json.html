@@ -27,9 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go offers built-in support for JSON encoding and
-decoding, including to and from built-in and custom
-data types.</p>
+            <p>Go က JSON encoding နဲ့ decoding အတွက် built-in support ပေးထားပါတယ်။
+built-in နဲ့ custom data type တွေကနေ JSON သို့၊ JSON ကနေ ပြန်ပြောင်းတာတွေ ပါဝင်ပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -43,7 +42,7 @@ data types.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/JOQpRGJWAxR"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/_aKnKrRgvTn"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -66,8 +65,7 @@ data types.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use these two structs to demonstrate encoding and
-decoding of custom types below.</p>
+            <p>အောက်က struct နှစ်ခုကို custom type တွေရဲ့ encoding နဲ့ decoding ကို သရုပ်ပြဖို့ သုံးပါမယ်။</p>
 
           </td>
           <td class="code leading">
@@ -83,8 +81,8 @@ decoding of custom types below.</p>
         
         <tr>
           <td class="docs">
-            <p>Only exported fields will be encoded/decoded in JSON.
-Fields must start with capital letters to be exported.</p>
+            <p>Export လုပ်ထားတဲ့ field တွေကိုပဲ JSON အဖြစ် encode/decode လုပ်ပါမယ်။
+Field တွေကို export လုပ်ဖို့ စာလုံးအကြီးနဲ့ စရပါမယ်။</p>
 
           </td>
           <td class="code leading">
@@ -111,9 +109,8 @@ Fields must start with capital letters to be exported.</p>
         
         <tr>
           <td class="docs">
-            <p>First we&rsquo;ll look at encoding basic data types to
-JSON strings. Here are some examples for atomic
-values.</p>
+            <p>ပထမဆုံး အခြေခံ data type တွေကို JSON string အဖြစ် encode လုပ်တာကို ကြည့်ကြရအောင်။
+ဒီမှာ atomic value တွေအတွက် ဥပမာတချို့ ရှိပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -121,41 +118,11 @@ values.</p>
           <pre class="chroma">
     <span class="nx">bolB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">bolB</span><span class="p">))</span>
-</pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma">    <span class="nx">intB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nx">intB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">intB</span><span class="p">))</span>
-</pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma">    <span class="nx">fltB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="mf">2.34</span><span class="p">)</span>
+    <span class="nx">fltB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="mf">2.34</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">fltB</span><span class="p">))</span>
-</pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma">    <span class="nx">strB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="s">&#34;gopher&#34;</span><span class="p">)</span>
+    <span class="nx">strB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="s">&#34;gopher&#34;</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">strB</span><span class="p">))</span>
 </pre>
           </td>
@@ -163,8 +130,8 @@ values.</p>
         
         <tr>
           <td class="docs">
-            <p>And here are some for slices and maps, which encode
-to JSON arrays and objects as you&rsquo;d expect.</p>
+            <p>ဒီမှာတော့ slice တွေနဲ့ map တွေအတွက် ဥပမာတွေပါ။ သူတို့က
+မျှော်လင့်ထားသလိုပဲ JSON array တွေနဲ့ object တွေအဖြစ် encode လုပ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -173,17 +140,7 @@ to JSON arrays and objects as you&rsquo;d expect.</p>
     <span class="nx">slcD</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;peach&#34;</span><span class="p">,</span> <span class="s">&#34;pear&#34;</span><span class="p">}</span>
     <span class="nx">slcB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">slcD</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">slcB</span><span class="p">))</span>
-</pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma">    <span class="nx">mapD</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&#34;apple&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#34;lettuce&#34;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+    <span class="nx">mapD</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&#34;apple&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#34;lettuce&#34;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
     <span class="nx">mapB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">mapD</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">mapB</span><span class="p">))</span>
 </pre>
@@ -192,10 +149,9 @@ to JSON arrays and objects as you&rsquo;d expect.</p>
         
         <tr>
           <td class="docs">
-            <p>The JSON package can automatically encode your
-custom data types. It will only include exported
-fields in the encoded output and will by default
-use those names as the JSON keys.</p>
+            <p>JSON package က သင့်ရဲ့ custom data type တွေကို အလိုအလျောက် encode လုပ်ပေးနိုင်ပါတယ်။
+သူက encode လုပ်ထားတဲ့ output ထဲမှာ export လုပ်ထားတဲ့ field တွေကိုပဲ ထည့်သွင်းပြီး
+ပုံမှန်အားဖြင့် အဲဒီနာမည်တွေကိုပဲ JSON key အဖြစ် သုံးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -212,10 +168,8 @@ use those names as the JSON keys.</p>
         
         <tr>
           <td class="docs">
-            <p>You can use tags on struct field declarations
-to customize the encoded JSON key names. Check the
-definition of <code>response2</code> above to see an example
-of such tags.</p>
+            <p>Struct field ကြေညာချက်တွေမှာ tag တွေ သုံးပြီး encode လုပ်ထားတဲ့ JSON key နာမည်တွေကို
+စိတ်ကြိုက်ပြောင်းလဲနိုင်ပါတယ်။ အဲဒီလို tag တွေရဲ့ ဥပမာကို အပေါ်က <code>response2</code> အဓိပ္ပာယ်ဖွင့်ဆိုချက်မှာ ကြည့်ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -232,9 +186,8 @@ of such tags.</p>
         
         <tr>
           <td class="docs">
-            <p>Now let&rsquo;s look at decoding JSON data into Go
-values. Here&rsquo;s an example for a generic data
-structure.</p>
+            <p>အခု JSON data ကို Go value တွေအဖြစ် decode လုပ်တာကို ကြည့်ကြရအောင်။
+ဒီမှာ အထွေထွေသုံး data structure တစ်ခုအတွက် ဥပမာတစ်ခု ရှိပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -247,10 +200,8 @@ structure.</p>
         
         <tr>
           <td class="docs">
-            <p>We need to provide a variable where the JSON
-package can put the decoded data. This
-<code>map[string]interface{}</code> will hold a map of strings
-to arbitrary data types.</p>
+            <p>JSON package က decode လုပ်ထားတဲ့ data ကို ထည့်နိုင်မယ့် variable တစ်ခု ပေးဖို့ လိုပါတယ်။
+ဒီ <code>map[string]interface{}</code> က string တွေကနေ မည်သည့် data type မဆိုကို ညွှန်းတဲ့ map တစ်ခုကို ကိုင်ထားပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -263,8 +214,7 @@ to arbitrary data types.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the actual decoding, and a check for
-associated errors.</p>
+            <p>ဒါကတော့ တကယ့် decoding လုပ်တာပါ၊ ပြီးတော့ ဆက်စပ်နေတဲ့ error တွေကိုလည်း စစ်ဆေးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -280,10 +230,9 @@ associated errors.</p>
         
         <tr>
           <td class="docs">
-            <p>In order to use the values in the decoded map,
-we&rsquo;ll need to convert them to their appropriate type.
-For example here we convert the value in <code>num</code> to
-the expected <code>float64</code> type.</p>
+            <p>Decode လုပ်ထားတဲ့ map ထဲက တန်ဖိုးတွေကို သုံးဖို့ဆိုရင်
+သူတို့ကို သင့်တော်တဲ့ type အဖြစ် ပြောင်းဖို့ လိုပါလိမ့်မယ်။
+ဥပမာ ဒီမှာ <code>num</code> ထဲက တန်ဖိုးကို မျှော်လင့်ထားတဲ့ <code>float64</code> type အဖြစ် ပြောင်းပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -297,8 +246,7 @@ the expected <code>float64</code> type.</p>
         
         <tr>
           <td class="docs">
-            <p>Accessing nested data requires a series of
-conversions.</p>
+            <p>Nested data တွေကို access လုပ်ဖို့ ပြောင်းလဲမှုတွေ အများကြီး လုပ်ဖို့လိုပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -313,11 +261,9 @@ conversions.</p>
         
         <tr>
           <td class="docs">
-            <p>We can also decode JSON into custom data types.
-This has the advantages of adding additional
-type-safety to our programs and eliminating the
-need for type assertions when accessing the decoded
-data.</p>
+            <p>JSON ကို custom data type တွေအဖြစ်လည်း decode လုပ်နိုင်ပါတယ်။
+ဒီနည်းက ကျွန်တော်တို့ ပရိုဂရမ်တွေမှာ type-safety ထပ်ဖြည့်ပေးပြီး
+decode လုပ်ထားတဲ့ data ကို access လုပ်တဲ့အခါ type assertion တွေ လုပ်စရာမလိုတဲ့ အားသာချက် ရှိပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -334,11 +280,9 @@ data.</p>
         
         <tr>
           <td class="docs">
-            <p>In the examples above we always used bytes and
-strings as intermediates between the data and
-JSON representation on standard out. We can also
-stream JSON encodings directly to <code>os.Writer</code>s like
-<code>os.Stdout</code> or even HTTP response bodies.</p>
+            <p>အပေါ်က ဥပမာတွေမှာ ကျွန်တော်တို့က data နဲ့ standard out ပေါ်က JSON ကိုယ်စားပြုမှုကြားမှာ
+byte တွေနဲ့ string တွေကို အမြဲသုံးခဲ့ပါတယ်။ ကျွန်တော်တို့က JSON encoding တွေကို
+<code>os.Stdout</code> သို့မဟုတ် HTTP response body တွေလိုမျိုး <code>os.Writer</code> တွေဆီ တိုက်ရိုက် stream လုပ်နိုင်ပါတယ်။</p>
 
           </td>
           <td class="code">
@@ -382,10 +326,12 @@ stream JSON encodings directly to <code>os.Writer</code>s like
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ve covered the basic of JSON in Go here, but check
-out the <a href="https://go.dev/blog/json">JSON and Go</a>
-blog post and <a href="https://pkg.go.dev/encoding/json">JSON package docs</a>
-for more.</p>
+            <p>ဒီမှာ ကျွန်တော်တို့က Go မှာ JSON
+အခြေခံကို ဖော်ပြခဲ့ပါတယ်၊
+ဒါပေမယ့် ဒီထက်သိဖို့အတွက်
+<a href="https://go.dev/blog/json">JSON and Go</a> blog post နဲ့
+<a href="https://pkg.go.dev/encoding/json">JSON package docs</a>
+ကို ကြည့်ပါလို့တိုက်တွန်းလိုပါတယ်။</p>
 
           </td>
           <td class="code empty">
@@ -409,7 +355,7 @@ for more.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"encoding/json\"\u000A    \"fmt\"\u000A    \"os\"\u000A)\u000A');codeLines.push('type response1 struct {\u000A    Page   int\u000A    Fruits []string\u000A}\u000A');codeLines.push('type response2 struct {\u000A    Page   int      `json:\"page\"`\u000A    Fruits []string `json:\"fruits\"`\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    bolB, _ :\u003D json.Marshal(true)\u000A    fmt.Println(string(bolB))\u000A');codeLines.push('    intB, _ :\u003D json.Marshal(1)\u000A    fmt.Println(string(intB))\u000A');codeLines.push('    fltB, _ :\u003D json.Marshal(2.34)\u000A    fmt.Println(string(fltB))\u000A');codeLines.push('    strB, _ :\u003D json.Marshal(\"gopher\")\u000A    fmt.Println(string(strB))\u000A');codeLines.push('    slcD :\u003D []string{\"apple\", \"peach\", \"pear\"}\u000A    slcB, _ :\u003D json.Marshal(slcD)\u000A    fmt.Println(string(slcB))\u000A');codeLines.push('    mapD :\u003D map[string]int{\"apple\": 5, \"lettuce\": 7}\u000A    mapB, _ :\u003D json.Marshal(mapD)\u000A    fmt.Println(string(mapB))\u000A');codeLines.push('    res1D :\u003D \u0026response1{\u000A        Page:   1,\u000A        Fruits: []string{\"apple\", \"peach\", \"pear\"}}\u000A    res1B, _ :\u003D json.Marshal(res1D)\u000A    fmt.Println(string(res1B))\u000A');codeLines.push('    res2D :\u003D \u0026response2{\u000A        Page:   1,\u000A        Fruits: []string{\"apple\", \"peach\", \"pear\"}}\u000A    res2B, _ :\u003D json.Marshal(res2D)\u000A    fmt.Println(string(res2B))\u000A');codeLines.push('    byt :\u003D []byte(`{\"num\":6.13,\"strs\":[\"a\",\"b\"]}`)\u000A');codeLines.push('    var dat map[string]interface{}\u000A');codeLines.push('    if err :\u003D json.Unmarshal(byt, \u0026dat); err !\u003D nil {\u000A        panic(err)\u000A    }\u000A    fmt.Println(dat)\u000A');codeLines.push('    num :\u003D dat[\"num\"].(float64)\u000A    fmt.Println(num)\u000A');codeLines.push('    strs :\u003D dat[\"strs\"].([]interface{})\u000A    str1 :\u003D strs[0].(string)\u000A    fmt.Println(str1)\u000A');codeLines.push('    str :\u003D `{\"page\": 1, \"fruits\": [\"apple\", \"peach\"]}`\u000A    res :\u003D response2{}\u000A    json.Unmarshal([]byte(str), \u0026res)\u000A    fmt.Println(res)\u000A    fmt.Println(res.Fruits[0])\u000A');codeLines.push('    enc :\u003D json.NewEncoder(os.Stdout)\u000A    d :\u003D map[string]int{\"apple\": 5, \"lettuce\": 7}\u000A    enc.Encode(d)\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"encoding/json\"\u000A    \"fmt\"\u000A    \"os\"\u000A)\u000A');codeLines.push('type response1 struct {\u000A    Page   int\u000A    Fruits []string\u000A}\u000A');codeLines.push('type response2 struct {\u000A    Page   int      `json:\"page\"`\u000A    Fruits []string `json:\"fruits\"`\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    bolB, _ :\u003D json.Marshal(true)\u000A    fmt.Println(string(bolB))\u000A    intB, _ :\u003D json.Marshal(1)\u000A    fmt.Println(string(intB))\u000A    fltB, _ :\u003D json.Marshal(2.34)\u000A    fmt.Println(string(fltB))\u000A    strB, _ :\u003D json.Marshal(\"gopher\")\u000A    fmt.Println(string(strB))\u000A');codeLines.push('    slcD :\u003D []string{\"apple\", \"peach\", \"pear\"}\u000A    slcB, _ :\u003D json.Marshal(slcD)\u000A    fmt.Println(string(slcB))\u000A    mapD :\u003D map[string]int{\"apple\": 5, \"lettuce\": 7}\u000A    mapB, _ :\u003D json.Marshal(mapD)\u000A    fmt.Println(string(mapB))\u000A');codeLines.push('    res1D :\u003D \u0026response1{\u000A        Page:   1,\u000A        Fruits: []string{\"apple\", \"peach\", \"pear\"}}\u000A    res1B, _ :\u003D json.Marshal(res1D)\u000A    fmt.Println(string(res1B))\u000A');codeLines.push('    res2D :\u003D \u0026response2{\u000A        Page:   1,\u000A        Fruits: []string{\"apple\", \"peach\", \"pear\"}}\u000A    res2B, _ :\u003D json.Marshal(res2D)\u000A    fmt.Println(string(res2B))\u000A');codeLines.push('    byt :\u003D []byte(`{\"num\":6.13,\"strs\":[\"a\",\"b\"]}`)\u000A');codeLines.push('    var dat map[string]interface{}\u000A');codeLines.push('    if err :\u003D json.Unmarshal(byt, \u0026dat); err !\u003D nil {\u000A        panic(err)\u000A    }\u000A    fmt.Println(dat)\u000A');codeLines.push('    num :\u003D dat[\"num\"].(float64)\u000A    fmt.Println(num)\u000A');codeLines.push('    strs :\u003D dat[\"strs\"].([]interface{})\u000A    str1 :\u003D strs[0].(string)\u000A    fmt.Println(str1)\u000A');codeLines.push('    str :\u003D `{\"page\": 1, \"fruits\": [\"apple\", \"peach\"]}`\u000A    res :\u003D response2{}\u000A    json.Unmarshal([]byte(str), \u0026res)\u000A    fmt.Println(res)\u000A    fmt.Println(res.Fruits[0])\u000A');codeLines.push('    enc :\u003D json.NewEncoder(os.Stdout)\u000A    d :\u003D map[string]int{\"apple\": 5, \"lettuce\": 7}\u000A    enc.Encode(d)\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

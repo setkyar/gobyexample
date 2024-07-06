@@ -27,8 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p>Go supports time formatting and parsing via
-pattern-based layouts.</p>
+            <p>Go က pattern-based layout တွေကို သုံးပြီး အချိန် format လုပ်ခြင်းနဲ့ parse လုပ်ခြင်းကို ထောက်ပံ့ပေးပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +41,7 @@ pattern-based layouts.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/BoZYtr_2j66"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/9ehHdUKsS2X"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -76,9 +75,8 @@ pattern-based layouts.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic example of formatting a time
-according to RFC3339, using the corresponding layout
-constant.</p>
+            <p>ဒါက သက်ဆိုင်ရာ layout constant ကို သုံးပြီး အချိန်တစ်ခုကို RFC3339 အရ
+format လုပ်တဲ့ အခြေခံဥပမာတစ်ခုပါ။</p>
 
           </td>
           <td class="code leading">
@@ -92,7 +90,7 @@ constant.</p>
         
         <tr>
           <td class="docs">
-            <p>Time parsing uses the same layout values as <code>Format</code>.</p>
+            <p>အချိန် parse လုပ်တာက <code>Format</code> နဲ့ တူညီတဲ့ layout တန်ဖိုးတွေကို သုံးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -108,13 +106,13 @@ constant.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Format</code> and <code>Parse</code> use example-based layouts. Usually
-you&rsquo;ll use a constant from <code>time</code> for these layouts, but
-you can also supply custom layouts. Layouts must use the
-reference time <code>Mon Jan 2 15:04:05 MST 2006</code> to show the
-pattern with which to format/parse a given time/string.
-The example time must be exactly as shown: the year 2006,
-15 for the hour, Monday for the day of the week, etc.</p>
+            <p><code>Format</code> နဲ့ <code>Parse</code> က ဥပမာပေါ် အခြေခံတဲ့ layout တွေ သုံးပါတယ်။ များသောအားဖြင့်
+ဒီ layout တွေအတွက် <code>time</code> ကနေ constant တစ်ခုကို သုံးပါမယ်၊ ဒါပေမယ့်
+ကိုယ်ပိုင် custom layout တွေလည်း ပေးနိုင်ပါတယ်။ Layout တွေက
+ပေးထားတဲ့ အချိန်/string တစ်ခုကို format/parse လုပ်ရမယ့်ပုံစံကို ပြဖို့
+<code>Mon Jan 2 15:04:05 MST 2006</code> ဆိုတဲ့ ကိုးကားအချိန်ကို သုံးရပါမယ်။
+ဥပမာအချိန်က တိတိကျကျ ပြထားသလို ဖြစ်ရပါမယ်: နှစ်က 2006၊
+နာရီက 15၊ အပတ်ရဲ့ရက်က တနင်္လာ၊ စသဖြင့်ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -132,9 +130,8 @@ The example time must be exactly as shown: the year 2006,
         
         <tr>
           <td class="docs">
-            <p>For purely numeric representations you can also
-use standard string formatting with the extracted
-components of the time value.</p>
+            <p>သီးသန့် ဂဏန်းဖော်ပြမှုတွေအတွက် အချိန်တန်ဖိုးထဲက ထုတ်ယူထားတဲ့
+အစိတ်အပိုင်းတွေနဲ့ စံပြ string formatting ကိုလည်း သုံးနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -149,8 +146,8 @@ components of the time value.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Parse</code> will return an error on malformed input
-explaining the parsing problem.</p>
+            <p><code>Parse</code> က ပုံစံမကျတဲ့ input ပေါ်မှာ parse လုပ်တဲ့ ပြဿနာကို
+ရှင်းပြတဲ့ error တစ်ခု ပြန်ပေးပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code">
