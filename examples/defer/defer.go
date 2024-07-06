@@ -1,7 +1,7 @@
-// _Defer_ is used to ensure that a function call is
-// performed later in a program's execution, usually for
-// purposes of cleanup. `defer` is often used where e.g.
-// `ensure` and `finally` would be used in other languages.
+// _Defer_ ကို ပရိုဂရမ်ရဲ့ လုပ်ဆောင်မှုအတွင်းမှာ function call တစ်ခုကို နောက်ပိုင်းမှ
+// လုပ်ဆောင်စေဖို့ သုံးပါတယ်။ အများအားဖြင့် cleanup လုပ်ဖို့ ရည်ရွယ်ချက်နဲ့ သုံးလေ့ရှိပါတယ်။
+// တခြားဘာသာစကားတွေမှာ `ensure` နဲ့ `finally` သုံးတဲ့နေရာမျိုးတွေမှာ Go က `defer` ကို
+// မကြာခဏ သုံးပါတယ်။
 
 package main
 
@@ -10,16 +10,14 @@ import (
 	"os"
 )
 
-// Suppose we wanted to create a file, write to it,
-// and then close when we're done. Here's how we could
-// do that with `defer`.
+// ဖိုင်တစ်ခု ဖန်တီးပြီး၊ ဖိုင်အထဲကို ရေးမယ်၊ ပြီးရင် ပိတ်ပစ်မယ်ဆိုပါစို့။
+// `defer` ကိုသုံးပြီး ဒီလိုလုပ်လို့ရပါတယ်။
 func main() {
 
-	// Immediately after getting a file object with
-	// `createFile`, we defer the closing of that file
-	// with `closeFile`. This will be executed at the end
-	// of the enclosing function (`main`), after
-	// `writeFile` has finished.
+	// `createFile` နဲ့ file object ရရှိပြီးတာနဲ့ ချက်ချင်း
+	// အဲဒီဖိုင်ကို ပိတ်မယ့် `closeFile` ကို defer လုပ်ထားလိုက်ပါတယ်။
+	// ဒါက လက်ရှိ function (`main`) ပြီးဆုံးချိန်မှာ၊
+	// `writeFile` ပြီးသွားတဲ့နောက်မှာ အလုပ်လုပ်ပါလိမ့်မယ်။
 	f := createFile("/tmp/defer.txt")
 	defer closeFile(f)
 	writeFile(f)
@@ -43,8 +41,8 @@ func writeFile(f *os.File) {
 func closeFile(f *os.File) {
 	fmt.Println("closing")
 	err := f.Close()
-	// It's important to check for errors when closing a
-	// file, even in a deferred function.
+	// Deferred function ထဲမှာတောင် ဖိုင်ပိတ်တဲ့အခါ
+	// error စစ်ဖို့ အရေးကြီးပါတယ်။
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error: %v\n", err)
 		os.Exit(1)
