@@ -27,10 +27,10 @@
         
         <tr>
           <td class="docs">
-            <p>A <code>panic</code> typically means something went unexpectedly
-wrong. Mostly we use it to fail fast on errors that
-shouldn&rsquo;t occur during normal operation, or that we
-aren&rsquo;t prepared to handle gracefully.</p>
+            <p><code>panic</code> ဆိုတာ ပုံမှန်အားဖြင့် တစ်ခုခု မမျှော်လင့်ဘဲ မှားယွင်းသွားတယ်ဆိုတာကို ဆိုလိုပါတယ်။
+အများအားဖြင့် ပုံမှန်အလုပ်လုပ်နေစဉ် မဖြစ်သင့်တဲ့ error တွေ ဖြစ်လာတဲ့အခါ သို့မဟုတ်
+ကျွန်တော်တို့က gracefully handle လုပ်ဖို့ မပြင်ဆင်ထားတဲ့ error တွေဖြစ်လာတဲ့အခါ
+fail fast ဖြစ်သွားအောင် သုံးလေ့ရှိပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +44,7 @@ aren&rsquo;t prepared to handle gracefully.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/9-2vCvRuhmE"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/MKnoJoNRcyw"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -63,7 +63,10 @@ aren&rsquo;t prepared to handle gracefully.</p>
         
         <tr>
           <td class="docs">
-            
+            <p>ဒီ website တစ်ခုလုံးမှာ မမျှော်လင့်ထားတဲ့ error တွေကို စစ်ဆေးဖို့ panic ကို သုံးပါမယ်။
+ဒီပရိုဂရမ်က website ပေါ်မှာ panic ဖြစ်အောင် ရည်ရွယ်ချက်ရှိရှိ ဒီဇိုင်းလုပ်ထားတဲ့
+တစ်ခုတည်းသော ပရိုဂရမ်ပါ။</p>
+
           </td>
           <td class="code leading">
             
@@ -74,25 +77,20 @@ aren&rsquo;t prepared to handle gracefully.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use panic throughout this site to check for
-unexpected errors. This is the only program on the
-site designed to panic.</p>
-
+            
           </td>
           <td class="code leading">
             
-          <pre class="chroma">
-    <span class="nb">panic</span><span class="p">(</span><span class="s">&#34;a problem&#34;</span><span class="p">)</span>
+          <pre class="chroma">    <span class="nb">panic</span><span class="p">(</span><span class="s">&#34;a problem&#34;</span><span class="p">)</span>
 </pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>A common use of panic is to abort if a function
-returns an error value that we don&rsquo;t know how to
-(or want to) handle. Here&rsquo;s an example of
-<code>panic</code>king if we get an unexpected error when creating a new file.</p>
+            <p>Panic ကို အသုံးများတဲ့နေရာတစ်ခုကတော့ function တစ်ခုက ကျွန်တော်တို့ ဘယ်လိုကိုင်တွယ်ရမှန်းမသိတဲ့
+(သို့မဟုတ် ကိုင်တွယ်ချင်စိတ်မရှိတဲ့) error value တစ်ခုကို ပြန်ပေးလာတဲ့အခါ ပရိုဂရမ်ကို ရပ်တန့်ဖို့ပါ။
+ဒီမှာဆိုရင် file အသစ်တစ်ခု ဖန်တီးတဲ့အခါ မမျှော်လင့်ထားတဲ့ error တစ်ခုရရင် <code>panic</code> ဖြစ်စေတဲ့ ဥပမာပါ။</p>
 
           </td>
           <td class="code">
@@ -113,9 +111,10 @@ returns an error value that we don&rsquo;t know how to
         
         <tr>
           <td class="docs">
-            <p>Running this program will cause it to panic, print
-an error message and goroutine traces, and exit with
-a non-zero status.</p>
+            <p>ဒီပရိုဂရမ်ကို run လိုက်ရင် panic ဖြစ်သွားပြီး၊
+error message နဲ့ goroutine trace တွေကို
+ပြပေးပါလိမ့်မယ်။ ပြီးတော့ non-zero status
+နဲ့ exit ဖြစ်သွားပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -126,10 +125,11 @@ a non-zero status.</p>
         
         <tr>
           <td class="docs">
-            <p>When first panic in <code>main</code> fires, the program exits
-without reaching the rest of the code. If you&rsquo;d like
-to see the program try to create a temp file, comment
-the first panic out.</p>
+            <p><code>main</code> ထဲက ပထမဆုံး panic က အလုပ်လုပ်သွားတဲ့အခါ၊
+ပရိုဂရမ်က ကျန်တဲ့ code တွေကို မရောက်တော့ဘဲ
+ထွက်သွားပါလိမ့်မယ်။ အကယ်၍ ပရိုဂရမ်က temp file
+တစ်ခု ဖန်တီးဖို့ ကြိုးစားတာကို မြင်ချင်ရင်
+ပထမဆုံး panic ကို comment out လုပ်ထားလိုက်ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -156,9 +156,11 @@ the first panic out.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that unlike some languages which use exceptions
-for handling of many errors, in Go it is idiomatic
-to use error-indicating return values wherever possible.</p>
+            <p>သတိပြုရမှာက တချို့ language တွေမှာ exception တွေကို
+ error အများစုကို handle လုပ်ဖို့ သုံးကြပေမယ့်၊
+Go မှာတော့ ဖြစ်နိုင်သမျှနေရာတိုင်းမှာ
+error-indicating return value
+တွေကို သုံးတာက ပုံမှန်လုပ်နည်းလုပ်ဟန် ဖြစ်ပါတယ်။</p>
 
           </td>
           <td class="code empty">

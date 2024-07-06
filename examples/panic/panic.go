@@ -1,23 +1,21 @@
-// A `panic` typically means something went unexpectedly
-// wrong. Mostly we use it to fail fast on errors that
-// shouldn't occur during normal operation, or that we
-// aren't prepared to handle gracefully.
+// `panic` ဆိုတာ ပုံမှန်အားဖြင့် တစ်ခုခု မမျှော်လင့်ဘဲ မှားယွင်းသွားတယ်ဆိုတာကို ဆိုလိုပါတယ်။
+// အများအားဖြင့် ပုံမှန်အလုပ်လုပ်နေစဉ် မဖြစ်သင့်တဲ့ error တွေ ဖြစ်လာတဲ့အခါ သို့မဟုတ်
+// ကျွန်တော်တို့က gracefully handle လုပ်ဖို့ မပြင်ဆင်ထားတဲ့ error တွေဖြစ်လာတဲ့အခါ
+// fail fast ဖြစ်သွားအောင် သုံးလေ့ရှိပါတယ်။
 
 package main
 
 import "os"
 
 func main() {
-
-	// We'll use panic throughout this site to check for
-	// unexpected errors. This is the only program on the
-	// site designed to panic.
+	// ဒီ website တစ်ခုလုံးမှာ မမျှော်လင့်ထားတဲ့ error တွေကို စစ်ဆေးဖို့ panic ကို သုံးပါမယ်။
+	// ဒီပရိုဂရမ်က website ပေါ်မှာ panic ဖြစ်အောင် ရည်ရွယ်ချက်ရှိရှိ ဒီဇိုင်းလုပ်ထားတဲ့
+	// တစ်ခုတည်းသော ပရိုဂရမ်ပါ။
 	panic("a problem")
 
-	// A common use of panic is to abort if a function
-	// returns an error value that we don't know how to
-	// (or want to) handle. Here's an example of
-	// `panic`king if we get an unexpected error when creating a new file.
+	// Panic ကို အသုံးများတဲ့နေရာတစ်ခုကတော့ function တစ်ခုက ကျွန်တော်တို့ ဘယ်လိုကိုင်တွယ်ရမှန်းမသိတဲ့
+	// (သို့မဟုတ် ကိုင်တွယ်ချင်စိတ်မရှိတဲ့) error value တစ်ခုကို ပြန်ပေးလာတဲ့အခါ ပရိုဂရမ်ကို ရပ်တန့်ဖို့ပါ။
+	// ဒီမှာဆိုရင် file အသစ်တစ်ခု ဖန်တီးတဲ့အခါ မမျှော်လင့်ထားတဲ့ error တစ်ခုရရင် `panic` ဖြစ်စေတဲ့ ဥပမာပါ။
 	_, err := os.Create("/tmp/file")
 	if err != nil {
 		panic(err)
