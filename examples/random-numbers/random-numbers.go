@@ -1,6 +1,6 @@
-// Go's `math/rand` package provides
+// Go ရဲ့ `math/rand` package က
 // [pseudorandom number](https://en.wikipedia.org/wiki/Pseudorandom_number_generator)
-// generation.
+// ထုတ်လုပ်မှုကို ပေးပါတယ်။
 
 package main
 
@@ -12,38 +12,38 @@ import (
 
 func main() {
 
-	// For example, `rand.Intn` returns a random `int` n,
-	// `0 <= n < 100`.
+	// ဥပမာ၊ `rand.Intn` က `0 <= n < 100` ဖြစ်တဲ့
+	// ကျပန်း `int` n ကို ပြန်ပေးပါတယ်။
 	fmt.Print(rand.Intn(100), ",")
 	fmt.Print(rand.Intn(100))
 	fmt.Println()
 
-	// `rand.Float64` returns a `float64` `f`,
-	// `0.0 <= f < 1.0`.
+	// `rand.Float64` က `0.0 <= f < 1.0` ဖြစ်တဲ့
+	// `float64` `f` ကို ပြန်ပေးပါတယ်။
 	fmt.Println(rand.Float64())
 
-	// This can be used to generate random floats in
-	// other ranges, for example `5.0 <= f' < 10.0`.
+	// ဒါကို တခြား range တွေအတွက် ကျပန်း float တွေ ထုတ်လုပ်ဖို့ သုံးနိုင်ပါတယ်၊
+	// ဥပမာ `5.0 <= f' < 10.0`။
 	fmt.Print((rand.Float64()*5)+5, ",")
 	fmt.Print((rand.Float64() * 5) + 5)
 	fmt.Println()
 
-	// The default number generator is deterministic, so it'll
-	// produce the same sequence of numbers each time by default.
-	// To produce varying sequences, give it a seed that changes.
-	// Note that this is not safe to use for random numbers you
-	// intend to be secret; use `crypto/rand` for those.
+	// ပုံမှန် number generator က deterministic ဖြစ်တဲ့အတွက် ပုံမှန်အားဖြင့်
+	// အကြိမ်တိုင်းမှာ တူညီတဲ့ နံပါတ်စီးကြောင်းကို ထုတ်ပေးပါလိမ့်မယ်။
+	// ကွဲပြားတဲ့ စီးကြောင်းတွေ ထုတ်လုပ်ဖို့ ပြောင်းလဲနေတဲ့ seed တစ်ခု ပေးပါ။
+	// သတိပြုရမှာက လျှို့ဝှက်ထားချင်တဲ့ ကျပန်းနံပါတ်တွေအတွက် ဒါကို သုံးလို့ မလုံခြုံပါဘူး။
+	// အဲဒီအတွက် `crypto/rand` ကို သုံးပါ။
 	s1 := rand.NewSource(time.Now().UnixNano())
 	r1 := rand.New(s1)
 
-	// Call the resulting `rand.Rand` just like the
-	// functions on the `rand` package.
+	// ရလာတဲ့ `rand.Rand` ကို `rand` package ပေါ်က
+	// function တွေလိုပဲ ခေါ်သုံးပါ။
 	fmt.Print(r1.Intn(100), ",")
 	fmt.Print(r1.Intn(100))
 	fmt.Println()
 
-	// If you seed a source with the same number, it
-	// produces the same sequence of random numbers.
+	// တူညီတဲ့နံပါတ်နဲ့ source တစ်ခုကို seed လုပ်ရင်
+	// တူညီတဲ့ ကျပန်းနံပါတ်စီးကြောင်းကို ထုတ်လုပ်ပါတယ်။
 	s2 := rand.NewSource(42)
 	r2 := rand.New(s2)
 	fmt.Print(r2.Intn(100), ",")
