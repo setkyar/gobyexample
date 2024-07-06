@@ -15,7 +15,10 @@ apple
 {"apple":5,"lettuce":7}
 
 
-# We've covered the basic of JSON in Go here, but check
-# out the [JSON and Go](https://go.dev/blog/json)
-# blog post and [JSON package docs](https://pkg.go.dev/encoding/json)
-# for more.
+# ဒီမှာ ကျွန်တော်တို့က Go မှာ JSON 
+# အခြေခံကို ဖော်ပြခဲ့ပါတယ်၊ 
+# ဒါပေမယ့် ဒီထက်သိဖို့အတွက်
+# [JSON and Go](https://go.dev/blog/json) blog post နဲ့
+# [JSON package docs](https://pkg.go.dev/encoding/json) 
+# ကို ကြည့်ပါလို့တိုက်တွန်းလိုပါတယ်။
+
