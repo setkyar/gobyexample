@@ -27,8 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>Parsing numbers from strings is a basic but common task
-in many programs; here&rsquo;s how to do it in Go.</p>
+            <p>String တွေကနေ နံပါတ်တွေကို parse လုပ်တာဟာ ပရိုဂရမ်အများစုမှာ အခြေခံကျပေမယ့် အဖြစ်များတဲ့ လုပ်ငန်းတစ်ခုပါ။
+Go မှာ အဲဒါကို ဘယ်လိုလုပ်မလဲဆိုတာ ဒီမှာရှိပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +42,7 @@ in many programs; here&rsquo;s how to do it in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/ZAMEid6Fpmu"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/a_fWMdgxAiS"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -50,8 +50,7 @@ in many programs; here&rsquo;s how to do it in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>The built-in package <code>strconv</code> provides the number
-parsing.</p>
+            <p>Built-in package ဖြစ်တဲ့ <code>strconv</code> က နံပါတ် parsing ကို ပေးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -67,7 +66,8 @@ parsing.</p>
         
         <tr>
           <td class="docs">
-            
+            <p><code>ParseFloat</code> မှာ ဒီ <code>64</code> က ဘယ်နှစ် bit တိကျမှုနဲ့ parse လုပ်မလဲဆိုတာကို ပြောပြပါတယ်။</p>
+
           </td>
           <td class="code leading">
             
@@ -78,14 +78,11 @@ parsing.</p>
         
         <tr>
           <td class="docs">
-            <p>With <code>ParseFloat</code>, this <code>64</code> tells how many bits of
-precision to parse.</p>
-
+            
           </td>
           <td class="code leading">
             
-          <pre class="chroma">
-    <span class="nx">f</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">ParseFloat</span><span class="p">(</span><span class="s">&#34;1.234&#34;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+          <pre class="chroma">    <span class="nx">f</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">ParseFloat</span><span class="p">(</span><span class="s">&#34;1.234&#34;</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span>
 </pre>
           </td>
@@ -93,9 +90,8 @@ precision to parse.</p>
         
         <tr>
           <td class="docs">
-            <p>For <code>ParseInt</code>, the <code>0</code> means infer the base from
-the string. <code>64</code> requires that the result fit in 64
-bits.</p>
+            <p><code>ParseInt</code> မှာ <code>0</code> က string ကနေ အခြေကိန်းကို မှန်းဆဖို့ ဆိုလိုပါတယ်။
+<code>64</code> က ရလဒ်က 64 bit ထဲ ဝင်ဆံ့ရမယ်လို့ သတ်မှတ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -109,7 +105,7 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p><code>ParseInt</code> will recognize hex-formatted numbers.</p>
+            <p><code>ParseInt</code> က ဆယ့်ခြောက်လုံးစနစ် ဖော်မတ်နဲ့ နံပါတ်တွေကို အသိအမှတ်ပြုပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -123,7 +119,7 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>ParseUint</code> is also available.</p>
+            <p><code>ParseUint</code> လည်း ရနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -137,8 +133,7 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Atoi</code> is a convenience function for basic base-10
-<code>int</code> parsing.</p>
+            <p><code>Atoi</code> က အခြေ-10 <code>int</code> parsing အတွက် အဆင်ပြေတဲ့ function တစ်ခုပါ။</p>
 
           </td>
           <td class="code leading">
@@ -152,7 +147,7 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>Parse functions return an error on bad input.</p>
+            <p>Parse function တွေက မှားယွင်းတဲ့ input ပေါ်မှာ error တစ်ခု ပြန်ပေးပါတယ်။</p>
 
           </td>
           <td class="code">
@@ -187,7 +182,8 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at another common parsing task: URLs.</p>
+            <p>နောက်တစ်ဆင့်မှာတော့ နောက်ထပ်  အသုံးများတဲ့
+parsing လုပ်ငန်းတစ်ခုဖြစ်တဲ့ URL တွေကို ကြည့်ကြပါမယ်။</p>
 
           </td>
           <td class="code empty">

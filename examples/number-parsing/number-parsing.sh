@@ -6,4 +6,5 @@ $ go run number-parsing.go
 135
 strconv.ParseInt: parsing "wat": invalid syntax
 
-# Next we'll look at another common parsing task: URLs.
+# နောက်တစ်ဆင့်မှာတော့ နောက်ထပ်  အသုံးများတဲ့
+# parsing လုပ်ငန်းတစ်ခုဖြစ်တဲ့ URL တွေကို ကြည့်ကြပါမယ်။
