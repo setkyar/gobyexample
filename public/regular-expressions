@@ -27,24 +27,14 @@
         
         <tr>
           <td class="docs">
-            <p>Go offers built-in support for <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>.
-Here are some examples of  common regexp-related tasks
-in Go.</p>
+            <p>Go က <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a> အတွက် built-in ထောက်ပံ့မှုပေးထားပါတယ်။
+ဒီမှာ Go မှာ အသုံးများတဲ့ regexp-related လုပ်ငန်းတွေရဲ့ ဥပမာတချို့ ရှိပါတယ်။</p>
 
           </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/fI2YIfYsCaL"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
-          <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+            <a href="https://go.dev/play/p/b_kShRHnIsi"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+          <pre class="chroma">
+<span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
         </tr>
@@ -66,7 +56,8 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            
+            <p>ဒါက pattern တစ်ခုက string တစ်ခုနဲ့ ကိုက်ညီမှု ရှိမရှိ စမ်းသပ်ပါတယ်။</p>
+
           </td>
           <td class="code leading">
             
@@ -77,13 +68,11 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>This tests whether a pattern matches a string.</p>
-
+            
           </td>
           <td class="code leading">
             
-          <pre class="chroma">
-    <span class="nx">match</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MatchString</span><span class="p">(</span><span class="s">&#34;p([a-z]+)ch&#34;</span><span class="p">,</span> <span class="s">&#34;peach&#34;</span><span class="p">)</span>
+          <pre class="chroma">    <span class="nx">match</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MatchString</span><span class="p">(</span><span class="s">&#34;p([a-z]+)ch&#34;</span><span class="p">,</span> <span class="s">&#34;peach&#34;</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">match</span><span class="p">)</span>
 </pre>
           </td>
@@ -91,9 +80,9 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Above we used a string pattern directly, but for
-other regexp tasks you&rsquo;ll need to <code>Compile</code> an
-optimized <code>Regexp</code> struct.</p>
+            <p>အပေါ်မှာ ကျွန်တော်တို့က string pattern ကို တိုက်ရိုက်သုံးခဲ့ပါတယ်၊ ဒါပေမယ့်
+တခြား regexp လုပ်ငန်းတွေအတွက် သင့်အနေနဲ့ optimize လုပ်ထားတဲ့ <code>Regexp</code> struct တစ်ခုကို
+<code>Compile</code> လုပ်ဖို့ လိုအပ်ပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -106,8 +95,8 @@ optimized <code>Regexp</code> struct.</p>
         
         <tr>
           <td class="docs">
-            <p>Many methods are available on these structs. Here&rsquo;s
-a match test like we saw earlier.</p>
+            <p>ဒီ struct တွေမှာ method အများကြီး ရနိုင်ပါတယ်။ ဒါက
+အရင်က ကျွန်တော်တို့ မြင်ခဲ့တဲ့လိုမျိုး match test တစ်ခုပါ။</p>
 
           </td>
           <td class="code leading">
@@ -120,7 +109,7 @@ a match test like we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>This finds the match for the regexp.</p>
+            <p>ဒါက regexp နဲ့ကိုက်ညီတာကို ရှာဖွေပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -133,9 +122,8 @@ a match test like we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>This also finds the first match but returns the
-start and end indexes for the match instead of the
-matching text.</p>
+            <p>ဒါကလည်း ပထမဆုံး ကိုက်ညီတာကို ရှာပါတယ်၊ ဒါပေမယ့် ကိုက်ညီတဲ့
+စာသားအစား ကိုက်ညီတဲ့နေရာရဲ့ အစနဲ့အဆုံး index တွေကို ပြန်ပေးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -148,10 +136,9 @@ matching text.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Submatch</code> variants include information about
-both the whole-pattern matches and the submatches
-within those matches. For example this will return
-information for both <code>p([a-z]+)ch</code> and <code>([a-z]+)</code>.</p>
+            <p><code>Submatch</code> မျိုးကွဲတွေက pattern တစ်ခုလုံးနဲ့ကိုက်ညီမှုအကြောင်း သတင်းအချက်အလက်ရော
+အဲဒီကိုက်ညီမှုထဲက submatch တွေအကြောင်း သတင်းအချက်အလက်ပါ ထည့်သွင်းပါတယ်။
+ဥပမာ ဒါက <code>p([a-z]+)ch</code> နဲ့ <code>([a-z]+)</code> နှစ်ခုလုံးအတွက် သတင်းအချက်အလက် ပြန်ပေးပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -164,8 +151,7 @@ information for both <code>p([a-z]+)ch</code> and <code>([a-z]+)</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Similarly this will return information about the
-indexes of matches and submatches.</p>
+            <p>ဒီနည်းတူပဲ ဒါက ကိုက်ညီမှုတွေနဲ့ submatch တွေရဲ့ index တွေအကြောင်း သတင်းအချက်အလက် ပြန်ပေးပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -178,9 +164,9 @@ indexes of matches and submatches.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>All</code> variants of these functions apply to all
-matches in the input, not just the first. For
-example to find all matches for a regexp.</p>
+            <p>ဒီ function တွေရဲ့ <code>All</code> မျိုးကွဲတွေက ပထမတစ်ခုတည်းမဟုတ်ဘဲ
+input ထဲက ကိုက်ညီမှုအားလုံးကို အကျုံးဝင်ပါတယ်။ ဥပမာ
+regexp နဲ့ကိုက်ညီတာအားလုံးကို ရှာဖို့ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -193,8 +179,8 @@ example to find all matches for a regexp.</p>
         
         <tr>
           <td class="docs">
-            <p>These <code>All</code> variants are available for the other
-functions we saw above as well.</p>
+            <p>ဒီ <code>All</code> မျိုးကွဲတွေက အပေါ်မှာ ကျွန်တော်တို့ မြင်ခဲ့တဲ့
+တခြား function တွေအတွက်လည်း ရနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -208,9 +194,8 @@ functions we saw above as well.</p>
         
         <tr>
           <td class="docs">
-            <p>Providing a non-negative integer as the second
-argument to these functions will limit the number
-of matches.</p>
+            <p>ဒီ function တွေရဲ့ ဒုတိယ argument အနေနဲ့ အပေါင်းကိန်း integer တစ်ခု ပေးခြင်းအားဖြင့်
+ကိုက်ညီမှုအရေအတွက်ကို ကန့်သတ်နိုင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -223,10 +208,9 @@ of matches.</p>
         
         <tr>
           <td class="docs">
-            <p>Our examples above had string arguments and used
-names like <code>MatchString</code>. We can also provide
-<code>[]byte</code> arguments and drop <code>String</code> from the
-function name.</p>
+            <p>အပေါ်က ဥပမာတွေမှာ ကျွန်တော်တို့က string argument တွေ သုံးခဲ့ပြီး
+<code>MatchString</code> လိုမျိုး နာမည်တွေ သုံးခဲ့ပါတယ်။ ကျွန်တော်တို့က
+<code>[]byte</code> argument တွေကိုလည်း ပေးနိုင်ပြီး function နာမည်ကနေ <code>String</code> ကို ဖြုတ်နိုင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -239,11 +223,10 @@ function name.</p>
         
         <tr>
           <td class="docs">
-            <p>When creating global variables with regular
-expressions you can use the <code>MustCompile</code> variation
-of <code>Compile</code>. <code>MustCompile</code> panics instead of
-returning an error, which makes it safer to use for
-global variables.</p>
+            <p>Regular expression တွေနဲ့ global variable တွေ ဖန်တီးတဲ့အခါ
+<code>Compile</code> ရဲ့ မျိုးကွဲဖြစ်တဲ့ <code>MustCompile</code> ကို သုံးနိုင်ပါတယ်။
+<code>MustCompile</code> က error ပြန်မပေးဘဲ panic ဖြစ်စေပါတယ်၊ ဒါက global variable တွေအတွက်
+ပိုပြီး လုံခြုံစိတ်ချရစေပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -257,8 +240,8 @@ global variables.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>regexp</code> package can also be used to replace
-subsets of strings with other values.</p>
+            <p><code>regexp</code> package ကို string တစ်ခုရဲ့ တစ်စိတ်တစ်ပိုင်းကို
+တခြားတန်ဖိုးတွေနဲ့ အစားထိုးဖို့လည်း သုံးနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -271,8 +254,8 @@ subsets of strings with other values.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Func</code> variant allows you to transform matched
-text with a given function.</p>
+            <p><code>Func</code> မျိုးကွဲက ကိုက်ညီတဲ့စာသားကို ပေးထားတဲ့ function တစ်ခုနဲ့
+ပြောင်းလဲခွင့်ပေးပါတယ်။</p>
 
           </td>
           <td class="code">
@@ -340,7 +323,7 @@ the <a href="https://pkg.go.dev/regexp"><code>regexp</code></a> package docs.</p
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"bytes\"\u000A    \"fmt\"\u000A    \"regexp\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    match, _ :\u003D regexp.MatchString(\"p([a-z]+)ch\", \"peach\")\u000A    fmt.Println(match)\u000A');codeLines.push('    r, _ :\u003D regexp.Compile(\"p([a-z]+)ch\")\u000A');codeLines.push('    fmt.Println(r.MatchString(\"peach\"))\u000A');codeLines.push('    fmt.Println(r.FindString(\"peach punch\"))\u000A');codeLines.push('    fmt.Println(\"idx:\", r.FindStringIndex(\"peach punch\"))\u000A');codeLines.push('    fmt.Println(r.FindStringSubmatch(\"peach punch\"))\u000A');codeLines.push('    fmt.Println(r.FindStringSubmatchIndex(\"peach punch\"))\u000A');codeLines.push('    fmt.Println(r.FindAllString(\"peach punch pinch\", -1))\u000A');codeLines.push('    fmt.Println(\"all:\", r.FindAllStringSubmatchIndex(\u000A        \"peach punch pinch\", -1))\u000A');codeLines.push('    fmt.Println(r.FindAllString(\"peach punch pinch\", 2))\u000A');codeLines.push('    fmt.Println(r.Match([]byte(\"peach\")))\u000A');codeLines.push('    r \u003D regexp.MustCompile(\"p([a-z]+)ch\")\u000A    fmt.Println(\"regexp:\", r)\u000A');codeLines.push('    fmt.Println(r.ReplaceAllString(\"a peach\", \"\u003Cfruit\u003E\"))\u000A');codeLines.push('    in :\u003D []byte(\"a peach\")\u000A    out :\u003D r.ReplaceAllFunc(in, bytes.ToUpper)\u000A    fmt.Println(string(out))\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"bytes\"\u000A    \"fmt\"\u000A    \"regexp\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    match, _ :\u003D regexp.MatchString(\"p([a-z]+)ch\", \"peach\")\u000A    fmt.Println(match)\u000A');codeLines.push('    r, _ :\u003D regexp.Compile(\"p([a-z]+)ch\")\u000A');codeLines.push('    fmt.Println(r.MatchString(\"peach\"))\u000A');codeLines.push('    fmt.Println(r.FindString(\"peach punch\"))\u000A');codeLines.push('    fmt.Println(\"idx:\", r.FindStringIndex(\"peach punch\"))\u000A');codeLines.push('    fmt.Println(r.FindStringSubmatch(\"peach punch\"))\u000A');codeLines.push('    fmt.Println(r.FindStringSubmatchIndex(\"peach punch\"))\u000A');codeLines.push('    fmt.Println(r.FindAllString(\"peach punch pinch\", -1))\u000A');codeLines.push('    fmt.Println(\"all:\", r.FindAllStringSubmatchIndex(\u000A        \"peach punch pinch\", -1))\u000A');codeLines.push('    fmt.Println(r.FindAllString(\"peach punch pinch\", 2))\u000A');codeLines.push('    fmt.Println(r.Match([]byte(\"peach\")))\u000A');codeLines.push('    r \u003D regexp.MustCompile(\"p([a-z]+)ch\")\u000A    fmt.Println(\"regexp:\", r)\u000A');codeLines.push('    fmt.Println(r.ReplaceAllString(\"a peach\", \"\u003Cfruit\u003E\"))\u000A');codeLines.push('    in :\u003D []byte(\"a peach\")\u000A    out :\u003D r.ReplaceAllFunc(in, bytes.ToUpper)\u000A    fmt.Println(string(out))\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
