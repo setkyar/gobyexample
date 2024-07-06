@@ -1,5 +1,5 @@
-// Go offers extensive support for times and durations;
-// here are some examples.
+// Go က အချိန်နဲ့ ကြာချိန်တွေအတွက် ကျယ်ပြန့်တဲ့ ထောက်ပံ့မှုပေးပါတယ်။
+// ဒီမှာ ဥပမာတချို့ ရှိပါတယ်။
 
 package main
 
@@ -11,19 +11,17 @@ import (
 func main() {
 	p := fmt.Println
 
-	// We'll start by getting the current time.
+	// လက်ရှိအချိန်ကို ရယူခြင်းဖြင့် စတင်ပါမယ်။
 	now := time.Now()
 	p(now)
 
-	// You can build a `time` struct by providing the
-	// year, month, day, etc. Times are always associated
-	// with a `Location`, i.e. time zone.
+	// နှစ်၊ လ၊ ရက် စသည်တို့ကို ပေးပြီး `time` struct တစ်ခု တည်ဆောက်နိုင်ပါတယ်။
+	// အချိန်တွေက အမြဲတမ်း `Location` (ဆိုလိုသည်မှာ time zone) နဲ့ ဆက်စပ်နေပါတယ်။
 	then := time.Date(
 		2009, 11, 17, 20, 34, 58, 651387237, time.UTC)
 	p(then)
 
-	// You can extract the various components of the time
-	// value as expected.
+	// အချိန်တန်ဖိုးရဲ့ အစိတ်အပိုင်းအမျိုးမျိုးကို မျှော်လင့်ထားသလို ဆွဲထုတ်နိုင်ပါတယ်။
 	p(then.Year())
 	p(then.Month())
 	p(then.Day())
@@ -33,31 +31,27 @@ func main() {
 	p(then.Nanosecond())
 	p(then.Location())
 
-	// The Monday-Sunday `Weekday` is also available.
+	// တနင်္လာနေ့ကနေ တနင်္ဂနွေနေ့အထိ `Weekday` လည်း ရနိုင်ပါတယ်။
 	p(then.Weekday())
 
-	// These methods compare two times, testing if the
-	// first occurs before, after, or at the same time
-	// as the second, respectively.
+	// ဒီ method တွေက အချိန်နှစ်ခုကို နှိုင်းယှဉ်ပြီး ပထမတစ်ခုက ဒုတိယတစ်ခုရဲ့
+	// အရှေ့၊ နောက်၊ သို့မဟုတ် တူညီတဲ့အချိန်မှာ ဖြစ်မဖြစ် အသီးသီး စစ်ဆေးပါတယ်။
 	p(then.Before(now))
 	p(then.After(now))
 	p(then.Equal(now))
 
-	// The `Sub` methods returns a `Duration` representing
-	// the interval between two times.
+	// `Sub` method က အချိန်နှစ်ခုကြားက ကြားကာလကို ကိုယ်စားပြုတဲ့ `Duration` တစ်ခု ပြန်ပေးပါတယ်။
 	diff := now.Sub(then)
 	p(diff)
 
-	// We can compute the length of the duration in
-	// various units.
+	// ကြာချိန်ရဲ့ အရှည်ကို အမျိုးမျိုးသော unit တွေနဲ့ တွက်ချက်နိုင်ပါတယ်။
 	p(diff.Hours())
 	p(diff.Minutes())
 	p(diff.Seconds())
 	p(diff.Nanoseconds())
 
-	// You can use `Add` to advance a time by a given
-	// duration, or with a `-` to move backwards by a
-	// duration.
+	// ပေးထားတဲ့ ကြာချိန်တစ်ခုဖြင့် အချိန်တစ်ခုကို ရှေ့တိုးဖို့ `Add` ကို သုံးနိုင်ပါတယ်။
+	// သို့မဟုတ် `-` နဲ့တွဲသုံးပြီး ကြာချိန်တစ်ခုဖြင့် နောက်ပြန်ဆုတ်နိုင်ပါတယ်။
 	p(then.Add(diff))
 	p(then.Add(-diff))
 }

@@ -1,5 +1,5 @@
-// Go offers built-in support for XML and XML-like
-// formats with the `encoding.xml` package.
+// Go က `encoding.xml` package နဲ့ XML နဲ့ XML-လို format တွေအတွက်
+// built-in ထောက်ပံ့မှုပေးထားပါတယ်။
 
 package main
 
@@ -8,13 +8,12 @@ import (
 	"fmt"
 )
 
-// Plant will be mapped to XML. Similarly to the
-// JSON examples, field tags contain directives for the
-// encoder and decoder. Here we use some special features
-// of the XML package: the `XMLName` field name dictates
-// the name of the XML element representing this struct;
-// `id,attr` means that the `Id` field is an XML
-// _attribute_ rather than a nested element.
+// Plant ကို XML နဲ့ map လုပ်ပါမယ်။ JSON ဥပမာတွေလိုပဲ၊ field tag တွေက
+// encoder နဲ့ decoder အတွက် ညွှန်ကြားချက်တွေ ပါဝင်ပါတယ်။ ဒီမှာ ကျွန်တော်တို့က
+// XML package ရဲ့ အထူး feature တချို့ကို သုံးပါတယ်: `XMLName` field နာမည်က
+// ဒီ struct ကို ကိုယ်စားပြုတဲ့ XML element ရဲ့ နာမည်ကို သတ်မှတ်ပေးပါတယ်။
+// `id,attr` က `Id` field က nested element မဟုတ်ဘဲ XML
+// *attribute* တစ်ခုဖြစ်တယ်လို့ ဆိုလိုပါတယ်။
 type Plant struct {
 	XMLName xml.Name `xml:"plant"`
 	Id      int      `xml:"id,attr"`
@@ -26,44 +25,37 @@ func (p Plant) String() string {
 	return fmt.Sprintf("Plant id=%v, name=%v, origin=%v",
 		p.Id, p.Name, p.Origin)
 }
-
 func main() {
 	coffee := &Plant{Id: 27, Name: "Coffee"}
 	coffee.Origin = []string{"Ethiopia", "Brazil"}
 
-	// Emit XML representing our plant; using
-	// `MarshalIndent` to produce a more
-	// human-readable output.
+	// ကျွန်တော်တို့ရဲ့ plant ကို ကိုယ်စားပြုတဲ့ XML ကို ထုတ်ပေးပါတယ်။
+	// ပိုပြီး လူဖတ်လို့ရတဲ့ output ထုတ်ပေးဖို့ `MarshalIndent` ကို သုံးပါတယ်။
 	out, _ := xml.MarshalIndent(coffee, " ", "  ")
 	fmt.Println(string(out))
 
-	// To add a generic XML header to the output, append
-	// it explicitly.
+	// Output ထဲကို အထွေထွေသုံး XML header ထည့်ဖို့၊ တိုက်ရိုက် ပေါင်းထည့်လိုက်ပါ။
 	fmt.Println(xml.Header + string(out))
 
-	// Use `Unmarshal` to parse a stream of bytes with XML
-	// into a data structure. If the XML is malformed or
-	// cannot be mapped onto Plant, a descriptive error
-	// will be returned.
+	// XML ပါတဲ့ byte stream တစ်ခုကို data structure အဖြစ် parse လုပ်ဖို့
+	// `Unmarshal` ကို သုံးပါတယ်။ XML က ပုံပျက်နေရင် သို့မဟုတ် Plant နဲ့
+	// map မလုပ်နိုင်ရင် ရှင်းလင်းတဲ့ error တစ်ခု ပြန်ပေးပါလိမ့်မယ်။
 	var p Plant
 	if err := xml.Unmarshal(out, &p); err != nil {
 		panic(err)
 	}
 	fmt.Println(p)
-
 	tomato := &Plant{Id: 81, Name: "Tomato"}
 	tomato.Origin = []string{"Mexico", "California"}
 
-	// The `parent>child>plant` field tag tells the encoder
-	// to nest all `plant`s under `<parent><child>...`
+	// `parent>child>plant` field tag က encoder ကို `plant` အားလုံးကို
+	// `<parent><child>...` အောက်မှာ nest လုပ်ခိုင်းပါတယ်
 	type Nesting struct {
 		XMLName xml.Name `xml:"nesting"`
 		Plants  []*Plant `xml:"parent>child>plant"`
 	}
-
 	nesting := &Nesting{}
 	nesting.Plants = []*Plant{coffee, tomato}
-
 	out, _ = xml.MarshalIndent(nesting, " ", "  ")
 	fmt.Println(string(out))
 }
