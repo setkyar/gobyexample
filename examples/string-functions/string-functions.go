@@ -1,6 +1,6 @@
-// The standard library's `strings` package provides many
-// useful string-related functions. Here are some examples
-// to give you a sense of the package.
+// Standard library ရဲ့ `strings` package က အသုံးဝင်တဲ့ string-related function တွေ
+// အများကြီး ပေးထားပါတယ်။ ဒီမှာ ဒီ package အကြောင်း ခန့်မှန်းသိနိုင်အောင်
+// ဥပမာအချို့ ပြထားပါတယ်။
 
 package main
 
@@ -9,19 +9,17 @@ import (
 	s "strings"
 )
 
-// We alias `fmt.Println` to a shorter name as we'll use
-// it a lot below.
+// `fmt.Println` ကို နာမည်တိုတိုနဲ့ alias လုပ်ထားပါတယ်၊
+// ဘာလို့လဲဆိုတော့ အောက်မှာ အများကြီး သုံးမှာမို့ပါ။
 var p = fmt.Println
 
 func main() {
 
-	// Here's a sample of the functions available in
-	// `strings`. Since these are functions from the
-	// package, not methods on the string object itself,
-	// we need pass the string in question as the first
-	// argument to the function. You can find more
-	// functions in the [`strings`](https://pkg.go.dev/strings)
-	// package docs.
+	// ဒီမှာ `strings` package ထဲက function တွေရဲ့ နမူနာတွေ ရှိပါတယ်။
+	// ဒါတွေက package ထဲက function တွေဖြစ်တဲ့အတွက် string object ပေါ်က
+	// method တွေ မဟုတ်ပါဘူး။ ဒါကြောင့် စစ်ဆေးချင်တဲ့ string ကို
+	// ပထမဆုံး argument အနေနဲ့ ထည့်ပေးရပါတယ်။ နောက်ထပ် function တွေကို
+	// [`strings`](https://pkg.go.dev/strings) package docs မှာ တွေ့နိုင်ပါတယ်။
 	p("Contains:  ", s.Contains("test", "es"))
 	p("Count:     ", s.Count("test", "t"))
 	p("HasPrefix: ", s.HasPrefix("test", "te"))
