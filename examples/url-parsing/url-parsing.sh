@@ -1,5 +1,6 @@
-# Running our URL parsing program shows all the different
-# pieces that we extracted.
+# ကျွန်တော်တို့ရဲ့ URL parsing ပရိုဂရမ်ကို run လိုက်တာက 
+# ကျွန်တော်တို့ ထုတ်ယူထားတဲ့ မတူညီတဲ့ 
+# အစိတ်အပိုင်းအားလုံးကို ပြသပါတယ်။
 $ go run url-parsing.go 
 postgres
 user:pass

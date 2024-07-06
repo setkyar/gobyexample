@@ -1,15 +1,17 @@
-# Running the program computes the hash and prints it in
-# a human-readable hex format.
+# ပရိုဂရမ်ကို run လိုက်တာက hash ကို
+#  တွက်ချက်ပြီး လူဖတ်လို့ရတဲ့ hex ပုံစံနဲ့ ပရင့်ထုတ်ပါတယ်။
 $ go run sha256-hashes.go
 sha256 this string
 1af1dfa857bf1d8814fe1af8983c18080019922e557f15a8a...
 
+# အထက်မှာပြထားတဲ့ ပုံစံနဲ့ ဆင်တူတဲ့ပုံစံကို
+#  သုံးပြီး တခြား hash တွေကိုလည်း တွက်ချက်နိုင်ပါတယ်။
+# ဥပမာ၊ SHA512 hash တွေ တွက်ချက်ဖို့ 
+# `crypto/sha512` ကို import လုပ်ပြီး
+# `sha512.New()` ကို သုံးလို့ရတယ်။
 
-# You can compute other hashes using a similar pattern to
-# the one shown above. For example, to compute
-# SHA512 hashes import `crypto/sha512` and use
-# `sha512.New()`.
-
-# Note that if you need cryptographically secure hashes,
-# you should carefully research
-# [hash strength](https://en.wikipedia.org/wiki/Cryptographic_hash_function)!
+# သတိပြုရမှာက cryptographically 
+# လုံခြုံတဲ့ hash တွေ လိုအပ်ရင်
+# သင့်အနေနဲ့ [hash အင်အား](https://en.wikipedia.org/wiki/Cryptographic_hash_function) 
+# အကြောင်းကို
+# သေချာစွာ သုတေသနပြုလုပ်သင့်ပါတယ်!
