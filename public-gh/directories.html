@@ -27,23 +27,14 @@
         
         <tr>
           <td class="docs">
-            <p>Go has several useful functions for working with
-<em>directories</em> in the file system.</p>
+            <p>Go သည် ဖိုင်စနစ်အတွင်းရှိ <em>directories</em> များနှင့် အလုပ်လုပ်ရန်
+အသုံးဝင်သော function များစွာ ရှိသည်။</p>
 
           </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/cICbVSX51zI"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
-          <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+            <a href="https://go.dev/play/p/6ojWvtSXD-8"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+          <pre class="chroma">
+<span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
         </tr>
@@ -91,8 +82,8 @@
         
         <tr>
           <td class="docs">
-            <p>Create a new sub-directory in the current working
-directory.</p>
+            <p>လက်ရှိ အလုပ်လုပ်နေသော directory အတွင်း
+sub-directory အသစ်တစ်ခု ဖန်တီးပါ။</p>
 
           </td>
           <td class="code leading">
@@ -106,10 +97,9 @@ directory.</p>
         
         <tr>
           <td class="docs">
-            <p>When creating temporary directories, it&rsquo;s good
-practice to <code>defer</code> their removal. <code>os.RemoveAll</code>
-will delete a whole directory tree (similarly to
-<code>rm -rf</code>).</p>
+            <p>ယာယီ directories များ ဖန်တီးသောအခါ၊ ၎င်းတို့ကို ဖယ်ရှားရန်
+<code>defer</code> သုံးခြင်းသည် ကောင်းမွန်သော အလေ့အထဖြစ်သည်။ <code>os.RemoveAll</code>
+သည် directory tree တစ်ခုလုံးကို ဖျက်ပစ်လိမ့်မည် (<code>rm -rf</code> နှင့် အလားတူ)။</p>
 
           </td>
           <td class="code leading">
@@ -122,7 +112,7 @@ will delete a whole directory tree (similarly to
         
         <tr>
           <td class="docs">
-            <p>Helper function to create a new empty file.</p>
+            <p>ဖိုင်အလွတ်အသစ်တစ်ခု ဖန်တီးရန် Helper function။</p>
 
           </td>
           <td class="code leading">
@@ -149,9 +139,8 @@ will delete a whole directory tree (similarly to
         
         <tr>
           <td class="docs">
-            <p>We can create a hierarchy of directories, including
-parents with <code>MkdirAll</code>. This is similar to the
-command-line <code>mkdir -p</code>.</p>
+            <p>ကျွန်ုပ်တို့သည် parents ပါဝင်သော directory အဆင့်ဆင့်ကို <code>MkdirAll</code> ဖြင့်
+ဖန်တီးနိုင်သည်။ ဤသည်မှာ command-line <code>mkdir -p</code> နှင့် ဆင်တူသည်။</p>
 
           </td>
           <td class="code leading">
@@ -178,8 +167,8 @@ command-line <code>mkdir -p</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>ReadDir</code> lists directory contents, returning a
-slice of <code>os.DirEntry</code> objects.</p>
+            <p><code>ReadDir</code> သည် directory အတွင်းရှိ အရာများကို စာရင်းပြုစုပြီး
+<code>os.DirEntry</code> objects များ၏ slice ကို ပြန်ပေးသည်။</p>
 
           </td>
           <td class="code leading">
@@ -207,8 +196,8 @@ slice of <code>os.DirEntry</code> objects.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Chdir</code> lets us change the current working directory,
-similarly to <code>cd</code>.</p>
+            <p><code>Chdir</code> သည် လက်ရှိ လုပ်ငန်းလည်ပတ်နေသော directory ကို
+ပြောင်းလဲခွင့်ပြုသည်၊ <code>cd</code> နှင့် အလားတူသည်။</p>
 
           </td>
           <td class="code leading">
@@ -222,8 +211,8 @@ similarly to <code>cd</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Now we&rsquo;ll see the contents of <code>subdir/parent/child</code>
-when listing the <em>current</em> directory.</p>
+            <p>ယခု ကျွန်ုပ်တို့သည် <em>လက်ရှိ</em> directory ကို စာရင်းပြုစုသောအခါ
+<code>subdir/parent/child</code> ၏ အကြောင်းအရာများကို မြင်ရမည်။</p>
 
           </td>
           <td class="code leading">
@@ -251,7 +240,7 @@ when listing the <em>current</em> directory.</p>
         
         <tr>
           <td class="docs">
-            <p><code>cd</code> back to where we started.</p>
+            <p>စတင်ခဲ့သောနေရာသို့ <code>cd</code> ဖြင့် ပြန်သွားပါ။</p>
 
           </td>
           <td class="code leading">
@@ -265,10 +254,10 @@ when listing the <em>current</em> directory.</p>
         
         <tr>
           <td class="docs">
-            <p>We can also visit a directory <em>recursively</em>,
-including all its sub-directories. <code>Walk</code> accepts
-a callback function to handle every file or
-directory visited.</p>
+            <p>ကျွန်ုပ်တို့သည် directory တစ်ခုကို <em>recursively</em> လည်း
+ကြည့်ရှု(visit_နိုင်သည်၊ ၎င်း၏ sub-directories အားလုံးအပါအဝင်ဖြစ်သည်။
+<code>Walk</code> သည် တွေ့ရှိသော ဖိုင် သို့မဟုတ် directory တိုင်းကို
+ကိုင်တွယ်ရန် callback function တစ်ခုကို လက်ခံသည်။</p>
 
           </td>
           <td class="code leading">
@@ -283,8 +272,8 @@ directory visited.</p>
         
         <tr>
           <td class="docs">
-            <p><code>visit</code> is called for every file or directory found
-recursively by <code>filepath.Walk</code>.</p>
+            <p><code>visit</code> သည် <code>filepath.Walk</code> မှ recursively တွေ့ရှိသော
+ဖိုင် သို့မဟုတ် directory တိုင်းအတွက် ခေါ်ဆိုခြင်းခံရသည်။</p>
 
           </td>
           <td class="code">
@@ -344,7 +333,7 @@ recursively by <code>filepath.Walk</code>.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"os\"\u000A    \"path/filepath\"\u000A)\u000A');codeLines.push('func check(e error) {\u000A    if e !\u003D nil {\u000A        panic(e)\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    err :\u003D os.Mkdir(\"subdir\", 0755)\u000A    check(err)\u000A');codeLines.push('    defer os.RemoveAll(\"subdir\")\u000A');codeLines.push('    createEmptyFile :\u003D func(name string) {\u000A        d :\u003D []byte(\"\")\u000A        check(os.WriteFile(name, d, 0644))\u000A    }\u000A');codeLines.push('    createEmptyFile(\"subdir/file1\")\u000A');codeLines.push('    err \u003D os.MkdirAll(\"subdir/parent/child\", 0755)\u000A    check(err)\u000A');codeLines.push('    createEmptyFile(\"subdir/parent/file2\")\u000A    createEmptyFile(\"subdir/parent/file3\")\u000A    createEmptyFile(\"subdir/parent/child/file4\")\u000A');codeLines.push('    c, err :\u003D os.ReadDir(\"subdir/parent\")\u000A    check(err)\u000A');codeLines.push('    fmt.Println(\"Listing subdir/parent\")\u000A    for _, entry :\u003D range c {\u000A        fmt.Println(\" \", entry.Name(), entry.IsDir())\u000A    }\u000A');codeLines.push('    err \u003D os.Chdir(\"subdir/parent/child\")\u000A    check(err)\u000A');codeLines.push('    c, err \u003D os.ReadDir(\".\")\u000A    check(err)\u000A');codeLines.push('    fmt.Println(\"Listing subdir/parent/child\")\u000A    for _, entry :\u003D range c {\u000A        fmt.Println(\" \", entry.Name(), entry.IsDir())\u000A    }\u000A');codeLines.push('    err \u003D os.Chdir(\"../../..\")\u000A    check(err)\u000A');codeLines.push('    fmt.Println(\"Visiting subdir\")\u000A    err \u003D filepath.Walk(\"subdir\", visit)\u000A}\u000A');codeLines.push('func visit(p string, info os.FileInfo, err error) error {\u000A    if err !\u003D nil {\u000A        return err\u000A    }\u000A    fmt.Println(\" \", p, info.IsDir())\u000A    return nil\u000A}\u000A');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"os\"\u000A    \"path/filepath\"\u000A)\u000A');codeLines.push('func check(e error) {\u000A    if e !\u003D nil {\u000A        panic(e)\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    err :\u003D os.Mkdir(\"subdir\", 0755)\u000A    check(err)\u000A');codeLines.push('    defer os.RemoveAll(\"subdir\")\u000A');codeLines.push('    createEmptyFile :\u003D func(name string) {\u000A        d :\u003D []byte(\"\")\u000A        check(os.WriteFile(name, d, 0644))\u000A    }\u000A');codeLines.push('    createEmptyFile(\"subdir/file1\")\u000A');codeLines.push('    err \u003D os.MkdirAll(\"subdir/parent/child\", 0755)\u000A    check(err)\u000A');codeLines.push('    createEmptyFile(\"subdir/parent/file2\")\u000A    createEmptyFile(\"subdir/parent/file3\")\u000A    createEmptyFile(\"subdir/parent/child/file4\")\u000A');codeLines.push('    c, err :\u003D os.ReadDir(\"subdir/parent\")\u000A    check(err)\u000A');codeLines.push('    fmt.Println(\"Listing subdir/parent\")\u000A    for _, entry :\u003D range c {\u000A        fmt.Println(\" \", entry.Name(), entry.IsDir())\u000A    }\u000A');codeLines.push('    err \u003D os.Chdir(\"subdir/parent/child\")\u000A    check(err)\u000A');codeLines.push('    c, err \u003D os.ReadDir(\".\")\u000A    check(err)\u000A');codeLines.push('    fmt.Println(\"Listing subdir/parent/child\")\u000A    for _, entry :\u003D range c {\u000A        fmt.Println(\" \", entry.Name(), entry.IsDir())\u000A    }\u000A');codeLines.push('    err \u003D os.Chdir(\"../../..\")\u000A    check(err)\u000A');codeLines.push('    fmt.Println(\"Visiting subdir\")\u000A    err \u003D filepath.Walk(\"subdir\", visit)\u000A}\u000A');codeLines.push('func visit(p string, info os.FileInfo, err error) error {\u000A    if err !\u003D nil {\u000A        return err\u000A    }\u000A    fmt.Println(\" \", p, info.IsDir())\u000A    return nil\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

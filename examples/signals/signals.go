@@ -1,9 +1,11 @@
-// Sometimes we'd like our Go programs to intelligently
-// handle [Unix signals](https://en.wikipedia.org/wiki/Unix_signal).
-// For example, we might want a server to gracefully
-// shutdown when it receives a `SIGTERM`, or a command-line
-// tool to stop processing input if it receives a `SIGINT`.
-// Here's how to handle signals in Go with channels.
+// တစ်ခါတစ်ရံတွင် ကျွန်ုပ်တို့၏ Go ပရိုဂရမ်များသည်
+// Unix signals များကို အသိဉာဏ်ရှိစွာ ကိုင်တွယ်စေလိုပါသည်။
+// ဥပမာအားဖြင့်၊ server တစ်ခုသည် SIGTERM လက်ခံရရှိသောအခါ
+// သင့်တော်စွာ ပိတ်သိမ်းစေလိုခြင်း၊ သို့မဟုတ် command-line
+// tool တစ်ခုသည် SIGINT လက်ခံရရှိသောအခါ input
+// ပြုလုပ်ခြင်းကို ရပ်တန့်စေလိုခြင်းတို့ ဖြစ်နိုင်ပါသည်။
+// အောက်ပါသည် Go တွင် channels များဖြင့်
+// signals များကို ကိုင်တွယ်နည်း ဖြစ်ပါသည်။
 
 package main
 
@@ -16,35 +18,38 @@ import (
 
 func main() {
 
-	// Go signal notification works by sending `os.Signal`
-	// values on a channel. We'll create a channel to
-	// receive these notifications. Note that this channel
-	// should be buffered.
+	// Go signal notification သည် os.Signal တန်ဖိုးများကို
+	// channel တစ်ခုပေါ်သို့ ပေးပို့ခြင်းဖြင့် အလုပ်လုပ်ပါသည်။
+	// ဤ notifications များကို လက်ခံရန် channel တစ်ခု ဖန်တီးပါမည်။
+	// ဤ channel သည် buffered ဖြစ်သင့်ကြောင်း သတိပြုပါ။
 	sigs := make(chan os.Signal, 1)
 
-	// `signal.Notify` registers the given channel to
-	// receive notifications of the specified signals.
+	// signal.Notify သည် သတ်မှတ်ထားသော signals
+	// များ၏ notifications များကို လက်ခံရန်
+	// ပေးထားသော channel ကို မှတ်ပုံတင်ပါသည်။
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 
-	// We could receive from `sigs` here in the main
-	// function, but let's see how this could also be
-	// done in a separate goroutine, to demonstrate
-	// a more realistic scenario of graceful shutdown.
+	// ကျွန်ုပ်တို့သည် main function ထဲတွင် sigs မှ လက်ခံနိုင်ပါသည်၊
+	// သို့သော် ဤလုပ်ဆောင်ချက်ကို သီးခြား goroutine
+	// တစ်ခုတွင် မည်ကဲ့သို့ ပြုလုပ်နိုင်ကြောင်း ကြည့်ကြပါစို့၊
+	// ပိုမို realistic ဖြစ်သော graceful shutdown
+	// ဖြစ်စဉ်ကို သရုပ်ပြရန် ဖြစ်ပါသည်။
 	done := make(chan bool, 1)
 
 	go func() {
-		// This goroutine executes a blocking receive for
-		// signals. When it gets one it'll print it out
-		// and then notify the program that it can finish.
+		// ဤ goroutine သည် signals အတွက် blocking receive ကို executes လုပ်ပါသည်။
+		// ၎င်းသည် signal တစ်ခုရရှိသောအခါ ထို signal ကို ပုံနှိပ် (print) ဖော်ပြပြီး
+		// ပရိုဂရမ်အား ပြီးဆုံးနိုင်ကြောင်း အသိပေးပါလိမ့်မည်။
 		sig := <-sigs
 		fmt.Println()
 		fmt.Println(sig)
 		done <- true
 	}()
 
-	// The program will wait here until it gets the
-	// expected signal (as indicated by the goroutine
-	// above sending a value on `done`) and then exit.
+	// ပရိုဂရမ်သည် မျှော်လင့်ထားသော signal ရရှိသည်အထိ
+	// ဤနေရာတွင် စောင့်ဆိုင်းနေပါမည်
+	// (အထက်ပါ goroutine မှ done ပေါ်တွင် တန်ဖိုးတစ်ခု ပေးပို့ခြင်းဖြင့် ညွှန်ပြထားသည့်အတိုင်း)
+	// ထို့နောက် ထွက်ခွာပါမည်။
 	fmt.Println("awaiting signal")
 	<-done
 	fmt.Println("exiting")

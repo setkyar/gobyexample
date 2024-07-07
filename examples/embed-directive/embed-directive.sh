@@ -1,6 +1,6 @@
-# Use these commands to run the example.
-# (Note: due to limitation on go playground,
-# this example can only be run on your local machine.)
+# ဤဥပမာကို run ရန် အောက်ပါ commands များကို အသုံးပြုပါ။
+# (မှတ်ချက်: go playground ၏ ကန့်သတ်ချက်ကြောင့်
+# ဤဥပမာကို သင့်ကွန်ပျူတာတွင်သာ run နိုင်ပါသည်။)
 $ mkdir -p folder
 $ echo "hello go" > folder/single_file.txt
 $ echo "123" > folder/file1.hash

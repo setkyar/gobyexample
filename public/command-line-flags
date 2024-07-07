@@ -28,9 +28,8 @@
         <tr>
           <td class="docs">
             <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option"><em>Command-line flags</em></a>
-are a common way to specify options for command-line
-programs. For example, in <code>wc -l</code> the <code>-l</code> is a
-command-line flag.</p>
+ကိုကွန်မန်းလိုင်းပရိုဂရမ်များအတွက် option များသတ်မှတ်ရန် အသုံးများသောနည်းလမ်းတစ်ခုဖြစ်သည်။
+ဥပမာ <code>wc -l</code> တွင် <code>-l</code> သည် command-line flag တစ်ခုဖြစ်သည်။</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +43,7 @@ command-line flag.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/IUPZlYSigc3"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/WTv859ABG4A"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -52,9 +51,8 @@ command-line flag.</p>
         
         <tr>
           <td class="docs">
-            <p>Go provides a <code>flag</code> package supporting basic
-command-line flag parsing. We&rsquo;ll use this package to
-implement our example command-line program.</p>
+            <p>Go သည် အခြေခံ command-line flag parsing ကို ထောက်ပံ့ပေးသော <code>flag</code> package ကို ပေးထားသည်။
+ကျွန်ုပ်တို့သည် ဤ package ကို အသုံးပြု၍ ကျွန်ုပ်တို့၏ နမူနာ command-line program ကို အကောင်အထည်ဖော်မည်။</p>
 
           </td>
           <td class="code leading">
@@ -81,12 +79,10 @@ implement our example command-line program.</p>
         
         <tr>
           <td class="docs">
-            <p>Basic flag declarations are available for string,
-integer, and boolean options. Here we declare a
-string flag <code>word</code> with a default value <code>&quot;foo&quot;</code>
-and a short description. This <code>flag.String</code> function
-returns a string pointer (not a string value);
-we&rsquo;ll see how to use this pointer below.</p>
+            <p>အခြေခံ flag ကြေညာချက်များကို string, integer နှင့် boolean option များအတွက် ရရှိနိုင်သည်။
+ဤနေရာတွင် ကျွန်ုပ်တို့သည် <code>&quot;foo&quot;</code> မူလတန်ဖိုးနှင့် တိုတောင်းသော ဖော်ပြချက်ပါသော <code>word</code> string flag ကို ကြေညာသည်။
+ဤ <code>flag.String</code> function သည် string pointer တစ်ခု (string တန်ဖိုးမဟုတ်) ကို ပြန်ပေးသည်။
+ကျွန်ုပ်တို့သည် ဤ pointer ကို မည်သို့အသုံးပြုမည်ကို အောက်မှာတွေ့ရပါ့မယ်။</p>
 
           </td>
           <td class="code leading">
@@ -99,8 +95,7 @@ we&rsquo;ll see how to use this pointer below.</p>
         
         <tr>
           <td class="docs">
-            <p>This declares <code>numb</code> and <code>fork</code> flags, using a
-similar approach to the <code>word</code> flag.</p>
+            <p>ဤသည်မှာ <code>word</code> flag နှင့် ဆင်တူသောနည်းလမ်းကို အသုံးပြု၍ <code>numb</code> နှင့် <code>fork</code> flag များကို ကြေညာခြင်းဖြစ်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -114,10 +109,8 @@ similar approach to the <code>word</code> flag.</p>
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s also possible to declare an option that uses an
-existing var declared elsewhere in the program.
-Note that we need to pass in a pointer to the flag
-declaration function.</p>
+            <p>ပရိုဂရမ်၏ အခြားနေရာတွင် ကြေညာထားပြီးသား var ကို အသုံးပြုသော option ကိုလည်း ကြေညာနိုင်သည်။
+flag ကြေညာခြင်း function သို့ pointer တစ်ခုကို ပေးပို့ရန် လိုအပ်ကြောင်း သတိပြုပါ။</p>
 
           </td>
           <td class="code leading">
@@ -131,8 +124,7 @@ declaration function.</p>
         
         <tr>
           <td class="docs">
-            <p>Once all flags are declared, call <code>flag.Parse()</code>
-to execute the command-line parsing.</p>
+            <p>flag အားလုံးကြေညာပြီးနောက် command-line parsing ကို အကောင်အထည်ဖော်ရန် <code>flag.Parse()</code> ကို ခေါ်ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -145,10 +137,8 @@ to execute the command-line parsing.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we&rsquo;ll just dump out the parsed options and
-any trailing positional arguments. Note that we
-need to dereference the pointers with e.g. <code>*wordPtr</code>
-to get the actual option values.</p>
+            <p>ဤနေရာတွင် ကျွန်ုပ်တို့သည် parse လုပ်ထားသော option များနှင့် နောက်ဆက်တွဲ positional argument များကို dump လုပ်မည်။
+အမှန်တကယ် option တန်ဖိုးများကို ရရှိရန် <code>*wordPtr</code> စသည်ဖြင့် pointer များကို dereference လုပ်ရန် လိုအပ်ကြောင်း သတိပြုပါ။</p>
 
           </td>
           <td class="code">
@@ -170,9 +160,10 @@ to get the actual option values.</p>
         
         <tr>
           <td class="docs">
-            <p>To experiment with the command-line flags program it&rsquo;s
-best to first compile it and then run the resulting
-binary directly.</p>
+            <p>command-line flags ပရိုဂရမ်ကို
+စမ်းသပ်ရန်အတွက်
+ပထမဦးစွာ compile လုပ်ပြီး ထွက်လာသော
+binary ကို တိုက်ရိုက် run သင့်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -184,8 +175,8 @@ binary directly.</p>
         
         <tr>
           <td class="docs">
-            <p>Try out the built program by first giving it values for
-all flags.</p>
+            <p>flag အားလုံးအတွက် တန်ဖိုးများပေး၍
+build လုပ်ထားသော ပရိုဂရမ်ကို စမ်းသပ်ကြည့်ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -202,8 +193,9 @@ all flags.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that if you omit flags they automatically take
-their default values.</p>
+            <p>flag များကို ချန်လှပ်ထားပါက ၎င်းတို့သည်
+အလိုအလျောက် ၎င်းတို့၏ မူလ(default) တန်ဖိုးများကို
+ယူကြောင်း သတိပြုပါ။</p>
 
           </td>
           <td class="code leading">
@@ -220,8 +212,8 @@ their default values.</p>
         
         <tr>
           <td class="docs">
-            <p>Trailing positional arguments can be provided after
-any flags.</p>
+            <p>နောက်ဆက်တွဲ positional argument
+များကို flag များ၏နောက်တွင် ပေးနိုင်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -236,9 +228,11 @@ any flags.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that the <code>flag</code> package requires all flags to
-appear before positional arguments (otherwise the flags
-will be interpreted as positional arguments).</p>
+            <p><code>flag</code> package သည် flag အားလုံးကို positional
+ argument များ၏ရှေ့တွင် ပေါ်လာရန်
+လိုအပ်ကြောင်း သတိပြုပါ
+(သို့မဟုတ်ပါက flag များကို positional argument
+များအဖြစ် အဓိပ္ပာယ်ကောက်ယူမည်)။</p>
 
           </td>
           <td class="code leading">
@@ -255,8 +249,9 @@ will be interpreted as positional arguments).</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>-h</code> or <code>--help</code> flags to get automatically
-generated help text for the command-line program.</p>
+            <p>command-line ပရိုဂရမ်အတွက် အလိုအလျောက်ထုတ်ပေးသော
+help စာသားကို ရရှိရန် <code>-h</code> သို့မဟုတ် <code>--help</code>
+flag များကို အသုံးပြုပါ။</p>
 
           </td>
           <td class="code leading">
@@ -264,18 +259,18 @@ generated help text for the command-line program.</p>
           <pre class="chroma">
 <span class="gp">$</span> ./command-line-flags -h
 <span class="go">Usage of ./command-line-flags:
-</span><span class="go">  -fork=false: a bool
-</span><span class="go">  -numb=42: an int
-</span><span class="go">  -svar=&#34;bar&#34;: a string var
-</span><span class="go">  -word=&#34;foo&#34;: a string</span></pre>
+</span><span class="go"> -fork=false: a bool
+</span><span class="go"> -numb=42: an int
+</span><span class="go"> -svar=&#34;bar&#34;: a string var
+</span><span class="go"> -word=&#34;foo&#34;: a string</span></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>If you provide a flag that wasn&rsquo;t specified to the
-<code>flag</code> package, the program will print an error message
-and show the help text again.</p>
+            <p><code>flag</code> package တွင် သတ်မှတ်မထားသော flag
+တစ်ခုကို ပေးပါက ပရိုဂရမ်သည် အမှားပြ message
+ကို ပုံနှိပ်ထုတ်ပေးပြီး help စာသားကို ထပ်ပြပေးမည်။</p>
 
           </td>
           <td class="code">

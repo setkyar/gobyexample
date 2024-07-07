@@ -27,9 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>Reading and writing files are basic tasks needed for
-many Go programs. First we&rsquo;ll look at some examples of
-reading files.</p>
+            <p>ဖိုင်များဖတ်ခြင်းနှင့် ရေးခြင်းသည် Go ပရိုဂရမ်များအတွက် အခြေခံလိုအပ်ချက်ဖြစ်သည်။
+ပထမဦးစွာ ဖိုင်ဖတ်ခြင်းဥပမာအချို့ကို ကြည့်ကြမည်။</p>
 
           </td>
           <td class="code empty leading">
@@ -43,7 +42,7 @@ reading files.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/DF2Wo8nDKaF"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/Nzr4LHSAgZO"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -67,8 +66,8 @@ reading files.</p>
         
         <tr>
           <td class="docs">
-            <p>Reading files requires checking most calls for errors.
-This helper will streamline our error checks below.</p>
+            <p>ဖိုင်ဖတ်ခြင်းသည် အများအားဖြင့် အမှားစစ်ဆေးမှုလိုအပ်သည်။
+ဤ helper function သည် အောက်ပါ အမှားစစ်ဆေးမှုများကို ရိုးရှင်းစေမည်။</p>
 
           </td>
           <td class="code leading">
@@ -85,7 +84,9 @@ This helper will streamline our error checks below.</p>
         
         <tr>
           <td class="docs">
-            
+            <p>အခြေခံကျဆုံး ဖိုင်ဖတ်ခြင်းလုပ်ငန်းမှာ ဖိုင်တစ်ခုလုံး၏အကြောင်းအရာကို
+မှတ်ဉာဏ်ထဲ (memory) သို့ တစ်ခါတည်းဖတ်ယူခြင်းဖြစ်သည်။</p>
+
           </td>
           <td class="code leading">
             
@@ -96,14 +97,11 @@ This helper will streamline our error checks below.</p>
         
         <tr>
           <td class="docs">
-            <p>Perhaps the most basic file reading task is
-slurping a file&rsquo;s entire contents into memory.</p>
-
+            
           </td>
           <td class="code leading">
             
-          <pre class="chroma">
-    <span class="nx">dat</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="s">&#34;/tmp/dat&#34;</span><span class="p">)</span>
+          <pre class="chroma">    <span class="nx">dat</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="s">&#34;/tmp/dat&#34;</span><span class="p">)</span>
     <span class="nf">check</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Print</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">dat</span><span class="p">))</span>
 </pre>
@@ -112,9 +110,8 @@ slurping a file&rsquo;s entire contents into memory.</p>
         
         <tr>
           <td class="docs">
-            <p>You&rsquo;ll often want more control over how and what
-parts of a file are read. For these tasks, start
-by <code>Open</code>ing a file to obtain an <code>os.File</code> value.</p>
+            <p>ဖိုင်၏မည်သည့်အပိုင်းကို မည်သို့ဖတ်မည်ကို ပိုမိုထိန်းချုပ်လိုကြောင်း သင်တွေ့ရလိမ့်မည်။
+ဤလုပ်ငန်းများအတွက် &lsquo;Open&rsquo; ဖြင့် ဖိုင်ကိုဖွင့်ပြီး &lsquo;os.File&rsquo; တန်ဖိုးကို ရယူပါ။</p>
 
           </td>
           <td class="code leading">
@@ -128,9 +125,8 @@ by <code>Open</code>ing a file to obtain an <code>os.File</code> value.</p>
         
         <tr>
           <td class="docs">
-            <p>Read some bytes from the beginning of the file.
-Allow up to 5 to be read but also note how many
-actually were read.</p>
+            <p>ဖိုင်၏အစမှ byte အချို့ကိုဖတ်ပါ။
+5 byte အထိဖတ်ခွင့်ပြုသော်လည်း အမှန်တကယ်ဖတ်မိသည့် အရေအတွက်ကိုလည်း မှတ်သားပါ။</p>
 
           </td>
           <td class="code leading">
@@ -146,8 +142,7 @@ actually were read.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also <code>Seek</code> to a known location in the file
-and <code>Read</code> from there.</p>
+            <p>သင်သည် ဖိုင်ထဲတွင် သိထားသောနေရာသို့ &lsquo;Seek&rsquo; လုပ်နိုင်ပြီး ထိုနေရာမှ &lsquo;Read&rsquo; လုပ်နိုင်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -166,10 +161,8 @@ and <code>Read</code> from there.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>io</code> package provides some functions that may
-be helpful for file reading. For example, reads
-like the ones above can be more robustly
-implemented with <code>ReadAtLeast</code>.</p>
+            <p>&lsquo;io&rsquo; package သည် ဖိုင်ဖတ်ခြင်းအတွက် အသုံးဝင်သော function များပေးသည်။
+ဥပမာအားဖြင့် အထက်ပါကဲ့သို့ ဖတ်ခြင်းများကို &lsquo;ReadAtLeast&rsquo; ဖြင့် ပိုမိုခိုင်မာစွာ အကောင်အထည်ဖော်နိုင်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -187,8 +180,7 @@ implemented with <code>ReadAtLeast</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>There is no built-in rewind, but <code>Seek(0, 0)</code>
-accomplishes this.</p>
+            <p>ပါဝင်ပြီးသား rewind မရှိသော်လည်း &lsquo;Seek(0, 0)&rsquo; သည် ဤလုပ်ငန်းကို ဆောင်ရွက်နိုင်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -202,10 +194,9 @@ accomplishes this.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>bufio</code> package implements a buffered
-reader that may be useful both for its efficiency
-with many small reads and because of the additional
-reading methods it provides.</p>
+            <p>&lsquo;bufio&rsquo; package သည် buffered reader ကို အကောင်အထည်ဖော်သည်။
+၎င်းသည် အသေးစား ဖတ်ခြင်းများစွာအတွက် ထိရောက်မှုရှိခြင်းနှင့်
+၎င်းပေးသော ထပ်ဆောင်းဖတ်ခြင်းနည်းလမ်းများကြောင့် အသုံးဝင်နိုင်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -221,9 +212,8 @@ reading methods it provides.</p>
         
         <tr>
           <td class="docs">
-            <p>Close the file when you&rsquo;re done (usually this would
-be scheduled immediately after <code>Open</code>ing with
-<code>defer</code>).</p>
+            <p>အသုံးပြုပြီးပါက ဖိုင်ကိုပိတ်ပါ (ပုံမှန်အားဖြင့် ၎င်းကို &lsquo;Open&rsquo; လုပ်ပြီးချက်ချင်း
+&lsquo;defer&rsquo; ဖြင့် သတ်မှတ်လေ့ရှိသည်)။</p>
 
           </td>
           <td class="code">
@@ -259,7 +249,8 @@ be scheduled immediately after <code>Open</code>ing with
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at writing files.</p>
+            <p>နောက်တစ်ဆင့်အနေဖြင့်
+ဖိုင်ရေးသားခြင်းကို လေ့လာကြမည်။</p>
 
           </td>
           <td class="code empty">

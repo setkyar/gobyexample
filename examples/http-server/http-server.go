@@ -1,5 +1,4 @@
-// Writing a basic HTTP server is easy using the
-// `net/http` package.
+// `net/http` package ကို သုံးပြီး အခြေခံ HTTP server ရေးရတာ လွယ်ကူပါတယ်။
 package main
 
 import (
@@ -7,26 +6,23 @@ import (
 	"net/http"
 )
 
-// A fundamental concept in `net/http` servers is
-// *handlers*. A handler is an object implementing the
-// `http.Handler` interface. A common way to write
-// a handler is by using the `http.HandlerFunc` adapter
-// on functions with the appropriate signature.
+// `net/http` servers မှာ အခြေခံကျတဲ့ သဘောတရားက *handlers* ဖြစ်ပါတယ်။
+// handler ဆိုတာ `http.Handler` interface ကို implement လုပ်ထားတဲ့ object တစ်ခုပါ။
+// handler ရေးသားရန် ပုံမှန်နည်းလမ်းတစ်ခုက သင့်လျော်တဲ့ signature ရှိတဲ့ function တွေပေါ်မှာ
+// `http.HandlerFunc` adapter ကို သုံးခြင်းဖြစ်ပါတယ်။
 func hello(w http.ResponseWriter, req *http.Request) {
 
-	// Functions serving as handlers take a
-	// `http.ResponseWriter` and a `http.Request` as
-	// arguments. The response writer is used to fill in the
-	// HTTP response. Here our simple response is just
-	// "hello\n".
+	// Handler အဖြစ် ဆောင်ရွက်တဲ့ function တွေဟာ `http.ResponseWriter` နဲ့
+	// `http.Request` ကို argument အဖြစ် လက်ခံပါတယ်။ response writer ကို
+	// HTTP response ဖြည့်စွက်ဖို့ သုံးပါတယ်။ ဒီနေရာမှာ ကျွန်တော်တို့ရဲ့ ရိုးရှင်းတဲ့ response က
+	// "hello\n" ပဲ ဖြစ်ပါတယ်။
 	fmt.Fprintf(w, "hello\n")
 }
 
 func headers(w http.ResponseWriter, req *http.Request) {
 
-	// This handler does something a little more
-	// sophisticated by reading all the HTTP request
-	// headers and echoing them into the response body.
+	// ဒီ handler က နည်းနည်းပိုပြီး ရှုပ်ထွေးပါတယ်။ HTTP request headers အားလုံးကို
+	// ဖတ်ပြီး response body ထဲကို ပြန်ထည့်ပေးပါတယ်။
 	for name, headers := range req.Header {
 		for _, h := range headers {
 			fmt.Fprintf(w, "%v: %v\n", name, h)
@@ -36,15 +32,14 @@ func headers(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 
-	// We register our handlers on server routes using the
-	// `http.HandleFunc` convenience function. It sets up
-	// the *default router* in the `net/http` package and
-	// takes a function as an argument.
+	// ကျွန်တော်တို့ရဲ့ handlers တွေကို server routes တွေမှာ မှတ်ပုံတင်ဖို့
+	// `http.HandleFunc` convenience function ကို သုံးပါတယ်။ ဒီ function က
+	// `net/http` package ထဲက *default router* ကို set up လုပ်ပြီး
+	// function တစ်ခုကို argument အဖြစ် လက်ခံပါတယ်။
 	http.HandleFunc("/hello", hello)
 	http.HandleFunc("/headers", headers)
 
-	// Finally, we call the `ListenAndServe` with the port
-	// and a handler. `nil` tells it to use the default
-	// router we've just set up.
+	// နောက်ဆုံးမှာ၊ port နဲ့ handler ကို `ListenAndServe` နဲ့ ခေါ်ပါတယ်။
+	// `nil` က default router ကို သုံးမယ်လို့ ပြောတာပါ။
 	http.ListenAndServe(":8090", nil)
 }

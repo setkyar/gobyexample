@@ -1,13 +1,12 @@
-#  If you run `exit.go` using `go run`, the exit
-# will be picked up by `go` and printed.
+# သင်က `exit.go` ကို `go run` နဲ့ run ရင်၊ exit က
+# `go` က ဖမ်းယူပြီး ပုံနှိပ်ဖော်ပြပေးပါလိမ့်မယ်။
 $ go run exit.go
 exit status 3
-
-# By building and executing a binary you can see
-# the status in the terminal.
+# Binary ကို build လုပ်ပြီး run ခြင်းဖြင့် သင်က
+# terminal ထဲမှာ status ကို မြင်နိုင်ပါတယ်။
 $ go build exit.go
 $ ./exit
 $ echo $?
 3
-
-# Note that the `!` from our program never got printed.
+# မှတ်ချက်။ ကျွန်ုပ်တို့ program ထဲက `!` 
+# က ဘယ်တော့မှ ပုံနှိပ် (print) မထွက်လာပါ။

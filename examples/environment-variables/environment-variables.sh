@@ -1,20 +1,24 @@
-# Running the program shows that we pick up the value
-# for `FOO` that we set in the program, but that
-# `BAR` is empty.
+# ပရိုဂရမ်ကို run ခြင်းဖြင့် ကျွန်ုပ်တို့သည် 
+# ပရိုဂရမ်ထဲတွင် သတ်မှတ်ထားသော
+# `FOO` ၏ တန်ဖိုးကို ရယူနိုင်ကြောင်း တွေ့ရပါသည်။ 
+# သို့သော် 
+# `BAR` သည် အလွတ်ဖြစ်နေပါသည်။
 $ go run environment-variables.go
 FOO: 1
 BAR: 
 
-# The list of keys in the environment will depend on your
-# particular machine.
+# ပတ်ဝန်းကျင်ရှိ key များ၏ စာရင်းသည် 
+# သင့်ကွန်ပျူတာပေါ်မူတည်၍ 
+# ကွဲပြားနိုင်ပါသည်။
 TERM_PROGRAM
 PATH
 SHELL
 ...
 FOO
 
-# If we set `BAR` in the environment first, the running
-# program picks that value up.
+# အကယ်၍ ကျွန်ုပ်တို့သည် `BAR` ကို environment 
+# တွင် ဦးစွာ သတ်မှတ်ပါက 
+# run နေသော ပရိုဂရမ်သည် ထိုတန်ဖိုးကို ရယူပါလိမ့်မည်။
 $ BAR=2 go run environment-variables.go
 FOO: 1
 BAR: 2

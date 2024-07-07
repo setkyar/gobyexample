@@ -1,10 +1,11 @@
-# Try running the file-writing code.
+# ဖိုင်ရေးသားသည့် ကုဒ်ကို စမ်းသပ်ပြီး run ကြည့်ပါ။
 $ go run writing-files.go 
 wrote 5 bytes
 wrote 7 bytes
 wrote 9 bytes
 
-# Then check the contents of the written files.
+# ထို့နောက် ရေးသားထားသော ဖိုင်များ၏ 
+# အကြောင်းအရာများ(content)ကို စစ်ဆေးကြည့်ပါ။
 $ cat /tmp/dat1
 hello
 go
@@ -13,5 +14,7 @@ some
 writes
 buffered
 
-# Next we'll look at applying some of the file I/O ideas
-# we've just seen to the `stdin` and `stdout` streams.
+# နောက်တစ်ဆင့်အနေဖြင့် ယခုလေ့လာခဲ့သော 
+# ဖိုင် I/O သဘောတရားအချို့ကို
+# `stdin` နှင့် `stdout` stream များတွင် 
+# အသုံးချခြင်းကို ကြည့်ကြမည်။

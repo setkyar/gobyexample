@@ -1,7 +1,7 @@
 // [Environment variables](https://en.wikipedia.org/wiki/Environment_variable)
-// are a universal mechanism for [conveying configuration
-// information to Unix programs](https://www.12factor.net/config).
-// Let's look at how to set, get, and list environment variables.
+// သည် [Unix ပရိုဂရမ်များသို့ configuration အချက်အလက်များ ပေးပို့ရန်အတွက်](https://www.12factor.net/config)
+// universal နည်းလမ်းတစ်ခုဖြစ်သည်။
+// Environment variables များကို မည်သို့ သတ်မှတ်ခြင်း၊ ရယူခြင်းနှင့် စာရင်းပြုစုခြင်း(list)တို့ကို ကြည့်ကြပါစို့။
 
 package main
 
@@ -13,18 +13,18 @@ import (
 
 func main() {
 
-	// To set a key/value pair, use `os.Setenv`. To get a
-	// value for a key, use `os.Getenv`. This will return
-	// an empty string if the key isn't present in the
-	// environment.
+	// key/value တွဲတစ်ခုကို သတ်မှတ်ရန် `os.Setenv` ကို အသုံးပြုပါ။
+	// key တစ်ခုအတွက် တန်ဖိုးကို ရယူရန် `os.Getenv` ကို အသုံးပြုပါ။
+	// အကယ်၍ key သည် environment တွင် မရှိပါက ဤ function သည်
+	// စာကြောင်းအလွတ်တစ်ခုကို ပြန်ပေးပါလိမ့်မည်။
 	os.Setenv("FOO", "1")
 	fmt.Println("FOO:", os.Getenv("FOO"))
 	fmt.Println("BAR:", os.Getenv("BAR"))
 
-	// Use `os.Environ` to list all key/value pairs in the
-	// environment. This returns a slice of strings in the
-	// form `KEY=value`. You can `strings.SplitN` them to
-	// get the key and value. Here we print all the keys.
+	// environment ရှိ key/value တွဲအားလုံးကို စာရင်းပြုစု(list)ရန် `os.Environ` ကို အသုံးပြုပါ။
+	// ဤ function သည် `KEY=value` ပုံစံဖြင့် စာကြောင်းများ၏ slice တစ်ခုကို ပြန်ပေးပါသည်။
+	// သင်သည် ၎င်းတို့ကို `strings.SplitN` ဖြင့် key နှင့် value ကို ရရှိနိုင်ပါသည်။
+	// ဤနေရာတွင် ကျွန်ုပ်တို့သည် key အားလုံးကို ပုံနှိပ်ဖော်ပြထားပါသည်။
 	fmt.Println()
 	for _, e := range os.Environ() {
 		pair := strings.SplitN(e, "=", 2)

@@ -27,8 +27,7 @@
         
         <tr>
           <td class="docs">
-            <p>Go provides built-in support for <a href="https://en.wikipedia.org/wiki/Base64">base64
-encoding/decoding</a>.</p>
+            <p>Go သည် <a href="https://en.wikipedia.org/wiki/Base64">base64 encoding/decoding</a> အတွက် built-in support ပေးပါသည်။</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +41,7 @@ encoding/decoding</a>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/yztzkirFEvv"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/sQ5T52AQKpR"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -50,9 +49,8 @@ encoding/decoding</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>This syntax imports the <code>encoding/base64</code> package with
-the <code>b64</code> name instead of the default <code>base64</code>. It&rsquo;ll
-save us some space below.</p>
+            <p>ဒီ syntax သည် <code>encoding/base64</code> package ကို ပုံမှန် <code>base64</code> အစား <code>b64</code> နာမည်နဲ့ import လုပ်ပါတယ်။
+ဒီလိုလုပ်ခြင်းဖြင့် အောက်မှာ နေရာ (space) ချွေတာနိုင်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -68,7 +66,8 @@ save us some space below.</p>
         
         <tr>
           <td class="docs">
-            
+            <p>ဒီမှာ encode/decode လုပ်မယ့် <code>string</code> ပါ။</p>
+
           </td>
           <td class="code leading">
             
@@ -79,23 +78,20 @@ save us some space below.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the <code>string</code> we&rsquo;ll encode/decode.</p>
-
+            
           </td>
           <td class="code leading">
             
-          <pre class="chroma">
-    <span class="nx">data</span> <span class="o">:=</span> <span class="s">&#34;abc123!?$*&amp;()&#39;-=@~&#34;</span>
+          <pre class="chroma">    <span class="nx">data</span> <span class="o">:=</span> <span class="s">&#34;abc123!?$*&amp;()&#39;-=@~&#34;</span>
 </pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Go supports both standard and URL-compatible
-base64. Here&rsquo;s how to encode using the standard
-encoder. The encoder requires a <code>[]byte</code> so we
-convert our <code>string</code> to that type.</p>
+            <p>Go သည် စံပြနှင့် URL-compatible base64 နှစ်မျိုးလုံးကို ထောက်ပံ့ပါတယ်။
+ဒီမှာ စံပြ encoder ကိုသုံးပြီး encode လုပ်ပုံပြထားပါတယ်။
+encoder သည် <code>[]byte</code> လိုအပ်သောကြောင့် ကျွန်ုပ်တို့၏ <code>string</code> ကို ထိုအမျိုးအစားသို့ ပြောင်းလဲပါသည်။</p>
 
           </td>
           <td class="code leading">
@@ -109,9 +105,8 @@ convert our <code>string</code> to that type.</p>
         
         <tr>
           <td class="docs">
-            <p>Decoding may return an error, which you can check
-if you don&rsquo;t already know the input to be
-well-formed.</p>
+            <p>Decoding သည် error ပြန်နိုင်ပါတယ်။ input က ကောင်းမွန်စွာ ဖွဲ့စည်းထားကြောင်း သင်မသိသေးပါက
+စစ်ဆေးနိုင်ပါသည်။</p>
 
           </td>
           <td class="code leading">
@@ -126,8 +121,7 @@ well-formed.</p>
         
         <tr>
           <td class="docs">
-            <p>This encodes/decodes using a URL-compatible base64
-format.</p>
+            <p>ဒီအပိုင်းသည် URL-compatible base64 format ကိုသုံးပြီး encode/decode လုပ်ပါတယ်။</p>
 
           </td>
           <td class="code">
@@ -148,9 +142,13 @@ format.</p>
         
         <tr>
           <td class="docs">
-            <p>The string encodes to slightly different values with the
-standard and URL base64 encoders (trailing <code>+</code> vs <code>-</code>)
-but they both decode to the original string as desired.</p>
+            <p>စံပြ(standard)နှင့် URL base64 encoders
+များသည် string ကို
+အနည်းငယ်ကွဲပြားသော တန်ဖိုးများအဖြစ်
+encode လုပ်ပါသည်
+(နောက်ဆုံးတွင် <code>+</code> နှင့် <code>-</code> အသုံးပြုခြင်း)
+သို့သော် ၎င်းတို့နှစ်ခုလုံးသည် မူရင်း string သို့
+လိုအပ်သလို ပြန်လည် decode လုပ်နိုင်ပါသည်။</p>
 
           </td>
           <td class="code leading">

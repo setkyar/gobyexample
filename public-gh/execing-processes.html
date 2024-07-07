@@ -27,15 +27,12 @@
         
         <tr>
           <td class="docs">
-            <p>In the previous example we looked at
-<a href="spawning-processes">spawning external processes</a>. We
-do this when we need an external process accessible to
-a running Go process. Sometimes we just want to
-completely replace the current Go process with another
-(perhaps non-Go) one. To do this we&rsquo;ll use Go&rsquo;s
-implementation of the classic
+            <p>ပြီးခဲ့တဲ့ဥပမာမှာ ကျွန်တော်တို့က <a href="spawning-processes">ပြင်ပလုပ်ငန်းစဉ်တွေကို စတင်ခြင်း (spawning external processes)</a> ကိုကြည့်ခဲ့ပါတယ်။
+ဒါကို ကျွန်တော်တို့က လက်ရှိအလုပ်လုပ်နေတဲ့ Go process ကနေ ပြင်ပလုပ်ငန်းစဉ်တွေကို အသုံးပြုဖို့လိုအပ်တဲ့အခါ လုပ်ဆောင်ပါတယ်။
+တစ်ခါတစ်ရံမှာ ကျွန်တော်တို့က လက်ရှိ Go process ကို အခြားတစ်ခု (Go မဟုတ်တာလည်းဖြစ်နိုင်တယ်) နဲ့ လုံးဝအစားထိုးချင်တာမျိုးရှိပါတယ်။
+ဒါကိုလုပ်ဖို့အတွက် Go ရဲ့ ဂန္ထဝင်ဖြစ်တဲ့
 <a href="https://en.wikipedia.org/wiki/Exec_(operating_system)"><code>exec</code></a>
-function.</p>
+function ကို အကောင်အထည်ဖော်ထားတာကို အသုံးပြုပါမယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -49,7 +46,7 @@ function.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/s9qg7olf1dM"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/tGJOj257Sd2"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -83,10 +80,9 @@ function.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example we&rsquo;ll exec <code>ls</code>. Go requires an
-absolute path to the binary we want to execute, so
-we&rsquo;ll use <code>exec.LookPath</code> to find it (probably
-<code>/bin/ls</code>).</p>
+            <p>ကျွန်တော်တို့ရဲ့ ဥပမာအတွက် <code>ls</code> ကို exec လုပ်ပါမယ်။ Go က ကျွန်တော်တို့ run ချင်တဲ့ binary ရဲ့
+အပြည့်အစုံ path လိုအပ်ပါတယ်၊ ဒါကြောင့် <code>exec.LookPath</code> ကိုသုံးပြီး ရှာပါမယ်
+(များသောအားဖြင့် <code>/bin/ls</code> ဖြစ်ပါလိမ့်မယ်)။</p>
 
           </td>
           <td class="code leading">
@@ -102,10 +98,9 @@ we&rsquo;ll use <code>exec.LookPath</code> to find it (probably
         
         <tr>
           <td class="docs">
-            <p><code>Exec</code> requires arguments in slice form (as
-opposed to one big string). We&rsquo;ll give <code>ls</code> a few
-common arguments. Note that the first argument should
-be the program name.</p>
+            <p><code>Exec</code> က argument တွေကို slice ပုံစံနဲ့ လိုအပ်ပါတယ်
+(စာကြောင်းရှည်ကြီးတစ်ကြောင်းတည်းနဲ့ မရပါဘူး)။ <code>ls</code> အတွက် ပုံမှန်သုံးလေ့ရှိတဲ့ argument တချို့ပေးပါမယ်။
+ပထမဆုံး argument က program နာမည်ဖြစ်သင့်တယ်ဆိုတာ သတိပြုပါ။</p>
 
           </td>
           <td class="code leading">
@@ -118,9 +113,8 @@ be the program name.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Exec</code> also needs a set of <a href="environment-variables">environment variables</a>
-to use. Here we just provide our current
-environment.</p>
+            <p><code>Exec</code> က <a href="environment-variables">environment variables</a> set လည်း လိုအပ်ပါတယ်။
+ဒီနေရာမှာတော့ ကျွန်တော်တို့ရဲ့ လက်ရှိ environment variables တွေကိုပဲ ပေးလိုက်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -133,11 +127,9 @@ environment.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the actual <code>syscall.Exec</code> call. If this call is
-successful, the execution of our process will end
-here and be replaced by the <code>/bin/ls -a -l -h</code>
-process. If there is an error we&rsquo;ll get a return
-value.</p>
+            <p>ဒါက တကယ့် <code>syscall.Exec</code> ခေါ်တဲ့နေရာပါ။ ဒီ call က အောင်မြင်ရင်
+ကျွန်တော်တို့ process ရဲ့ အလုပ်လုပ်ခြင်းဟာ ဒီနေရာမှာပဲ ပြီးဆုံးသွားပြီး <code>/bin/ls -a -l -h</code>
+process နဲ့ အစားထိုးခံရပါလိမ့်မယ်။ အမှားတစ်ခုခုရှိရင်တော့ return value ရပါလိမ့်မယ်။</p>
 
           </td>
           <td class="code">
@@ -158,7 +150,8 @@ value.</p>
         
         <tr>
           <td class="docs">
-            <p>When we run our program it is replaced by <code>ls</code>.</p>
+            <p>ကျွန်တော်တို့ program ကို run တဲ့အခါ
+အဲဒါကို <code>ls</code> နဲ့ အစားထိုးခံရပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -174,10 +167,14 @@ value.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that Go does not offer a classic Unix <code>fork</code>
-function. Usually this isn&rsquo;t an issue though, since
-starting goroutines, spawning processes, and exec&rsquo;ing
-processes covers most use cases for <code>fork</code>.</p>
+            <p>Go မှာ ဂန္ထဝင် Unix <code>fork</code> function
+မပါဝင်ကြောင်း သတိပြုပါ။
+သို့သော် များသောအားဖြင့် ဒါက ပြဿနာမဖြစ်ပါဘူး၊
+အဘယ်ကြောင့်ဆိုသော်
+goroutine တွေ စတင်ခြင်း၊ process တွေ spawn
+လုပ်ခြင်း၊ နဲ့ process တွေကို exec လုပ်ခြင်းတို့က
+<code>fork</code> အတွက် အသုံးပြုလေ့ရှိတဲ့
+ကိစ္စအများစုကို လွှမ်းခြုံနိုင်လို့ပါ။</p>
 
           </td>
           <td class="code empty">

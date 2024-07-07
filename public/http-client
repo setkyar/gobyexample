@@ -27,14 +27,13 @@
         
         <tr>
           <td class="docs">
-            <p>The Go standard library comes with excellent support
-for HTTP clients and servers in the <code>net/http</code>
-package. In this example we&rsquo;ll use it to issue simple
-HTTP requests.</p>
+            <p>Go စံသတ်မှတ်ထားသော(standard) library သည် <code>net/http</code> package တွင်
+HTTP clients နှင့် servers အတွက် အထူးကောင်းမွန်သော ပံ့ပိုးမှုများပါဝင်သည်။
+ဤဥပမာတွင် ၎င်းကို အသုံးပြု၍ ရိုးရှင်းသော HTTP တောင်းဆိုမှု(requests)များ ပြုလုပ်မည်ဖြစ်သည်။</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/vFW_el7oHMk"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/Ef8YuIb_QFk"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma">
 <span class="kn">package</span> <span class="nx">main</span>
 </pre>
@@ -69,11 +68,10 @@ HTTP requests.</p>
         
         <tr>
           <td class="docs">
-            <p>Issue an HTTP GET request to a server. <code>http.Get</code> is a
-convenient shortcut around creating an <code>http.Client</code>
-object and calling its <code>Get</code> method; it uses the
-<code>http.DefaultClient</code> object which has useful default
-settings.</p>
+            <p>server တစ်ခုသို့ HTTP GET တောင်းဆိုမှုတစ်ခု ပြုလုပ်ပါ။ <code>http.Get</code> သည်
+<code>http.Client</code> object တစ်ခုကို ဖန်တီးပြီး ၎င်း၏ <code>Get</code> method ကို ခေါ်ယူခြင်းထက်
+အဆင်ပြေသော shortcut တစ်ခုဖြစ်သည်။ ၎င်းသည် အသုံးဝင်သော
+default settings များပါရှိသည့် <code>http.DefaultClient</code> object ကို အသုံးပြုသည်။</p>
 
           </td>
           <td class="code leading">
@@ -90,7 +88,7 @@ settings.</p>
         
         <tr>
           <td class="docs">
-            <p>Print the HTTP response status.</p>
+            <p>HTTP တုံ့ပြန်မှု အခြေအနေကို ပုံနှိပ်(print)ထုတ်ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -103,7 +101,7 @@ settings.</p>
         
         <tr>
           <td class="docs">
-            <p>Print the first 5 lines of the response body.</p>
+            <p>တုံ့ပြန်မှု body ၏ ပထမဆုံး စာကြောင်း ၅ ကြောင်းကို ပုံနှိပ်(print)ထုတ်ပါ။</p>
 
           </td>
           <td class="code leading">

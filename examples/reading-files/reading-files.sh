@@ -8,4 +8,5 @@ go
 2 bytes @ 6: go
 5 bytes: hello
 
-# Next we'll look at writing files.
+# နောက်တစ်ဆင့်အနေဖြင့် 
+# ဖိုင်ရေးသားခြင်းကို လေ့လာကြမည်။

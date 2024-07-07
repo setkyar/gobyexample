@@ -1,6 +1,5 @@
-// Reading and writing files are basic tasks needed for
-// many Go programs. First we'll look at some examples of
-// reading files.
+// ဖိုင်များဖတ်ခြင်းနှင့် ရေးခြင်းသည် Go ပရိုဂရမ်များအတွက် အခြေခံလိုအပ်ချက်ဖြစ်သည်။
+// ပထမဦးစွာ ဖိုင်ဖတ်ခြင်းဥပမာအချို့ကို ကြည့်ကြမည်။
 
 package main
 
@@ -11,8 +10,8 @@ import (
 	"os"
 )
 
-// Reading files requires checking most calls for errors.
-// This helper will streamline our error checks below.
+// ဖိုင်ဖတ်ခြင်းသည် အများအားဖြင့် အမှားစစ်ဆေးမှုလိုအပ်သည်။
+// ဤ helper function သည် အောက်ပါ အမှားစစ်ဆေးမှုများကို ရိုးရှင်းစေမည်။
 func check(e error) {
 	if e != nil {
 		panic(e)
@@ -20,29 +19,25 @@ func check(e error) {
 }
 
 func main() {
-
-	// Perhaps the most basic file reading task is
-	// slurping a file's entire contents into memory.
+	// အခြေခံကျဆုံး ဖိုင်ဖတ်ခြင်းလုပ်ငန်းမှာ ဖိုင်တစ်ခုလုံး၏အကြောင်းအရာကို
+	// မှတ်ဉာဏ်ထဲ (memory) သို့ တစ်ခါတည်းဖတ်ယူခြင်းဖြစ်သည်။
 	dat, err := os.ReadFile("/tmp/dat")
 	check(err)
 	fmt.Print(string(dat))
 
-	// You'll often want more control over how and what
-	// parts of a file are read. For these tasks, start
-	// by `Open`ing a file to obtain an `os.File` value.
+	// ဖိုင်၏မည်သည့်အပိုင်းကို မည်သို့ဖတ်မည်ကို ပိုမိုထိန်းချုပ်လိုကြောင်း သင်တွေ့ရလိမ့်မည်။
+	// ဤလုပ်ငန်းများအတွက် 'Open' ဖြင့် ဖိုင်ကိုဖွင့်ပြီး 'os.File' တန်ဖိုးကို ရယူပါ။
 	f, err := os.Open("/tmp/dat")
 	check(err)
 
-	// Read some bytes from the beginning of the file.
-	// Allow up to 5 to be read but also note how many
-	// actually were read.
+	// ဖိုင်၏အစမှ byte အချို့ကိုဖတ်ပါ။
+	// 5 byte အထိဖတ်ခွင့်ပြုသော်လည်း အမှန်တကယ်ဖတ်မိသည့် အရေအတွက်ကိုလည်း မှတ်သားပါ။
 	b1 := make([]byte, 5)
 	n1, err := f.Read(b1)
 	check(err)
 	fmt.Printf("%d bytes: %s\n", n1, string(b1[:n1]))
 
-	// You can also `Seek` to a known location in the file
-	// and `Read` from there.
+	// သင်သည် ဖိုင်ထဲတွင် သိထားသောနေရာသို့ 'Seek' လုပ်နိုင်ပြီး ထိုနေရာမှ 'Read' လုပ်နိုင်သည်။
 	o2, err := f.Seek(6, 0)
 	check(err)
 	b2 := make([]byte, 2)
@@ -51,10 +46,8 @@ func main() {
 	fmt.Printf("%d bytes @ %d: ", n2, o2)
 	fmt.Printf("%v\n", string(b2[:n2]))
 
-	// The `io` package provides some functions that may
-	// be helpful for file reading. For example, reads
-	// like the ones above can be more robustly
-	// implemented with `ReadAtLeast`.
+	// 'io' package သည် ဖိုင်ဖတ်ခြင်းအတွက် အသုံးဝင်သော function များပေးသည်။
+	// ဥပမာအားဖြင့် အထက်ပါကဲ့သို့ ဖတ်ခြင်းများကို 'ReadAtLeast' ဖြင့် ပိုမိုခိုင်မာစွာ အကောင်အထည်ဖော်နိုင်သည်။
 	o3, err := f.Seek(6, 0)
 	check(err)
 	b3 := make([]byte, 2)
@@ -62,22 +55,19 @@ func main() {
 	check(err)
 	fmt.Printf("%d bytes @ %d: %s\n", n3, o3, string(b3))
 
-	// There is no built-in rewind, but `Seek(0, 0)`
-	// accomplishes this.
+	// ပါဝင်ပြီးသား rewind မရှိသော်လည်း 'Seek(0, 0)' သည် ဤလုပ်ငန်းကို ဆောင်ရွက်နိုင်သည်။
 	_, err = f.Seek(0, 0)
 	check(err)
 
-	// The `bufio` package implements a buffered
-	// reader that may be useful both for its efficiency
-	// with many small reads and because of the additional
-	// reading methods it provides.
+	// 'bufio' package သည် buffered reader ကို အကောင်အထည်ဖော်သည်။
+	// ၎င်းသည် အသေးစား ဖတ်ခြင်းများစွာအတွက် ထိရောက်မှုရှိခြင်းနှင့်
+	// ၎င်းပေးသော ထပ်ဆောင်းဖတ်ခြင်းနည်းလမ်းများကြောင့် အသုံးဝင်နိုင်သည်။
 	r4 := bufio.NewReader(f)
 	b4, err := r4.Peek(5)
 	check(err)
 	fmt.Printf("5 bytes: %s\n", string(b4))
 
-	// Close the file when you're done (usually this would
-	// be scheduled immediately after `Open`ing with
-	// `defer`).
+	// အသုံးပြုပြီးပါက ဖိုင်ကိုပိတ်ပါ (ပုံမှန်အားဖြင့် ၎င်းကို 'Open' လုပ်ပြီးချက်ချင်း
+	// 'defer' ဖြင့် သတ်မှတ်လေ့ရှိသည်)။
 	f.Close()
 }

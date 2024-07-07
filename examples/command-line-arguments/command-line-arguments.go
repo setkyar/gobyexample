@@ -1,7 +1,6 @@
 // [_Command-line arguments_](https://en.wikipedia.org/wiki/Command-line_interface#Arguments)
-// are a common way to parameterize execution of programs.
-// For example, `go run hello.go` uses `run` and
-// `hello.go` arguments to the `go` program.
+// သည် ပရိုဂရမ်များ၏ လုပ်ဆောင်မှုကို parameter ပေးရန် အသုံးများသော နည်းလမ်းတစ်ခုဖြစ်သည်။
+// ဥပမာ - `go run hello.go` သည် `go` ပရိုဂရမ်အတွက် `run` နှင့် `hello.go` arguments များကို အသုံးပြုသည်။
 
 package main
 
@@ -12,14 +11,13 @@ import (
 
 func main() {
 
-	// `os.Args` provides access to raw command-line
-	// arguments. Note that the first value in this slice
-	// is the path to the program, and `os.Args[1:]`
-	// holds the arguments to the program.
+	// `os.Args` သည် ကနဦး command-line arguments များကို ရယူခွင့်ပေးသည်။
+	// ဤ slice ထဲရှိ ပထမဆုံးတန်ဖိုးသည် ပရိုဂရမ်၏ လမ်းကြောင်းဖြစ်ပြီး
+	// `os.Args[1:]` သည် ပရိုဂရမ်သို့ ပေးသော arguments များကို ကိုင်တွယ်(hold) သည်ကို သတိပြုပါ။
 	argsWithProg := os.Args
 	argsWithoutProg := os.Args[1:]
 
-	// You can get individual args with normal indexing.
+	// သင်သည် ပုံမှန် indexing ဖြင့် တစ်ခုချင်းစီသော args များကို ရယူနိုင်သည်။
 	arg := os.Args[3]
 
 	fmt.Println(argsWithProg)

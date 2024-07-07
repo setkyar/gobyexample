@@ -27,15 +27,13 @@
         
         <tr>
           <td class="docs">
-            <p><code>//go:embed</code> is a <a href="https://pkg.go.dev/cmd/compile#hdr-Compiler_Directives">compiler
-directive</a> that
-allows programs to include arbitrary files and folders in the Go binary at
-build time. Read more about the embed directive
-<a href="https://pkg.go.dev/embed">here</a>.</p>
+            <p><code>//go:embed</code> သည် <a href="https://pkg.go.dev/cmd/compile#hdr-Compiler_Directives">compiler directive</a> တစ်ခုဖြစ်ပြီး
+ပရိုဂရမ်များကို build လုပ်သည့်အခါ မည်သည့်ဖိုင်နှင့် ဖိုဒါများကိုမဆို Go binary ထဲသို့ ထည့်သွင်းခွင့်ပြုသည်။
+embed directive အကြောင်း ပိုမိုလေ့လာလိုပါက <a href="https://pkg.go.dev/embed">ဤနေရာ</a> တွင်ဖတ်ရှုနိုင်သည်။</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/6m2ll-D52BB"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/45QEsvV3O1J"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma">
 <span class="kn">package</span> <span class="nx">main</span>
 </pre>
@@ -44,8 +42,8 @@ build time. Read more about the embed directive
         
         <tr>
           <td class="docs">
-            <p>Import the <code>embed</code> package; if you don&rsquo;t use any exported
-identifiers from this package, you can do a blank import with <code>_ &quot;embed&quot;</code>.</p>
+            <p><code>embed</code> package ကို import လုပ်ပါ။ အကယ်၍ သင်သည် ဤ package မှ exported identifiers များကို
+အသုံးမပြုပါက <code>_ &quot;embed&quot;</code> ဖြင့် blank import လုပ်နိုင်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -60,9 +58,8 @@ identifiers from this package, you can do a blank import with <code>_ &quot;embe
         
         <tr>
           <td class="docs">
-            <p><code>embed</code> directives accept paths relative to the directory containing the
-Go source file. This directive embeds the contents of the file into the
-<code>string</code> variable immediately following it.</p>
+            <p><code>embed</code> directives သည် Go source file ပါဝင်သည့် directory နှင့် ဆက်စပ်သော paths များကို လက်ခံသည်။
+ဤ directive သည် ဖိုင်၏အကြောင်းအရာများကို ၎င်း၏နောက်မှ ချက်ချင်းလိုက်လာသော <code>string</code> variable ထဲသို့ embed လုပ်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -76,7 +73,7 @@ Go source file. This directive embeds the contents of the file into the
         
         <tr>
           <td class="docs">
-            <p>Or embed the contents of the file into a <code>[]byte</code>.</p>
+            <p>သို့မဟုတ် ဖိုင်၏အကြောင်းအရာများကို <code>[]byte</code> ထဲသို့ embed လုပ်နိုင်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -90,9 +87,9 @@ Go source file. This directive embeds the contents of the file into the
         
         <tr>
           <td class="docs">
-            <p>We can also embed multiple files or even folders with wildcards. This uses
-a variable of the <a href="https://pkg.go.dev/embed#FS">embed.FS type</a>, which
-implements a simple virtual file system.</p>
+            <p>ကျွန်ုပ်တို့သည် ဖိုင်အများအပြားကိုသော်လည်းကောင်း၊ wildcard များဖြင့် ဖိုဒါများကိုပင် embed လုပ်နိုင်သည်။
+ဤနေရာတွင် <a href="https://pkg.go.dev/embed#FS">embed.FS type</a> ၏ variable ကို အသုံးပြုထားပြီး
+၎င်းသည် ရိုးရှင်းသော virtual file system တစ်ခုကို အကောင်အထည်ဖော်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -118,7 +115,7 @@ implements a simple virtual file system.</p>
         
         <tr>
           <td class="docs">
-            <p>Print out the contents of <code>single_file.txt</code>.</p>
+            <p><code>single_file.txt</code> ၏ အကြောင်းအရာများကို ပရင့်ထုတ်ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -132,7 +129,7 @@ implements a simple virtual file system.</p>
         
         <tr>
           <td class="docs">
-            <p>Retrieve some files from the embedded folder.</p>
+            <p>Embedded folder မှ ဖိုင်အချို့ကို ရယူပါ။</p>
 
           </td>
           <td class="code leading">
@@ -163,9 +160,9 @@ implements a simple virtual file system.</p>
         
         <tr>
           <td class="docs">
-            <p>Use these commands to run the example.
-(Note: due to limitation on go playground,
-this example can only be run on your local machine.)</p>
+            <p>ဤဥပမာကို run ရန် အောက်ပါ commands များကို အသုံးပြုပါ။
+(မှတ်ချက်: go playground ၏ ကန့်သတ်ချက်ကြောင့်
+ဤဥပမာကို သင့်ကွန်ပျူတာတွင်သာ run နိုင်ပါသည်။)</p>
 
           </td>
           <td class="code leading">

@@ -1,5 +1,5 @@
-// Sometimes our Go programs need to spawn other, non-Go
-// processes.
+// တစ်ခါတလေမှာ ကျွန်တော်တို့ရဲ့ Go ပရိုဂရမ်တွေဟာ Go မဟုတ်တဲ့ တခြား
+// လုပ်ငန်းစဉ် (processes) တွေကို လုပ်ဆောင်ဖို့ လိုအပ်ပါတယ်။
 
 package main
 
@@ -11,28 +11,23 @@ import (
 
 func main() {
 
-	// We'll start with a simple command that takes no
-	// arguments or input and just prints something to
-	// stdout. The `exec.Command` helper creates an object
-	// to represent this external process.
+	// ကျွန်တော်တို့က argument တွေ၊ input တွေ မလိုအပ်ပဲ stdout ပေါ်မှာ တစ်ခုခုကို
+	// ရိုက်ထုတ်ပြတဲ့ ရိုးရှင်းတဲ့ command တစ်ခုနဲ့ စမယ်။ `exec.Command` helper က
+	// ဒီ ပြင်ပ လုပ်ငန်းစဉ်ကို ကိုယ်စားပြုဖို့ object တစ်ခုကို ဖန်တီးပေးပါတယ်။
 	dateCmd := exec.Command("date")
-
-	// The `Output` method runs the command, waits for it
-	// to finish and collects its standard output.
-	//  If there were no errors, `dateOut` will hold bytes
-	// with the date info.
+	// `Output` method က command ကို run ပြီး အဆုံးသတ်တဲ့အထိ စောင့်ပြီး
+	// သူ့ရဲ့ standard output ကို စုဆောင်းပါတယ်။
+	// အမှားမရှိဘူးဆိုရင် `dateOut` မှာ ရက်စွဲအချက်အလက်ပါတဲ့ bytes တွေ ပါဝင်မှာဖြစ်ပါတယ်။
 	dateOut, err := dateCmd.Output()
 	if err != nil {
 		panic(err)
 	}
 	fmt.Println("> date")
 	fmt.Println(string(dateOut))
-
-	// `Output` and other methods of `Command` will return
-	// `*exec.Error` if there was a problem executing the
-	// command (e.g. wrong path), and `*exec.ExitError`
-	// if the command ran but exited with a non-zero return
-	// code.
+	// `Output` နဲ့ `Command` ရဲ့ တခြား method တွေဟာ command ကို run ဖို့
+	// ပြဿနာရှိခဲ့ရင် (ဥပမာ - မှားယွင်းတဲ့လမ်းကြောင်း) `*exec.Error` ကို return ပြန်ပြီး၊
+	// command က run ပေမယ့် non-zero return code နဲ့ ထွက်သွားခဲ့ရင်
+	// `*exec.ExitError` ကို return ပြန်ပါတယ်။
 	_, err = exec.Command("date", "-x").Output()
 	if err != nil {
 		switch e := err.(type) {
@@ -45,15 +40,13 @@ func main() {
 		}
 	}
 
-	// Next we'll look at a slightly more involved case
-	// where we pipe data to the external process on its
-	// `stdin` and collect the results from its `stdout`.
+	// နောက်တစ်ဆင့်မှာ ပြင်ပလုပ်ငန်းစဉ်ရဲ့ `stdin` ပေါ်ကို data တွေ pipe လုပ်ပြီး
+	// သူ့ရဲ့ `stdout` ကနေ ရလဒ်တွေကို စုဆောင်းတဲ့ နည်းနည်းပိုရှုပ်ထွေးတဲ့ ကိစ္စကို ကြည့်ကြမယ်။
 	grepCmd := exec.Command("grep", "hello")
 
-	// Here we explicitly grab input/output pipes, start
-	// the process, write some input to it, read the
-	// resulting output, and finally wait for the process
-	// to exit.
+	// ဒီမှာတော့ input/output pipes တွေကို အတိအကျ ယူပြီး၊ လုပ်ငန်းစဉ်ကို စတင်၊
+	// အထဲကို input တချို့ ရေးထည့်၊ ထွက်လာတဲ့ output ကို ဖတ်ယူပြီး နောက်ဆုံးမှာ
+	// လုပ်ငန်းစဉ် ပြီးဆုံးတဲ့အထိ စောင့်ပါတယ်။
 	grepIn, _ := grepCmd.StdinPipe()
 	grepOut, _ := grepCmd.StdoutPipe()
 	grepCmd.Start()
@@ -62,20 +55,17 @@ func main() {
 	grepBytes, _ := io.ReadAll(grepOut)
 	grepCmd.Wait()
 
-	// We omitted error checks in the above example, but
-	// you could use the usual `if err != nil` pattern for
-	// all of them. We also only collect the `StdoutPipe`
-	// results, but you could collect the `StderrPipe` in
-	// exactly the same way.
+	// အထက်ပါ ဥပမာမှာ အမှားစစ်ဆေးမှုတွေကို ချန်လှပ်ထားပါတယ်၊ ဒါပေမယ့်
+	// သင်က ပုံမှန် `if err != nil` pattern ကို အားလုံးအတွက် သုံးနိုင်ပါတယ်။
+	// ကျွန်တော်တို့က `StdoutPipe` ရလဒ်တွေကိုပဲ စုဆောင်းထားပေမယ့် သင်က
+	// အတူတူပဲ `StderrPipe` ကိုလည်း စုဆောင်းနိုင်ပါတယ်။
 	fmt.Println("> grep hello")
 	fmt.Println(string(grepBytes))
 
-	// Note that when spawning commands we need to
-	// provide an explicitly delineated command and
-	// argument array, vs. being able to just pass in one
-	// command-line string. If you want to spawn a full
-	// command with a string, you can use `bash`'s `-c`
-	// option:
+	// မှတ်သားရန် - command တွေကို spawn လုပ်တဲ့အခါ command-line string တစ်ခုတည်းကို
+	// ပေးနိုင်တာမဟုတ်ဘဲ၊ အတိအကျ သတ်မှတ်ထားတဲ့ command နဲ့ argument array ကို
+	// ပေးဖို့ လိုအပ်ပါတယ်။ သင်က string တစ်ခုနဲ့ အပြည့်အစုံ command တစ်ခုကို
+	// spawn လုပ်ချင်ရင် `bash` ရဲ့ `-c` option ကို သုံးနိုင်ပါတယ်။
 	lsCmd := exec.Command("bash", "-c", "ls -a -l -h")
 	lsOut, err := lsCmd.Output()
 	if err != nil {

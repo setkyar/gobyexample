@@ -27,12 +27,11 @@
         
         <tr>
           <td class="docs">
-            <p>Writing a basic HTTP server is easy using the
-<code>net/http</code> package.</p>
+            <p><code>net/http</code> package ကို သုံးပြီး အခြေခံ HTTP server ရေးရတာ လွယ်ကူပါတယ်။</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/s3xMMt9Ytry"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/m22PwMNP7G2"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma">
 <span class="kn">package</span> <span class="nx">main</span>
 </pre>
@@ -55,11 +54,10 @@
         
         <tr>
           <td class="docs">
-            <p>A fundamental concept in <code>net/http</code> servers is
-<em>handlers</em>. A handler is an object implementing the
-<code>http.Handler</code> interface. A common way to write
-a handler is by using the <code>http.HandlerFunc</code> adapter
-on functions with the appropriate signature.</p>
+            <p><code>net/http</code> servers မှာ အခြေခံကျတဲ့ သဘောတရားက <em>handlers</em> ဖြစ်ပါတယ်။
+handler ဆိုတာ <code>http.Handler</code> interface ကို implement လုပ်ထားတဲ့ object တစ်ခုပါ။
+handler ရေးသားရန် ပုံမှန်နည်းလမ်းတစ်ခုက သင့်လျော်တဲ့ signature ရှိတဲ့ function တွေပေါ်မှာ
+<code>http.HandlerFunc</code> adapter ကို သုံးခြင်းဖြစ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -72,11 +70,10 @@ on functions with the appropriate signature.</p>
         
         <tr>
           <td class="docs">
-            <p>Functions serving as handlers take a
-<code>http.ResponseWriter</code> and a <code>http.Request</code> as
-arguments. The response writer is used to fill in the
-HTTP response. Here our simple response is just
-&ldquo;hello\n&rdquo;.</p>
+            <p>Handler အဖြစ် ဆောင်ရွက်တဲ့ function တွေဟာ <code>http.ResponseWriter</code> နဲ့
+<code>http.Request</code> ကို argument အဖြစ် လက်ခံပါတယ်။ response writer ကို
+HTTP response ဖြည့်စွက်ဖို့ သုံးပါတယ်။ ဒီနေရာမှာ ကျွန်တော်တို့ရဲ့ ရိုးရှင်းတဲ့ response က
+&ldquo;hello\n&rdquo; ပဲ ဖြစ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -101,9 +98,8 @@ HTTP response. Here our simple response is just
         
         <tr>
           <td class="docs">
-            <p>This handler does something a little more
-sophisticated by reading all the HTTP request
-headers and echoing them into the response body.</p>
+            <p>ဒီ handler က နည်းနည်းပိုပြီး ရှုပ်ထွေးပါတယ်။ HTTP request headers အားလုံးကို
+ဖတ်ပြီး response body ထဲကို ပြန်ထည့်ပေးပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -132,10 +128,10 @@ headers and echoing them into the response body.</p>
         
         <tr>
           <td class="docs">
-            <p>We register our handlers on server routes using the
-<code>http.HandleFunc</code> convenience function. It sets up
-the <em>default router</em> in the <code>net/http</code> package and
-takes a function as an argument.</p>
+            <p>ကျွန်တော်တို့ရဲ့ handlers တွေကို server routes တွေမှာ မှတ်ပုံတင်ဖို့
+<code>http.HandleFunc</code> convenience function ကို သုံးပါတယ်။ ဒီ function က
+<code>net/http</code> package ထဲက <em>default router</em> ကို set up လုပ်ပြီး
+function တစ်ခုကို argument အဖြစ် လက်ခံပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -149,9 +145,8 @@ takes a function as an argument.</p>
         
         <tr>
           <td class="docs">
-            <p>Finally, we call the <code>ListenAndServe</code> with the port
-and a handler. <code>nil</code> tells it to use the default
-router we&rsquo;ve just set up.</p>
+            <p>နောက်ဆုံးမှာ၊ port နဲ့ handler ကို <code>ListenAndServe</code> နဲ့ ခေါ်ပါတယ်။
+<code>nil</code> က default router ကို သုံးမယ်လို့ ပြောတာပါ။</p>
 
           </td>
           <td class="code">
@@ -169,7 +164,7 @@ router we&rsquo;ve just set up.</p>
         
         <tr>
           <td class="docs">
-            <p>Run the server in the background.</p>
+            <p>Server ကို နောက်ခံမှာ run ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -181,7 +176,7 @@ router we&rsquo;ve just set up.</p>
         
         <tr>
           <td class="docs">
-            <p>Access the <code>/hello</code> route.</p>
+            <p><code>/hello</code> route ကို access လုပ်ပါ။</p>
 
           </td>
           <td class="code">

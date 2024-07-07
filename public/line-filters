@@ -27,10 +27,9 @@
         
         <tr>
           <td class="docs">
-            <p>A <em>line filter</em> is a common type of program that reads
-input on stdin, processes it, and then prints some
-derived result to stdout. <code>grep</code> and <code>sed</code> are common
-line filters.</p>
+            <p><em>line filter</em> ဆိုတာ stdin ကနေ input ကိုဖတ်ပြီး၊ process လုပ်ကာ
+ရလဒ်ကို stdout ပေါ်မှာ print ထုတ်တဲ့ ပုံစံမျိုးဖြစ်ပါတယ်။ <code>grep</code> နဲ့ <code>sed</code> တို့က
+အသုံးများတဲ့ line filter တွေဖြစ်ပါတယ်။</p>
 
           </td>
           <td class="code empty leading">
@@ -41,15 +40,24 @@ line filters.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s an example line filter in Go that writes a
-capitalized version of all input text. You can use this
-pattern to write your own Go line filters.</p>
+            <p>ဒီနေရာမှာ Go နဲ့ရေးထားတဲ့ line filter နမူနာတစ်ခုပြထားပါတယ်။
+ဒီ code က input text အားလုံးကို စာလုံးအကြီးပြောင်းပြီး ရေးထုတ်ပေးပါတယ်။
+ဒီပုံစံကိုသုံးပြီး သင့်ရဲ့ကိုယ်ပိုင် Go line filter တွေရေးနိုင်ပါတယ်။</p>
 
           </td>
+          <td class="code empty leading">
+            
+          
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/kNcupWRsYPP"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
-          <pre class="chroma">
-<span class="kn">package</span> <span class="nx">main</span>
+            <a href="https://go.dev/play/p/96M0CbYoMgZ"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+          <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
         </tr>
@@ -72,7 +80,10 @@ pattern to write your own Go line filters.</p>
         
         <tr>
           <td class="docs">
-            
+            <p>Buffering မလုပ်ထားတဲ့ <code>os.Stdin</code> ကို buffered scanner နဲ့ wrap လုပ်ထားတာက
+အဆင်ပြေတဲ့ <code>Scan</code> method ကိုပေးပါတယ်။ ဒီ method က scanner ကို နောက် token ဆီရွှေ့ပေးပါတယ်။
+ပုံမှန်အားဖြင့် နောက် line ဆီကိုရွှေ့ပေးတာပါ။</p>
+
           </td>
           <td class="code leading">
             
@@ -83,36 +94,21 @@ pattern to write your own Go line filters.</p>
         
         <tr>
           <td class="docs">
-            <p>Wrapping the unbuffered <code>os.Stdin</code> with a buffered
-scanner gives us a convenient <code>Scan</code> method that
-advances the scanner to the next token; which is
-the next line in the default scanner.</p>
+            <p><code>Text()</code> က လက်ရှိ token ကိုပြန်ပေးပါတယ်။ ဒီနေရာမှာတော့ နောက် line ကိုပြန်ပေးတာဖြစ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
             
-          <pre class="chroma">
-    <span class="nx">scanner</span> <span class="o">:=</span> <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewScanner</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdin</span><span class="p">)</span>
+          <pre class="chroma">    <span class="nx">scanner</span> <span class="o">:=</span> <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewScanner</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdin</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">scanner</span><span class="p">.</span><span class="nf">Scan</span><span class="p">()</span> <span class="p">{</span>
 </pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p><code>Text</code> returns the current token, here the next line,
-from the input.</p>
+            <p>စာလုံးအကြီးပြောင်းထားတဲ့ line ကို ရေးထုတ်ပါတယ်။</p>
 
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma">    <span class="k">for</span> <span class="nx">scanner</span><span class="p">.</span><span class="nf">Scan</span><span class="p">()</span> <span class="p">{</span>
-</pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
           </td>
           <td class="code leading">
             
@@ -123,13 +119,13 @@ from the input.</p>
         
         <tr>
           <td class="docs">
-            <p>Write out the uppercased line.</p>
+            <p><code>Scan</code> လုပ်နေစဉ် error ဖြစ်မဖြစ်စစ်ပါတယ်။ file အဆုံးရောက်တာကို
+<code>Scan</code> က error အဖြစ်မသတ်မှတ်ပါဘူး။</p>
 
           </td>
           <td class="code leading">
             
-          <pre class="chroma">
-        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">ucl</span><span class="p">)</span>
+          <pre class="chroma">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">ucl</span><span class="p">)</span>
     <span class="p">}</span>
 </pre>
           </td>
@@ -137,14 +133,11 @@ from the input.</p>
         
         <tr>
           <td class="docs">
-            <p>Check for errors during <code>Scan</code>. End of file is
-expected and not reported by <code>Scan</code> as an error.</p>
-
+            
           </td>
           <td class="code">
             
-          <pre class="chroma">
-    <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">scanner</span><span class="p">.</span><span class="nf">Err</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+          <pre class="chroma">    <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">scanner</span><span class="p">.</span><span class="nf">Err</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintln</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span> <span class="s">&#34;error:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
         <span class="nx">os</span><span class="p">.</span><span class="nf">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="p">}</span>
@@ -159,8 +152,9 @@ expected and not reported by <code>Scan</code> as an error.</p>
         
         <tr>
           <td class="docs">
-            <p>To try out our line filter, first make a file with a few
-lowercase lines.</p>
+            <p>ကျွန်ုပ်တို့ရဲ့ line filter ကို စမ်းသပ်ရန်၊
+ပထမဆုံး စာလုံးအသေး အနည်းငယ်ပါသည့်
+ဖိုင်တစ်ခုကို ဖန်တီးပါမယ်။</p>
 
           </td>
           <td class="code leading">
@@ -173,7 +167,8 @@ lowercase lines.</p>
         
         <tr>
           <td class="docs">
-            <p>Then use the line filter to get uppercase lines.</p>
+            <p>ထို့နောက် line filter ကို
+အသုံးပြု၍ စာလုံးအကြီးများ ရယူပါမယ်။</p>
 
           </td>
           <td class="code">
@@ -200,7 +195,7 @@ lowercase lines.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"bufio\"\u000A    \"fmt\"\u000A    \"os\"\u000A    \"strings\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    scanner :\u003D bufio.NewScanner(os.Stdin)\u000A');codeLines.push('    for scanner.Scan() {\u000A');codeLines.push('        ucl :\u003D strings.ToUpper(scanner.Text())\u000A');codeLines.push('        fmt.Println(ucl)\u000A    }\u000A');codeLines.push('    if err :\u003D scanner.Err(); err !\u003D nil {\u000A        fmt.Fprintln(os.Stderr, \"error:\", err)\u000A        os.Exit(1)\u000A    }\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"bufio\"\u000A    \"fmt\"\u000A    \"os\"\u000A    \"strings\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    scanner :\u003D bufio.NewScanner(os.Stdin)\u000A    for scanner.Scan() {\u000A');codeLines.push('        ucl :\u003D strings.ToUpper(scanner.Text())\u000A');codeLines.push('        fmt.Println(ucl)\u000A    }\u000A');codeLines.push('    if err :\u003D scanner.Err(); err !\u003D nil {\u000A        fmt.Fprintln(os.Stderr, \"error:\", err)\u000A        os.Exit(1)\u000A    }\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

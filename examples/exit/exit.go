@@ -1,5 +1,4 @@
-// Use `os.Exit` to immediately exit with a given
-// status.
+// အခြေအနေ (status) တစ်ခုနဲ့ ချက်ချင်းထွက်ဖို့ `os.Exit` ကို သုံးပါ။
 
 package main
 
@@ -10,15 +9,14 @@ import (
 
 func main() {
 
-	// `defer`s will _not_ be run when using `os.Exit`, so
-	// this `fmt.Println` will never be called.
+	// `defer` တွေကို `os.Exit` သုံးတဲ့အခါ run မှာ မဟုတ်ပါဘူး၊ ဒါကြောင့်
+	// ဒီ `fmt.Println` ကို ဘယ်တော့မှ ခေါ်မှာ မဟုတ်ပါဘူး။
 	defer fmt.Println("!")
 
-	// Exit with status 3.
+	// အခြေအနေ(status) 3 နဲ့ ထွက်ပါ။
 	os.Exit(3)
 }
 
-// Note that unlike e.g. C, Go does not use an integer
-// return value from `main` to indicate exit status. If
-// you'd like to exit with a non-zero status you should
-// use `os.Exit`.
+// C စတဲ့ အခြားဘာသာစကားတွေနဲ့ မတူဘဲ၊ Go က `main` ကနေ integer တန်ဖိုး
+// ပြန်ပေးတာကို exit status အဖြစ် မသုံးပါဘူး။ သင်က သုည မဟုတ်တဲ့
+// အခြေအနေ(status)နဲ့ ထွက်ချင်ရင် `os.Exit` ကို သုံးသင့်ပါတယ်။

@@ -1,8 +1,7 @@
-// Throughout program execution, we often want to create
-// data that isn't needed after the program exits.
-// *Temporary files and directories* are useful for this
-// purpose since they don't pollute the file system over
-// time.
+// ကျွန်ုပ်တို့သည် ပရိုဂရမ်အလုပ်လုပ်နေစဉ်အတွင်းမှာ ပရိုဂရမ်ပြီးဆုံးသွားသောအခါ မလိုအပ်တော့သော
+// အချက်အလက်များကို ဖန်တီးလိုသည့်အခါ ရှိတတ်သည်။
+// *ယာယီဖိုင်များနှင့် ဒါရိုက်ထရီများ* သည် ဤရည်ရွယ်ချက်အတွက် အသုံးဝင်သည်။
+// အဘယ်ကြောင့်ဆိုသော် ၎င်းတို့သည် အချိန်ကြာလာသည်နှင့်အမျှ ဖိုင်စနစ်ကို ညစ်ညမ်းစေခြင်း(pollute) မရှိသောကြောင့်ဖြစ်သည်။
 
 package main
 
@@ -20,45 +19,40 @@ func check(e error) {
 
 func main() {
 
-	// The easiest way to create a temporary file is by
-	// calling `os.CreateTemp`. It creates a file *and*
-	// opens it for reading and writing. We provide `""`
-	// as the first argument, so `os.CreateTemp` will
-	// create the file in the default location for our OS.
+	// ယာယီဖိုင်တစ်ခုဖန်တီးရန် အလွယ်ကူဆုံးနည်းလမ်းမှာ `os.CreateTemp` ကို ခေါ်ခြင်းဖြစ်သည်။
+	// ၎င်းသည် ဖိုင်ကို ဖန်တီးပြီး *နှင့်* ဖတ်ရန်နှင့်ရေးရန်အတွက် ဖွင့်ပေးသည်။
+	// ပထမ argument အဖြစ် `""` ကို ပေးထားသောကြောင့် `os.CreateTemp` သည်
+	// ကျွန်ုပ်တို့၏ OS အတွက် မူလသတ်မှတ်ထားသောနေရာတွင် ဖိုင်ကိုဖန်တီးပေးမည်ဖြစ်သည်။
 	f, err := os.CreateTemp("", "sample")
 	check(err)
 
-	// Display the name of the temporary file. On
-	// Unix-based OSes the directory will likely be `/tmp`.
-	// The file name starts with the prefix given as the
-	// second argument to `os.CreateTemp` and the rest
-	// is chosen automatically to ensure that concurrent
-	// calls will always create different file names.
+	// ယာယီဖိုင်၏အမည်ကို ပြသသည်။ Unix-based OS များတွင် ဒါရိုက်ထရီသည်
+	// `/tmp` ဖြစ်နိုင်ချေများသည်။ ဖိုင်အမည်သည် `os.CreateTemp` သို့ ဒုတိယ argument အဖြစ်
+	// ပေးထားသော prefix ဖြင့် စတင်ပြီး ကျန်အပိုင်းကို တပြိုင်နက်ခေါ်ဆိုမှုများသည်
+	// အမြဲတမ်း မတူညီသောဖိုင်အမည်များကို ဖန်တီးနိုင်စေရန် အလိုအလျောက်ရွေးချယ်ပေးသည်။
 	fmt.Println("Temp file name:", f.Name())
 
-	// Clean up the file after we're done. The OS is
-	// likely to clean up temporary files by itself after
-	// some time, but it's good practice to do this
-	// explicitly.
+	// ကျွန်ုပ်တို့အသုံးပြုပြီးသောအခါ ဖိုင်ကိုရှင်းလင်းသည်။ OS သည်
+	// အချိန်အတန်ကြာပြီးနောက် ယာယီဖိုင်များကို အလိုအလျောက်ရှင်းလင်းဖွယ်ရှိသော်လည်း
+	// ၎င်းကို တိကျစွာလုပ်ဆောင်ခြင်းသည် ကောင်းမွန်သောအလေ့အထဖြစ်သည်။
 	defer os.Remove(f.Name())
 
-	// We can write some data to the file.
+	// ကျွန်ုပ်တို့သည် ဖိုင်ထဲသို့ အချက်အလက်အချို့ရေးနိုင်သည်။
 	_, err = f.Write([]byte{1, 2, 3, 4})
 	check(err)
 
-	// If we intend to write many temporary files, we may
-	// prefer to create a temporary *directory*.
-	// `os.MkdirTemp`'s arguments are the same as
-	// `CreateTemp`'s, but it returns a directory *name*
-	// rather than an open file.
+	// ယာယီဖိုင်အများအပြားရေးရန် ရည်ရွယ်ပါက ယာယီ *ဒါရိုက်ထရီ* တစ်ခု
+	// ဖန်တီးရန် ပိုမိုနှစ်သက်နိုင်သည်။
+	// `os.MkdirTemp` ၏ argument များသည် `CreateTemp` နှင့် တူညီသော်လည်း
+	// ၎င်းသည် ဖွင့်ထားသောဖိုင်အစား ဒါရိုက်ထရီ *အမည်* ကို ပြန်ပေးသည်။
 	dname, err := os.MkdirTemp("", "sampledir")
 	check(err)
 	fmt.Println("Temp dir name:", dname)
 
 	defer os.RemoveAll(dname)
 
-	// Now we can synthesize temporary file names by
-	// prefixing them with our temporary directory.
+	// ယခုကျွန်ုပ်တို့သည် ယာယီဖိုင်အမည်များကို ကျွန်ုပ်တို့၏ယာယီဒါရိုက်ထရီဖြင့်
+	// ရှေ့ဆက်၍ ဖန်တီးနိုင်သည်။
 	fname := filepath.Join(dname, "file1")
 	err = os.WriteFile(fname, []byte{1, 2}, 0666)
 	check(err)

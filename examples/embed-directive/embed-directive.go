@@ -1,31 +1,28 @@
-// `//go:embed` is a [compiler
-// directive](https://pkg.go.dev/cmd/compile#hdr-Compiler_Directives) that
-// allows programs to include arbitrary files and folders in the Go binary at
-// build time. Read more about the embed directive
-// [here](https://pkg.go.dev/embed).
+// `//go:embed` သည် [compiler directive](https://pkg.go.dev/cmd/compile#hdr-Compiler_Directives) တစ်ခုဖြစ်ပြီး
+// ပရိုဂရမ်များကို build လုပ်သည့်အခါ မည်သည့်ဖိုင်နှင့် ဖိုဒါများကိုမဆို Go binary ထဲသို့ ထည့်သွင်းခွင့်ပြုသည်။
+// embed directive အကြောင်း ပိုမိုလေ့လာလိုပါက [ဤနေရာ](https://pkg.go.dev/embed) တွင်ဖတ်ရှုနိုင်သည်။
 package main
 
-// Import the `embed` package; if you don't use any exported
-// identifiers from this package, you can do a blank import with `_ "embed"`.
+// `embed` package ကို import လုပ်ပါ။ အကယ်၍ သင်သည် ဤ package မှ exported identifiers များကို
+// အသုံးမပြုပါက `_ "embed"` ဖြင့် blank import လုပ်နိုင်သည်။
 import (
 	"embed"
 )
 
-// `embed` directives accept paths relative to the directory containing the
-// Go source file. This directive embeds the contents of the file into the
-// `string` variable immediately following it.
+// `embed` directives သည် Go source file ပါဝင်သည့် directory နှင့် ဆက်စပ်သော paths များကို လက်ခံသည်။
+// ဤ directive သည် ဖိုင်၏အကြောင်းအရာများကို ၎င်း၏နောက်မှ ချက်ချင်းလိုက်လာသော `string` variable ထဲသို့ embed လုပ်သည်။
 //
 //go:embed folder/single_file.txt
 var fileString string
 
-// Or embed the contents of the file into a `[]byte`.
+// သို့မဟုတ် ဖိုင်၏အကြောင်းအရာများကို `[]byte` ထဲသို့ embed လုပ်နိုင်သည်။
 //
 //go:embed folder/single_file.txt
 var fileByte []byte
 
-// We can also embed multiple files or even folders with wildcards. This uses
-// a variable of the [embed.FS type](https://pkg.go.dev/embed#FS), which
-// implements a simple virtual file system.
+// ကျွန်ုပ်တို့သည် ဖိုင်အများအပြားကိုသော်လည်းကောင်း၊ wildcard များဖြင့် ဖိုဒါများကိုပင် embed လုပ်နိုင်သည်။
+// ဤနေရာတွင် [embed.FS type](https://pkg.go.dev/embed#FS) ၏ variable ကို အသုံးပြုထားပြီး
+// ၎င်းသည် ရိုးရှင်းသော virtual file system တစ်ခုကို အကောင်အထည်ဖော်သည်။
 //
 //go:embed folder/single_file.txt
 //go:embed folder/*.hash
@@ -33,11 +30,11 @@ var folder embed.FS
 
 func main() {
 
-	// Print out the contents of `single_file.txt`.
+	// `single_file.txt` ၏ အကြောင်းအရာများကို ပရင့်ထုတ်ပါ။
 	print(fileString)
 	print(string(fileByte))
 
-	// Retrieve some files from the embedded folder.
+	// Embedded folder မှ ဖိုင်အချို့ကို ရယူပါ။
 	content1, _ := folder.ReadFile("folder/file1.hash")
 	print(string(content1))
 

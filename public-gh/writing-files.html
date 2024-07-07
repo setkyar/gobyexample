@@ -27,8 +27,8 @@
         
         <tr>
           <td class="docs">
-            <p>Writing files in Go follows similar patterns to the
-ones we saw earlier for reading.</p>
+            <p>Go တွင် ဖိုင်ရေးသားခြင်းသည် ယခင်က ကျွန်ုပ်တို့တွေ့ခဲ့သော
+ဖိုင်ဖတ်ခြင်းနှင့် ဆင်တူသော ပုံစံများကို လိုက်နာသည်။</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +42,7 @@ ones we saw earlier for reading.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/Y12O-L_zFS1"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/CvRraPpkJpC"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -91,8 +91,8 @@ ones we saw earlier for reading.</p>
         
         <tr>
           <td class="docs">
-            <p>To start, here&rsquo;s how to dump a string (or just
-bytes) into a file.</p>
+            <p>စတင်ရန်အတွက်၊ string (သို့မဟုတ် byte များ) ကို
+ဖိုင်ထဲသို့ ထည့်သွင်းရေးသားပုံကို ဖော်ပြထားသည်။</p>
 
           </td>
           <td class="code leading">
@@ -107,7 +107,7 @@ bytes) into a file.</p>
         
         <tr>
           <td class="docs">
-            <p>For more granular writes, open a file for writing.</p>
+            <p>ပိုမိုအသေးစိတ်ရေးသားရန်အတွက်၊ ဖိုင်ကို ရေးသားရန် ဖွင့်ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -121,8 +121,7 @@ bytes) into a file.</p>
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s idiomatic to defer a <code>Close</code> immediately
-after opening a file.</p>
+            <p>ဖိုင်ဖွင့်ပြီးချက်ချင်း <code>Close</code> ကို defer လုပ်ခြင်းသည် ထုံးစံဖြစ်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -135,7 +134,7 @@ after opening a file.</p>
         
         <tr>
           <td class="docs">
-            <p>You can <code>Write</code> byte slices as you&rsquo;d expect.</p>
+            <p>ကျနော်တို့လုပ်ချင်တဲ့အတိုင်း byte slice များကို <code>Write</code> နိုင်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -151,7 +150,7 @@ after opening a file.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>WriteString</code> is also available.</p>
+            <p><code>WriteString</code> လည်းရှိပါသည်။</p>
 
           </td>
           <td class="code leading">
@@ -166,7 +165,7 @@ after opening a file.</p>
         
         <tr>
           <td class="docs">
-            <p>Issue a <code>Sync</code> to flush writes to stable storage.</p>
+            <p>ရေးသားထားသည်များကို တည်ငြိမ်သော သိုလှောင်မှုသို့ flush လုပ်ရန် <code>Sync</code> ကို အသုံးပြုပါ။</p>
 
           </td>
           <td class="code leading">
@@ -179,8 +178,8 @@ after opening a file.</p>
         
         <tr>
           <td class="docs">
-            <p><code>bufio</code> provides buffered writers in addition
-to the buffered readers we saw earlier.</p>
+            <p><code>bufio</code> သည် ယခင်က မြင်ခဲ့ရသော buffered reader များအပြင်
+buffered writer များကိုလည်း ပေးစွမ်းသည်။</p>
 
           </td>
           <td class="code leading">
@@ -196,25 +195,15 @@ to the buffered readers we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>Flush</code> to ensure all buffered operations have
-been applied to the underlying writer.</p>
+            <p>buffer ထဲရှိ လုပ်ဆောင်ချက်အားလုံးကို အခြေခံ writer ထဲသို့
+အသုံးချပြီးကြောင်း သေချာစေရန် <code>Flush</code> ကို အသုံးပြုပါ။</p>
 
-          </td>
-          <td class="code leading">
-            
-          <pre class="chroma">
-    <span class="nx">w</span><span class="p">.</span><span class="nf">Flush</span><span class="p">()</span>
-</pre>
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
           </td>
           <td class="code">
             
-          <pre class="chroma"><span class="p">}</span>
+          <pre class="chroma">
+    <span class="nx">w</span><span class="p">.</span><span class="nf">Flush</span><span class="p">()</span>
+<span class="p">}</span>
 </pre>
           </td>
         </tr>
@@ -225,7 +214,7 @@ been applied to the underlying writer.</p>
         
         <tr>
           <td class="docs">
-            <p>Try running the file-writing code.</p>
+            <p>ဖိုင်ရေးသားသည့် ကုဒ်ကို စမ်းသပ်ပြီး run ကြည့်ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -240,7 +229,8 @@ been applied to the underlying writer.</p>
         
         <tr>
           <td class="docs">
-            <p>Then check the contents of the written files.</p>
+            <p>ထို့နောက် ရေးသားထားသော ဖိုင်များ၏
+အကြောင်းအရာများ(content)ကို စစ်ဆေးကြည့်ပါ။</p>
 
           </td>
           <td class="code leading">
@@ -258,8 +248,10 @@ been applied to the underlying writer.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at applying some of the file I/O ideas
-we&rsquo;ve just seen to the <code>stdin</code> and <code>stdout</code> streams.</p>
+            <p>နောက်တစ်ဆင့်အနေဖြင့် ယခုလေ့လာခဲ့သော
+ဖိုင် I/O သဘောတရားအချို့ကို
+<code>stdin</code> နှင့် <code>stdout</code> stream များတွင်
+အသုံးချခြင်းကို ကြည့်ကြမည်။</p>
 
           </td>
           <td class="code empty">
@@ -283,7 +275,7 @@ we&rsquo;ve just seen to the <code>stdin</code> and <code>stdout</code> streams.
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"bufio\"\u000A    \"fmt\"\u000A    \"os\"\u000A)\u000A');codeLines.push('func check(e error) {\u000A    if e !\u003D nil {\u000A        panic(e)\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    d1 :\u003D []byte(\"hello\\ngo\\n\")\u000A    err :\u003D os.WriteFile(\"/tmp/dat1\", d1, 0644)\u000A    check(err)\u000A');codeLines.push('    f, err :\u003D os.Create(\"/tmp/dat2\")\u000A    check(err)\u000A');codeLines.push('    defer f.Close()\u000A');codeLines.push('    d2 :\u003D []byte{115, 111, 109, 101, 10}\u000A    n2, err :\u003D f.Write(d2)\u000A    check(err)\u000A    fmt.Printf(\"wrote %d bytes\\n\", n2)\u000A');codeLines.push('    n3, err :\u003D f.WriteString(\"writes\\n\")\u000A    check(err)\u000A    fmt.Printf(\"wrote %d bytes\\n\", n3)\u000A');codeLines.push('    f.Sync()\u000A');codeLines.push('    w :\u003D bufio.NewWriter(f)\u000A    n4, err :\u003D w.WriteString(\"buffered\\n\")\u000A    check(err)\u000A    fmt.Printf(\"wrote %d bytes\\n\", n4)\u000A');codeLines.push('    w.Flush()\u000A');codeLines.push('}\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"bufio\"\u000A    \"fmt\"\u000A    \"os\"\u000A)\u000A');codeLines.push('func check(e error) {\u000A    if e !\u003D nil {\u000A        panic(e)\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    d1 :\u003D []byte(\"hello\\ngo\\n\")\u000A    err :\u003D os.WriteFile(\"/tmp/dat1\", d1, 0644)\u000A    check(err)\u000A');codeLines.push('    f, err :\u003D os.Create(\"/tmp/dat2\")\u000A    check(err)\u000A');codeLines.push('    defer f.Close()\u000A');codeLines.push('    d2 :\u003D []byte{115, 111, 109, 101, 10}\u000A    n2, err :\u003D f.Write(d2)\u000A    check(err)\u000A    fmt.Printf(\"wrote %d bytes\\n\", n2)\u000A');codeLines.push('    n3, err :\u003D f.WriteString(\"writes\\n\")\u000A    check(err)\u000A    fmt.Printf(\"wrote %d bytes\\n\", n3)\u000A');codeLines.push('    f.Sync()\u000A');codeLines.push('    w :\u003D bufio.NewWriter(f)\u000A    n4, err :\u003D w.WriteString(\"buffered\\n\")\u000A    check(err)\u000A    fmt.Printf(\"wrote %d bytes\\n\", n4)\u000A');codeLines.push('    w.Flush()\u000A}\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

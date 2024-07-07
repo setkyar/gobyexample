@@ -28,9 +28,8 @@
         <tr>
           <td class="docs">
             <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Arguments"><em>Command-line arguments</em></a>
-are a common way to parameterize execution of programs.
-For example, <code>go run hello.go</code> uses <code>run</code> and
-<code>hello.go</code> arguments to the <code>go</code> program.</p>
+သည် ပရိုဂရမ်များ၏ လုပ်ဆောင်မှုကို parameter ပေးရန် အသုံးများသော နည်းလမ်းတစ်ခုဖြစ်သည်။
+ဥပမာ - <code>go run hello.go</code> သည် <code>go</code> ပရိုဂရမ်အတွက် <code>run</code> နှင့် <code>hello.go</code> arguments များကို အသုံးပြုသည်။</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +43,7 @@ For example, <code>go run hello.go</code> uses <code>run</code> and
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/UYCEvh9d2Zb"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/MtfLBXIzAU-"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
 </pre>
           </td>
@@ -77,10 +76,9 @@ For example, <code>go run hello.go</code> uses <code>run</code> and
         
         <tr>
           <td class="docs">
-            <p><code>os.Args</code> provides access to raw command-line
-arguments. Note that the first value in this slice
-is the path to the program, and <code>os.Args[1:]</code>
-holds the arguments to the program.</p>
+            <p><code>os.Args</code> သည် ကနဦး command-line arguments များကို ရယူခွင့်ပေးသည်။
+ဤ slice ထဲရှိ ပထမဆုံးတန်ဖိုးသည် ပရိုဂရမ်၏ လမ်းကြောင်းဖြစ်ပြီး
+<code>os.Args[1:]</code> သည် ပရိုဂရမ်သို့ ပေးသော arguments များကို ကိုင်တွယ်(hold) သည်ကို သတိပြုပါ။</p>
 
           </td>
           <td class="code leading">
@@ -94,7 +92,7 @@ holds the arguments to the program.</p>
         
         <tr>
           <td class="docs">
-            <p>You can get individual args with normal indexing.</p>
+            <p>သင်သည် ပုံမှန် indexing ဖြင့် တစ်ခုချင်းစီသော args များကို ရယူနိုင်သည်။</p>
 
           </td>
           <td class="code leading">
@@ -125,8 +123,9 @@ holds the arguments to the program.</p>
         
         <tr>
           <td class="docs">
-            <p>To experiment with command-line arguments it&rsquo;s best to
-build a binary with <code>go build</code> first.</p>
+            <p>Command-line arguments တွေကို စမ်းသပ်ဖို့အတွက်
+ပထမဆုံး <code>go build</code> နဲ့ binary ကို
+တည်ဆောက်တာ(build)က အကောင်းဆုံးဖြစ်ပါတယ်။</p>
 
           </td>
           <td class="code leading">
@@ -142,8 +141,9 @@ build a binary with <code>go build</code> first.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at more advanced command-line processing
-with flags.</p>
+            <p>နောက်တစ်ဆင့်အနေနဲ့ ပိုပြီးအဆင့်မြင့်တဲ့
+command-line processing ကို
+flags တွေသုံးပြီး လေ့လာကြမှာ ဖြစ်ပါတယ်။</p>
 
           </td>
           <td class="code empty">

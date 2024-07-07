@@ -1,12 +1,9 @@
-// In the previous example we looked at
-// [spawning external processes](spawning-processes). We
-// do this when we need an external process accessible to
-// a running Go process. Sometimes we just want to
-// completely replace the current Go process with another
-// (perhaps non-Go) one. To do this we'll use Go's
-// implementation of the classic
+// ပြီးခဲ့တဲ့ဥပမာမှာ ကျွန်တော်တို့က [ပြင်ပလုပ်ငန်းစဉ်တွေကို စတင်ခြင်း (spawning external processes)](spawning-processes) ကိုကြည့်ခဲ့ပါတယ်။
+// ဒါကို ကျွန်တော်တို့က လက်ရှိအလုပ်လုပ်နေတဲ့ Go process ကနေ ပြင်ပလုပ်ငန်းစဉ်တွေကို အသုံးပြုဖို့လိုအပ်တဲ့အခါ လုပ်ဆောင်ပါတယ်။
+// တစ်ခါတစ်ရံမှာ ကျွန်တော်တို့က လက်ရှိ Go process ကို အခြားတစ်ခု (Go မဟုတ်တာလည်းဖြစ်နိုင်တယ်) နဲ့ လုံးဝအစားထိုးချင်တာမျိုးရှိပါတယ်။
+// ဒါကိုလုပ်ဖို့အတွက် Go ရဲ့ ဂန္ထဝင်ဖြစ်တဲ့
 // <a href="https://en.wikipedia.org/wiki/Exec_(operating_system)"><code>exec</code></a>
-// function.
+// function ကို အကောင်အထည်ဖော်ထားတာကို အသုံးပြုပါမယ်။
 
 package main
 
@@ -18,31 +15,26 @@ import (
 
 func main() {
 
-	// For our example we'll exec `ls`. Go requires an
-	// absolute path to the binary we want to execute, so
-	// we'll use `exec.LookPath` to find it (probably
-	// `/bin/ls`).
+	// ကျွန်တော်တို့ရဲ့ ဥပမာအတွက် `ls` ကို exec လုပ်ပါမယ်။ Go က ကျွန်တော်တို့ run ချင်တဲ့ binary ရဲ့
+	// အပြည့်အစုံ path လိုအပ်ပါတယ်၊ ဒါကြောင့် `exec.LookPath` ကိုသုံးပြီး ရှာပါမယ်
+	// (များသောအားဖြင့် `/bin/ls` ဖြစ်ပါလိမ့်မယ်)။
 	binary, lookErr := exec.LookPath("ls")
 	if lookErr != nil {
 		panic(lookErr)
 	}
 
-	// `Exec` requires arguments in slice form (as
-	// opposed to one big string). We'll give `ls` a few
-	// common arguments. Note that the first argument should
-	// be the program name.
+	// `Exec` က argument တွေကို slice ပုံစံနဲ့ လိုအပ်ပါတယ်
+	// (စာကြောင်းရှည်ကြီးတစ်ကြောင်းတည်းနဲ့ မရပါဘူး)။ `ls` အတွက် ပုံမှန်သုံးလေ့ရှိတဲ့ argument တချို့ပေးပါမယ်။
+	// ပထမဆုံး argument က program နာမည်ဖြစ်သင့်တယ်ဆိုတာ သတိပြုပါ။
 	args := []string{"ls", "-a", "-l", "-h"}
 
-	// `Exec` also needs a set of [environment variables](environment-variables)
-	// to use. Here we just provide our current
-	// environment.
+	// `Exec` က [environment variables](environment-variables) set လည်း လိုအပ်ပါတယ်။
+	// ဒီနေရာမှာတော့ ကျွန်တော်တို့ရဲ့ လက်ရှိ environment variables တွေကိုပဲ ပေးလိုက်ပါတယ်။
 	env := os.Environ()
 
-	// Here's the actual `syscall.Exec` call. If this call is
-	// successful, the execution of our process will end
-	// here and be replaced by the `/bin/ls -a -l -h`
-	// process. If there is an error we'll get a return
-	// value.
+	// ဒါက တကယ့် `syscall.Exec` ခေါ်တဲ့နေရာပါ။ ဒီ call က အောင်မြင်ရင်
+	// ကျွန်တော်တို့ process ရဲ့ အလုပ်လုပ်ခြင်းဟာ ဒီနေရာမှာပဲ ပြီးဆုံးသွားပြီး `/bin/ls -a -l -h`
+	// process နဲ့ အစားထိုးခံရပါလိမ့်မယ်။ အမှားတစ်ခုခုရှိရင်တော့ return value ရပါလိမ့်မယ်။
 	execErr := syscall.Exec(binary, args, env)
 	if execErr != nil {
 		panic(execErr)
